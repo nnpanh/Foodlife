@@ -35,7 +35,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -45,59 +44,34 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The project is built for HCMUS's course CSC13112- 19KTPM-UI-UX Design. This application is focused in desgining friendly UI and emphasize the importance of UI/UX.
+The project is built for HCMUS course CSC13112- 19KTPM-UI-UX Design. This application is focused in designing friendly UI and emphasize the importance of UI/UX.
 
 
 
 ### Built With
-
-Languages: 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-
-Framework:
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-
-
+* [Kotlin](https://kotlinlang.org/)
+* [Material Design](https://material.io/design)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 Download the project from [GitHub](https://github.com/nnpanh/Foodlife/) and run the project.
-**Remember to install Node.js and npm**
 
 ### Prerequisites
+Remember to install an Emulator in your IDE or connected to an Android device (Enable Debugging mode)
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/nnpanh/Foodlife.git
    ```
-3. Install NPM packages
+2. Sync your project with Gradle file
    ```sh
-   npm install
+   Click File>Sync Project with Gradle Files
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-
+3. Build your project
 
 
 <!-- USAGE EXAMPLES -->
@@ -108,15 +82,6 @@ List of main screens & features in this section
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -124,14 +89,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 19127088 - Nguyễn Phương Vy - [@Facebook](https://twitter.com/your_username) - npvy19@clc.fitus.edu.vn<br>
 19127097 - Nguyễn Ngọc Phương Anh - [@Facebook](https://twitter.com/your_username) - nnpanh19@clc.fitus.edu.vn<br>
 19127219 - Nguyễn Kim Thị Tố Nga - [@Facebook](https://twitter.com/your_username) - nkttnga19@clc.fitus.edu.vn<br>
-19127600 - Lê Quốc Trọng - [@Facebook](https://twitter.com/your_username) - lqtrong19@clc.fitus.edu.vn
+19127600 - Lê Quốc Trọng - [@Facebook](https://twitter.com/your_username) - lqtrong19@clc.fitus.edu.vn<br>
+<br>
 <br>
 Template used: [Template name](https://github.com/your_username/repo_name)<br>
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
+Project Link: [https://github.com/nnpanh/Foodlife](https://github.com/nnpanh/Foodlife)
 
 
 <!-- ACKNOWLEDGMENTS -->
