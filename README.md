@@ -47,8 +47,6 @@
 ## About The Project
 The project is built for HCMUS's course CSC13112- 19KTPM-UI-UX Design. This application is focused in desgining friendly UI and emphasize the importance of UI/UX.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -64,9 +62,6 @@ Framework:
 * [React.js](https://reactjs.org/)
 * [Vue.js](https://vuejs.org/)
 * [Angular](https://angular.io/)
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -102,7 +97,6 @@ _Below is an example of how you can instruct your audience on installing and set
    const API_KEY = 'ENTER YOUR API';
    ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -113,7 +107,6 @@ List of main screens & features in this section
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -122,20 +115,18 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
 ## Contact
 
-19127040 - Trần Ngọc Lam - [@Facebook](https://twitter.com/your_username) - tnlam19@clc.fitus.edu.vn
-19127088 - Nguyễn Phương Vy - [@Facebook](https://twitter.com/your_username) - npvy19@clc.fitus.edu.vn
-19127097 - Nguyễn Ngọc Phương Anh - [@Facebook](https://twitter.com/your_username) - nnpanh19@clc.fitus.edu.vn
-19127219 - Nguyễn Kim Thị Tố Nga - [@Facebook](https://twitter.com/your_username) - nkttnga19@clc.fitus.edu.vn
+19127040 - Trần Ngọc Lam - [@Facebook](https://twitter.com/your_username) - tnlam19@clc.fitus.edu.vn<br>
+19127088 - Nguyễn Phương Vy - [@Facebook](https://twitter.com/your_username) - npvy19@clc.fitus.edu.vn<br>
+19127097 - Nguyễn Ngọc Phương Anh - [@Facebook](https://twitter.com/your_username) - nnpanh19@clc.fitus.edu.vn<br>
+19127219 - Nguyễn Kim Thị Tố Nga - [@Facebook](https://twitter.com/your_username) - nkttnga19@clc.fitus.edu.vn<br>
 19127600 - Lê Quốc Trọng - [@Facebook](https://twitter.com/your_username) - lqtrong19@clc.fitus.edu.vn
-
-Template used: [Template name](https://github.com/your_username/repo_name)
+<br>
+Template used: [Template name](https://github.com/your_username/repo_name)<br>
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
