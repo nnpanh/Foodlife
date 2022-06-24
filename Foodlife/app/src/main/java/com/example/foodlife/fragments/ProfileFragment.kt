@@ -1,4 +1,4 @@
-package com.example.foodlife.ui.notifications
+package com.example.foodlife.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.foodlife.databinding.FragmentNotificationsBinding
+import com.example.foodlife.view_models.ProfileViewModel
 
-class NotificationsFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
 
@@ -23,7 +24,7 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this)[ProfileViewModel::class.java]
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -33,6 +34,9 @@ class NotificationsFragment : Fragment() {
             textView.text = it
         }
         return root
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
