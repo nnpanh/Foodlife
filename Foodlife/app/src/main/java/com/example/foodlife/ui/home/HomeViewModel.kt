@@ -1,4 +1,4 @@
-package com.example.foodlife.view_models
+package com.example.foodlife.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
