@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1895" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/app_bar_header.xml" value="0.183" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/bg_bottom_bar.xml" value="0.207" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_baseline_access_time_filled_24.xml" value="0.207" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_bookmark_white.xml" value="0.183" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_collection.xml" value="0.1895" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_collection_selected.xml" value="0.1895" />
@@ -20,9 +22,10 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_black.xml" value="0.16" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_selected.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_white.xml" value="0.1" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/font/font_style.xml" value="0.2791666666666667" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
