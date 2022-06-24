@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //Custom
         hideSupportActionBar();
-        navView.itemIconTintList = null
+//        navView.itemIconTintList = null
     }
     private fun hideSupportActionBar() {
         supportActionBar?.hide();

@@ -20,6 +20,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.16" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan.xml" value="0.16" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_black.xml" value="0.16" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_demo.xml" value="0.151" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_selected.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_white.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/font/font_style.xml" value="0.2791666666666667" />
@@ -27,7 +28,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
