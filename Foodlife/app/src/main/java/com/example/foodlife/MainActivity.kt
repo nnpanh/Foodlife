@@ -43,6 +43,5 @@ class MainActivity : AppCompatActivity() {
     }
     private fun hideSupportActionBar() {
         supportActionBar?.hide();
-
     }
 }

@@ -23,14 +23,14 @@ class CollectionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
+        val collectionViewModel =
             ViewModelProvider(this)[CollectionViewModel::class.java]
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textCollection
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        collectionViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

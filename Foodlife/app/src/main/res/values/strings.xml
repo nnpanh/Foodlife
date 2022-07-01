@@ -4,4 +4,11 @@
     <string name="title_collection">Collections</string>
     <string name="title_profile">Profile</string>
     <string name="title_plan_meals">Plan meals</string>
+    <string name="txt_your_plan">Your plan</string>
+    <string name="txt_today">Today</string>
+    <string name="txt_today_time">18th June, 2022</string>
+    <string name="txt_breakfast">Breakfast</string>
+    <string name="txt_lunch">Lunch</string>
+    <string name="txt_dinner">Dinner</string>
+    <string name="txt_snacks">Snacks</string>
 </resources>

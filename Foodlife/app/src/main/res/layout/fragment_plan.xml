@@ -4,4 +4,303 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PlanFragment"/>
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="24dp"
+    tools:context=".fragments.PlanFragment">
+
+    <ImageView
+        android:id="@+id/ivBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_your_plan"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:textSize="@dimen/text_medium"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/txt_today"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="@dimen/text_header"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+    <TextView
+        android:id="@+id/tvDateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_today_time"
+        android:fontFamily="@font/poppins_light"
+        android:textSize="@dimen/text_normal"
+        android:textColor="@color/primary_40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+    <ImageView
+        android:id="@+id/ivCalender"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_plan_demo"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvDate"
+        tools:ignore="ContentDescription" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBreakfast"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDateInfo">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:background="@color/blue_plan">
+
+            <ImageView
+                android:id="@+id/ivBreakfast"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/salad"
+                app:layout_constraintBottom_toTopOf="@+id/tvBreakfast"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvBreakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/txt_breakfast"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@id/tvBreakfastCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvBreakfastCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="3 dishes selected"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLunch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cvBreakfast"
+        app:layout_constraintBottom_toBottomOf="@id/cvBreakfast"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:background="@color/green_plan">
+
+            <ImageView
+                android:id="@+id/ivLunch"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/sandwich"
+                app:layout_constraintBottom_toTopOf="@+id/tvLunch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvLunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/txt_lunch"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@id/tvLunchCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvLunchCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="2 dishes selected"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvDinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="@id/cvBreakfast"
+        app:layout_constraintRight_toRightOf="@id/cvBreakfast"
+        app:layout_constraintTop_toBottomOf="@id/cvBreakfast">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:background="@color/yellow_plan">
+            <ImageView
+                android:id="@+id/ivDinner"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/pasta"
+                app:layout_constraintBottom_toTopOf="@+id/tvDinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvDinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/txt_dinner"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@id/tvDinnerCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvDinnerCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Haven't got any plan"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSnacks"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="@id/cvDinner"
+        app:layout_constraintRight_toRightOf="@id/cvLunch"
+        app:layout_constraintLeft_toLeftOf="@id/cvLunch"
+        app:layout_constraintBottom_toBottomOf="@id/cvDinner">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:background="@color/red_plan">
+            <ImageView
+                android:id="@+id/ivSnacks"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/lolipop"
+                app:layout_constraintBottom_toTopOf="@+id/tvSnacks"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvSnacks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/txt_snacks"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toTopOf="@id/tvSnacksCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/tvSnacksCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="150dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="5 dishes selected"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
