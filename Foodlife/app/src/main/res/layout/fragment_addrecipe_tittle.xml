@@ -111,7 +111,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="350dp"
                 android:layout_height="221dp"
-                android:layout_margin="5dp"
+
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="28dp"
                 android:layout_marginEnd="30dp"
@@ -129,6 +129,17 @@
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:scaleType="centerCrop"
                     android:src="@drawable/image_placeholder" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/uploadimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:contentDescription="Upload image"
+                    android:maxImagesize="48dp"
+                    android:src="@drawable/ic_bi_camera_fill"
+                    android:layout_gravity="center"
+                    app:backgroundTint="@color/secondary_100" />
             </androidx.cardview.widget.CardView>
 
 
