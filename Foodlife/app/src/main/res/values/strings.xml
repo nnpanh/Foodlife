@@ -11,4 +11,5 @@
     <string name="txt_lunch">Lunch</string>
     <string name="txt_dinner">Dinner</string>
     <string name="txt_snacks">Snacks</string>
+    <string name="txt_no_dish">No dish have been selected for this meal.</string>
 </resources>

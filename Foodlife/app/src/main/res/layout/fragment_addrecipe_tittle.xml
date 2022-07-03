@@ -136,12 +136,12 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:contentDescription="Upload image"
-                    android:maxImagesize="48dp"
+
                     android:src="@drawable/ic_bi_camera_fill"
                     android:layout_gravity="center"
                     app:backgroundTint="@color/secondary_100" />
             </androidx.cardview.widget.CardView>
-
+<!--            android:maxImagesize="48dp"-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
