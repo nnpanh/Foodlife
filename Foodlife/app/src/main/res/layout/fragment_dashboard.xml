@@ -7,17 +7,72 @@
     tools:context=".fragments.CollectionFragment">
 
     <TextView
-        android:id="@+id/text_collection"
-        android:layout_width="match_parent"
+        android:id="@+id/TVColTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        tools:text="This is collection Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_semi_bold"
+        android:text="Collections"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/IVColAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="30dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_collection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/ACTVColSearch"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_collection_search"
+        android:drawableLeft="@drawable/search"
+        android:drawablePadding="10sp"
+        android:drawableTint="#FF9C00"
+        android:hint="Search Your Collection"
+        android:paddingLeft="10dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVColTitle" />
+
+    <ImageView
+        android:id="@+id/IVColFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintEnd_toStartOf="@+id/SPCol"
+        app:layout_constraintTop_toBottomOf="@+id/ACTVColSearch" />
+
+    <Spinner
+        android:id="@+id/SPCol"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ACTVColSearch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVCol"
+        android:layout_width="350dp"
+        android:layout_height="540dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IVColFilter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
