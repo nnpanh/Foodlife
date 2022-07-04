@@ -1,16 +1,20 @@
 package com.example.foodlife.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.foodlife.CollectionDetail
 import com.example.foodlife.R
 import com.example.foodlife.adapters.CollectionAdapter
 import com.example.foodlife.databinding.FragmentDashboardBinding
@@ -25,7 +29,7 @@ class CollectionFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    private var isSpinnerInitial = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +50,8 @@ class CollectionFragment : Fragment() {
         val SPFilter = binding.SPCol
         SPFilter.adapter = filterAdapter
         val RVCol = binding.RVCol
-        val collectionAdapter = CollectionAdapter(arrayListOf(Collection("", "Meat Lover", 1), Collection("", "Healthy", 4),Collection("", "Diet", 4),Collection("", "Protein Food", 0)))
+        var collectionArray = arrayListOf(Collection("", "Meat Lover", 1), Collection("", "Healthy", 4),Collection("", "Diet", 4),Collection("", "Protein Food", 0))
+        val collectionAdapter = CollectionAdapter(collectionArray)
         RVCol.adapter = collectionAdapter
         RVCol.layoutManager = LinearLayoutManager(requireActivity())
 
@@ -63,6 +68,27 @@ class CollectionFragment : Fragment() {
             val bottomSheetCollection = BottomSheetCollection()
             bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
             bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.AppBottomSheetDialogTheme)
+            bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
+                val result = bundle.getSerializable("newCollection") as Collection
+                collectionArray.add(result)
+                collectionAdapter.notifyDataSetChanged()
+            }
+        }
+        SPFilter.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                if(isSpinnerInitial)
+                    isSpinnerInitial = false
+                else {
+                    collectionArray.shuffle()
+                    RVCol.adapter = collectionAdapter
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+        collectionAdapter.onItemClick = {collection ->
+            val intent = Intent(requireActivity(), CollectionDetail::class.java)
+            intent.putExtra("Collection", collection)
+            startActivity(intent)
         }
 
     }

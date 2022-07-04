@@ -2,6 +2,7 @@ package com.example.foodlife.adapters
 
 import android.content.Context
 import android.graphics.*
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ import com.example.foodlife.models.Collection
 class CollectionAdapter (private val collection: List<Collection>): RecyclerView.Adapter<CollectionAdapter.ViewHolder>(), Filterable {
     private var context: Context? = null
     private var filterCollection: List<Collection>
-    private var onItemClick: ((Collection) -> Unit)? = null
+    var onItemClick: ((Collection) -> Unit)? = null
 
     init {
         filterCollection = collection
@@ -40,13 +41,16 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.IVCol.setImageBitmap(
-            changeBitmapContrastBrightness(
-                BitmapFactory.decodeResource(
-                    context!!.resources,
-                    R.drawable.img_collection
-                ),0.75F , 1F
-            ))
+        if (filterCollection[position].img == "")
+            holder.IVCol.setImageBitmap(
+                changeBitmapContrastBrightness(
+                    BitmapFactory.decodeResource(
+                        context!!.resources,
+                        R.drawable.img_collection
+                    ),0.75F , 1F
+                ))
+        else
+            holder.IVCol.setImageURI(Uri.parse(filterCollection[position].img))
         holder.TVColName.text = filterCollection[position].title
         holder.TVColQuantity.text = filterCollection[position].quantity.toString() + " Recipes"
 

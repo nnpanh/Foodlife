@@ -51,12 +51,14 @@
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/drawable/rounded_collection_search.xml" value="0.156" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/drawable/rounded_dialog.xml" value="0.1155" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/drawable/shadow_layout.xml" value="0.255" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_collection_detail.xml" value="0.264" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.4" />
-        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.264" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.536" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.1" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_addrecipe_tittle.xml" value="0.4" />
-        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.536" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.22327898550724637" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.1" />
       </map>
