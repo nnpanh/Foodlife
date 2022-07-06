@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.foodlife.models.Recipe" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/collect_home_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/white">
+        <ImageView
+            android:id="@+id/collect_home_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shadow_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"/>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/collect_home_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@color/primart_15">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/collect_home_img"
+                    android:layout_width="82dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    app:imageResource="@{recipe.img}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/collection_home_image"
+                    tools:srcCompat="@drawable/egg_dish" />
+
+                <TextView
+                    android:id="@+id/collect_home_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@{recipe.title}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_normal"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Sandwich with boiled egg" />
+
+                <TextView
+                    android:id="@+id/collect_home_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text='@{recipe.description}'
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_small"
+                    app:layout_constraintLeft_toLeftOf="@id/collect_home_title"
+                    app:layout_constraintTop_toBottomOf="@id/collect_home_title"
+                    tools:text="Cheese, Tomato, egg,..." />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

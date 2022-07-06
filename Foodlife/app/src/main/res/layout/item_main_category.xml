@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.foodlife.models.PlanTextModel" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_cat_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/white"
+        android:layout_marginRight="18dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/cat_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:imageResource="@{recipe.image}"
+                tools:srcCompat="@drawable/ic_main_cat_asian"
+                tools:ignore="ContentDescription"/>
+
+            <TextView
+                android:id="@+id/cat_name"
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@{recipe.title}"
+                tools:text="Asian"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/primary_100"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
+

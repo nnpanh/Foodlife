@@ -1,10 +1,13 @@
 package com.example.foodlife.fragments
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.foodlife.databinding.FragmentHomeBinding
@@ -30,10 +33,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+       /* val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
+        }*/
         return root
     }
 
@@ -42,6 +45,14 @@ class HomeFragment : Fragment() {
 
     }
 
+
+    /*fun loadImage(view: ImageView, img: String?) {
+        if (img == null) {
+            view.setImageResource(R.drawable.ic_menu_search)
+        } else {
+            Glide.with(context).load(img).crossFade().into(view)
+        }
+    }*/
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

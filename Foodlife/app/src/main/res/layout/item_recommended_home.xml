@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.foodlife.models.PlanTextModel" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rec_home_item"
+        android:layout_width="232dp"
+        android:layout_height="251dp"
+        android:layout_marginRight="8dp"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/white">
+        <ImageView
+            android:layout_width="228dp"
+            android:layout_height="247dp"
+            android:background="@drawable/shadow_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="228dp"
+        android:layout_height="247dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="228dp"
+        android:layout_height="247dp">
+        <ImageView
+            android:id="@+id/rec_img"
+            android:layout_width="228dp"
+            android:layout_height="247dp"
+            android:background="@{recipe.image}"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:srcCompat="@drawable/recommend_1" />
+
+        <ImageView
+            android:id="@+id/rec_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/recommend_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rec_img"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/rec_name"
+            android:layout_width="196dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@{recipe.title}"
+            android:textColor="@color/primary_100"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rec_bg"
+            tools:text="Stir-fried beef with broccoli and Rice" />
+
+        <ImageView
+            android:id="@+id/rec_ratting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/ic_rating"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rec_name"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/rec_arrow"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/arrow_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rec_name"
+            tools:ignore="ContentDescription" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</com.google.android.material.card.MaterialCardView>
+</layout>
+

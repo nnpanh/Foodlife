@@ -1,7 +1,6 @@
 package com.example.foodlife
 
 import android.graphics.*
-import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +9,6 @@ import android.widget.*
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodlife.R
 import com.example.foodlife.adapters.CollectionRecipeAdapter
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
@@ -46,7 +44,7 @@ class CollectionDetail : AppCompatActivity() {
             finish()
         }
         val RVRecipe = findViewById<RecyclerView>(R.id.RVColD)
-        var recipeArray = arrayListOf(Recipe("", "Roasted Pork", 3.5F, "Medium", 30), Recipe("", "Roasted Beef", 3.5F, "Medium", 30), Recipe("", "Roasted Chicken", 3.5F, "Medium", 30))
+        var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", 3.5F, "Medium", 30,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", 3.5F, "Medium", 30,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken",3.5F, "Medium", 30,""))
         val recipeAdapter = CollectionRecipeAdapter(recipeArray)
         RVRecipe.layoutManager = GridLayoutManager(this, 2)
         RVRecipe.adapter = recipeAdapter
@@ -74,6 +72,8 @@ class CollectionDetail : AppCompatActivity() {
         }
         supportActionBar!!.hide()
     }
+
+
 
     private fun changeBitmapContrastBrightness(bmp: Bitmap, contrast: Float, brightness: Float): Bitmap? {
         val cm = ColorMatrix(

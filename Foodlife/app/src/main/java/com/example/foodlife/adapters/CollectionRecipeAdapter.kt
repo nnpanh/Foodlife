@@ -45,8 +45,8 @@ class CollectionRecipeAdapter(private val recipe: MutableList<Recipe>): Recycler
         holder.TVTime.text = recipe[position].time.toString() + " mins"
         holder.TVDiff.text = recipe[position].diff
         holder.TVScore.text = recipe[position].score.toString()
-        if (recipe[position].img != "")
-            holder.IVImg.setImageURI(Uri.parse(recipe[position].img))
+        /*if (recipe[position].img != "")
+            holder.IVImg.setImageURI(Uri.parse(recipe[position].img))*/
     }
 
     override fun getItemCount(): Int {
