@@ -2,6 +2,7 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,21 +11,24 @@ import com.example.foodlife.R
 import com.example.foodlife.models.PlanTextModel
 import com.example.foodlife.databinding.ItemRecipeTextBinding
 
-class PlanTextAdapter(_type: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var mList: List<PlanTextModel> = emptyList()
+class PlanTextAdapter(_type: Int,  private val listener: (PlanTextModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var mList: MutableList<PlanTextModel> = mutableListOf()
+
     val type: Int = _type
+
     //0 = Breakfast, 1 = Lunch, 2 = Dinner, 3 = Snack
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(mList: List<PlanTextModel>){
-        this.mList=mList
+        this.mList= mList.toMutableList()
         notifyDataSetChanged()
     }
 
 
     inner class ItemViewHolder(private val itemRecipeText: ItemRecipeTextBinding) :
-        RecyclerView.ViewHolder(itemRecipeText.root), View.OnClickListener {
+        RecyclerView.ViewHolder(itemRecipeText.root) {
         fun bindData(_recipe: PlanTextModel) {
+            itemRecipeText.ivDelete.setOnClickListener { listener(_recipe) }
             itemRecipeText.apply {
                 recipe =_recipe
                 when (type){
@@ -47,9 +51,6 @@ class PlanTextAdapter(_type: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder
                 executePendingBindings()
             }
         }
-
-        override fun onClick(v: View?) {
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -61,7 +62,9 @@ class PlanTextAdapter(_type: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as ItemViewHolder).bindData(mList[position])
+        val item = mList[position]
+        (holder as ItemViewHolder).bindData(item)
+//        holder.itemView.setOnClickListener { listener(item) }
     }
 
     override fun getItemCount(): Int {
