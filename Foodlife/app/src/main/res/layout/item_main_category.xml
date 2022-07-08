@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="recipe"
-            type="com.example.foodlife.models.PlanTextModel" />
+            name="mainCat"
+            type="com.example.foodlife.models.MainCategoryModel" />
     </data>
     <androidx.cardview.widget.CardView
         android:id="@+id/main_cat_item"
@@ -19,7 +19,7 @@
         app:cardElevation="0dp"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cardBackgroundColor="@android:color/white"
-        android:layout_marginRight="18dp">
+        android:layout_marginRight="16dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,16 +30,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                app:imageResource="@{recipe.image}"
+                app:imageResource="@{mainCat.img}"
                 tools:srcCompat="@drawable/ic_main_cat_asian"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription"
+                android:adjustViewBounds="true"/>
 
             <TextView
                 android:id="@+id/cat_name"
                 android:layout_width="wrap_content"
                 android:layout_height="17dp"
                 android:layout_gravity="center_horizontal"
-                android:text="@{recipe.title}"
+                android:text="@{mainCat.title}"
                 tools:text="Asian"
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="@dimen/text_smaller"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="mainCat"
+            type="com.example.foodlife.models.MainCategoryModel" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/recommend_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/transparent">
+            <TextView
+                android:id="@+id/tvRecCatName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingRight="24dp"
+                android:paddingLeft="24dp"
+                android:gravity="center"
+                android:text="Meat chop"
+
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textSize="@dimen/text_smaller"
+                android:textColor="@color/primary_100"/>
+    </androidx.cardview.widget.CardView>
+</layout>
+

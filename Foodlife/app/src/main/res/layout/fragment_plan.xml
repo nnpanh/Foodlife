@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,22 +22,16 @@
             android:paddingBottom="8dp"
             tools:context=".fragments.PlanFragment">
 
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_back"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTitle"
+                android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_your_plan"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:textSize="@dimen/text_medium"
+                android:text="@string/txt_your_plan"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -46,21 +41,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/txt_today"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/text_header"
+                android:text="@string/txt_today"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_header"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivBack" />
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
             <TextView
                 android:id="@+id/tvDateInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_today_time"
                 android:fontFamily="@font/poppins_light"
-                android:textSize="@dimen/text_normal"
+                android:text="@string/txt_today_time"
                 android:textColor="@color/primary_40"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
@@ -77,29 +72,33 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvBreakfast"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="8dp"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cvLunch"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDateInfo">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="16dp"
+                    android:background="@color/blue_plan"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
-                    android:background="@color/blue_plan">
+                    android:paddingBottom="16dp">
 
                     <ImageView
                         android:id="@+id/ivBreakfast"
-                        android:layout_width="100dp"
-                        android:layout_height="0dp"
-                        android:adjustViewBounds="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
                         android:src="@drawable/salad"
                         app:layout_constraintBottom_toTopOf="@+id/tvBreakfast"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -123,16 +122,16 @@
                         android:id="@+id/tvBreakfastCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="150dp"
                         android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxWidth="200dp"
                         android:maxLines="1"
                         android:text="3 dishes selected"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="@dimen/text_smaller"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/text_smaller"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -143,25 +142,27 @@
                 android:layout_height="0dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/cvBreakfast"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/cvBreakfast"
-                app:layout_constraintBottom_toBottomOf="@id/cvBreakfast">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cvBreakfast"
+                app:layout_constraintTop_toTopOf="@id/cvBreakfast">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="16dp"
+                    android:background="@color/green_plan"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
-                    android:background="@color/green_plan">
+                    android:paddingBottom="16dp">
 
                     <ImageView
                         android:id="@+id/ivLunch"
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:adjustViewBounds="true"
                         android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
                         android:src="@drawable/sandwich"
                         app:layout_constraintBottom_toTopOf="@+id/tvLunch"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -185,16 +186,16 @@
                         android:id="@+id/tvLunchCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="150dp"
                         android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxWidth="200dp"
                         android:maxLines="1"
                         android:text="2 dishes selected"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="@dimen/text_smaller"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/text_smaller"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -214,17 +215,18 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="16dp"
+                    android:background="@color/yellow_plan"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
-                    android:background="@color/yellow_plan">
+                    android:paddingBottom="16dp">
 
                     <ImageView
                         android:id="@+id/ivDinner"
-                        android:layout_width="100dp"
-                        android:layout_height="0dp"
-                        android:adjustViewBounds="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
                         android:src="@drawable/pasta"
                         app:layout_constraintBottom_toTopOf="@+id/tvDinner"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -248,16 +250,16 @@
                         android:id="@+id/tvDinnerCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="150dp"
                         android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxWidth="200dp"
                         android:maxLines="1"
                         android:text="Haven't got any plan"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="@dimen/text_smaller"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/text_smaller"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -268,26 +270,27 @@
                 android:layout_height="0dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/cvDinner"
                 app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintTop_toTopOf="@id/cvDinner"
-                app:layout_constraintRight_toRightOf="@id/cvLunch"
                 app:layout_constraintLeft_toLeftOf="@id/cvLunch"
-                app:layout_constraintBottom_toBottomOf="@id/cvDinner">
+                app:layout_constraintRight_toRightOf="@id/cvLunch"
+                app:layout_constraintTop_toTopOf="@id/cvDinner">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="16dp"
+                    android:background="@color/red_plan"
                     android:paddingStart="24dp"
                     android:paddingEnd="24dp"
-                    android:background="@color/red_plan">
+                    android:paddingBottom="16dp">
 
                     <ImageView
                         android:id="@+id/ivSnacks"
-                        android:layout_width="100dp"
-                        android:layout_height="0dp"
-                        android:adjustViewBounds="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="80dp"
                         android:src="@drawable/lolipop"
                         app:layout_constraintBottom_toTopOf="@+id/tvSnacks"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -311,16 +314,16 @@
                         android:id="@+id/tvSnacksCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxWidth="150dp"
                         android:ellipsize="end"
+                        android:fontFamily="@font/poppins_regular"
+                        android:maxWidth="200dp"
                         android:maxLines="1"
                         android:text="5 dishes selected"
-                        android:fontFamily="@font/poppins_regular"
-                        android:textSize="@dimen/text_smaller"
                         android:textColor="@color/black"
+                        android:textSize="@dimen/text_smaller"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
@@ -330,10 +333,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/txt_breakfast"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/text_medium"
+                android:text="@string/txt_breakfast"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cvDinner" />
 
@@ -342,59 +345,96 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvBreakfastTitle"
-                tools:itemCount="1"
+                tools:itemCount="3"
                 tools:listitem="@layout/item_recipe_text" />
+
+            <TextView
+                android:id="@+id/tvBreakfastDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextBreakfast"
+                tools:visibility="visible" />
+
 
             <TextView
                 android:id="@+id/tvLunchTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/txt_lunch"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/text_medium"
+                android:text="@string/txt_lunch"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvPlanTextBreakfast" />
+                app:layout_constraintTop_toBottomOf="@id/tvBreakfastDescription" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPlanTextLunch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvLunchTitle"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_recipe_text" />
+
+            <TextView
+                android:id="@+id/tvLunchDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvDinnerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/txt_dinner"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/text_medium"
+                android:text="@string/txt_dinner"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch" />
+                app:layout_constraintTop_toBottomOf="@id/tvLunchDescription" />
 
             <TextView
                 android:id="@+id/tvDinnerDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:maxLines="2"
-                android:gravity="start"
                 android:ellipsize="end"
-                android:text="@string/txt_no_dish"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="@dimen/text_normal"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDinnerTitle" />
 
@@ -403,30 +443,49 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/txt_snacks"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="@dimen/text_medium"
+                android:text="@string/txt_snacks"
                 android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDinnerDescription" />
+
+            <TextView
+                android:id="@+id/tvSnackDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextSnack"
+                tools:visibility="visible" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPlanTextSnack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSnackTitle"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_recipe_text" />
+
             <ImageView
                 android:id="@+id/ivViewMode"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/list"
-                android:layout_marginEnd="6dp"
                 app:layout_constraintBottom_toBottomOf="@id/tvBreakfastTitle"
                 app:layout_constraintEnd_toStartOf="@id/ivShopping"
                 app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle"
@@ -438,9 +497,9 @@
                 android:layout_height="36dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/shopping_cart"
-                app:layout_constraintBottom_toBottomOf="@id/tvBreakfastTitle"
+                app:layout_constraintBottom_toBottomOf="@id/ivViewMode"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle"
+                app:layout_constraintTop_toTopOf="@id/ivViewMode"
                 tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

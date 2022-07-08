@@ -5,6 +5,46 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
 
+    <action android:id="@+id/returnHome"
+        app:destination="@id/navigation_home"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action android:id="@+id/returnPlan"
+        app:destination="@id/navigation_plan"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action android:id="@+id/returnCollection"
+        app:destination="@id/navigation_collections"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action android:id="@+id/returnProfile"
+        app:destination="@id/navigation_profile"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.foodlife.fragments.HomeFragment"
@@ -27,5 +67,29 @@
         android:id="@+id/navigation_plan"
         android:name="com.example.foodlife.fragments.PlanFragment"
         android:label="@string/title_plan_meals"
-        tools:layout="@layout/fragment_plan" />
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/planToCalculate"
+            app:destination="@id/calculateIngredientsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/popUpCalendar"
+            app:destination="@id/bottomSheet"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/calculateIngredientsFragment"
+        android:name="com.example.foodlife.fragments.CalculateIngredientsFragment"
+        android:label="fragment_calculate_ingredients"
+        tools:layout="@layout/fragment_calculate_ingredients" />
+    <dialog
+        android:id="@+id/bottomSheet"
+        android:name="com.example.foodlife.fragments.BottomSheetFragment"
+        tools:layout="@layout/fragment_bottom_sheet" />
 </navigation>

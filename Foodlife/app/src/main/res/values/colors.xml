@@ -24,6 +24,8 @@
     <color name="red_plan">#CCF25022</color>
     <color name="red_bgr">#33F25022</color>
     <color name="primart_60">#FFECB9</color>
-    <color name="primart_15">#26FFECB9</color>
+    <color name="primart_40">#66FFECB9</color>
+    <color name="card_home">#FEB800</color>
     <color name="rating">#FCC811</color>
+    <color name="bgr_dish_item">#FCF6F6</color>
 </resources>
