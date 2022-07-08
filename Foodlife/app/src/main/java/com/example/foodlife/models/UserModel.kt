@@ -11,6 +11,7 @@ class UserModel(
     private var password: String?
 )
 {
+    private var hehe = false
     constructor() : this(0, "", 0, 0, "", "")
     constructor(name: String?, avatar: Int?, totalRecipe: Int?, username: String?, password: String?) :
             this(null, name, avatar, totalRecipe, username, password)

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemRecommendedHomeBinding
-import com.example.foodlife.models.PlanTextModel
 import com.example.foodlife.models.Recipe
 
 class RecommendHomeAdapter: RecyclerView.Adapter<RecommendHomeAdapter.ViewHolder>() {

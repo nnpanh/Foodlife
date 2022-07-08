@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         //Custom
         hideSupportActionBar();
+
 //        navView.setOnNavigationItemSelectedListener {
 //            changeFragment(it.itemId);
 //        }
