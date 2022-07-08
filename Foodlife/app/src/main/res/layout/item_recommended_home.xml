@@ -6,12 +6,12 @@
     <data>
         <variable
             name="recipe"
-            type="com.example.foodlife.models.PlanItemModel" />
+            type="com.example.foodlife.models.Recipe" />
     </data>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rec_home_item"
         android:layout_width="232dp"
-        android:layout_height="251dp"
+        android:layout_height="252dp"
         android:layout_marginRight="8dp"
         app:rippleColor="@android:color/transparent"
         app:strokeWidth="0dp"
@@ -28,8 +28,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="4dp"/>
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="0dp"
+            android:adjustViewBounds="true"/>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="228dp"
@@ -45,12 +46,13 @@
             android:id="@+id/rec_img"
             android:layout_width="228dp"
             android:layout_height="247dp"
-            android:background="@{recipe.image}"
+            app:imageResource="@{recipe.img}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:srcCompat="@drawable/recommend_1" />
+            tools:srcCompat="@drawable/recommend_1"
+            android:adjustViewBounds="true"/>
 
         <ImageView
             android:id="@+id/rec_bg"
@@ -65,16 +67,18 @@
 
         <TextView
             android:id="@+id/rec_name"
-            android:layout_width="196dp"
-            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_semi_bold"
             android:text="@{recipe.title}"
-            android:textColor="@color/primary_100"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_normal"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rec_bg"
             tools:text="Stir-fried beef with broccoli and Rice" />
 
@@ -84,23 +88,25 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
-            android:background="@drawable/ic_rating"
+            android:layout_marginBottom="-4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rec_name"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="ContentDescription"
+            android:background="@drawable/ic_rating"
+            android:adjustViewBounds="true"/>
 
         <ImageView
             android:id="@+id/rec_arrow"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/arrow_bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rec_name"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="ContentDescription"
+            android:adjustViewBounds="true"/>
 
 
 
