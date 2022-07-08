@@ -13,6 +13,22 @@
     <string name="txt_snacks">Snacks</string>
     <string name="txt_search_recipe">Search your recipes</string>
     <string name="txt_no_dish">No dish have been selected for this meal.</string>
+    <string name="title_add_recipe_Title">Tittle</string>
+    <string name="title_add_recipe_Information">Information</string>
+    <string name="title_add_recipe_Ingredient">Ingredients</string>
+    <string name="title_add_recipe_Direction">Directions</string>
+    <string name="tittle_add_recipe">Add recipe</string>
+
+    <string name="txt_serves">Serves</string>
+    <string name="txt_preparationTime">Preparation time</string>
+    <string name="txt_cookingTime">Cooking time</string>
+    <string name="txt_difficulty">Difficulty</string>
+    <string name="txt_minute">min</string>
+
+
+    <string name="txt_Easy">Easy</string>
+    <string name="txt_Medium">Medium</string>
+    <string name="txt_Hard">Hard</string>
     <string name="txt_no_dish_cart">Please select as least one meal to calculate the ingredients!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calculate_ingredients">Calculate Ingredients</string>

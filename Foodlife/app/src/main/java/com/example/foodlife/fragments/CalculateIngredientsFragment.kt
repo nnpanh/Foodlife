@@ -107,10 +107,12 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
             R.id.ivCollapse -> {
                 if (hiddenState) {
                     binding.rvTotalDishes.visibility = View.VISIBLE
+                    binding.ivCollapse.setImageResource(R.drawable.open_eye)
                     hiddenState = false
                 }
                 else {
                     binding.rvTotalDishes.visibility = View.GONE
+                    binding.ivCollapse.setImageResource(R.drawable.close_eye)
                     hiddenState = true
                 }
             }
