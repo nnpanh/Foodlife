@@ -5,7 +5,7 @@
     <data>
         <variable
             name="recipe"
-            type="com.example.foodlife.models.PlanTextModel" />
+            type="com.example.foodlife.models.PlanItemModel" />
     </data>
     <androidx.cardview.widget.CardView
         android:id="@+id/main_cat_item"

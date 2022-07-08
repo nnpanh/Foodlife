@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.transaction
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -41,9 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         //Custom
         hideSupportActionBar();
-        navView.setOnNavigationItemSelectedListener {
-            changeFragment(it.itemId);
-        }
+//        navView.setOnNavigationItemSelectedListener {
+//            changeFragment(it.itemId);
+//        }
     }
     private fun hideSupportActionBar() {
         supportActionBar?.hide();
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until supportFragmentManager.backStackEntryCount) {
                     supportFragmentManager.popBackStack()
                 }
+
                 navController.navigate(R.id.returnHome)
                 return true
             }
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until supportFragmentManager.backStackEntryCount) {
                     supportFragmentManager.popBackStack()
                 }
-                navController.navigate(R.id.navigation_plan)
+                navController.navigate(R.id.returnPlan)
                 return true
             }
             R.id.navigation_profile -> {

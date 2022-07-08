@@ -5,30 +5,26 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
-import com.example.foodlife.models.PlanItemModel
-import com.example.foodlife.databinding.ItemRecipeTextBinding
+import com.example.foodlife.models.PlanWithTypeModel
+import com.example.foodlife.databinding.ItemRecipeTypeBinding
 
-class PlanTextAdapter(_type: Int,  private val listener: (PlanItemModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var mList: MutableList<PlanItemModel> = mutableListOf()
-
-    val type: Int = _type
-
+class PlanTotalAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var mList: MutableList<PlanWithTypeModel> = mutableListOf()
     //0 = Breakfast, 1 = Lunch, 2 = Dinner, 3 = Snack
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateData(mList: List<PlanItemModel>){
+    fun updateData(mList: List<PlanWithTypeModel>){
         this.mList= mList.toMutableList()
         notifyDataSetChanged()
     }
 
 
-    inner class ItemViewHolder(private val itemRecipeText: ItemRecipeTextBinding) :
+    inner class ItemViewHolder(private val itemRecipeText: ItemRecipeTypeBinding) :
         RecyclerView.ViewHolder(itemRecipeText.root) {
-        fun bindData(_recipe: PlanItemModel) {
-            itemRecipeText.ivDelete.setOnClickListener { listener(_recipe) }
+        fun bindData(_recipe: PlanWithTypeModel) {
             itemRecipeText.apply {
                 recipe =_recipe
-                when (type){
+                when (_recipe.type){
                     0 -> {
                         layoutItem.setBackgroundResource(R.drawable.bgr_round_blue)
                         return
@@ -52,7 +48,7 @@ class PlanTextAdapter(_type: Int,  private val listener: (PlanItemModel) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding =
-            ItemRecipeTextBinding.inflate(
+            ItemRecipeTypeBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         return ItemViewHolder(binding)

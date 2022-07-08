@@ -1,22 +1,18 @@
 package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodlife.R
-import com.example.foodlife.models.PlanImageModel
+import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.databinding.ItemRecipeImageBinding
 
-class PlanImageAdapter(private val listener: (PlanImageModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var mList: MutableList<PlanImageModel> = mutableListOf()
+class PlanImageAdapter(private val listener: (PlanItemModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var mList: MutableList<PlanItemModel> = mutableListOf()
     //0 = Breakfast, 1 = Lunch, 2 = Dinner, 3 = Snack
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateData(mList: List<PlanImageModel>){
+    fun updateData(mList: List<PlanItemModel>){
         this.mList= mList.toMutableList()
         notifyDataSetChanged()
     }
@@ -24,7 +20,7 @@ class PlanImageAdapter(private val listener: (PlanImageModel) -> Unit) : Recycle
 
     inner class ItemViewHolder(private val itemRecipeImage: ItemRecipeImageBinding) :
         RecyclerView.ViewHolder(itemRecipeImage.root) {
-        fun bindData(_recipe: PlanImageModel) {
+        fun bindData(_recipe: PlanItemModel) {
             itemRecipeImage.ivDelete.setOnClickListener { listener(_recipe) }
             itemRecipeImage.apply {
                 recipe =_recipe

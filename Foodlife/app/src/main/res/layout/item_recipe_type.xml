@@ -6,7 +6,7 @@
     <data>
         <variable
             name="recipe"
-            type="com.example.foodlife.models.PlanItemModel" />
+            type="com.example.foodlife.models.PlanWithTypeModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,45 +35,34 @@
             android:id="@+id/tvDishTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/ivDish"
-            app:layout_constraintLeft_toRightOf="@id/ivDish"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="12dp"
             android:gravity="start"
             android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintRight_toLeftOf="@id/ivDelete"
             android:text="@{recipe.title}"
-            tools:text="Apple Juice and Lemon"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/primary_100"
             android:textSize="@dimen/text_small"
-            android:textColor="@color/primary_100" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivDish"
+            app:layout_constraintTop_toTopOf="@id/ivDish"
+            tools:text="Apple Juice and Lemuice and Lemuice and Lemuice and Lemuice and Lemuice and Lemon" />
 
         <TextView
             android:id="@+id/tvAuthor"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tvDishTitle"
-            app:layout_constraintLeft_toLeftOf="@id/tvDishTitle"
+            app:layout_constraintStart_toStartOf="@id/tvDishTitle"
+            app:layout_constraintEnd_toEndOf="@id/tvDishTitle"
             android:gravity="start"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintRight_toLeftOf="@id/ivDelete"
             android:text='@{"By "+recipe.author}'
             tools:text="By NTTNga"
             android:fontFamily="@font/poppins_regular"
             android:textSize="@dimen/text_smaller"
             android:textColor="@color/primary_60" />
-
-        <ImageView
-            android:id="@+id/ivDelete"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_x_button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

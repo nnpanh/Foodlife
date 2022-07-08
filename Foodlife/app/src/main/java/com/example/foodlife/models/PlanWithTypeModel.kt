@@ -1,8 +1,9 @@
 package com.example.foodlife.models
 
-class PlanTextModel(
+class PlanWithTypeModel(
     var title: String,
-    var author: String,
     var image : Int,
+    var author: String,
+    var type: Int,
 ) {
 }

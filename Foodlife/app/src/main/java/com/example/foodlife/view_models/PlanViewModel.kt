@@ -1,80 +1,40 @@
 package com.example.foodlife.view_models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.foodlife.R
-import com.example.foodlife.models.PlanImageModel
-import com.example.foodlife.models.PlanTextModel
-import com.example.foodlife.models.UserModel
+import com.example.foodlife.models.PlanItemModel
+import com.example.foodlife.models.PlanWithTypeModel
 
 class PlanViewModel : ViewModel() {
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is plan Fragment"
-    }
-    val text: LiveData<String> = _text
-    var breakfastList = MutableLiveData<List<PlanTextModel>>().also {
-        it.value = listOf()
-    }
-    var lunchList = MutableLiveData<List<PlanTextModel>>().also {
-        it.value = listOf()
-    }
-
-    var snackList = MutableLiveData<List<PlanTextModel>>().also {
-        it.value = listOf()
-    }
-
-    var breakfastImageList = MutableLiveData<List<PlanImageModel>>().also {
-        it.value = listOf(
-            PlanImageModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium"),
-            PlanImageModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy"),
-            PlanImageModel("Bún bò Huế","4.5",  R.drawable.example_dish_3,"60 min","Hard"),
+    var breakfastList = mutableListOf(
+            PlanItemModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium","NTTNga"),
+            PlanItemModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy","NTTNga"),
+            PlanItemModel("Bún bò Huế","4.5",  R.drawable.example_dish_3,"60 min","Hard","NNPAnh"),
         )
-    }
-    var lunchImageList = MutableLiveData<List<PlanImageModel>>().also {
-        it.value = listOf(
-            PlanImageModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium"),
-            PlanImageModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy"),
+
+    var lunchList = mutableListOf(
+            PlanItemModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium","NNPAnh"),
+            PlanItemModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy","NNPAnh"),
 
             )
-    }
 
-    var snackImageList = MutableLiveData<List<PlanImageModel>>().also {
-        it.value = listOf(
-            PlanImageModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium"),
-            PlanImageModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy"),
-            PlanImageModel("Bún bò Huế","4.5",  R.drawable.example_dish_3,"60 min","Hard"),
-
+    var snackList = mutableListOf(
+            PlanItemModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium","NPVy21"),
+            PlanItemModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy","NTTNga"),
+            PlanItemModel("Bún bò Huế","4.5",  R.drawable.example_dish_3,"60 min","Hard","NTTNga"),
             )
-    }
+
+    var totalList = mutableListOf(
+        PlanWithTypeModel("Japanese Ramen",  R.drawable.example_dish_1,"NTTNga",0),
+        PlanWithTypeModel("Spicy sauce Tokbokki",  R.drawable.example_dish_2,"NTTNga",0),
+        PlanWithTypeModel("Bún bò Huế",  R.drawable.example_dish_3,"NNPAnh",0),
+        PlanWithTypeModel("Japanese Ramen",  R.drawable.example_dish_1,"NNPAnh",1),
+        PlanWithTypeModel("Spicy sauce Tokbokki",  R.drawable.example_dish_2,"NNPAnh",1),
+        PlanWithTypeModel("Japanese Ramen",  R.drawable.example_dish_1,"NPVy21",3),
+        PlanWithTypeModel("Spicy sauce Tokbokki",  R.drawable.example_dish_2,"NTTNga",3),
+        PlanWithTypeModel("Bún bò Huế",  R.drawable.example_dish_3,"NTTNga",3),
+    )
+
 
     var viewMode = true //true = text, false = image
-
-    fun loadBreakFast(){
-        val exampleList = listOf<PlanTextModel>(
-            PlanTextModel("Japanese Ramen", "NNPAnh", R.drawable.example_dish_1),
-            PlanTextModel("Spicy sauce Tokbokki", "NTTNga", R.drawable.example_dish_2),
-            PlanTextModel("Bún bò Huế", "NPVy21", R.drawable.example_dish_3),
-        )
-        breakfastList.value = exampleList
-
-    }
-
-    fun loadLunch(){
-        val exampleList = listOf<PlanTextModel>(
-            PlanTextModel("Japanese Ramen", "NNPAnh", R.drawable.example_dish_1),
-            PlanTextModel("Spicy sauce Tokbokki", "NTTNga", R.drawable.example_dish_2),
-        )
-        lunchList.value = exampleList
-    }
-
-    fun loadSnack(){
-        val exampleList = listOf<PlanTextModel>(
-            PlanTextModel("Japanese Ramen", "NNPAnh", R.drawable.example_dish_1),
-            PlanTextModel("Spicy sauce Tokbokki", "NTTNga", R.drawable.example_dish_2),
-            PlanTextModel("Bún bò Huế", "NPVy21", R.drawable.example_dish_3),
-        )
-        snackList.value = exampleList
-
-    }
 }

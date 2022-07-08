@@ -6,7 +6,7 @@
     <data>
         <variable
             name="recipe"
-            type="com.example.foodlife.models.PlanTextModel" />
+            type="com.example.foodlife.models.PlanItemModel" />
     </data>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rec_home_item"
