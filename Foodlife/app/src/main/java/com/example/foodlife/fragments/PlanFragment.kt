@@ -16,10 +16,12 @@ import com.example.foodlife.R
 import com.example.foodlife.adapters.PlanImageAdapter
 import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.databinding.FragmentPlanBinding
+import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.UserModel
 import com.example.foodlife.roomdb.FoodlifeDB
 import com.example.foodlife.roomdb.entities.UserEntity
 import com.example.foodlife.view_models.PlanViewModel
+import com.google.android.material.datepicker.MaterialDatePicker
 
 
 class PlanFragment : Fragment(), View.OnClickListener {
@@ -180,7 +182,6 @@ class PlanFragment : Fragment(), View.OnClickListener {
 
 
         //Check if recyclerView is not null
-
         setAdapterImage(adapterImageBreakfast!!, binding.rvPlanTextBreakfast)
         planViewModel.breakfastList.let { adapterImageBreakfast!!.updateData(it) }
 
@@ -217,7 +218,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.ivCalender -> {
-                navController.navigate(R.id.popUpCalendar)
+                CalendarPopUp().show(childFragmentManager, CalendarPopUp.TAG)
             }
             R.id.ivShopping -> {
                 navController.navigate(R.id.planToCalculate)
