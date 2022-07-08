@@ -6,56 +6,77 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodlife.adapters.CollectionHomeAdapter
-import com.example.foodlife.adapters.MainCategoryAdapter
-import com.example.foodlife.adapters.RecommendFrameAdapter
-import com.example.foodlife.adapters.RecommendHomeAdapter
+import com.example.foodlife.R
+import com.example.foodlife.adapters.*
+import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
 import com.example.foodlife.databinding.FragmentHomeBinding
 import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.view_models.HomeViewModel
+import com.example.foodlife.view_models.PlanViewModel
 import com.example.foodlife.view_models.RecommendViewModel
 
 class RecommendFragment :Fragment(){
+    private lateinit var navController: NavController
     private var _binding: FragmentRecommendBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
     private var adapterRecommendFrame: RecommendFrameAdapter? = null
 
-     lateinit var recommendViewModel: RecommendViewModel
+     private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        recommendViewModel = ViewModelProvider(this)[recommendViewModel::class.java]
-
         _binding = FragmentRecommendBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+
+//        val textView: TextView = binding.textPlan
+//        planViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initAdapters()
-    }
+        navController = Navigation.findNavController(view)
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
 
+        //Initialize view
+        //initListener()
+        initAdapters()
+
+    }
+    /*private fun initListener() {
+        binding.ivBack.setOnClickListener(this)
+        binding.ivCollapse.setOnClickListener(this)
+        binding.ivPlus.setOnClickListener(this)
+        binding.ivMinus.setOnClickListener(this)
+
+    }*/
     private fun initAdapters(){
         //Create adapter
         adapterRecommendFrame = RecommendFrameAdapter()
 
+        /*binding.rvRecFrameItem.adapter = adapterRecommendFrame
+        binding.rvRecFrameItem.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
+        adapterRecommendFrame!!.updateData(homeViewModel.recList)*/
 
 
         //Check if recyclerView is not null
         if (adapterRecommendFrame!=null){
             setAdapterRec(adapterRecommendFrame!!,binding.rvRecFrameItem)
             //Load data
-            recommendViewModel.loadRecommend()
-            recommendViewModel.recList.value?.let {adapterRecommendFrame!!.updateData(it) }
+            homeViewModel.loadRecommend()
+            homeViewModel.recList.value?.let {adapterRecommendFrame!!.updateData(it) }
 
         }
 
@@ -65,7 +86,7 @@ class RecommendFragment :Fragment(){
         _adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
-            //layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 

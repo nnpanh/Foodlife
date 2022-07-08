@@ -29,7 +29,11 @@ class HomeViewModel : ViewModel() {
         val exampleList = listOf<Recipe>(
             Recipe(R.drawable.recommend_1, "Stir-fried beef with broccoli and Rice", 3.5F,"",0,""),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 3.5F,"",0,"" ),
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 3.5F,"",0,"" ),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 3.5F,"",0,"" ),
+            Recipe(R.drawable.recommend_1, "Stir-fried beef with broccoli and Rice", 3.5F,"",0,""),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 3.5F,"",0,"" ),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 3.5F,"",0,"" ),
+
         )
         recList.value = exampleList
     }

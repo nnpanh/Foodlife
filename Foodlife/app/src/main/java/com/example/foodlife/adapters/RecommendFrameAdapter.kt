@@ -37,5 +37,6 @@ class RecommendFrameAdapter: RecyclerView.Adapter<RecommendFrameAdapter.ViewHold
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         (holder as ViewHolder).bindData(rec_list[position])
+
     }
 }

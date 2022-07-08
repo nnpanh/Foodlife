@@ -16,15 +16,17 @@
                     android:id="@+id/rec_frame_img"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
                     app:imageResource="@{recipe.img}"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="0dp"
+                    android:adjustViewBounds="true"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="ContentDescription"
                     tools:srcCompat="@drawable/rec1" />
+
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/rec_profile_img"
                     android:layout_width="56dp"
@@ -34,8 +36,8 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginStart="24dp"
                     app:shapeAppearanceOverlay="@style/circle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/rec_frame_img"
+                    app:layout_constraintTop_toTopOf="@id/rec_frame_img"
                     app:strokeColor="@color/secondary_100"
                     app:strokeWidth="2dp"
                     app:imageResource="@{recipe.img}"
@@ -43,54 +45,68 @@
 
 
 
-                <ImageView
-                    android:id="@+id/rec_frame_rating"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
                     android:layout_marginTop="35dp"
-                    android:background="@drawable/ic_rating_frame"
-                    app:layout_constraintTop_toTopOf="@id/rec_frame_bg"
+                    android:layout_marginStart="24dp"
+                    android:background="@drawable/ic_rating_box"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="ContentDescription"
-                    android:adjustViewBounds="true"/>
+                    app:layout_constraintTop_toTopOf="@id/rec_frame_bg">
 
-                <TextView
-                    android:id="@+id/tv_rec_rating"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginTop="1.9dp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black"
-                    android:textSize="11sp"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintEnd_toEndOf="@id/rec_frame_rating"
-                    app:layout_constraintTop_toTopOf="@+id/rec_frame_rating"
-                    tools:text="5" />
+                    <ImageView
+                        android:id="@+id/ivStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:srcCompat="@drawable/ic_rating_star" />
+
+                    <TextView
+                        android:id="@+id/tv_rec_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginTop="2dp"
+                        tools:text="4.6"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/ivStar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
                     android:id="@+id/rec_frame_bg"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_gradient"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:ignore="ContentDescription"
-                    tools:layout_editor_absoluteX="0dp" />
+                    android:background="@drawable/ic_gradient_white"
+                    app:layout_constraintBottom_toBottomOf="@id/rec_frame_img"
+                    app:layout_constraintEnd_toEndOf="@id/rec_frame_img"
+                    app:layout_constraintStart_toStartOf="@id/rec_frame_img"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/rec_frame_name"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="71dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/poppins_bold"
+                    android:maxLines="2"
                     android:text="@{recipe.title}"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_large"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@id/rec_frame_cook"
+                    app:layout_constraintEnd_toStartOf="@+id/rec_frame_save"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/rec_frame_bg"
@@ -101,10 +117,12 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/chef_bold"
                     app:layout_constraintTop_toBottomOf="@id/rec_frame_name"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription"
                     android:adjustViewBounds="true"/>
                 <TextView
@@ -127,11 +145,13 @@
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="9dp"
                     android:adjustViewBounds="true"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/clock_bold"
                     app:layout_constraintStart_toEndOf="@id/tv_rec_cook"
                     app:layout_constraintTop_toBottomOf="@id/rec_frame_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription" />
 
                 <TextView
@@ -151,8 +171,8 @@
 
                 <ImageView
                     android:id="@+id/rec_frame_save"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginBottom="16dp"
                     android:adjustViewBounds="true"

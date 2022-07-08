@@ -10,6 +10,8 @@ import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import com.example.foodlife.R
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.adapters.CollectionHomeAdapter
@@ -17,30 +19,32 @@ import com.example.foodlife.adapters.MainCategoryAdapter
 import com.example.foodlife.adapters.RecommendHomeAdapter
 import com.example.foodlife.databinding.FragmentHomeBinding
 import com.example.foodlife.databinding.FragmentPlanBinding
+import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.Recipe
+import com.example.foodlife.models.UserModel
+import com.example.foodlife.roomdb.FoodlifeDB
+import com.example.foodlife.roomdb.entities.UserEntity
 import com.example.foodlife.view_models.HomeViewModel
 import com.example.foodlife.view_models.PlanViewModel
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
+    private lateinit var navController: NavController
 
     private var _binding: FragmentHomeBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
     private var adapterRecommend:RecommendHomeAdapter? = null
     private var adapterMainCat: MainCategoryAdapter? = null
     private var adapterCollection: CollectionHomeAdapter? = null
 
-    lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -49,7 +53,21 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
+
+
+        //Initialize view
+        initListener()
         initAdapters()
+
+    }
+
+    private fun initListener() {
+        binding.ivArrow.setOnClickListener(this)
+        binding.ivArrowCollect.setOnClickListener(this)
+        binding.ivCreateMeal.setOnClickListener(this)
     }
 
     private fun initAdapters(){
@@ -87,7 +105,7 @@ class HomeFragment : Fragment() {
         _adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
-            //layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         }
     }
     private fun setAdapterMain(_adapter: MainCategoryAdapter, _recyclerView: RecyclerView){
@@ -95,7 +113,7 @@ class HomeFragment : Fragment() {
         _adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
-            //layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         }
     }
     private fun setAdapterCollection(_adapter: CollectionHomeAdapter, _recyclerView: RecyclerView){
@@ -104,6 +122,17 @@ class HomeFragment : Fragment() {
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        }
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+
+            R.id.ivArrow -> {
+                navController.navigate(R.id.homeToRecommendFragment)
+                //TODO
+            }
+
         }
     }
     override fun onDestroyView() {

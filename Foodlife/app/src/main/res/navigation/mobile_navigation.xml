@@ -49,7 +49,15 @@
         android:id="@+id/navigation_home"
         android:name="com.example.foodlife.fragments.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeToRecommendFragment"
+            app:destination="@id/recommendFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_collections"
@@ -92,4 +100,8 @@
         android:id="@+id/bottomSheet"
         android:name="com.example.foodlife.fragments.BottomSheetFragment"
         tools:layout="@layout/fragment_bottom_sheet" />
+    <fragment
+        android:id="@+id/recommendFragment"
+        android:name="com.example.foodlife.fragments.RecommendFragment"
+        android:label="RecommendFragment" />
 </navigation>

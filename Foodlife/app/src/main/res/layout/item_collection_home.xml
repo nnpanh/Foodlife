@@ -62,39 +62,40 @@
                     android:id="@+id/collect_home_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:maxLines="2"
                     android:ellipsize="end"
                     android:fontFamily="@font/poppins_medium"
-                    android:gravity="start"
-                    android:maxLines="1"
                     android:text="@{recipe.title}"
                     android:textColor="@color/black"
-
                     android:textSize="@dimen/text_small"
                     app:layout_constraintEnd_toStartOf="@+id/collect_home_img"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Buckwheat Granola with Maple Syrup" />
+                    tools:text="Buckwheat Granola with Maple Syrup " />
 
                 <TextView
                     android:id="@+id/collect_home_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:ellipsize="end"
                     android:fontFamily="@font/poppins_regular"
-                    android:gravity="start"
-                    android:layout_marginBottom="16dp"
                     android:maxLines="1"
-                    android:text='@{recipe.description}'
+                    android:text="@{recipe.description}"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_smaller"
+                    android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="@id/collect_home_title"
+                    app:layout_constraintEnd_toStartOf="@+id/collect_home_img"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
 
-                    tools:text="Cheese, Tomato, egg,..." />
+                    app:layout_constraintTop_toBottomOf="@id/collect_home_title"
+                    tools:text="Cheese,Tomato " />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
     </com.google.android.material.card.MaterialCardView>
