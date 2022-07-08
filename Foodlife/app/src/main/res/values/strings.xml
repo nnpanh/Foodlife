@@ -17,4 +17,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="calculate_ingredients">Calculate Ingredients</string>
     <string name="txt_dishes">Dishes</string>
+    <string name="total">Total</string>
+    <string name="txt_serve">Serves</string>
+    <string name="quantity_01">01</string>
 </resources>

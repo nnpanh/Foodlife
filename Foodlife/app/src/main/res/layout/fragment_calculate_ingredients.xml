@@ -104,6 +104,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvTotalDishes" />
 
+
             <ImageView
                 android:id="@+id/ivCollapse"
                 android:layout_width="wrap_content"
@@ -114,7 +115,110 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvTotalDishes"
                 tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/ivLinebreak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalDescription"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/line_break"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="28dp"
+                />
+            <TextView
+                android:id="@+id/tvTotalIngredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/total"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="@dimen/text_medium"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLinebreak" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIngredients"
+                android:nestedScrollingEnabled="false"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutQuantity"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_ingredients" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgr_add_minus"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvTotalIngredients"
+                app:layout_constraintBottom_toBottomOf="@id/tvTotalIngredients"
+                >
+                <TextView
+                    android:id="@+id/tvServe"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:ellipsize="end"
+                    android:text="@string/txt_serve"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/text_normal"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="24dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/plus_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvServe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:id="@+id/tvNumberServe"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:ellipsize="end"
+                    android:background="@drawable/bgr_number"
+                    android:text="@string/quantity_01"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/text_normal"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/ivPlus"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+                <ImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/minus_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvNumberServe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/filter_bold.xml" value="0.1555" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_baseline_access_time_filled_24.xml" value="0.207" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_bookmark_white.xml" value="0.183" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_checkbox.xml" value="0.1545" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_collection.xml" value="0.1895" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_collection_selected.xml" value="0.1895" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_collection_white.xml" value="0.121" />
@@ -52,7 +53,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_addrecipe_tittle.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.19791666666666666" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients.xml" value="0.2" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients.xml" value="0.2925877763328999" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients2.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.24094202898550723" />
@@ -61,6 +62,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_profile.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home.xml" value="0.24094202898550723" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_ingredients.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_main_category.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_image.xml" value="0.536" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_text.xml" value="0.264" />

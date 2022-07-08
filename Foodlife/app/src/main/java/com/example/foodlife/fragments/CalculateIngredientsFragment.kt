@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
+import com.example.foodlife.adapters.IngredientAdapter
 import com.example.foodlife.adapters.PlanImageAdapter
 import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.adapters.PlanTotalAdapter
@@ -28,6 +29,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
     private val binding get() = _binding!!
 
     private var adapterTotalDishes: PlanTotalAdapter? = null
+    private var adapterIngredient: IngredientAdapter? = null
 
     private lateinit var planViewModel: PlanViewModel
     private var hiddenState = false
@@ -53,24 +55,27 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         planViewModel = ViewModelProvider(store)[PlanViewModel::class.java]
 
-
-        //Test if roomDB work
-        val testUser = UserModel(0, "PA", R.drawable.catcool, 23, null, null)
-        val directUser = UserEntity("Hehe", R.drawable.catcool, 23, null, null)
-        val database = activity?.let { FoodlifeDB.getInstance(it.applicationContext) }
-        database?.clearAllTables()
-        database?.userDAO()?.insert(directUser)
-
         //Initialize view
         initListener()
         initTotalAdapter()
+        initIngredientsAdapter()
 
     }
 
     private fun initListener() {
         binding.ivBack.setOnClickListener(this)
         binding.ivCollapse.setOnClickListener(this)
+        binding.ivPlus.setOnClickListener(this)
+        binding.ivMinus.setOnClickListener(this)
 
+    }
+
+    private fun initIngredientsAdapter(){
+        adapterIngredient = IngredientAdapter()
+        binding.rvIngredients.adapter = adapterIngredient
+        binding.rvIngredients.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
+        adapterIngredient!!.updateData(planViewModel.ingredientList)
     }
 
     private fun initTotalAdapter() {
@@ -108,6 +113,14 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                     binding.rvTotalDishes.visibility = View.GONE
                     hiddenState = true
                 }
+            }
+            R.id.ivMinus -> {
+                adapterIngredient?.updateData(planViewModel.ingredientList)
+                binding.tvNumberServe.text="01"
+            }
+            R.id.ivPlus -> {
+                adapterIngredient?.updateData(planViewModel.ingredientList2)
+                binding.tvNumberServe.text="02"
             }
         }
     }
