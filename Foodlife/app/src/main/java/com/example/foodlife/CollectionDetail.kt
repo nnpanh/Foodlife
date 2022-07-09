@@ -32,7 +32,7 @@ class CollectionDetail : AppCompatActivity() {
                     BitmapFactory.decodeResource(
                         this.resources,
                         R.drawable.img_collection
-                    ),0.75F , 1F
+                    ),0.8F , 1F
                 ))
         val arraySpinner = arrayOf("Alphabetical", "Latest")
         val filterAdapter = ArrayAdapter(this, com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arraySpinner)

@@ -1,7 +1,7 @@
 package com.example.foodlife.models
 
 data class Recipe(
-    var img:Int,
+    var img: Int,
     var title: String,
     var score: Float,
     var diff: String,

@@ -10,6 +10,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.models.Collection
@@ -25,7 +26,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     }
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
-        val IVCol = listItemView.findViewById<ImageView>(R.id.IVCol)!!
+        val IVCol = listItemView.findViewById<ImageFilterView>(R.id.IVCol)!!
         val TVColName = listItemView.findViewById<TextView>(R.id.TVColName)!!
         val TVColQuantity = listItemView.findViewById<TextView>(R.id.TVColQuantity)!!
         init {
@@ -41,16 +42,9 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (filterCollection[position].img == "")
-            holder.IVCol.setImageBitmap(
-                changeBitmapContrastBrightness(
-                    BitmapFactory.decodeResource(
-                        context!!.resources,
-                        R.drawable.img_collection
-                    ),0.75F , 1F
-                ))
-        else
+        if (filterCollection[position].img != "")
             holder.IVCol.setImageURI(Uri.parse(filterCollection[position].img))
+        holder.IVCol.contrast = 0.8F
         holder.TVColName.text = filterCollection[position].title
         holder.TVColQuantity.text = filterCollection[position].quantity.toString() + " Recipes"
 
@@ -59,40 +53,6 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     override fun getItemCount(): Int {
         return filterCollection.size
     }
-
-    private fun changeBitmapContrastBrightness(bmp: Bitmap, contrast: Float, brightness: Float): Bitmap? {
-        val cm = ColorMatrix(
-            floatArrayOf(
-                contrast,
-                0f,
-                0f,
-                0f,
-                brightness,
-                0f,
-                contrast,
-                0f,
-                0f,
-                brightness,
-                0f,
-                0f,
-                contrast,
-                0f,
-                brightness,
-                0f,
-                0f,
-                0f,
-                1f,
-                0f
-            )
-        )
-        val ret = Bitmap.createBitmap(bmp.width, bmp.height, bmp.config)
-        val canvas = Canvas(ret)
-        val paint = Paint()
-        paint.colorFilter = ColorMatrixColorFilter(cm)
-        canvas.drawBitmap(bmp, 0f, 0f, paint)
-        return ret
-    }
-
     override fun getFilter(): Filter {
         return object: Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {

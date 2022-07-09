@@ -13,6 +13,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodlife.CollectionDetail
 import com.example.foodlife.R
@@ -21,15 +23,18 @@ import com.example.foodlife.databinding.FragmentDashboardBinding
 import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.models.Collection
 import com.example.foodlife.view_models.CollectionViewModel
+import com.example.foodlife.view_models.HomeViewModel
 
 class CollectionFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
+    private lateinit var navController: NavController
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     private var isSpinnerInitial = true
+    private lateinit var collectionViewModel: CollectionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,13 +50,20 @@ class CollectionFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        collectionViewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
+        if (collectionViewModel.colList.value!!.isEmpty())
+            collectionViewModel.loadCollection()
+
         val arraySpinner = arrayOf("Alphabetical", "Latest")
         val filterAdapter = ArrayAdapter(requireActivity(), com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arraySpinner)
         val SPFilter = binding.SPCol
         SPFilter.adapter = filterAdapter
+
         val RVCol = binding.RVCol
-        var collectionArray = arrayListOf(Collection("", "Meat Lover", 1), Collection("", "Healthy", 4),Collection("", "Diet", 4),Collection("", "Protein Food", 0))
-        val collectionAdapter = CollectionAdapter(collectionArray)
+        val collectionArray = collectionViewModel.colList.value
+        val collectionAdapter = CollectionAdapter(collectionArray!!)
         RVCol.adapter = collectionAdapter
         RVCol.layoutManager = LinearLayoutManager(requireActivity())
 
@@ -63,6 +75,7 @@ class CollectionFragment : Fragment() {
             }
             override fun afterTextChanged(p0: Editable?) {}
         })
+
         val IVAdd = binding.IVColAdd
         IVAdd.setOnClickListener {
             val bottomSheetCollection = BottomSheetCollection()
@@ -70,7 +83,7 @@ class CollectionFragment : Fragment() {
             bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.AppBottomSheetDialogTheme)
             bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
                 val result = bundle.getSerializable("newCollection") as Collection
-                collectionArray.add(result)
+                collectionViewModel.addCollection(result)
                 collectionAdapter.notifyDataSetChanged()
             }
         }
