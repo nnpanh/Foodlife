@@ -1,17 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
-        android:layout_margin="8dp"
-        android:id="@+id/imgCalendar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/calendar"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    </ImageView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_margin="8dp"
+            android:id="@+id/imgCalendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/ivMoreInfo"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintEnd_toEndOf="@id/imgCalendar"
+            app:layout_constraintTop_toTopOf="@id/imgCalendar"
+            android:src="@drawable/info"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintDimensionRatio="1:1" />
+
+        <ImageView
+            android:id="@+id/ivLinebreak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/imgCalendar"
+            app:layout_constraintStart_toStartOf="@id/imgCalendar"
+            app:layout_constraintEnd_toEndOf="@id/imgCalendar"
+            android:src="@drawable/line_dialog" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCurrentSelected"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/secondary_100"
+            app:shapeAppearanceOverlay="@style/circle"
+            app:layout_constraintStart_toStartOf="@id/imgCalendar"
+            app:layout_constraintTop_toBottomOf="@id/ivLinebreak" />
+
+        <TextView
+            android:id="@+id/tvCurrentSelectedNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivCurrentSelected"
+            app:layout_constraintBottom_toBottomOf="@id/ivCurrentSelected"
+            app:layout_constraintStart_toStartOf="@id/ivCurrentSelected"
+            app:layout_constraintEnd_toEndOf="@id/ivCurrentSelected"
+            android:text="@string/_27"
+            android:paddingTop="2dp"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium" />
+
+        <TextView
+            android:id="@+id/tvCurrentSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:gravity="start"
+            android:ellipsize="end"
+            android:text="@string/selected_day"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/black"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@id/ivCurrentSelected"
+            app:layout_constraintTop_toTopOf="@id/ivCurrentSelected"
+            app:layout_constraintBottom_toBottomOf="@id/ivCurrentSelected" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSelected"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/green_day"
+            app:shapeAppearanceOverlay="@style/circle"
+            app:layout_constraintStart_toStartOf="@id/ivCurrentSelected"
+            app:layout_constraintTop_toBottomOf="@id/ivCurrentSelected" />
+
+        <TextView
+            android:id="@+id/tvSelectedNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivSelected"
+            app:layout_constraintBottom_toBottomOf="@id/ivSelected"
+            app:layout_constraintStart_toStartOf="@id/ivSelected"
+            app:layout_constraintEnd_toEndOf="@id/ivSelected"
+            android:text="@string/_28"
+            android:paddingTop="2dp"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/primary_100"
+            android:fontFamily="@font/poppins_regular" />
+
+        <TextView
+            android:id="@+id/tvSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:gravity="start"
+            android:ellipsize="end"
+            android:text="@string/have_plan_day"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/black"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@id/ivSelected"
+            app:layout_constraintTop_toTopOf="@id/ivSelected"
+            app:layout_constraintBottom_toBottomOf="@id/ivSelected" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUnselected"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/red_day"
+            app:shapeAppearanceOverlay="@style/circle"
+            app:layout_constraintStart_toStartOf="@id/ivCurrentSelected"
+            app:layout_constraintTop_toBottomOf="@id/ivSelected" />
+
+        <TextView
+            android:id="@+id/tvUnselectedNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/ivUnselected"
+            app:layout_constraintBottom_toBottomOf="@id/ivUnselected"
+            app:layout_constraintStart_toStartOf="@id/ivUnselected"
+            app:layout_constraintEnd_toEndOf="@id/ivUnselected"
+            android:text="@string/_25"
+            android:paddingTop="2dp"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/primary_100"
+            android:fontFamily="@font/poppins_regular" />
+
+        <TextView
+            android:id="@+id/tvUnselected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:gravity="start"
+            android:ellipsize="end"
+            android:text="@string/no_plan_day"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/black"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@id/ivUnselected"
+            app:layout_constraintTop_toTopOf="@id/ivUnselected"
+            app:layout_constraintBottom_toBottomOf="@id/ivUnselected" />
+
+        <TextView
+            android:id="@+id/tvWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:gravity="start"
+            android:ellipsize="end"
+            android:text="@string/calendar_warning"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/black"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintStart_toStartOf="@id/imgCalendar"
+            app:layout_constraintEnd_toEndOf="@id/imgCalendar"
+            app:layout_constraintTop_toBottomOf="@id/ivUnselected" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grMoreInfo"
+            tools:visibility="visible"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvWarning,tvCurrentSelected,tvCurrentSelectedNumber
+        ,ivCurrentSelected,ivSelected,tvSelected,tvSelectedNumber,ivLinebreak,
+        ivUnselected,tvUnselected,tvUnselectedNumber" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

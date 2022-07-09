@@ -28,4 +28,6 @@
     <color name="card_home">#FEB800</color>
     <color name="rating">#FCC811</color>
     <color name="bgr_dish_item">#FCF6F6</color>
+    <color name="green_day">#EAFFEA</color>
+    <color name="red_day">#FDE2DD</color>
 </resources>

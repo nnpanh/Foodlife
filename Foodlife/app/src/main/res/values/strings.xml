@@ -36,4 +36,11 @@
     <string name="total">Total</string>
     <string name="txt_serve">Serves</string>
     <string name="quantity_01">01</string>
+    <string name="_27">27</string>
+    <string name="_28">28</string>
+    <string name="_25">25</string>
+    <string name="selected_day">Selected day</string>
+    <string name="have_plan_day">Have a plan day</string>
+    <string name="no_plan_day">No plan day</string>
+    <string name="calendar_warning">Note: User can only view plans from 7 days before or 7 days in the future.</string>
 </resources>
