@@ -8,15 +8,27 @@
             name="recipe"
             type="com.example.foodlife.models.Recipe" />
     </data>
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="10dp"
 
+    app:rippleColor="@android:color/transparent"
+    app:strokeWidth="0dp"
+    app:strokeColor="@android:color/transparent"
+    app:cardPreventCornerOverlap="false"
+    android:theme="@style/Theme.MaterialComponents.Light"
+
+
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="24dp">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutItem"
         android:background="@drawable/bgr_round_blue"
-        android:backgroundTint="@color/bgr_dish_item"
-        android:elevation="4dp"
+        android:backgroundTint="#FCF6F6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivDish"
@@ -151,4 +163,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
 </layout>

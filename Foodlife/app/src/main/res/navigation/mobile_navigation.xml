@@ -57,6 +57,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/homeToSearchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -103,5 +106,13 @@
     <fragment
         android:id="@+id/recommendFragment"
         android:name="com.example.foodlife.fragments.RecommendFragment"
-        android:label="RecommendFragment" />
+        android:label="RecommendFragment" >
+        <action
+            android:id="@+id/RecommendToSearchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.foodlife.fragments.SearchFragment"
+        android:label="SearchFragment" />
 </navigation>

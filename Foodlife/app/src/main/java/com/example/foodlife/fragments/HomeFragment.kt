@@ -69,6 +69,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.ivArrow.setOnClickListener(this)
         binding.ivArrowCollect.setOnClickListener(this)
         binding.ivCreateMeal.setOnClickListener(this)
+        binding.HomeSearch.setOnClickListener(this)
     }
 
     private fun initAdapters(){
@@ -131,6 +132,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.ivArrow -> {
                 navController.navigate(R.id.homeToRecommendFragment)
                 //TODO
+            }
+            R.id.HomeSearch->{
+                navController.navigate(R.id.homeToSearchFragment)
             }
 
         }

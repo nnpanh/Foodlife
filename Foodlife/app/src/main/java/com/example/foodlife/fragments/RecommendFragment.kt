@@ -46,6 +46,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
 
         //Initialize view
+        initListener()
         initAdapters()
 
     }
@@ -77,6 +78,10 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
 
     }
+    private fun initListener() {
+        binding.RecommendSearch.setOnClickListener(this)
+
+    }
     private fun setAdapterRec(_adapter: RecommendFrameAdapter, _recyclerView: RecyclerView){
         //Set adapter
         //_adapter.setHasStableIds(true)
@@ -96,14 +101,14 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
 
     override fun onClick(p0: View?) {
-        /*when (p0?.id) {
+        when (p0?.id) {
 
-            R.id.ivArrow -> {
-                //navController.navigate(R.id.homeToRecommendFragment)
+            R.id.RecommendSearch -> {
+                navController.navigate(R.id.RecommendToSearchFragment)
                 //TODO
             }
 
-        }*/
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
