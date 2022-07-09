@@ -12,19 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.*
-import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
-import com.example.foodlife.databinding.FragmentHomeBinding
 import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.view_models.HomeViewModel
-import com.example.foodlife.view_models.PlanViewModel
-import com.example.foodlife.view_models.RecommendViewModel
 
-class RecommendFragment :Fragment(){
+class RecommendFragment :Fragment(), View.OnClickListener{
     private lateinit var navController: NavController
     private var _binding: FragmentRecommendBinding? = null
     private val binding get() = _binding!!
 
     private var adapterRecommendFrame: RecommendFrameAdapter? = null
+    private var adapterRecommendCat: RecommendCategoryAdapter? = null
 
      private lateinit var homeViewModel: HomeViewModel
 
@@ -41,55 +38,73 @@ class RecommendFragment :Fragment(){
 //        }
         return binding.root
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
 
+
         //Initialize view
-        //initListener()
         initAdapters()
 
     }
-    /*private fun initListener() {
-        binding.ivBack.setOnClickListener(this)
-        binding.ivCollapse.setOnClickListener(this)
-        binding.ivPlus.setOnClickListener(this)
-        binding.ivMinus.setOnClickListener(this)
 
-    }*/
+
     private fun initAdapters(){
         //Create adapter
-        adapterRecommendFrame = RecommendFrameAdapter()
 
-        /*binding.rvRecFrameItem.adapter = adapterRecommendFrame
-        binding.rvRecFrameItem.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-
-        adapterRecommendFrame!!.updateData(homeViewModel.recList)*/
-
-
-        //Check if recyclerView is not null
-        if (adapterRecommendFrame!=null){
-            setAdapterRec(adapterRecommendFrame!!,binding.rvRecFrameItem)
-            //Load data
-            homeViewModel.loadRecommend()
-            homeViewModel.recList.value?.let {adapterRecommendFrame!!.updateData(it) }
-
+        //adapterMainCat= MainCategoryAdapter() rvMainCat
+        //adapterCollection= CollectionHomeAdapter() rvCollectionHome
+        if (adapterRecommendFrame == null) {
+            adapterRecommendFrame = RecommendFrameAdapter()
         }
 
+        if (adapterRecommendCat == null) {
+            adapterRecommendCat = RecommendCategoryAdapter() { clickedItem ->
+                val updateList = homeViewModel.recCat
+                //println(1)
+            }
+        }
+        //Check if recyclerView is not null
+        setAdapterRec(adapterRecommendFrame!!, binding.rvRecFrameItem)
+        homeViewModel.recList.let { adapterRecommendFrame!!.updateData(it) }
+
+        setAdapterRecCat(adapterRecommendCat!!, binding.rvRecMainCat)
+        homeViewModel.recCat.let { adapterRecommendCat!!.updateData(it) }
+
+
+
+
     }
-    private fun setAdapterRec(_adapter:RecommendFrameAdapter, _recyclerView: RecyclerView){
+    private fun setAdapterRec(_adapter: RecommendFrameAdapter, _recyclerView: RecyclerView){
         //Set adapter
-        _adapter.setHasStableIds(true)
+        //_adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
+    private fun setAdapterRecCat(_adapter: RecommendCategoryAdapter, _recyclerView: RecyclerView){
+        //Set adapter
+        //_adapter.setHasStableIds(true)
+        _recyclerView.apply {
+            adapter = _adapter
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+        }
+    }
 
+
+    override fun onClick(p0: View?) {
+        /*when (p0?.id) {
+
+            R.id.ivArrow -> {
+                //navController.navigate(R.id.homeToRecommendFragment)
+                //TODO
+            }
+
+        }*/
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.foodlife.models.Recipe" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutItem"
+        android:background="@drawable/bgr_round_blue"
+        android:backgroundTint="@color/bgr_dish_item"
+        android:elevation="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp">
+
+        <ImageView
+            android:id="@+id/ivDish"
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageResource="@{recipe.img}"
+            tools:srcCompat="@drawable/example_dish_1" />
+
+        <TextView
+            android:id="@+id/tvDishTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:maxLines="2"
+            android:lines="2"
+            android:ellipsize="end"
+            android:text="@{recipe.title}"
+            tools:text="Japanese RamenRamenRamenRamenRamenRamen"
+            android:layout_margin="8dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/primary_100"
+            app:layout_constraintTop_toBottomOf="@id/ivDish"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_rating_box"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/ivStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:srcCompat="@drawable/ic_rating_star" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginTop="2dp"
+                tools:text="4.6"
+                android:text="@{recipe.score}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/ivStar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageView
+            android:id="@+id/ivClock"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/clock"
+            app:layout_constraintTop_toBottomOf="@id/tvDishTitle"
+            app:layout_constraintStart_toStartOf="@id/tvDishTitle"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="40dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{recipe.time}"
+            tools:text="60 60 60 60 min"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/text_smaller"
+            android:textColor="@color/primary_100"
+            app:layout_constraintTop_toTopOf="@id/ivClock"
+            app:layout_constraintBottom_toBottomOf="@id/ivClock"
+            app:layout_constraintStart_toEndOf="@id/ivClock"
+            />
+
+        <ImageView
+            android:id="@+id/ivLevel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/chef"
+            android:layout_marginStart="4dp"
+            app:layout_constraintTop_toTopOf="@id/ivClock"
+            app:layout_constraintBottom_toBottomOf="@id/ivClock"
+            app:layout_constraintStart_toEndOf="@id/tvTime"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="40dp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@{recipe.diff}"
+            tools:text="HardHardHardHardHard"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/text_smaller"
+            android:textColor="@color/primary_100"
+            app:layout_constraintTop_toTopOf="@id/ivLevel"
+            app:layout_constraintBottom_toBottomOf="@id/ivLevel"
+            app:layout_constraintStart_toEndOf="@id/ivLevel"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

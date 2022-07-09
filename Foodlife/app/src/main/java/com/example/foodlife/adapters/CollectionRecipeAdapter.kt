@@ -42,9 +42,9 @@ class CollectionRecipeAdapter(private val recipe: MutableList<Recipe>): Recycler
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.TVTitle.text = recipe[position].title
-        holder.TVTime.text = recipe[position].time.toString() + " mins"
+        holder.TVTime.text = recipe[position].time
         holder.TVDiff.text = recipe[position].diff
-        holder.TVScore.text = recipe[position].score.toString()
+        holder.TVScore.text = recipe[position].score
     }
 
     override fun getItemCount(): Int {

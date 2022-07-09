@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.HomeFragment"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <AutoCompleteTextView
+            android:id="@+id/RecommendSearch"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_collection_search"
+            android:drawableLeft="@drawable/search"
+            android:drawablePadding="10sp"
+            android:drawableTint="#FF9C00"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/txt_search_recipe"
+            android:paddingLeft="16dp"
+            android:textColor="@color/primary_20"
+            android:textSize="@dimen/text_smaller"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecFrameItem"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="true"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_recommend_frame"
+            app:layout_constraintTop_toBottomOf="@id/RecommendSearch"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="56dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

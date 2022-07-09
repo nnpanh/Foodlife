@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.adapters.CollectionHomeAdapter
 import com.example.foodlife.adapters.MainCategoryAdapter
+import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.adapters.RecommendHomeAdapter
 import com.example.foodlife.databinding.FragmentHomeBinding
 import com.example.foodlife.databinding.FragmentPlanBinding
@@ -72,37 +73,36 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun initAdapters(){
         //Create adapter
-        adapterRecommend = RecommendHomeAdapter()
-        adapterMainCat= MainCategoryAdapter()
-        adapterCollection= CollectionHomeAdapter()
+        //adapterRecommend = RecommendHomeAdapter()
+        //adapterMainCat= MainCategoryAdapter() rvMainCat
+        //adapterCollection= CollectionHomeAdapter() rvCollectionHome
+        if (adapterRecommend == null) {
+            adapterRecommend = RecommendHomeAdapter()
+        }
 
+        if (adapterMainCat == null) {
+            adapterMainCat = MainCategoryAdapter()
+        }
 
+        if (adapterCollection == null) {
+            adapterCollection = CollectionHomeAdapter()
+        }
         //Check if recyclerView is not null
-        if (adapterRecommend!=null){
-            setAdapterRec(adapterRecommend!!,binding.rvRecommended)
-            //Load data
-            homeViewModel.loadRecommend()
-            homeViewModel.recList.value?.let {adapterRecommend!!.updateData(it) }
+        setAdapterRec(adapterRecommend!!, binding.rvRecommended)
+        homeViewModel.recList.let { adapterRecommend!!.updateData(it) }
 
-        }
-        if (adapterMainCat!=null){
-            setAdapterMain(adapterMainCat!!,binding.rvMainCat)
-            //Load data
-            homeViewModel.loadMainList()
-            homeViewModel.mainList.value?.let {adapterMainCat!!.updateData(it) }
+        setAdapterMain(adapterMainCat!!, binding.rvMainCat)
+        homeViewModel.mainList.let { adapterMainCat!!.updateData(it) }
 
-        }
-        if (adapterCollection!=null){
-            setAdapterCollection(adapterCollection!!,binding.rvCollectionHome)
-            //Load data
-            homeViewModel.loadCollection()
-            homeViewModel.collectionList.value?.let {adapterCollection!!.updateData(it) }
+        setAdapterCollection(adapterCollection!!, binding.rvCollectionHome)
+        homeViewModel.collectionList.let { adapterCollection!!.updateData(it) }
 
-        }
+
+
+
     }
     private fun setAdapterRec(_adapter: RecommendHomeAdapter, _recyclerView: RecyclerView){
         //Set adapter
-        _adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -110,7 +110,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
     private fun setAdapterMain(_adapter: MainCategoryAdapter, _recyclerView: RecyclerView){
         //Set adapter
-        _adapter.setHasStableIds(true)
+        //_adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -118,7 +118,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
     private fun setAdapterCollection(_adapter: CollectionHomeAdapter, _recyclerView: RecyclerView){
         //Set adapter
-        _adapter.setHasStableIds(true)
+        //_adapter.setHasStableIds(true)
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
