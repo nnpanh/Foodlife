@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.foodlife.R
+import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.dialog.DetailMoreMenu
+import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
@@ -19,6 +22,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
     // onDestroyView.
     private val binding get() = _binding!!
     private var isSpinnerInitial = true
+
+    var tabTitle = arrayOf("Ingredients", "Directions", "Review")
 
     companion object {
         fun newInstance(): DetailFragment {
@@ -37,6 +42,16 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Viewpager & TabLayout
+        var pager = binding.viewPager2
+        var tl = binding.tabLayout
+        pager.adapter = DetailAdapter(childFragmentManager, lifecycle)
+
+        TabLayoutMediator(tl,pager){
+            tab, position ->
+                tab.text = tabTitle[position]
+        }.attach()
 
         initListener()
     }

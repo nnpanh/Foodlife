@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.foodlife.view_models.DetailViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -34,14 +37,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
-                android:textSize="@dimen/text_header"
-                android:fontFamily="@font/poppins_bold"
-                android:textColor="@color/white"
-                android:maxLines="2"
                 android:ellipsize="end"
+                android:fontFamily="@font/poppins_bold"
+                android:maxLines="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_header"
+                app:layout_constraintBottom_toBottomOf="@id/videoView"
                 app:layout_constraintEnd_toEndOf="@id/videoView"
                 app:layout_constraintStart_toStartOf="@id/videoView"
-                app:layout_constraintBottom_toBottomOf="@id/videoView"
                 tools:text="Eggs, and Baconnnnnnnnnnnnnnnnddddddddddddd" />
 
             <ImageButton
@@ -57,6 +60,7 @@
                 android:src="@drawable/arrow"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <androidx.cardview.widget.CardView
@@ -272,39 +276,39 @@
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/cardView">
 
-                <!--            <com.google.android.material.tabs.TabLayout-->
-                <!--                android:id="@+id/tab_layout"-->
-                <!--                android:layout_width="match_parent"-->
-                <!--                android:layout_height="wrap_content"-->
-                <!--                android:background="?attr/colorSurface"-->
-                <!--                android:elevation="8dp"-->
-                <!--                app:tabIndicatorColor="@color/secondary_100"-->
-                <!--                app:tabIndicatorFullWidth="false"-->
-                <!--                app:tabSelectedTextColor="@color/secondary_100"-->
-                <!--                app:tabTextAppearance="@style/detail_tab_text"-->
-                <!--                app:tabTextColor="@color/primary_100">-->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorSurface"
+                    android:elevation="8dp"
+                    app:tabIndicatorColor="@color/secondary_100"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabSelectedTextColor="@color/secondary_100"
+                    app:tabTextAppearance="@style/detail_tab_text"
+                    app:tabTextColor="@color/primary_100">
 
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:id="@+id/tabItem1"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="Ingredients" />-->
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tabItem1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Ingredients" />-->
 
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:id="@+id/tabItem2"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="Directions" />-->
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tabItem2"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Directions" />-->
 
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:id="@+id/tabItem3"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="Reviews" />-->
-                <!--            </com.google.android.material.tabs.TabLayout>-->
+<!--                    <com.google.android.material.tabs.TabItem-->
+<!--                        android:id="@+id/tabItem3"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Reviews" />-->
+                </com.google.android.material.tabs.TabLayout>
 
                 <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/pager"
+                    android:id="@+id/viewPager2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
