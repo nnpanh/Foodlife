@@ -54,6 +54,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
         when (p0?.id){
             R.id.detail_menu -> {
                 DetailMoreMenu().show(childFragmentManager, DetailMoreMenu.TAG)
+                g
             }
         }
     }
