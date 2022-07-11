@@ -43,4 +43,6 @@
     <string name="have_plan_day">Have a plan day</string>
     <string name="no_plan_day">No plan day</string>
     <string name="calendar_warning">Note: User can only view plans from 7 days before or 7 days in the future.</string>
+    <string name="txt_recipe_name">Recipe name</string>
+    <string name="txt_description">Description</string>
 </resources>

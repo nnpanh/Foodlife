@@ -35,19 +35,19 @@
         android:id="@+id/AR_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/AR_header">
+        android:layout_below="@id/AR_header"
+        android:layout_marginTop="50dp">
 
         <TextView
             android:id="@+id/tvARInformation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/title_add_recipe_Information"
-            android:fontFamily="@font/poppins_bold"
-            android:textSize="30sp"
-            android:textColor="@color/black"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"/>
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/title_add_recipe_Information"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/tvARPage2"
@@ -74,86 +74,86 @@
         android:orientation="vertical"
         android:layout_below="@id/AR_title">
         <RelativeLayout
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            android:backgroundTint="@color/rating"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp">
+
+            <ImageView
+                android:id="@+id/ic_serves"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
                 android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp">
+                android:backgroundTint="@color/white"
+                android:padding="10dp"
+                android:src="@drawable/user_bold"
+                app:tint="@color/secondary_100" />
 
-                <ImageView
-                    android:id="@+id/ic_serves"
-                    android:layout_width="48dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:padding="10dp"
-                    android:src="@drawable/user_bold"
-                    app:tint="@color/secondary_100" />
+            <TextView
+                android:id="@+id/txt_serves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/ic_serves"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="@string/txt_serves"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/txt_serves"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/ic_serves"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:text="@string/txt_serves"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/ic_serves_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/plus_border"
+                app:tint="@color/white" />
 
-                <ImageView
-                    android:id="@+id/ic_serves_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/plus_border"
-                    app:tint="@color/white" />
+            <EditText
+                android:id="@+id/num_serves"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/ic_serves_plus"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/white"
+                android:inputType="number"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:text="01"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-                <EditText
-                    android:id="@+id/num_serves"
-                    android:layout_width="48dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toStartOf="@id/ic_serves_plus"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:inputType="number"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="01"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/poppins_regular"
-                    android:textSize="16sp"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/ic_serves_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toStartOf="@id/num_serves"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/minus_border"
-                    app:tint="@color/white" />
-            </RelativeLayout>
+            <ImageView
+                android:id="@+id/ic_serves_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/num_serves"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/minus_border"
+                app:tint="@color/white" />
+        </RelativeLayout>
 
         <RelativeLayout
                 android:layout_width="match_parent"

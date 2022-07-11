@@ -1,128 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="172dp"
-        android:text="Add recipe"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/AR_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="103dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Tittle"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tittle_add_recipe"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="57dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="97dp"
-        android:layout_marginEnd="30dp"
-        android:text="1/4"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins_light"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:background="@drawable/addrecipe_roundedcorner_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/AR_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AR_header"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/tvARInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/title_add_recipe_Title"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tvARPage1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/addrecipe_roundedcorner_1"
+            android:fontFamily="@font/poppins_light"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="1/4"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </RelativeLayout>
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="574dp"
-        android:layout_marginTop="184dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AR_title">
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+        <RelativeLayout
+            android:id="@+id/AR_basic_information"
             android:layout_width="match_parent"
-            android:layout_height="700dp">
+            android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editTextRecipeName"
-                android:layout_width="350dp"
-                android:layout_height="55dp"
+                android:id="@+id/et_RecipeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/addrecipe_roundedcorner_2"
+                android:ellipsize="end"
                 android:ems="10"
-                android:hint="Recipe name"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:hint="@string/txt_recipe_name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp" />
 
             <EditText
-                android:id="@+id/editTextDescription"
-                android:layout_width="350dp"
-                android:layout_height="150dp"
+                android:id="@+id/et_Description"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/et_RecipeName"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginEnd="30dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/addrecipe_roundedcorner_2"
                 android:ems="10"
                 android:gravity="top"
-                android:hint="Description"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:paddingTop="17.5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextRecipeName" />
+                android:hint="@string/txt_description"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="350dp"
-                android:layout_height="221dp"
-
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_below="@id/et_Description"
+                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="28dp"
                 android:layout_marginEnd="30dp"
-                android:elevation="10dp"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDescription">
+                android:layout_marginBottom="25dp"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="350dp"
+                    android:layout_width="match_parent"
                     android:layout_height="221dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/addrecipe_roundedcorner_2"
@@ -133,16 +137,16 @@
                     android:id="@+id/uploadimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:contentDescription="Upload image"
-
-                    android:src="@drawable/ic_bi_camera_fill"
                     android:layout_gravity="center"
+                    android:clickable="true"
+
+                    android:contentDescription="Upload image"
+                    android:src="@drawable/ic_bi_camera_fill"
                     app:backgroundTint="@color/secondary_100" />
             </androidx.cardview.widget.CardView>
-<!--            android:maxImagesize="48dp"-->
+            <!--            android:maxImagesize="48dp"-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
