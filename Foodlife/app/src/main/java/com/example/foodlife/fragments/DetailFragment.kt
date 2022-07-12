@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
-import androidx.viewpager2.widget.ViewPager2
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
-import com.example.foodlife.dialog.BottomDialog
-import com.example.foodlife.dialog.DetailMoreMenu
+import com.example.foodlife.dialog.AddToPlanBottomDialog
+import com.example.foodlife.dialog.OptionBottomDialog
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailFragment : Fragment(), View.OnClickListener {
@@ -23,6 +23,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
     // onDestroyView.
     private val binding get() = _binding!!
     private var isSpinnerInitial = true
+
+    private var bottomDialog = OptionBottomDialog()
 
     var tabTitle = arrayOf("Ingredients", "Directions", "Review")
 
@@ -53,7 +55,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
             tab, position ->
                 tab.text = tabTitle[position]
         }.attach()
-        Log.d("Hehe", "hehehehe")
         initListener()
     }
 
@@ -69,9 +70,36 @@ class DetailFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when (p0?.id){
             R.id.detail_menu -> {
-                DetailMoreMenu().show(childFragmentManager, DetailMoreMenu.TAG)
-//                BottomDialog().show(childFragmentManager, BottomDialog.TAG)
+//                DetailMoreMenu().show(childFragmentManager, DetailMoreMenu.TAG)
+                bottomDialog.show(parentFragmentManager, OptionBottomDialog.TAG)
+                bottomDialog.setFragmentResultListener("key") { _ ,bundle ->
+                    bundle.getString("Action")?.let {
+                        when(it){
+                            "Save to collection" -> {
+                                saveToCollection()
+                            }
+                            "Share to other platforms" -> {
+
+                            }
+                            "Add to my plan" -> {
+                                addToPlan()
+
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+    private fun addToPlan(){
+        val addToPlanBottomDialog = AddToPlanBottomDialog()
+        addToPlanBottomDialog.show(parentFragmentManager, AddToPlanBottomDialog.TAG)
+        addToPlanBottomDialog.setFragmentResultListener("key"){ _,bundle ->
+
+        }
+    }
+
+    private fun saveToCollection() {
+
     }
 }

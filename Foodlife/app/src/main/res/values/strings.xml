@@ -45,5 +45,9 @@
     <string name="calendar_warning">Note: User can only view plans from 7 days before or 7 days in the future.</string>
     <string name="txt_recipe_name">Recipe name</string>
     <string name="txt_description">Description</string>
-    <string name="optional">Tùy chọn</string>
+    <string name="optional">Options</string>
+    <string name="add_current_meal_to_the_plan">Add current meal to the plan</string>
+    <string name="select_a_plan_date">Select a plan</string>
+    <string name="choose_the_meal_you_want_to_add_this_dish">Choose the meal you want to add this dish?</string>
+    <string name="confirm">Confirm</string>
 </resources>
