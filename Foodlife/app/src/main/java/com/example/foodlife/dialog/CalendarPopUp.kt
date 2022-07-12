@@ -26,6 +26,11 @@ class CalendarPopUp : DialogFragment() {
             it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
         }
 
+        val imgCalendar =dialog.findViewById<ImageView>(R.id.imgCalendar)
+        imgCalendar.setOnClickListener {
+            dismiss()
+        }
+
         val imageInfo = dialog.findViewById<ImageView>(R.id.ivMoreInfo)
         imageInfo.setOnClickListener {
             val showMoreGroup = dialog.findViewById<Group>(R.id.grMoreInfo)
