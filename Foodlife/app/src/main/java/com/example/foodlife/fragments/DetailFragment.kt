@@ -52,7 +52,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             tab, position ->
                 tab.text = tabTitle[position]
         }.attach()
-
+        Log.d("Hehe", "hehehehe")
         initListener()
     }
 
@@ -69,7 +69,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
         when (p0?.id){
             R.id.detail_menu -> {
                 DetailMoreMenu().show(childFragmentManager, DetailMoreMenu.TAG)
-                g
             }
         }
     }

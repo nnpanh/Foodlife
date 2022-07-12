@@ -7,7 +7,7 @@
 
         <variable
             name="ingredient"
-            type="com.example.foodlife.models.DetailIngredient" />
+            type="com.example.foodlife.models.DetailIngredients" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

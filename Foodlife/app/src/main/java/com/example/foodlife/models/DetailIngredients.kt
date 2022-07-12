@@ -1,6 +1,6 @@
 package com.example.foodlife.models
 
-class DetailIngredient (
+class DetailIngredients (
     var regular: String,
     var bold: String,
 )

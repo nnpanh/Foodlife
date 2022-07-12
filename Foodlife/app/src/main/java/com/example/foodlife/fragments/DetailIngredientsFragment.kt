@@ -9,21 +9,23 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
-import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
+import com.example.foodlife.adapters.DetailIngredientsAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.databinding.FragmentDetailIngredientsBinding
-import com.example.foodlife.models.DetailIngredient
 import com.example.foodlife.view_models.DetailViewModel
 import com.example.foodlife.view_models.PlanViewModel
 
 class DetailIngredientsFragment : Fragment(), View.OnClickListener {
-    private lateinit var navController: NavController
 
     private var _binding: FragmentDetailIngredientsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var detailIngredientViewModel: DetailViewModel
+    private var adapterDetailIngredients: DetailIngredientsAdapter? = null
+
+    private lateinit var detailIngredientsViewModel: DetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,14 +39,13 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
-        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
-        detailIngredientViewModel = ViewModelProvider(store)[DetailViewModel::class.java]
+
+        detailIngredientsViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
         //Initialize view
         initListener()
 //        initTotalAdapter()
-//        initIngredientsAdapter()
+        initDetailIngredientsAdapter()
 
     }
 
@@ -53,12 +54,32 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
         binding.ivMinus.setOnClickListener(this)
     }
 
+    private fun initDetailIngredientsAdapter(){
+        adapterDetailIngredients = DetailIngredientsAdapter()
+        binding.listIngredients.adapter = adapterDetailIngredients
+        binding.listIngredients.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
+        adapterDetailIngredients!!.updateData(detailIngredientsViewModel.DetailIngredientsList)
+    }
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
+        when (p0?.id) {
+
+            R.id.ivMinus -> {
+                adapterDetailIngredients?.updateData(detailIngredientsViewModel.DetailIngredientsList)
+                binding.tvNumberServe.text="01"
+            }
+            R.id.ivPlus -> {
+                adapterDetailIngredients?.updateData(detailIngredientsViewModel.DetailIngredientsList2)
+                binding.tvNumberServe.text="02"
+            }
+        }
     }
 }
