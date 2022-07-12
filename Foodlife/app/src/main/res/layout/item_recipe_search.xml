@@ -91,7 +91,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:layout_marginTop="2dp"
                 tools:text="4.6"
-                android:text="@{recipe.score}"
+
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@id/ivStar"
@@ -118,7 +118,7 @@
             android:gravity="start"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="@{recipe.time}"
+
             tools:text="60 60 60 60 min"
             android:layout_margin="8dp"
             android:fontFamily="@font/poppins_medium"

@@ -108,7 +108,7 @@
                         tools:text="4.6"
                         android:textColor="@color/black"
                         android:textSize="12sp"
-                        android:text="@{recipe.score}"
+
                         app:layout_constraintStart_toEndOf="@id/ivStar"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -209,7 +209,7 @@
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/black"
                     android:textSize="11sp"
-                    android:text="@{recipe.time}"
+
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/rec_frame_time"
                     app:layout_constraintTop_toTopOf="@+id/rec_frame_cook"
