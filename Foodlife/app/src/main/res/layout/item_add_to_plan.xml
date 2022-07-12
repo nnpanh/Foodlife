@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="option"
+            type="com.example.foodlife.models.BottomDialogOption" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutItem"
+        android:background="@color/gray_80"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/ivDish"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:imageResource="@{option.img}"
+            tools:srcCompat="@drawable/salad" />
+
+        <TextView
+            android:id="@+id/tvDishTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ivDish"
+            android:gravity="start"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@{option.option}"
+            tools:text="Apple Juice and Lemon"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/text_normal"
+            android:textColor="@color/primary_100" />
+
+        <ImageView
+            android:id="@+id/ivSelect"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@{option.selected? @drawable/ic_checkbox_selected:@drawable/ic_checkbox,default=@drawable/ic_checkbox}"
+            tools:srcCompat="@drawable/ic_checkbox" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
