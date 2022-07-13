@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailDirections"
+            type="com.example.foodlife.models.DetailDirections" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/tvDir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="16dp"
+            android:gravity="start"
+            android:textColor="@color/primary_100"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Apple Juice and  Juice Juice  Juice  Juice Juice and  Juice Juice  Juice  Juice Juice and  Juice Juice  Juice  Juice  Juice  Juice Lemon" />
+
+        <ImageView
+            android:id="@+id/ivDir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:imageResource="@{detailDirections.img}"
+            app:layout_constraintTop_toBottomOf="@id/tvDir"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:srcCombat="@drawable/example_step_1"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
