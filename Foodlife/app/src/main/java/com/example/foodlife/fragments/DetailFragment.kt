@@ -1,7 +1,8 @@
 package com.example.foodlife.fragments
 
+import android.content.Intent.getIntent
+import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.dialog.AddToPlanBottomDialog
 import com.example.foodlife.dialog.OptionBottomDialog
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class DetailFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
@@ -60,9 +61,23 @@ class DetailFragment : Fragment(), View.OnClickListener {
         }.attach()
         initListener()
 
-        val getTitle = arguments?.getString("Name")
-        Log.d("HEHETITLE","$getTitle")
+        val getTitle = arguments?.getString("Title")
+        val getDes = arguments?.getString("Description")
+        val getTime = arguments?.getInt("Time")
+        val getDiff = arguments?.getString("Diff")
+        val getScore = arguments?.getInt("Score")
+        val getName = arguments?.getString("ProfileName")
+        val getProfile = arguments?.getInt("ProfileImg")
+        //Log.d("HEHETITLE","$getTitle")
         binding.recipeTitle.text = getTitle
+
+        binding.detailAvatar.setBackgroundResource(getProfile!!)
+        binding.tvDetailDes.text = getDes
+        binding.authorName.text = getName
+        binding.currentRatingNum.text = getScore.toString()
+        binding.tvDetailTime.text = getTime.toString()+" mins"
+        binding.tvDetailLevel.text = getDiff
+
 
     }
 

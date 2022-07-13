@@ -1,5 +1,6 @@
 package com.example.foodlife.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -15,10 +16,13 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlife.CollectionDetail
+import com.example.foodlife.MainActivity
 import com.example.foodlife.R
 import com.example.foodlife.adapters.*
 import com.example.foodlife.databinding.FragmentSearchBinding
 import com.example.foodlife.dialog.FilterSearchPopUp
+import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.HomeViewModel
 
 
@@ -83,10 +87,16 @@ class SearchFragment : Fragment(), View.OnClickListener {
         val arraySearch = homeViewModel.searchList.value
         if (adapterSearch == null) {
             adapterSearch=SearchRecipeAdapter(arraySearch!!){ itemClicked ->
-                Log.d("HEHE","${itemClicked.title}")
                 val bundle = Bundle()
-                bundle.putString("Name", itemClicked.title)
+                bundle.putString("Title", itemClicked.title)
+                bundle.putString("Description", itemClicked.description)
+                bundle.putInt("Score", itemClicked.score)
+                bundle.putString("Diff", itemClicked.diff)
+                bundle.putInt("Time", itemClicked.time)
+                bundle.putString("ProfileName", itemClicked.profile_name)
+                bundle.putInt("ProfileImg", itemClicked.profile_img)
                 navController.navigate(R.id.goToDetail,bundle)
+
             }
         }
         //Check if recyclerView is not null
@@ -98,7 +108,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         //Set adapter
         _recyclerView.apply {
             adapter = _adapter
-            layoutManager = GridLayoutManager(context,2)
+            layoutManager = GridLayoutManager(context, 2)
         }
     }
 

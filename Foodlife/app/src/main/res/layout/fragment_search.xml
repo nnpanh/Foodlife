@@ -42,8 +42,8 @@
         <ImageView
             android:id="@+id/ivSearchFilter"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/filter"
@@ -77,9 +77,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
             android:nestedScrollingEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/ACTVSearchPage"
             tools:itemCount="2"
             tools:listitem="@layout/item_recipe_search" />

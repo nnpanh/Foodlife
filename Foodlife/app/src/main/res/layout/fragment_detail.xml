@@ -194,6 +194,7 @@
                                     android:src="@drawable/clock_bold" />
 
                                 <TextView
+                                    android:id="@+id/tvDetailTime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
@@ -232,6 +233,7 @@
                                     android:src="@drawable/chef_bold" />
 
                                 <TextView
+                                    android:id="@+id/tvDetailLevel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
@@ -243,6 +245,7 @@
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <TextView
+                            android:id="@+id/tvDetailDes"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"

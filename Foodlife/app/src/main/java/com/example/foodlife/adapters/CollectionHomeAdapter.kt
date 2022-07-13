@@ -9,7 +9,7 @@ import com.example.foodlife.databinding.ItemIngredientsBinding
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.Recipe
 
-class CollectionHomeAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CollectionHomeAdapter(private val listener: (Recipe) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var collectionList:MutableList<Recipe> = mutableListOf()
 
     fun updateData(collectionList: MutableList<Recipe> = mutableListOf()){
@@ -19,6 +19,7 @@ class CollectionHomeAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class ItemViewHolder(private val itemCollectionHomeBinding: ItemCollectionHomeBinding) :
         RecyclerView.ViewHolder(itemCollectionHomeBinding.root) {
         fun bindData(_recipe: Recipe) {
+            itemCollectionHomeBinding.collectHomeInfo.setOnClickListener{listener(_recipe)}
             itemCollectionHomeBinding.apply {
                 recipe=_recipe
                 executePendingBindings()

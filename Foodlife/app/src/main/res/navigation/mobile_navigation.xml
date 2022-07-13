@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_navigation_home_to_addRecipeTittleFragment"
             app:destination="@id/addRecipeTitleFragment" />
+        <action
+            android:id="@+id/homeToDetail"
+            app:destination="@id/detail_fragment" />
     </fragment>
 
     <fragment

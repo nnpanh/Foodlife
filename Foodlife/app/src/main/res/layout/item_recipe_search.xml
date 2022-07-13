@@ -19,17 +19,19 @@
     app:cardPreventCornerOverlap="false"
     android:theme="@style/Theme.MaterialComponents.Light"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginBottom="24dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@drawable/bgr_round_blue"
         android:backgroundTint="#FCF6F6"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/pageSearch"
+        android:paddingBottom="8dp">
 
         <ImageView
             android:id="@+id/ivDish"
-            android:layout_width="160dp"
+            android:layout_width="170dp"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
@@ -116,8 +118,9 @@
             android:maxLines="1"
             android:ellipsize="end"
 
-            tools:text="60 60 60 60 min"
-            android:layout_margin="8dp"
+            tools:text="6000 mins"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
             android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/text_smaller"
             android:textColor="@color/primary_100"
@@ -142,20 +145,19 @@
             android:id="@+id/tvLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="40dp"
+            android:layout_marginTop="8dp"
+            android:maxWidth="45dp"
             android:gravity="start"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:text="@{recipe.diff}"
-            tools:text="HardHardHardHardHard"
-            android:layout_margin="8dp"
             android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/text_smaller"
+            android:maxLines="1"
+            android:text="@{recipe.diff}"
             android:textColor="@color/primary_100"
-            app:layout_constraintTop_toTopOf="@id/ivLevel"
+            android:textSize="@dimen/text_smaller"
             app:layout_constraintBottom_toBottomOf="@id/ivLevel"
             app:layout_constraintStart_toEndOf="@id/ivLevel"
-            />
+            app:layout_constraintTop_toTopOf="@id/ivLevel"
+            tools:text="Difficult" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 </layout>

@@ -9,16 +9,18 @@ import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemRecommendedHomeBinding
 import com.example.foodlife.models.Recipe
 
-class RecommendHomeAdapter: RecyclerView.Adapter<RecommendHomeAdapter.ViewHolder>() {
+class RecommendHomeAdapter(private val listener: (Recipe) -> Unit): RecyclerView.Adapter<RecommendHomeAdapter.ViewHolder>() {
     var rec_list: List<Recipe> = emptyList()
     fun updateData(rec_list: List<Recipe>){
         this.rec_list=rec_list
 
     }
-    inner class ViewHolder(private val view: ItemRecommendedHomeBinding) :
-        RecyclerView.ViewHolder(view.root){
+    inner class ViewHolder(private val itemRecommendedHomeBinding: ItemRecommendedHomeBinding) :
+        RecyclerView.ViewHolder(itemRecommendedHomeBinding.root){
+
         fun bindData(_recipe: Recipe) {
-            view.apply {
+            itemRecommendedHomeBinding.recHomeItem.setOnClickListener{listener(_recipe)}
+            itemRecommendedHomeBinding.apply {
                 recipe =_recipe
                 executePendingBindings()
             }

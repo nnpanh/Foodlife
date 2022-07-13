@@ -51,7 +51,7 @@ class RecommendCategoryAdapter(private val listener: (RecommendCategoryModel) ->
     }
 
 
-    private var selectedPosition = -1
+    private var selectedPosition = 0
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = catList[position]
         (holder ).bindData(item)
