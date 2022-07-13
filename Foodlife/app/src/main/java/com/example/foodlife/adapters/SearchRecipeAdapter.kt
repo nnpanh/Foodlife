@@ -14,8 +14,9 @@ import com.example.foodlife.databinding.ItemRecommendedHomeBinding
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.models.Recipe
+import com.example.foodlife.models.RecommendCategoryModel
 
-class SearchRecipeAdapter(private val search: List<Recipe>) :RecyclerView.Adapter<SearchRecipeAdapter.ViewHolder>(), Filterable {
+class SearchRecipeAdapter(private val search: List<Recipe>, private val listener: (Recipe) -> Unit) :RecyclerView.Adapter<SearchRecipeAdapter.ViewHolder>(), Filterable {
     var searchlist: List<Recipe> = emptyList()
     init{
         searchlist=search
@@ -30,6 +31,7 @@ class SearchRecipeAdapter(private val search: List<Recipe>) :RecyclerView.Adapte
         RecyclerView.ViewHolder(itemRecipeSearchBinding.root){
 
         fun bindData(_recipe: Recipe) {
+            itemRecipeSearchBinding.itemSearch.setOnClickListener{listener(_recipe)}
             itemRecipeSearchBinding.apply {
                 recipe =_recipe
                 val connectString = _recipe.time.toString()+" mins"

@@ -56,6 +56,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 tab.text = tabTitle[position]
         }.attach()
         initListener()
+
+        val getTitle = arguments?.getString("Name")
+        Log.d("HEHETITLE","$getTitle")
+        binding.recipeTitle.text = getTitle
+
     }
 
     private fun initListener(){
