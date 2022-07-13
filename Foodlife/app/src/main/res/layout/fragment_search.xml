@@ -43,17 +43,13 @@
             android:id="@+id/ivSearchFilter"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/filter"
-
             app:layout_constraintTop_toTopOf="@id/ACTVSearchPage"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="ContentDescription" />
-
-
 
         <AutoCompleteTextView
             android:id="@+id/ACTVSearchPage"
@@ -68,7 +64,7 @@
             android:drawableTint="#FF9C00"
             android:fontFamily="@font/poppins_regular"
             android:hint="@string/txt_search_recipe"
-            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
             android:textColor="@color/primary_20"
             android:textSize="@dimen/text_smaller"
             android:maxLines="1"
@@ -76,50 +72,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSearchBack"/>
 
-        <TextView
-            android:id="@+id/tvSearchText"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_semi_bold"
-            android:text="Search Results"
-            android:textColor="@color/primary_80"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ACTVSearchPage" />
-
-        <TextView
-            android:id="@+id/tvSearchState"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Search Results"
-            android:textColor="@color/primary_40"
-            android:textSize="11sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ACTVSearchPage" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSearchRecipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginTop="8dp"
-
-
+            android:layout_marginTop="24dp"
             android:nestedScrollingEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSearchText"
-
+            app:layout_constraintTop_toBottomOf="@+id/ACTVSearchPage"
             tools:itemCount="2"
-
             tools:listitem="@layout/item_recipe_search" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -1,5 +1,6 @@
 package com.example.foodlife.fragments
 
+import android.graphics.ColorSpace.Model
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,11 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
-import com.example.foodlife.adapters.*
+import com.example.foodlife.adapters.RecommendCategoryAdapter
+import com.example.foodlife.adapters.RecommendFrameAdapter
 import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.view_models.HomeViewModel
+
 
 class RecommendFragment :Fragment(), View.OnClickListener{
     private lateinit var navController: NavController
@@ -44,10 +47,22 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
 
+        if (homeViewModel.meatList.value!!.isEmpty())
+            homeViewModel.loadMeatList()
+        if (homeViewModel.vegetableList.value!!.isEmpty())
+            homeViewModel.loadVegetableList()
+        if (homeViewModel.westernList.value!!.isEmpty())
+            homeViewModel.loadWesternList()
+        if (homeViewModel.vietnamList.value!!.isEmpty())
+            homeViewModel.loadVietNamList()
+        if (homeViewModel.dessertList.value!!.isEmpty())
+            homeViewModel.loadDessertList()
 
         //Initialize view
         initListener()
         initAdapters()
+
+
 
     }
 
@@ -55,8 +70,6 @@ class RecommendFragment :Fragment(), View.OnClickListener{
     private fun initAdapters(){
         //Create adapter
 
-        //adapterMainCat= MainCategoryAdapter() rvMainCat
-        //adapterCollection= CollectionHomeAdapter() rvCollectionHome
         if (adapterRecommendFrame == null) {
             adapterRecommendFrame = RecommendFrameAdapter()
         }
@@ -64,23 +77,39 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         if (adapterRecommendCat == null) {
             adapterRecommendCat = RecommendCategoryAdapter() { clickedItem ->
                 val updateList = homeViewModel.recCat
-                //println(1)
+                val position=updateList.indexOf(clickedItem)
+                binding.test.text=position.toString()
+                var newList=homeViewModel.recList
+                if (position==0) {
+                    newList=homeViewModel.meatList.value!!
+                }
+                else if (position==1){
+                    newList=homeViewModel.vegetableList.value!!
+                }
+                else if (position==2){
+                    newList=homeViewModel.westernList.value!!
+                }
+                else if (position==3){
+                    newList=homeViewModel.vietnamList.value!!
+                }
+                else if (position==4){
+                    newList=homeViewModel.dessertList.value!!
+                }
+                    //planViewModel.breakfastList = updateList
+                adapterRecommendFrame?.updateData(newList)
             }
         }
+
         //Check if recyclerView is not null
         setAdapterRec(adapterRecommendFrame!!, binding.rvRecFrameItem)
         homeViewModel.recList.let { adapterRecommendFrame!!.updateData(it) }
 
         setAdapterRecCat(adapterRecommendCat!!, binding.rvRecMainCat)
         homeViewModel.recCat.let { adapterRecommendCat!!.updateData(it) }
-
-
-
-
     }
+
     private fun initListener() {
         binding.RecommendSearch.setOnClickListener(this)
-
     }
     private fun setAdapterRec(_adapter: RecommendFrameAdapter, _recyclerView: RecyclerView){
         //Set adapter
@@ -110,6 +139,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

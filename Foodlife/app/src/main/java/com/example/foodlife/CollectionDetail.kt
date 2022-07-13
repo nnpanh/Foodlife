@@ -44,7 +44,7 @@ class CollectionDetail : AppCompatActivity() {
             finish()
         }
         val RVRecipe = findViewById<RecyclerView>(R.id.RVColD)
-        var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", "3.5", "Medium", "30 mins","",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", "3.5", "Medium", "30 mins","",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken","3.5", "Medium", "30 mins","",0,""))
+        var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken",3, "Medium", 30,"",0,""))
         val recipeAdapter = CollectionRecipeAdapter(recipeArray)
         RVRecipe.layoutManager = GridLayoutManager(this, 2)
         RVRecipe.adapter = recipeAdapter
