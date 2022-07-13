@@ -423,11 +423,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLunchDescription" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlanTextDinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDinnerTitle"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recipe_text" />
             <TextView
                 android:id="@+id/tvDinnerDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
@@ -435,8 +446,10 @@
                 android:text="@string/txt_no_dish"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_normal"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDinnerTitle" />
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextDinner"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/tvSnackTitle"

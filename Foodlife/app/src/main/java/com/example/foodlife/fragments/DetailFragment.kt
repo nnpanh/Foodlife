@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
@@ -45,6 +47,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController = Navigation.findNavController(view)
 
         //Viewpager & TabLayout
         var pager = binding.viewPager2
@@ -100,7 +103,16 @@ class DetailFragment : Fragment(), View.OnClickListener {
         val addToPlanBottomDialog = AddToPlanBottomDialog()
         addToPlanBottomDialog.show(parentFragmentManager, AddToPlanBottomDialog.TAG)
         addToPlanBottomDialog.setFragmentResultListener("result"){ _,bundle ->
-
+            /**
+             * Put current dish info in this bundle
+             */
+            bundle.putString("Title","Stir-fried beef with broccoli and Rice")
+            bundle.putString("Time","35 mins")
+            bundle.putString("Level","Medium")
+            bundle.putString("Author","NKTTNga")
+            bundle.putString("Rate","4.5")
+            bundle.putInt("Image",R.drawable.recommend_1)
+            navController.navigate(R.id.returnPlan,bundle)
         }
     }
 

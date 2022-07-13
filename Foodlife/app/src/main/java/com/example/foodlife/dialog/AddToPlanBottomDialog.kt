@@ -2,6 +2,7 @@ package com.example.foodlife.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,7 +45,7 @@ class AddToPlanBottomDialog : DialogFragment() {
         /**
          * Adapter for 4 meals
          */
-         rvAdapter= AddToPlanAdapter(){ itemClicked ->
+         rvAdapter= AddToPlanAdapter{ itemClicked ->
             listOption.filter { it.option == itemClicked.option }.forEach { itemInList ->
                 itemInList.selected = !itemInList.selected
             }
@@ -69,13 +71,23 @@ class AddToPlanBottomDialog : DialogFragment() {
          */
         view.findViewById<TextView>(R.id.btnContinue).setOnClickListener {
             var selectedAny = false
-            listOption.forEach(){
+            listOption.forEach{
                 if (it.selected) selectedAny = true
             }
+
             if (!selectedAny) {
-                val alertDialog = AlertDialog.Builder(this.context)
-                alertDialog.setTitle("Please select at least one meal")
-                alertDialog.show()
+                val textValue = HtmlCompat.fromHtml("<b>Warning</b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
+                val textButton = HtmlCompat.fromHtml("<font color='#FF9C00'>OK</font>", HtmlCompat.FROM_HTML_MODE_LEGACY)
+                val dialogBuilder = AlertDialog.Builder(activity!!)
+                dialogBuilder.setMessage("Please select at least one meal!")
+                    .setTitle(textValue)
+                    .setCancelable(false)
+                    .setPositiveButton(textButton) { dialog, _ ->
+                        dialog.dismiss()
+
+                    }
+                    .create()
+                    .show()
             }
             else {
                 val bundle = Bundle()
