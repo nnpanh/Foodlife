@@ -56,6 +56,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 tab.text = tabTitle[position]
         }.attach()
         initListener()
+
+        val getTitle = arguments?.getString("Name")
+        Log.d("HEHETITLE","$getTitle")
+        binding.recipeTitle.text = getTitle
+
     }
 
     private fun initListener(){
@@ -94,7 +99,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
     private fun addToPlan(){
         val addToPlanBottomDialog = AddToPlanBottomDialog()
         addToPlanBottomDialog.show(parentFragmentManager, AddToPlanBottomDialog.TAG)
-        addToPlanBottomDialog.setFragmentResultListener("key"){ _,bundle ->
+        addToPlanBottomDialog.setFragmentResultListener("result"){ _,bundle ->
 
         }
     }

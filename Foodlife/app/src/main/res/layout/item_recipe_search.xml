@@ -8,6 +8,7 @@
             type="com.example.foodlife.models.Recipe" />
     </data>
 <androidx.cardview.widget.CardView
+    android:id="@+id/itemSearch"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardElevation="4dp"
