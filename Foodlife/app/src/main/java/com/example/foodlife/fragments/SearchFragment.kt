@@ -3,6 +3,7 @@ package com.example.foodlife.fragments
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -81,7 +82,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
             homeViewModel.loadSearchList()
         val arraySearch = homeViewModel.searchList.value
         if (adapterSearch == null) {
-            adapterSearch=SearchRecipeAdapter(arraySearch!!)
+            adapterSearch=SearchRecipeAdapter(arraySearch!!){ itemClicked ->
+                Log.d("HEHE","${itemClicked.title}")
+                val bundle = Bundle()
+                bundle.putString("Name", itemClicked.title)
+                navController.navigate(R.id.goToDetail,bundle)
+            }
         }
         //Check if recyclerView is not null
         setAdapterSearch(adapterSearch!!, binding.rvSearchRecipe)

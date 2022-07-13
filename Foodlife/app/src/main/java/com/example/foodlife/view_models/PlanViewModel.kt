@@ -16,8 +16,11 @@ class PlanViewModel : ViewModel() {
     var lunchList = mutableListOf(
             PlanItemModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium","NNPAnh"),
             PlanItemModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy","NNPAnh"),
-
             )
+
+    var dinnerList = mutableListOf<PlanItemModel>(
+        PlanItemModel("Spicy sauce Tokbokki","4,5",  R.drawable.example_dish_2,"30 min","Easy","NNPAnh"),
+        )
 
     var snackList = mutableListOf(
             PlanItemModel("Japanese Ramen","4.5",  R.drawable.example_dish_1,"60 min","Medium","NPVy21"),

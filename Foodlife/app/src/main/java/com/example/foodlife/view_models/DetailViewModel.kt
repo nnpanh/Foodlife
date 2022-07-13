@@ -1,6 +1,8 @@
 package com.example.foodlife.view_models
 
 import androidx.lifecycle.ViewModel
+import com.example.foodlife.R
+import com.example.foodlife.models.DetailDirections
 import com.example.foodlife.models.DetailIngredients
 
 class DetailViewModel: ViewModel() {
@@ -27,5 +29,10 @@ class DetailViewModel: ViewModel() {
         DetailIngredients("green onions","36g sliced"),
         DetailIngredients("wheat bread with grapefruits","16 slices"),
         DetailIngredients("lettuce leaves","8"),
+    )
+
+    var DetailDirectionsList = mutableListOf(
+        DetailDirections(R.drawable.example_step_1,"Chop eggs.","Step 1:"),
+        DetailDirections(R.drawable.example_step_2,"Mix mayonnaise, lemon juice, mustard, salt and pepper in medium bowl.","Step 2:"),
     )
 }
