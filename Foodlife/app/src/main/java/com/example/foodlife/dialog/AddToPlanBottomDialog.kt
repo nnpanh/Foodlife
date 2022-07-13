@@ -57,14 +57,16 @@ class AddToPlanBottomDialog : DialogFragment() {
         }
         rvAdapter?.updateData(listOption)
 
-        /**
-         * Click on continue
-         */
 
+        /**
+         * Click on the -> to open calendar (select day)
+         */
         view.findViewById<ImageView>(R.id.ivSelect).setOnClickListener{
             CalendarPopUp().show(parentFragmentManager,CalendarPopUp.TAG)
         }
-
+        /**
+         * Click on continue
+         */
         view.findViewById<TextView>(R.id.btnContinue).setOnClickListener {
             var selectedAny = false
             listOption.forEach(){
@@ -80,6 +82,11 @@ class AddToPlanBottomDialog : DialogFragment() {
                 listOption.forEach(){
                     bundle.putBoolean(it.option, it.selected)
                 }
+                /**
+                 * Return bundle included 4 meals
+                 * Type: (String:Boolean)
+                 * Example: "Breakfast" : true
+                 */
                 setFragmentResult("result", bundle)
                 dismiss()
             }

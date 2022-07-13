@@ -94,7 +94,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
     private fun addToPlan(){
         val addToPlanBottomDialog = AddToPlanBottomDialog()
         addToPlanBottomDialog.show(parentFragmentManager, AddToPlanBottomDialog.TAG)
-        addToPlanBottomDialog.setFragmentResultListener("key"){ _,bundle ->
+        addToPlanBottomDialog.setFragmentResultListener("result"){ _,bundle ->
 
         }
     }
