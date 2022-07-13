@@ -13,11 +13,11 @@
     <string name="txt_snacks">Snacks</string>
     <string name="txt_search_recipe">Search your recipes</string>
     <string name="txt_no_dish">No dish have been selected for this meal.</string>
-    <string name="title_add_recipe_Title">Tittle</string>
+    <string name="title_add_recipe_Title">Title</string>
     <string name="title_add_recipe_Information">Information</string>
     <string name="title_add_recipe_Ingredient">Ingredients</string>
     <string name="title_add_recipe_Direction">Directions</string>
-    <string name="tittle_add_recipe">Add recipe</string>
+    <string name="title_add_recipe">Add recipe</string>
 
     <string name="txt_serves">Serves</string>
     <string name="txt_preparationTime">Preparation time</string>
@@ -50,4 +50,10 @@
     <string name="select_a_plan_date">Select a plan</string>
     <string name="choose_the_meal_you_want_to_add_this_dish">Choose the meal you want to add this dish?</string>
     <string name="confirm">Confirm</string>
+    <string name="txt_ingredient">Ingredient</string>
+    <string name="txt_add_ingredient">Add ingredient</string>
+    <string name="txt_add_btn">Add</string>
+    <string name="txt_add_direction">Add Direction</string>
+    <string name="txt_next_btn">Next</string>
+    <string name="txt_direction">Direction</string>
 </resources>

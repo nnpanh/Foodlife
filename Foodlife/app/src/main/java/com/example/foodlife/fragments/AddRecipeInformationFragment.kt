@@ -8,17 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.foodlife.R
-import com.example.foodlife.databinding.FragmentAddrecipeTittleBinding
-import com.example.foodlife.databinding.FragmentPlanBinding
-import com.example.foodlife.models.UserModel
-import com.example.foodlife.roomdb.FoodlifeDB
-import com.example.foodlife.roomdb.entities.UserEntity
-import com.example.foodlife.view_models.AddRecipeViewModel
-import com.example.foodlife.view_models.PlanViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.foodlife.databinding.FragmentAddRecipeInformationBinding
 
-class AddRecipeFragment : Fragment() {
+class AddRecipeInformationFragment : Fragment() {
 
 //    companion object {
 //        fun newInstance() = AddRecipeFragment()
@@ -39,7 +34,8 @@ class AddRecipeFragment : Fragment() {
 //        viewModel = ViewModelProvider(this).get(AddRecipeViewModel::class.java)
 //        // TODO: Use the ViewModel
 //    }
-    private var _binding: FragmentAddrecipeTittleBinding? = null
+    private lateinit var navController: NavController
+    private var _binding: FragmentAddRecipeInformationBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -50,31 +46,15 @@ class AddRecipeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val planViewModel =
-            ViewModelProvider(this)[PlanViewModel::class.java]
 
-        _binding = FragmentAddrecipeTittleBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-//        val textView: TextView = binding.textPlan
-//        planViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
-        return root
+        _binding = FragmentAddRecipeInformationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val upload: FloatingActionButton = binding.uploadimage
-        upload.setOnClickListener{
-            val builder = AlertDialog.Builder(this.context)
-            builder.setTitle("Select Image")
-            builder.setMessage("Choose your option!")
-            builder.setPositiveButton("Gallery",{dialog, which ->
-
-            })
-        }
+        navController = Navigation.findNavController(view)
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
 
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".fragments.AddRecipeIngredientsFragment">
 
     <RelativeLayout
         android:id="@+id/AR_header"
@@ -15,20 +15,20 @@
             android:id="@+id/ivBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
             android:layout_alignParentStart="true"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tittle_add_recipe"
-            android:fontFamily="@font/poppins_semi_bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_semi_bold"
+            android:text="@string/title_add_recipe"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -39,18 +39,18 @@
         android:layout_marginTop="50dp">
 
         <TextView
-            android:id="@+id/tvARInformation"
+            android:id="@+id/tvARIngredient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="30dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="@string/title_add_recipe_Information"
+            android:text="@string/title_add_recipe_Ingredient"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/tvARPage2"
+            android:id="@+id/tvARPage3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -61,108 +61,118 @@
             android:paddingTop="10dp"
             android:paddingEnd="20dp"
             android:paddingBottom="10dp"
-            android:text="2/4"
+            android:text="3/4"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/AR_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_below="@id/AR_title">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/addrecipe_roundedcorner_2"
-            android:backgroundTint="@color/rating"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ic_serves"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:adjustViewBounds="true"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/white"
-                android:padding="10dp"
-                android:src="@drawable/user_bold"
-                app:tint="@color/secondary_100" />
-
-            <TextView
-                android:id="@+id/txt_serves"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/ic_serves"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:text="@string/txt_serves"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/ic_serves_plus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/plus_border"
-                app:tint="@color/white" />
-
-            <EditText
-                android:id="@+id/num_serves"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/ic_serves_plus"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/white"
-                android:inputType="number"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:text="01"
-                android:textAlignment="center"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="16sp"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <ImageView
-                android:id="@+id/ic_serves_minus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/num_serves"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/minus_border"
-                app:tint="@color/white" />
-        </RelativeLayout>
-
-        <RelativeLayout
+            <RelativeLayout
+                android:id="@+id/serves_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp">
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/rating">
+
+                <ImageView
+                    android:id="@+id/ic_serves"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/addrecipe_roundedcorner_2"
+                    android:backgroundTint="@color/white"
+                    android:padding="10dp"
+                    android:src="@drawable/user_bold"
+                    app:tint="@color/secondary_100" />
+
+                <TextView
+                    android:id="@+id/txt_serves"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/ic_serves"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/txt_serves"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/ic_serves_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:src="@drawable/plus_border"
+                    app:tint="@color/white" />
+
+                <EditText
+                    android:id="@+id/num_serves"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/ic_serves_plus"
+                    android:background="@drawable/addrecipe_roundedcorner_2"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/poppins_regular"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="01"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/ic_serves_minus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toStartOf="@id/num_serves"
+                    android:clickable="true"
+                    android:src="@drawable/minus_border"
+                    app:tint="@color/white" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/preptime_infor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/serves_infor"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/rating">
 
                 <ImageView
                     android:id="@+id/ic_preptime"
@@ -200,14 +210,15 @@
                     android:layout_toStartOf="@id/tv_preptime_minute"
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:backgroundTint="@color/white"
+                    android:fontFamily="@font/poppins_regular"
                     android:inputType="number"
+                    android:maxLines="1"
                     android:paddingStart="10dp"
                     android:paddingTop="5dp"
                     android:paddingEnd="10dp"
                     android:paddingBottom="5dp"
                     android:text="15"
                     android:textAlignment="center"
-                    android:fontFamily="@font/poppins_regular"
                     android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
@@ -215,24 +226,26 @@
                     android:id="@+id/tv_preptime_minute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/txt_minute"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/txt_minute"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <RelativeLayout
+            <RelativeLayout
+                android:id="@+id/cooktime_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating"
-                android:layout_marginTop="30dp"
+                android:layout_below="@id/preptime_infor"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp">
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/rating">
 
                 <ImageView
                     android:id="@+id/ic_cooktime"
@@ -270,40 +283,43 @@
                     android:layout_toStartOf="@id/tv_cooktime_minute"
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:backgroundTint="@color/white"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
                     android:inputType="number"
+                    android:maxLines="1"
                     android:paddingStart="10dp"
                     android:paddingTop="5dp"
                     android:paddingEnd="10dp"
                     android:paddingBottom="5dp"
                     android:text="15"
                     android:textAlignment="center"
-                    android:gravity="center"
-                    android:fontFamily="@font/poppins_regular"
                     android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
-                android:id="@+id/tv_cooktime_minute"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_minute"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"/>
+                    android:id="@+id/tv_cooktime_minute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:text="@string/txt_minute"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/addrecipe_roundedcorner_2"
-            android:backgroundTint="@color/rating"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp">
+            <RelativeLayout
+                android:id="@+id/difficulty_infor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cooktime_infor"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/rating">
 
                 <ImageView
                     android:id="@+id/ic_difficulty"
@@ -332,48 +348,56 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-            <EditText
-                android:id="@+id/ed_diffculty"
+                <TextView
+                    android:id="@+id/tv_diffculty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/addrecipe_roundedcorner_2"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_dropdown"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:paddingStart="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/txt_Easy"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/next_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"
+                android:layout_below="@id/difficulty_infor"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/white"
-                android:inputType="number"
-                android:paddingStart="10dp"
-                android:paddingTop="5dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="5dp"
-                android:text="@string/txt_Easy"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_1"
+                android:drawableEnd="@drawable/ic_right"
+                android:drawablePadding="15sp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@string/txt_next_btn"
                 android:textAlignment="center"
-                android:gravity="center"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="16sp"
-                tools:ignore="TouchTargetSizeCheck"
-                android:drawableRight="@drawable/ic_dropdown"
-                android:drawablePadding="10dp"/>
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:backgroundTint="@color/secondary_100" />
 
         </RelativeLayout>
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/next_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/addrecipe_roundedcorner_1"
-        android:drawableEnd="@drawable/ic_right"
-        android:textColor="@color/white"
-        android:drawablePadding="15sp"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        android:text="Next"
-        android:textAlignment="center"
-        app:backgroundTint="@color/secondary_100"
-        android:fontFamily="@font/poppins_semi_bold"
-        android:textSize="20sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="30dp"/>
+
+    </androidx.core.widget.NestedScrollView>
+
 </RelativeLayout>
