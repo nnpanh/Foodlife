@@ -61,6 +61,7 @@
                 android:id="@+id/test"
                 android:text="test"
                 android:textSize="18sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
             <androidx.recyclerview.widget.RecyclerView
