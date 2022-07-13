@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="recipe"
@@ -13,14 +12,11 @@
     android:layout_height="wrap_content"
     app:cardElevation="4dp"
     app:cardCornerRadius="10dp"
-
     app:rippleColor="@android:color/transparent"
     app:strokeWidth="0dp"
     app:strokeColor="@android:color/transparent"
     app:cardPreventCornerOverlap="false"
     android:theme="@style/Theme.MaterialComponents.Light"
-
-
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="24dp">
@@ -159,9 +155,6 @@
             app:layout_constraintBottom_toBottomOf="@id/ivLevel"
             app:layout_constraintStart_toEndOf="@id/ivLevel"
             />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 </layout>

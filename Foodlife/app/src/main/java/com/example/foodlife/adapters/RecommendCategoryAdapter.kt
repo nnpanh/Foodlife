@@ -1,30 +1,37 @@
 package com.example.foodlife.adapters
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
+import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.databinding.ItemRecommendCategoryBinding
 import com.example.foodlife.models.RecommendCategoryModel
 import com.example.foodlife.view_models.HomeViewModel
 
 
-class RecommendCategoryAdapter(private val listener: (HomeViewModel) -> Unit):RecyclerView.Adapter<RecommendCategoryAdapter.ViewHolder>() {
+class RecommendCategoryAdapter(private val listener: (RecommendCategoryModel) -> Unit):RecyclerView.Adapter<RecommendCategoryAdapter.ViewHolder>() {
     var catList: List<RecommendCategoryModel> = emptyList()
+
+    private var _binding: FragmentRecommendBinding? = null
+    private val binding get() = _binding!!
+
     fun updateData(catList: List<RecommendCategoryModel>){
         this.catList=catList
 
     }
-    //var gPosition: Int=-1
 
-    inner class ViewHolder(private val view: ItemRecommendCategoryBinding) :
+    inner class ViewHolder(private val itemRecommendCategoryBinding: ItemRecommendCategoryBinding) :
 
-        RecyclerView.ViewHolder(view.root){
-        //var selPosition:Int=-1
+        RecyclerView.ViewHolder(itemRecommendCategoryBinding.root){
         fun bindData(_mainCat: RecommendCategoryModel) {
-            view.apply {
+            //itemRecommendCategoryBinding.tvRecCatName.setOnClickListener { listener(_mainCat) }
+            itemRecommendCategoryBinding.apply {
                 mainCat =_mainCat
                 executePendingBindings()
             }
@@ -43,21 +50,31 @@ class RecommendCategoryAdapter(private val listener: (HomeViewModel) -> Unit):Re
         return catList.size
     }
 
+
+    private var selectedPosition = -1
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = catList[position]
+        (holder ).bindData(item)
 
-        (holder as ViewHolder).bindData(item)
-        holder.itemView.setOnClickListener{
-            println(position)
-            /*if (position==gPosition){
-                val color = ContextCompat.getColor(holder.itemView.context, R.color.white)
-                it.findViewById<TextView>(R.id.tvRecCatLine).setBackgroundColor(color)
-            }
-            else{
-                val color = ContextCompat.getColor(holder.itemView.context, R.color.secondary_100)
-                it.findViewById<TextView>(R.id.tvRecCatLine).setBackgroundColor(color)
-            }
-        holder.selPosition=position*/
+        if (selectedPosition == position) {
+            holder.itemView.isSelected = true //using selector drawable
+            holder.itemView.findViewById<TextView>(com.example.foodlife.R.id.tvRecCatLine).setBackgroundColor(
+                ContextCompat.getColor(holder.itemView.getContext(),R.color.secondary_100))
+
+        } else {
+            holder.itemView.isSelected = false
+            holder.itemView.findViewById<TextView>(com.example.foodlife.R.id.tvRecCatLine).setBackgroundColor(
+                ContextCompat.getColor(holder.itemView.getContext(),R.color.white))
         }
+
+        holder.itemView.setOnClickListener {
+            listener(item)
+            if (selectedPosition >= 0) notifyItemChanged(selectedPosition)
+            selectedPosition = holder.adapterPosition
+            notifyItemChanged(selectedPosition)
+            //holder.getAdapterPosition();
+
+        }
+
     }
 }

@@ -32,7 +32,7 @@
         android:textColor="@color/primary_100"
         android:textSize="@dimen/text_medium"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/tvFilterTime"

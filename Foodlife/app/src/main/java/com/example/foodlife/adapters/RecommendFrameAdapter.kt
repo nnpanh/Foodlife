@@ -11,7 +11,8 @@ import com.example.foodlife.models.Recipe
 class RecommendFrameAdapter: RecyclerView.Adapter<RecommendFrameAdapter.ViewHolder>() {
     var rec_list: List<Recipe> = emptyList()
     fun updateData(rec_list: List<Recipe>){
-        this.rec_list=rec_list
+        this.rec_list=rec_list.toMutableList()
+        notifyDataSetChanged()
 
     }
     inner class ViewHolder(private val itemRecommendFrameBinding: ItemRecommendFrameBinding) :

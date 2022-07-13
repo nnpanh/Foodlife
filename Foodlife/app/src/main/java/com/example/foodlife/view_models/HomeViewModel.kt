@@ -35,7 +35,7 @@ class HomeViewModel : ViewModel() {
     var recCat= mutableListOf(
         RecommendCategoryModel("Meat Chop"),
         RecommendCategoryModel("Vegetables"),
-        RecommendCategoryModel("Korea"),
+        RecommendCategoryModel("Western"),
         RecommendCategoryModel("Vietnamese"),
         RecommendCategoryModel("Dessert"),
     )
@@ -127,12 +127,11 @@ class HomeViewModel : ViewModel() {
     fun FilterSearch(catCondition :MutableList<String>){
 
         var filterList: MutableList<Recipe> = searchList.value!!
-        var resultList: MutableList<Recipe> = searchList.value!!
+        var tempList=filterList
 
-        //1. catState==false --> filterList = searchList
-
-        if (catCondition.size>3)
-        //   catState == true --> load list to filterList
+        //1. no category --> filterList = searchList
+        //   has category--> size>2 --> load list to filterList
+        if (catCondition.size>2)
         {
             filterList.clear()
             if(catCondition.contains("Meat")){
@@ -151,7 +150,7 @@ class HomeViewModel : ViewModel() {
                 filterList.addAll(dessertList.value!!)
             }
         }
-        var tempList=filterList
+
         //2. time==false --> nothing
         //   time==true --> remove row with condition from filterList
         if (catCondition[0]!="false"){
@@ -167,8 +166,14 @@ class HomeViewModel : ViewModel() {
         //3. rate==false --> resultList = filterList
         //   rate==true -->  add row to resultList with condition from filterList
         if(catCondition[1]!="false"){
-            resultList.clear()
-
+            val resultList = ArrayList<Recipe>()
+            for(row in filterList){
+                //resultList.add(row)
+                if(catCondition[1].contains(row.score.toString()))
+                    resultList.add(row)
+            }
+            if (resultList.size>0)
+                filterList=resultList
         }
 
         resultFilterList.value=filterList

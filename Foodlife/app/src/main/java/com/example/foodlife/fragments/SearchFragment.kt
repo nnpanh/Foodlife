@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -14,16 +13,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.*
 import com.example.foodlife.databinding.FragmentSearchBinding
-import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.dialog.FilterSearchPopUp
-import com.example.foodlife.models.Collection
 import com.example.foodlife.view_models.HomeViewModel
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
 class SearchFragment : Fragment(), View.OnClickListener {
@@ -32,12 +27,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-
-
-
     private lateinit var homeViewModel: HomeViewModel
     private var adapterSearch: SearchRecipeAdapter? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +39,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
         val root: View = binding.root
         return root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,23 +58,9 @@ class SearchFragment : Fragment(), View.OnClickListener {
             homeViewModel.loadWesternList()
         if (homeViewModel.dessertList.value!!.isEmpty())
             homeViewModel.loadDessertList()
+
         initAdapters()
         initListener()
-
-        /*val arraySearch = homeViewModel.searchList.value
-        val adapterSearch = SearchRecipeAdapter(arraySearch!!)
-        setAdapterSearch(adapterSearch!!, binding.rvSearchRecipe)
-
-
-          val search = binding.ACTVSearchPage
-        search.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                adapterSearch.filter.filter(p0)
-            }
-            override fun afterTextChanged(p0: Editable?) {}
-        })*/
-
     }
 
     private fun initListener() {
@@ -128,14 +104,10 @@ class SearchFragment : Fragment(), View.OnClickListener {
             }
             R.id.ivSearchFilter->{
                 val bottomFilter = FilterSearchPopUp()
-                val time:String
                 bottomFilter.show(requireActivity().supportFragmentManager, "addBottomSheet")
                 bottomFilter.setStyle(DialogFragment.STYLE_NORMAL, R.style.FilterBottomSheetDialogTheme)
                 bottomFilter.setFragmentResultListener("request_filter") { requestKey, bundle ->
                     val catCondition = bundle.getSerializable("filterResult") as MutableList<String>
-
-
-
                         homeViewModel.loadSearchList()
                         homeViewModel.FilterSearch(catCondition)
                         val arrayFilter=homeViewModel.resultFilterList.value
