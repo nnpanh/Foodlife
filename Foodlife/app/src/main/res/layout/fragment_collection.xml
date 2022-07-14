@@ -10,8 +10,8 @@
         android:id="@+id/TVColTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_semi_bold"
         android:text="Collections"
         android:textColor="@color/black"
@@ -21,19 +21,22 @@
 
     <ImageView
         android:id="@+id/IVColAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="24dp"
         android:clickable="true"
-        android:src="@drawable/ic_add_collection"
+        android:src="@drawable/ic_plus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/TVColTitle" />
+        app:layout_constraintTop_toTopOf="@id/TVColTitle"
+        app:tint="@color/secondary_100" />
 
     <AutoCompleteTextView
         android:id="@+id/ACTVColSearch"
-        android:layout_width="348dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_collection_search"
         android:drawableStart="@drawable/search"
         android:drawablePadding="10sp"
@@ -61,16 +64,18 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="16dp"
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ACTVColSearch" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVCol"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:nestedScrollingEnabled="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

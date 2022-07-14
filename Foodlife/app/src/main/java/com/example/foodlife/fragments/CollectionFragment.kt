@@ -91,7 +91,7 @@ class CollectionFragment : Fragment() {
         binding.IVColAdd.setOnClickListener {
             val bottomSheetCollection = BottomSheetCollection()
             bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
-            bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.AppBottomSheetDialogTheme)
+            bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
             bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
                 val result = bundle.getSerializable("newCollection") as Collection
                 collectionViewModel.addCollection(result)
