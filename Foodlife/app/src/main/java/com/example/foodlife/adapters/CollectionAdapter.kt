@@ -1,5 +1,6 @@
 package com.example.foodlife.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.net.Uri
@@ -14,6 +15,7 @@ import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.models.Collection
+import com.example.foodlife.models.PlanItemModel
 
 
 class CollectionAdapter (private val collection: List<Collection>): RecyclerView.Adapter<CollectionAdapter.ViewHolder>(), Filterable {
@@ -25,6 +27,12 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         filterCollection = collection
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateData(mList: List<Collection>){
+        this.filterCollection= mList.toMutableList()
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
         val IVCol = listItemView.findViewById<ImageFilterView>(R.id.IVCol)!!
         val TVColName = listItemView.findViewById<TextView>(R.id.TVColName)!!
@@ -32,6 +40,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         init {
             listItemView.setOnClickListener { onItemClick?.invoke(filterCollection[adapterPosition]) }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,11 +51,16 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (filterCollection[position].img != "")
-            holder.IVCol.setImageURI(Uri.parse(filterCollection[position].img))
+        val item = filterCollection[position]
+        if (item.img != "")
+            holder.IVCol.setImageURI(Uri.parse(item.img))
         holder.IVCol.contrast = 0.8F
-        holder.TVColName.text = filterCollection[position].title
-        holder.TVColQuantity.text = filterCollection[position].quantity.toString() + " Recipes"
+        /**
+         * Set image
+         */
+        if (item.oldImg!=null) holder.IVCol.setBackgroundResource(item.oldImg!!)
+        holder.TVColName.text = item.title
+        holder.TVColQuantity.text = item.quantity.toString() + " Recipes"
 
     }
 

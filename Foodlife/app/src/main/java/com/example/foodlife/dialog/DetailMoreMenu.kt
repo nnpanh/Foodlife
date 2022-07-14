@@ -63,6 +63,6 @@ class DetailMoreMenu: DialogFragment() {
     }
 
     companion object {
-        const val TAG = "RecipeDetailMoreMenu"
+        const val TAG = "DetailMoreMenu"
     }
 }

@@ -47,6 +47,6 @@ class CalendarPopUp : DialogFragment() {
     }
 
     companion object {
-        const val TAG = "PurchaseConfirmationDialog"
+        const val TAG = "CalendarPopUp"
     }
 }

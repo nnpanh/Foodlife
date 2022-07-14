@@ -36,7 +36,7 @@ class CollectionRecipeAdapter(private val recipe: MutableList<Recipe>): Recycler
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val contactView = inflater.inflate(R.layout.adapter_recipe_collection, parent, false)
+        val contactView = inflater.inflate(R.layout.item_recipe_search, parent, false)
         return ViewHolder(contactView).linkAdapter(this)
     }
 

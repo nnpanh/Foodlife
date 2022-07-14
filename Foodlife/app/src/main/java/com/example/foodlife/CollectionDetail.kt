@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.adapters.CollectionRecipeAdapter
+import com.example.foodlife.adapters.SearchRecipeAdapter
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
 
@@ -31,7 +32,7 @@ class CollectionDetail : AppCompatActivity() {
                 changeBitmapContrastBrightness(
                     BitmapFactory.decodeResource(
                         this.resources,
-                        R.drawable.img_collection
+                        collection.oldImg!!,
                     ),0.8F , 1F
                 ))
         val arraySpinner = arrayOf("Alphabetical", "Latest")
@@ -45,7 +46,15 @@ class CollectionDetail : AppCompatActivity() {
         }
         val RVRecipe = findViewById<RecyclerView>(R.id.RVColD)
         var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken",3, "Medium", 30,"",0,""))
-        val recipeAdapter = CollectionRecipeAdapter(recipeArray)
+//        val recipeAdapter = CollectionRecipeAdapter(recipeArray)
+        /**
+         * Change adapter
+         */
+        val recipeAdapter = SearchRecipeAdapter(recipeArray){ itemClicked ->
+            //val intent = Intent()
+            finish()
+        }
+
         RVRecipe.layoutManager = GridLayoutManager(this, 2)
         RVRecipe.adapter = recipeAdapter
         val IVGrid = findViewById<ImageView>(R.id.IVColGrid)
@@ -66,9 +75,6 @@ class CollectionDetail : AppCompatActivity() {
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
-        }
-        recipeAdapter.onItemClick = { recipe ->
-            //val intent = Intent()
         }
         supportActionBar!!.hide()
     }

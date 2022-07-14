@@ -18,12 +18,13 @@ class CollectionViewModel : ViewModel() {
     }
     fun loadCollection() {
         val list = mutableListOf(
-            Collection("", "Meat Lover", 1),
-            Collection("", "Healthy", 4),
-            Collection("", "Diet", 4)
+            Collection(R.drawable.img_collection,"", "Meat Lover", 1),
+            Collection(R.drawable.col2,"", "Healthy", 4),
+            Collection(R.drawable.col1,"", "Diet", 4)
         )
         colList.value = list
     }
+
     fun addCollection(newCol: Collection) {
         colList.value!!.add(newCol)
     }

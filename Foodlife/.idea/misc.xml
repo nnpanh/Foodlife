@@ -9,6 +9,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/bgr_round_yellow.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1895" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/ic_user.xml" value="0.145" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/add_to_collection.xml" value="0.1345" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/addrecipe_roundedcorner_1.xml" value="0.1515" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/addrecipe_roundedcorner_2.xml" value="0.1515" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/app_bar_header.xml" value="0.183" />
@@ -66,6 +67,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.12158054711246201" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.4" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.24094202898550723" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/dialog_add_to_collection.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/dialog_add_to_plan.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/dialog_bottom.xml" value="0.4" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/dialog_calendar.xml" value="0.25" />
@@ -83,13 +85,14 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_profile.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_recommend.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_search.xml" value="0.18896964514749892" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_collection.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_plan.xml" value="0.20521590423257802" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_bottom_dialog.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_ingredients.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_main_category.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_image.xml" value="0.536" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_search.xml" value="0.1923899102180419" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_search.xml" value="0.264" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_text.xml" value="0.264" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_type.xml" value="0.234375" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_recommend_category.xml" value="0.1923899102180419" />

@@ -94,6 +94,7 @@ class AddToPlanBottomDialog : DialogFragment() {
                 listOption.forEach(){
                     bundle.putBoolean(it.option, it.selected)
                 }
+                bundle.putString("result", "plan")
                 /**
                  * Return bundle included 4 meals
                  * Type: (String:Boolean)
@@ -116,7 +117,7 @@ class AddToPlanBottomDialog : DialogFragment() {
     }
 
     companion object {
-        const val TAG = "RecipeDetailMoreMenu"
+        const val TAG = "AddToPlanBottomDialog"
     }
 
 }

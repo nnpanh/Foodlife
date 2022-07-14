@@ -8,14 +8,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.databinding.FragmentProfileBinding
 import com.example.foodlife.roomdb.FoodlifeDB
 import com.example.foodlife.view_models.ProfileViewModel
 
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentDetailBinding? = null
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,10 +25,8 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this)[ProfileViewModel::class.java]
 
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         return root
@@ -37,14 +34,6 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val database = activity?.applicationContext?.let { FoodlifeDB.getInstance(it) }
-
-        val getUser =  database?.userDAO()?.findByName("Hehe")
-        Log.d("User:", "${getUser?.name}")
     }
 
     override fun onDestroyView() {

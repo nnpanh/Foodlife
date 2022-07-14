@@ -123,6 +123,21 @@ class CollectionFragment : Fragment() {
             startActivity(intent)
         }
 
+        if (arguments!=null){
+            if (arguments!!.getBoolean("add",false)){
+                binding.IVColAdd.callOnClick()
+            } else
+            {
+                val newList = collectionViewModel.colList.value
+                newList!!.forEach { collection ->
+                    val selectedCollection = arguments!!.getBoolean(collection.title,false)
+                    if (selectedCollection) collection.quantity=collection.quantity.inc()
+                }
+                collectionViewModel.colList.setValue(newList)
+                collectionAdapter.updateData(collectionViewModel.colList.value!!)
+            }
+        }
+
     }
 
 

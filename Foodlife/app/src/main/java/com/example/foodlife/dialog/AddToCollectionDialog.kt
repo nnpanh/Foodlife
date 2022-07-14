@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
@@ -32,9 +33,9 @@ class AddToCollectionDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listOption = mutableListOf(
-            BottomDialogOption(0, "Meat Lover"),
-            BottomDialogOption(0, "Healthy"),
-            BottomDialogOption(0, "Diet")
+            BottomDialogOption(R.drawable.img_collection, "Meat Lover"),
+            BottomDialogOption(R.drawable.col2, "Healthy"),
+            BottomDialogOption(R.drawable.col1, "Diet")
         )
         /**
          * Adapter for 4 meals
@@ -52,6 +53,21 @@ class AddToCollectionDialog : DialogFragment() {
             layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         }
         rvAdapter?.updateData(listOption)
+
+        /**
+         * Click on add new collection
+         */
+
+        view.findViewById<ImageView>(R.id.addToCollection).setOnClickListener {
+
+            setFragmentResult("request_key", Bundle().apply {
+                putBoolean("add", true)
+            })
+            dismiss()
+        }
+        /**
+         * Click on continue
+         */
         view.findViewById<TextView>(R.id.BTNColChoose).setOnClickListener {
             var selectedAny = false
             listOption.forEach{
@@ -73,7 +89,11 @@ class AddToCollectionDialog : DialogFragment() {
                     .show()
             }
             else {
-                setFragmentResult("request_key", Bundle())
+                val bundle = Bundle()
+                listOption.forEach(){
+                    bundle.putBoolean(it.option, it.selected)
+                }
+                setFragmentResult("request_key", bundle)
                 dismiss()
             }
         }
@@ -90,6 +110,6 @@ class AddToCollectionDialog : DialogFragment() {
     }
 
     companion object {
-        const val TAG = "RecipeDetailMoreMenu"
+        const val TAG = "AddToCollectionBottomDialog"
     }
 }

@@ -76,12 +76,12 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.foodlife.fragments.DetailFragment"
+        android:name="com.example.foodlife.fragments.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_detail" >
-        <action
-            android:id="@+id/action_navigation_profile_to_detailIngredients"
-            app:destination="@id/detailIngredients" />
+        tools:layout="@layout/fragment_profile" >
+<!--        <action-->
+<!--            android:id="@+id/action_navigation_profile_to_detailIngredients"-->
+<!--            app:destination="@id/detailIngredients" />-->
     </fragment>
 
     <fragment

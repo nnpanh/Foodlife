@@ -57,7 +57,7 @@ class OptionBottomDialog : DialogFragment() {
     }
 
     companion object {
-        const val TAG = "RecipeDetailMoreMenu"
+        const val TAG = "OptionBottomDialog"
     }
 
 }

@@ -19,6 +19,7 @@ import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.dialog.AddToCollectionDialog
 import com.example.foodlife.dialog.AddToPlanBottomDialog
 import com.example.foodlife.dialog.OptionBottomDialog
+import com.example.foodlife.models.Recipe
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -26,6 +27,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class DetailFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
     private var _binding: FragmentDetailBinding? = null
+    private var getRecipe: Recipe? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -94,6 +96,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.currentRatingNum.text = getScore.toString()
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff
+
         }
 
 
@@ -140,10 +143,15 @@ class DetailFragment : Fragment(), View.OnClickListener {
             /**
              * Put current dish info in this bundle
              */
-            bundle.putString("Title","Stir-fried beef with broccoli and Rice")
+
+            val getTitle = arguments?.getString("Title")?:"Stir-fried beef with broccoli and Rice"
+            val getDiff = arguments?.getString("Diff")?:"Medium"
+            val getName = arguments?.getString("ProfileName")?:"John Doe"
+
+            bundle.putString("Title",getTitle)
             bundle.putString("Time","35 mins")
-            bundle.putString("Level","Medium")
-            bundle.putString("Author","NKTTNga")
+            bundle.putString("Level",getDiff)
+            bundle.putString("Author",getName)
             bundle.putString("Rate","4.5")
             bundle.putInt("Image",R.drawable.recommend_1)
             navController.navigate(R.id.returnPlan,bundle)
@@ -153,7 +161,16 @@ class DetailFragment : Fragment(), View.OnClickListener {
     private fun saveToCollection() {
         val addToCollectionBottomDialog = AddToCollectionDialog()
         addToCollectionBottomDialog.show(parentFragmentManager, AddToCollectionDialog.TAG)
-        addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, _ ->
+        addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
+            val addNewCollection = bundle.getBoolean("add",false)
+            if (addNewCollection){
+                navController.navigate(R.id.returnCollection,Bundle().apply {
+                    putBoolean("add",true)
+                })}
+                else{
+                    navController.navigate(R.id.returnCollection,bundle)
+                }
+
             Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
                 .show()
         }
