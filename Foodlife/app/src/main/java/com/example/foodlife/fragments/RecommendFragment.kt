@@ -73,6 +73,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         if (adapterRecommendFrame == null) {
             adapterRecommendFrame = RecommendFrameAdapter(){ itemClicked ->
                 val bundle = Bundle()
+
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
                 bundle.putInt("Score", itemClicked.score)
@@ -80,6 +81,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
                 bundle.putInt("Time", itemClicked.time)
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
+                bundle.putInt("Picture", itemClicked.img)
                 navController.navigate(R.id.recToDetail,bundle)
 
             }

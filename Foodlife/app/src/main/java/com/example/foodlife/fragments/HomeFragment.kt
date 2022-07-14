@@ -87,6 +87,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("Time", itemClicked.time)
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
+                bundle.putInt("Picture", itemClicked.img)
                 navController.navigate(R.id.homeToDetail,bundle)
 
             }
@@ -107,6 +108,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("Time", itemClicked.time)
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
+                bundle.putInt("Picture", itemClicked.img)
                 navController.navigate(R.id.homeToDetail,bundle)
 
             }
