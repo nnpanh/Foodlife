@@ -6,18 +6,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.adapters.CollectionRecipeAdapter
+import com.example.foodlife.adapters.RecommendHomeAdapter
 import com.example.foodlife.adapters.SearchRecipeAdapter
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
+import com.example.foodlife.view_models.HomeViewModel
 
 class CollectionDetail : AppCompatActivity() {
     private var isSpinnerInitial = true
+
+    private lateinit var homeViewModel: HomeViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+
         setContentView(R.layout.activity_collection_detail)
         val collection = intent.getSerializableExtra("Collection") as Collection
         val TVTitle = findViewById<TextView>(R.id.TVColDTitle)
@@ -45,12 +56,19 @@ class CollectionDetail : AppCompatActivity() {
             finish()
         }
         val RVRecipe = findViewById<RecyclerView>(R.id.RVColD)
-        var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken",3, "Medium", 30,"",0,""))
+        if (homeViewModel.meatList.value!!.isEmpty())
+            homeViewModel.loadMeatList()
+        var recipeArray=homeViewModel.meatList.value!!
+        //var recipeArray = arrayListOf(Recipe(R.drawable.img_collectionrecipe, "Roasted Pork", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Beef", 3, "Medium", 30,"",0,""), Recipe(R.drawable.img_collectionrecipe, "Roasted Chicken",3, "Medium", 30,"",0,""))
 //        val recipeAdapter = CollectionRecipeAdapter(recipeArray)
         /**
          * Change adapter
          */
-        val recipeAdapter = SearchRecipeAdapter(recipeArray){ itemClicked ->
+        /*val recipeAdapter = SearchRecipeAdapter(recipeArray){ itemClicked ->
+            //val intent = Intent()
+            finish()
+        }*/
+        val recipeAdapter = CollectionRecipeAdapter(recipeArray){ itemClicked ->
             //val intent = Intent()
             finish()
         }
@@ -70,7 +88,7 @@ class CollectionDetail : AppCompatActivity() {
                 if(isSpinnerInitial)
                     isSpinnerInitial = false
                 else {
-                    recipeArray.shuffle()
+                    //recipeArray.shuffle()
                     RVRecipe.adapter = recipeAdapter
                 }
             }

@@ -23,9 +23,6 @@ class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bindData(_detailReview: DetailReview) {
             itemDetailReviewBinding.apply {
                 detailReview = _detailReview
-                val connectString = "<b>${_detailReview.name}</b>"
-                val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
-                itemDetailReviewBinding.tvName.text = textValue
                 executePendingBindings()
             }
         }
