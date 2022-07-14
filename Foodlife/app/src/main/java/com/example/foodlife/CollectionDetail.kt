@@ -88,7 +88,7 @@ class CollectionDetail : AppCompatActivity() {
                 if(isSpinnerInitial)
                     isSpinnerInitial = false
                 else {
-                    //recipeArray.shuffle()
+                    recipeArray.shuffle()
                     RVRecipe.adapter = recipeAdapter
                 }
             }

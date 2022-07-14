@@ -90,17 +90,6 @@ class MainActivity : AppCompatActivity() {
         return false
     }
     fun hideKeyboard() {
-        /*val inputManager: InputMethodManager = activity
-            .getSystemService<Any>(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
-        // check if no view has focus:
-        val currentFocusedView: View? = activity.currentFocus
-        if (currentFocusedView != null) {
-            inputManager.hideSoftInputFromWindow(
-                currentFocusedView.getWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS
-            )
-        }*/
         var view= this.currentFocus
         if (view !=null){
             val hideMe=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

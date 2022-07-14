@@ -19,7 +19,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="56dp">
+            android:layout_marginBottom="56dp"
+            android:background="@android:color/transparent">
             <FrameLayout
                 android:id="@+id/flVideo"
                 android:layout_width="match_parent"
@@ -35,15 +36,14 @@
 
                 <MediaController
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content" />
             </FrameLayout>
             <TextView
                 android:id="@+id/recipe_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="24dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_bold"
                 android:maxLines="2"
@@ -74,9 +74,11 @@
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-16dp"
+                android:layout_marginTop="-24dp"
+                android:background="@android:color/transparent"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:cardElevation="0dp"
+                app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/flVideo">
@@ -87,7 +89,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="0dp"
-                    app:cardCornerRadius="8dp"
+                    app:cardCornerRadius="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/videoView">
@@ -141,7 +143,7 @@
                             android:progressDrawable="@drawable/ic_custom_star"
                             android:rating="0"
                             android:stepSize="1.0"
-                            app:layout_constraintHeight="26dp"
+                            app:layout_constraintHeight="28dp"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/detail_avatar" />
 
@@ -186,26 +188,33 @@
                                 app:layout_constraintTop_toTopOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/detail_info_icon"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:gravity="center"
                             android:orientation="horizontal"
                             app:divider="@drawable/empty_width_divider"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/detail_rating"
                             app:showDividers="middle">
 
                             <LinearLayout
+                                android:id="@+id/f1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+
                                 android:gravity="center"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
                                 <ImageView
-                                    android:layout_width="28dp"
-                                    android:layout_height="28dp"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
                                     android:src="@drawable/clock_bold" />
 
                                 <TextView
@@ -214,18 +223,23 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:text="15 mins"
-                                    android:textColor="@color/primary_100" />
+                                    android:textColor="@color/primary_100"
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/f2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="40dp"
                                 android:gravity="center"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                app:layout_constraintStart_toEndOf="@id/f1"
+                                app:layout_constraintTop_toTopOf="parent">
 
                                 <ImageView
-                                    android:layout_width="28dp"
-                                    android:layout_height="28dp"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
                                     android:src="@drawable/cooking" />
 
                                 <TextView
@@ -233,18 +247,24 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:text="45 mins"
-                                    android:textColor="@color/primary_100" />
+                                    android:textColor="@color/primary_100"
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/f3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="40dp"
                                 android:gravity="center"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+
+                                app:layout_constraintStart_toEndOf="@id/f2"
+                                app:layout_constraintTop_toTopOf="parent">
 
                                 <ImageView
-                                    android:layout_width="28dp"
-                                    android:layout_height="28dp"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
                                     android:src="@drawable/chef_bold" />
 
                                 <TextView
@@ -253,22 +273,25 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/poppins_regular"
                                     android:text="Medium"
-                                    android:textColor="@color/primary_100" />
+                                    android:textColor="@color/primary_100"
+                                    android:textSize="14sp" />
                             </LinearLayout>
 
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <TextView
                             android:id="@+id/tvDetailDes"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginEnd="16dp"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="Enjoy each morning the delicious taste of breakfast made by egg."
+                            tools:text="Enjoy each morning the delicious taste of breakfast made by egg."
                             android:textColor="@color/primary_100"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/detail_info_icon" />
 
                         <com.google.android.material.imageview.ShapeableImageView
