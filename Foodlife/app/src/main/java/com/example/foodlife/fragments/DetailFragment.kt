@@ -2,10 +2,13 @@ package com.example.foodlife.fragments
 
 import android.content.Intent.getIntent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
+import android.widget.VideoView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
@@ -59,6 +62,17 @@ class DetailFragment : Fragment(), View.OnClickListener {
             tab, position ->
                 tab.text = tabTitle[position]
         }.attach()
+
+        //VideoView
+        var videoView: VideoView = binding.videoView
+        val mediaController : MediaController
+        mediaController = MediaController(videoView.context)
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+        videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
+        videoView.requestFocus()
+        videoView.start()
+
         initListener()
 
         val getTitle = arguments?.getString("Title")
