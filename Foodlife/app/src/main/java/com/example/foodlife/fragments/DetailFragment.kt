@@ -177,10 +177,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 })}
                 else{
                     navController.navigate(R.id.returnCollection,bundle)
+                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
+                    .show()
                 }
 
-            Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
-                .show()
+
         }
     }
 }
