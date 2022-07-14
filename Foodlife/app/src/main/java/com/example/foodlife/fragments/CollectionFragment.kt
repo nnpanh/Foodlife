@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodlife.CollectionDetail
 import com.example.foodlife.R
 import com.example.foodlife.adapters.CollectionAdapter
-import com.example.foodlife.databinding.FragmentDashboardBinding
+import com.example.foodlife.databinding.FragmentCollectionBinding
 import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.models.Collection
 import com.example.foodlife.view_models.CollectionViewModel
@@ -27,7 +27,7 @@ import com.example.foodlife.view_models.HomeViewModel
 
 class CollectionFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentCollectionBinding? = null
     private lateinit var navController: NavController
 
     // This property is only valid between onCreateView and
@@ -44,11 +44,14 @@ class CollectionFragment : Fragment() {
         val collectionViewModel =
             ViewModelProvider(this)[CollectionViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentCollectionBinding.inflate(inflater, container, false)
 
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /**
+         * Inflate view and set controller
+         */
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
@@ -56,19 +59,25 @@ class CollectionFragment : Fragment() {
         if (collectionViewModel.colList.value!!.isEmpty())
             collectionViewModel.loadCollection()
 
+        /**
+         * Dropdown for filter
+         */
         val arraySpinner = arrayOf("Alphabetical", "Latest")
         val filterAdapter = ArrayAdapter(requireActivity(), com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arraySpinner)
-        val SPFilter = binding.SPCol
-        SPFilter.adapter = filterAdapter
+        binding.SPCol.adapter = filterAdapter
 
-        val RVCol = binding.RVCol
-        val collectionArray = collectionViewModel.colList.value
-        val collectionAdapter = CollectionAdapter(collectionArray!!)
-        RVCol.adapter = collectionAdapter
-        RVCol.layoutManager = LinearLayoutManager(requireActivity())
+        /**
+         * Collection adapter and layout
+         */
+        val collectionArray = collectionViewModel.colList.value!!
+        val collectionAdapter = CollectionAdapter(collectionArray)
+        binding.RVCol.adapter = collectionAdapter
+        binding.RVCol.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
-        val ACTVSearch = binding.ACTVColSearch
-        ACTVSearch.addTextChangedListener(object: TextWatcher {
+        /**
+         * Edit-text search listener for filter
+         */
+        binding.ACTVColSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 collectionAdapter.filter.filter(p0)
@@ -76,8 +85,10 @@ class CollectionFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {}
         })
 
-        val IVAdd = binding.IVColAdd
-        IVAdd.setOnClickListener {
+        /**
+         * Add button and pop up dialog
+         */
+        binding.IVColAdd.setOnClickListener {
             val bottomSheetCollection = BottomSheetCollection()
             bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
             bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.AppBottomSheetDialogTheme)
@@ -87,17 +98,25 @@ class CollectionFragment : Fragment() {
                 collectionAdapter.notifyDataSetChanged()
             }
         }
-        SPFilter.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+
+        /**
+         * Implement listener for collection item
+         */
+        binding.SPCol.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if(isSpinnerInitial)
                     isSpinnerInitial = false
                 else {
                     collectionArray.shuffle()
-                    RVCol.adapter = collectionAdapter
+                    binding.RVCol.adapter = collectionAdapter
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
+
+        /**
+         * Pass listener to adapter
+         */
         collectionAdapter.onItemClick = {collection ->
             val intent = Intent(requireActivity(), CollectionDetail::class.java)
             intent.putExtra("Collection", collection)
