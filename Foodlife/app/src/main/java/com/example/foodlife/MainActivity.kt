@@ -1,10 +1,12 @@
 package com.example.foodlife
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.annotation.NonNull
+import android.view.View
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.transaction
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.foodlife.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -85,5 +88,25 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return false
+    }
+    fun hideKeyboard() {
+        /*val inputManager: InputMethodManager = activity
+            .getSystemService<Any>(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        // check if no view has focus:
+        val currentFocusedView: View? = activity.currentFocus
+        if (currentFocusedView != null) {
+            inputManager.hideSoftInputFromWindow(
+                currentFocusedView.getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }*/
+        var view= this.currentFocus
+        if (view !=null){
+            val hideMe=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            hideMe.hideSoftInputFromWindow(view.windowToken,0)
+        }
+        else
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 }

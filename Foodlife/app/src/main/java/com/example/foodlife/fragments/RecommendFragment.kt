@@ -109,6 +109,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
                 else if (position==4){
                     newList=homeViewModel.dessertList.value!!
                 }
+                binding.rvRecFrameItem.scrollToPosition(0)
                     //planViewModel.breakfastList = updateList
                 adapterRecommendFrame?.updateData(newList)
             }

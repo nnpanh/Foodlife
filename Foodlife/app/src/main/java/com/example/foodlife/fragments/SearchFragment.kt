@@ -1,13 +1,14 @@
 package com.example.foodlife.fragments
 
-import android.content.Intent
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -16,13 +17,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.foodlife.CollectionDetail
 import com.example.foodlife.MainActivity
 import com.example.foodlife.R
 import com.example.foodlife.adapters.*
 import com.example.foodlife.databinding.FragmentSearchBinding
 import com.example.foodlife.dialog.FilterSearchPopUp
-import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.HomeViewModel
 
 
@@ -96,6 +95,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
+                (activity as MainActivity).hideKeyboard()
+
                 navController.navigate(R.id.goToDetail,bundle)
 
             }
@@ -140,4 +141,5 @@ class SearchFragment : Fragment(), View.OnClickListener {
         super.onDestroyView()
         _binding = null
     }
+
 }
