@@ -159,6 +159,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.HomeSearch->{
                 navController.navigate(R.id.homeToSearchFragment)
             }
+            R.id.ivArrowCollect->{
+                navController.navigate(R.id.homeToSearchFragment)
+            }
 
         }
     }

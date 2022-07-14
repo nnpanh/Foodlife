@@ -9,7 +9,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/IVColBanner"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="160dp"
         android:scaleType="centerCrop"
         android:src="@drawable/img_collection"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,15 +68,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVColD"
-        android:layout_width="350dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IVColDFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/IVColDFilter"
+        tools:itemCount="2"
+        tools:listitem="@layout/adapter_recipe_collection" />
 
     <ImageView
         android:id="@+id/IVColList"
