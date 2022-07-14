@@ -4,6 +4,7 @@ import android.content.Intent.getIntent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -74,7 +75,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         //VideoView
         val videoView: VideoView = binding.videoView
-        val mediaController : MediaController = MediaController(videoView.context)
+        val mediaController = MediaController(videoView.context)
         mediaController.setAnchorView(binding.flVideo)
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
@@ -104,6 +105,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.currentRatingNum.text = getScore.toString()
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff
+            Log.d("DetailFragment", "onViewCreated: $getTitle")
 
         }
 
