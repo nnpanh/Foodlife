@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.example.foodlife.R
 import com.example.foodlife.models.DetailDirections
 import com.example.foodlife.models.DetailIngredients
+import com.example.foodlife.models.DetailReview
 
 class DetailViewModel: ViewModel() {
 
@@ -34,5 +35,13 @@ class DetailViewModel: ViewModel() {
     var DetailDirectionsList = mutableListOf(
         DetailDirections(R.drawable.example_step_1,"Chop eggs.","Step 1:"),
         DetailDirections(R.drawable.example_step_2,"Mix mayonnaise, lemon juice, mustard, salt and pepper in medium bowl.","Step 2:"),
+    )
+
+    var DetailReviewList = mutableListOf(
+        DetailReview(R.drawable.example_step_1,"Melanie Rose","Lorem ipsum dolor sit amet, consectetur adipiscing elit!"),
+        DetailReview(R.drawable.example_step_2,"Jonathan Jose","Excepteur sint occaecat cupidatat non proident, sunt"),
+        DetailReview(R.drawable.ic_user,"Nicky","nisi ut aliquip ex ea commodo consequat."),
+        DetailReview(R.drawable.ic_user,"Moon Star","quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."),
+        DetailReview(R.drawable.ic_user,"Melanie","dolor in reprehenderit in voluptate velit esse cillum dolore eu."),
     )
 }
