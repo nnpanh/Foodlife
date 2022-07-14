@@ -8,7 +8,8 @@ import com.example.foodlife.databinding.ItemRecommendFrameBinding
 import com.example.foodlife.databinding.ItemRecommendedHomeBinding
 import com.example.foodlife.models.Recipe
 
-class RecommendFrameAdapter(private val listener: (Recipe) -> Unit): RecyclerView.Adapter<RecommendFrameAdapter.ViewHolder>() {
+class RecommendFrameAdapter(private val listener: (Recipe) -> Unit,
+private val listenerCollection: (Recipe) ->Unit): RecyclerView.Adapter<RecommendFrameAdapter.ViewHolder>() {
     var rec_list: List<Recipe> = emptyList()
     fun updateData(rec_list: List<Recipe>){
         this.rec_list=rec_list.toMutableList()
@@ -19,6 +20,7 @@ class RecommendFrameAdapter(private val listener: (Recipe) -> Unit): RecyclerVie
         RecyclerView.ViewHolder(itemRecommendFrameBinding.root){
         fun bindData(_recipe: Recipe) {
             itemRecommendFrameBinding.recFrameImg.setOnClickListener{listener(_recipe)}
+            itemRecommendFrameBinding.recFrameSave.setOnClickListener{listenerCollection(_recipe)}
             itemRecommendFrameBinding.apply {
                 recipe =_recipe
 
@@ -44,7 +46,7 @@ class RecommendFrameAdapter(private val listener: (Recipe) -> Unit): RecyclerVie
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        (holder as ViewHolder).bindData(rec_list[position])
+        holder.bindData(rec_list[position])
 
     }
 }

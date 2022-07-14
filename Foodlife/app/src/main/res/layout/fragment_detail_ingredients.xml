@@ -30,7 +30,7 @@
                 android:fontFamily="@font/poppins_semi_bold"
                 android:text="Portions"
                 android:textColor="@color/primary_100"
-                android:textSize="@dimen/text_large"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/layoutQuantity"
                 app:layout_constraintEnd_toStartOf="@+id/layoutQuantity"
                 app:layout_constraintStart_toStartOf="parent"

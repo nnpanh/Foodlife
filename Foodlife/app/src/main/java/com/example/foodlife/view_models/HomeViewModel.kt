@@ -48,8 +48,14 @@ class HomeViewModel : ViewModel() {
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ),
+            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 5,"",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria"),
+            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna"),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",5,"",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ),
             Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,"Difficult",120,"",R.drawable.profile3,"Thanh Lam" ),
-
+            Recipe(R.drawable.img_gasotchuangot,"Gà sốt chua ngọt", 5,"Medium",60,"",R.drawable.profile3,"Thanh Lam" ),
+            Recipe(R.drawable.img_pngegg,"Bánh gạo cay", 5,"Easy",45,"",R.drawable.profile3,"Thanh Lam" ),
+            Recipe(R.drawable.img_tok, "Bánh gạo cay", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
+            Recipe(R.drawable.img_pho, "Phở bò", 5,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise"),
         )
         searchList.value = list
     }
@@ -60,10 +66,11 @@ class HomeViewModel : ViewModel() {
     }
     fun loadMeatList() {
         val list = mutableListOf(
-            Recipe(R.drawable.rec1, "Meat", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria"),
+            Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ),
+            Recipe(R.drawable.img_gasotchuangot,"Gà sốt chua ngọt", 5,"Medium",60,"",R.drawable.profile3,"Thanh Lam" ),
             Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,"Difficult",120,"",R.drawable.profile3,"Thanh Lam" ),
+            Recipe(R.drawable.img_pngegg,"Mì thịt xào Nhật", 5,"Easy",45,"",R.drawable.profile3,"Thanh Lam" ),
             )
         meatList.value = list
         //resultFilterList.value!!.addAll(list)
@@ -74,11 +81,9 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVegetableList() {
         val list = mutableListOf(
-            Recipe(R.drawable.rec1, "Vegetable", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ),
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,"Difficult",120,"",R.drawable.profile3,"Thanh Lam" ),
-            )
+        )
         vegetableList.value = list
     }
 
@@ -87,10 +92,12 @@ class HomeViewModel : ViewModel() {
     }
     fun loadWesternList() {
         val list = mutableListOf(
-            Recipe(R.drawable.rec1, "western", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
+            Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ),
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,"Difficult",120,"",R.drawable.profile3,"Thanh Lam" ),
+            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 5,"",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria"),
+            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna"),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",5,"",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ),
             )
         westernList.value = list
     }
@@ -100,8 +107,8 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVietNamList() {
         val list = mutableListOf(
-            Recipe(R.drawable.rec1, "VN", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise"),
-
+            Recipe(R.drawable.example_dish_3, "Bún bò Huế", 5,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna"),
+            Recipe(R.drawable.img_pho, "Phở bò", 5,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise"),
             )
         vietnamList.value = list
     }
@@ -111,7 +118,7 @@ class HomeViewModel : ViewModel() {
     }
     fun loadDessertList() {
         val list = mutableListOf(
-
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",5,"",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria"),
 
             )

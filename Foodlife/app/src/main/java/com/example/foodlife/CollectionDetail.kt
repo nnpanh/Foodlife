@@ -88,13 +88,13 @@ class CollectionDetail : AppCompatActivity() {
                 if(isSpinnerInitial)
                     isSpinnerInitial = false
                 else {
-                    //recipeArray.shuffle()
+                    recipeArray.shuffle()
                     RVRecipe.adapter = recipeAdapter
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
-        supportActionBar!!.hide()
+//        supportActionBar!!.hide()
     }
 
 
