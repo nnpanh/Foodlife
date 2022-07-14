@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class DetailFragment : Fragment(), View.OnClickListener {
+class DetailFragment : Fragment(), View.OnClickListener 
     private lateinit var navController: NavController
     private var _binding: FragmentDetailBinding? = null
     private var getRecipe: Recipe? = null
