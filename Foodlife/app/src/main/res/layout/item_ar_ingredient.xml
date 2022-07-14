@@ -1,75 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="top"
-    android:orientation="horizontal"
-    android:paddingBottom="25dp"
-    android:weightSum="8">
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="5"
-        android:background="@drawable/addrecipe_roundedcorner_2"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="@string/txt_ingredient"
-        android:inputType="text"
-        android:maxLines="1"
-        android:padding="25dp"
-        android:textSize="14sp" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ingredient"
+            type="com.example.foodlife.models.AddRecipeIngredient" />
+    </data>
 
     <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2.9"
-        android:background="@drawable/addrecipe_roundedcorner_2">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:paddingBottom="25dp">
 
         <EditText
-            android:id="@+id/et_ingredient_quantity"
+            android:id="@+id/ed_ingredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/quantity_input"
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/txt_ingredient"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="25dp"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/quantity_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/addrecipe_roundedcorner_2"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="@string/quantity_01"
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingStart="20dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="15dp"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+            android:layout_toStartOf="@id/ivDelete"
+            android:background="@drawable/addrecipe_roundedcorner_2">
 
-        <TextView
+            <EditText
+                android:id="@+id/et_ingredient_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/quantity_01"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="15dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                tools:ignore="RtlCompat,TouchTargetSizeCheck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@id/et_ingredient_quantity"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_dropdown"
+                android:drawablePadding="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:text="tbsp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:ignore="TouchTargetSizeCheck" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:drawableEnd="@drawable/ic_dropdown"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="gr"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:layout_marginBottom="30dp"
+            android:clickable="true"
+            android:contentDescription="Delete ingredient"
+            android:src="@drawable/ic_x_button"
+            tools:ignore="TouchTargetSizeCheck" />
+
     </RelativeLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.1"
-        android:src="@drawable/ic_x_button" />
-
-</LinearLayout>
+</layout>

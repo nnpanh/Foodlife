@@ -37,6 +37,10 @@
         <item name="cornerSize">6dp</item>
     </style>
 
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/background_spinner</item>
+    </style>
+
     <style name="collection_detail_image">
         <item name="cornerSizeBottomLeft">35dp</item>
         <item name="cornerSizeBottomRight">35dp</item>

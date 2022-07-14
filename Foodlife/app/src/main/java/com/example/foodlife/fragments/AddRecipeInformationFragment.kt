@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.foodlife.R
@@ -40,6 +42,7 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var isSpinnerInitial = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,12 +58,44 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+
+        val arraySpinner = arrayOf("Easy", "Medium", "Hard")
+        val dropdownAdapter = ArrayAdapter(requireActivity(), R.layout.item_spinner, arraySpinner)
+        dropdownAdapter.setDropDownViewResource(R.layout.item_spinner)
+            //ArrayAdapter(requireActivity(),com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arraySpinner)
+        binding.difficultyDropdown.adapter = dropdownAdapter
+
+        binding.difficultyDropdown.onItemSelectedListener = object: AdapterView.OnItemSelectedListener,
+            AdapterView.OnItemClickListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if (isSpinnerInitial)
+                    isSpinnerInitial = false
+                else{
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onItemClick(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {}
+
+        }
         initListener()
     }
 
     private fun initListener() {
         binding.nextBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
+        binding.icServesPlus.setOnClickListener(this)
+        binding.icServesMinus.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -78,6 +113,17 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
             R.id.ivBack -> {
                 navController.navigateUp()
                 //TODO
+            }
+            R.id.ic_serves_plus -> {
+                val a: Int = binding.numServes.text.toString().toInt() + 1
+                binding.numServes.setText(a.toString())
+            }
+            R.id.ic_serves_minus -> {
+                var a: Int = binding.numServes.text.toString().toInt()
+                if(a > 0){
+                    a -= 1
+                }
+                binding.numServes.setText(a.toString())
             }
         }
     }

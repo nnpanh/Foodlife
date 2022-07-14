@@ -2,7 +2,6 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.text.HtmlCompat
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemIngredientsBinding
 import com.example.foodlife.models.Ingredient
-import com.example.foodlife.databinding.ItemRecipeTypeBinding
+import com.example.foodlife.models.AddRecipeIngredient
 
 class IngredientAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var mList: MutableList<Ingredient> = mutableListOf()

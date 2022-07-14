@@ -76,14 +76,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcv_ingredient_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="30dp" />
+                tools:listitem="@layout/item_ar_ingredient" />
 
             <Button
                 android:id="@+id/ar_add_ingredient_btn"
