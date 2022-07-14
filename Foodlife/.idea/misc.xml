@@ -139,6 +139,17 @@
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/layout/item_recommend_category.xml" value="0.6346153846153846" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/layout/item_recommend_frame.xml" value="0.46644664466446645" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/layout/search_bar.xml" value="0.4" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_collection_detail.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/dialog_add_to_collection.xml" value="0.264" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/dialog_add_to_plan.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_recommend.xml" value="0.22509057971014493" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_collection.xml" value="0.21403508771929824" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_plan.xml" value="0.21403508771929824" />
       </map>
     </option>
   </component>
