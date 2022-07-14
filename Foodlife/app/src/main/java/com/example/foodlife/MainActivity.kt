@@ -41,11 +41,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile,
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
 
         //Custom
-        hideSupportActionBar();
+//        hideSupportActionBar();
 
         navView.setOnNavigationItemSelectedListener {
             changeFragment(it.itemId);

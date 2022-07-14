@@ -94,7 +94,7 @@ class CollectionDetail : AppCompatActivity() {
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
-        supportActionBar!!.hide()
+//        supportActionBar!!.hide()
     }
 
 
