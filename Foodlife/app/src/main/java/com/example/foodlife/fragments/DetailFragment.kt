@@ -28,7 +28,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class DetailFragment : Fragment(), View.OnClickListener 
+class DetailFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
     private var _binding: FragmentDetailBinding? = null
     private var getRecipe: Recipe? = null
@@ -105,7 +105,6 @@ class DetailFragment : Fragment(), View.OnClickListener
             binding.currentRatingNum.text = getScore.toString()
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff
-            Log.d("DetailFragment", "onViewCreated: $getTitle")
 
         }
 
@@ -115,6 +114,7 @@ class DetailFragment : Fragment(), View.OnClickListener
 
     private fun initListener(){
         binding.detailMenu.setOnClickListener(this)
+        binding.imgToolbarBtnFav.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -143,6 +143,9 @@ class DetailFragment : Fragment(), View.OnClickListener
                         }
                     }
                 }
+            }
+            R.id.imgToolbarBtnFav -> {
+                navController.navigateUp()
             }
         }
     }
