@@ -71,7 +71,18 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         //Create adapter
 
         if (adapterRecommendFrame == null) {
-            adapterRecommendFrame = RecommendFrameAdapter()
+            adapterRecommendFrame = RecommendFrameAdapter(){ itemClicked ->
+                val bundle = Bundle()
+                bundle.putString("Title", itemClicked.title)
+                bundle.putString("Description", itemClicked.description)
+                bundle.putInt("Score", itemClicked.score)
+                bundle.putString("Diff", itemClicked.diff)
+                bundle.putInt("Time", itemClicked.time)
+                bundle.putString("ProfileName", itemClicked.profile_name)
+                bundle.putInt("ProfileImg", itemClicked.profile_img)
+                navController.navigate(R.id.recToDetail,bundle)
+
+            }
         }
 
         if (adapterRecommendCat == null) {
