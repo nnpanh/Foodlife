@@ -7,8 +7,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.MediaController
+import android.widget.ScrollView
 import android.widget.VideoView
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.NavController
@@ -72,11 +75,16 @@ class DetailFragment : Fragment(), View.OnClickListener {
         //VideoView
         val videoView: VideoView = binding.videoView
         val mediaController : MediaController = MediaController(videoView.context)
-        mediaController.setAnchorView(videoView)
+        mediaController.setAnchorView(binding.flVideo)
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
         videoView.requestFocus()
         videoView.start()
+
+        binding.nsView.viewTreeObserver.addOnScrollChangedListener {
+            mediaController.hide()
+        }
+
 
         initListener()
 
