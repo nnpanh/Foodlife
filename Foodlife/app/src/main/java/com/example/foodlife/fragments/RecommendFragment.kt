@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -15,7 +16,9 @@ import com.example.foodlife.R
 import com.example.foodlife.adapters.RecommendCategoryAdapter
 import com.example.foodlife.adapters.RecommendFrameAdapter
 import com.example.foodlife.databinding.FragmentRecommendBinding
+import com.example.foodlife.dialog.AddToCollectionDialog
 import com.example.foodlife.view_models.HomeViewModel
+import com.google.android.material.snackbar.Snackbar
 
 
 class RecommendFragment :Fragment(), View.OnClickListener{
@@ -35,10 +38,6 @@ class RecommendFragment :Fragment(), View.OnClickListener{
     ): View {
         _binding = FragmentRecommendBinding.inflate(inflater, container, false)
 
-//        val textView: TextView = binding.textPlan
-//        planViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,7 +70,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         //Create adapter
 
         if (adapterRecommendFrame == null) {
-            adapterRecommendFrame = RecommendFrameAdapter(){ itemClicked ->
+            adapterRecommendFrame = RecommendFrameAdapter({ itemClicked ->
                 val bundle = Bundle()
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
@@ -82,7 +81,9 @@ class RecommendFragment :Fragment(), View.OnClickListener{
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 navController.navigate(R.id.recToDetail,bundle)
 
-            }
+            },{
+                saveToCollection()
+            })
         }
 
         if (adapterRecommendCat == null) {
@@ -154,5 +155,24 @@ class RecommendFragment :Fragment(), View.OnClickListener{
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun saveToCollection() {
+        val addToCollectionBottomDialog = AddToCollectionDialog()
+        addToCollectionBottomDialog.show(parentFragmentManager, AddToCollectionDialog.TAG)
+        addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
+            val addNewCollection = bundle.getBoolean("add",false)
+            if (addNewCollection){
+                navController.navigate(R.id.returnCollection,Bundle().apply {
+                    putBoolean("add",true)
+                })}
+            else{
+                navController.navigate(R.id.returnCollection,bundle)
+                Snackbar.make(this.view!!, "Saved successfully", Snackbar.LENGTH_LONG)
+                    .show()
+            }
+
+
+        }
     }
 }
