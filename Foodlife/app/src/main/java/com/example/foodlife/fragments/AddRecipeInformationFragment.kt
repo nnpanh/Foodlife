@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 import com.example.foodlife.R
 import com.example.foodlife.databinding.FragmentAddRecipeInformationBinding
 
-class AddRecipeInformationFragment : Fragment() {
+class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
 
 //    companion object {
 //        fun newInstance() = AddRecipeFragment()
@@ -55,12 +55,31 @@ class AddRecipeInformationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        initListener()
+    }
 
+    private fun initListener() {
+        binding.nextBtn.setOnClickListener(this)
+        binding.ivBack.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(v: View?) {
+
+        when (v?.id) {
+            R.id.next_btn -> {
+                navController.navigate(R.id.addRecipeInformationFragment_to_addRecipeIngredientFragment)
+                //TODO
+            }
+            R.id.ivBack -> {
+                navController.navigateUp()
+                //TODO
+            }
+        }
     }
 
 }

@@ -21,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [AddRecipeIngredientsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AddRecipeIngredientsFragment : Fragment() {
+class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
 //    private var param1: String? = null
 //    private var param2: String? = null
@@ -83,12 +83,31 @@ class AddRecipeIngredientsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        initListener()
+    }
 
+    private fun initListener() {
+        binding.nextBtn.setOnClickListener(this)
+        binding.ivBack.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(v: View?) {
+
+        when (v?.id) {
+            R.id.next_btn -> {
+                navController.navigate(R.id.addRecipeIngredientFragment_to_addRecipeDirectionsFragment)
+                //TODO
+            }
+            R.id.ivBack -> {
+                navController.navigateUp()
+                //TODO
+            }
+        }
     }
 
 }

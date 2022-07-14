@@ -70,6 +70,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.ivArrowCollect.setOnClickListener(this)
         binding.ivCreateMeal.setOnClickListener(this)
         binding.HomeSearch.setOnClickListener(this)
+        binding.ivCreateMeal.setOnClickListener(this)
     }
 
     private fun initAdapters(){
@@ -164,7 +165,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.ivArrowCollect->{
                 navController.navigate(R.id.homeToSearchFragment)
             }
-
+            R.id.ivCreateMeal -> {
+                navController.navigate(R.id.home_to_addRecipeTittleFragment)
+            }
         }
     }
     override fun onDestroyView() {
