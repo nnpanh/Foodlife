@@ -160,13 +160,14 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getTitle = arguments?.getString("Title")?:"Stir-fried beef with broccoli and Rice"
             val getDiff = arguments?.getString("Diff")?:"Medium"
             val getName = arguments?.getString("ProfileName")?:"John Doe"
+            val gitPicture = arguments?.getInt("Picture")?:R.drawable.recommend_1
 
             bundle.putString("Title",getTitle)
             bundle.putString("Time","35 mins")
             bundle.putString("Level",getDiff)
             bundle.putString("Author",getName)
             bundle.putString("Rate","4.5")
-            bundle.putInt("Image",R.drawable.recommend_1)
+            bundle.putInt("Image",gitPicture)
             navController.navigate(R.id.returnPlan,bundle)
         }
     }
