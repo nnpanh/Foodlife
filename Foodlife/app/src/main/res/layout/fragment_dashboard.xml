@@ -32,19 +32,20 @@
 
     <AutoCompleteTextView
         android:id="@+id/ACTVColSearch"
-        android:layout_width="350dp"
+        android:layout_width="348dp"
         android:layout_height="52dp"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_collection_search"
-        android:drawableLeft="@drawable/search"
+        android:drawableStart="@drawable/search"
         android:drawablePadding="10sp"
         android:drawableTint="#FF9C00"
         android:hint="Search Your Collection"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVColTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/TVColTitle"
+        tools:ignore="RtlSymmetry" />
 
     <ImageView
         android:id="@+id/IVColFilter"
@@ -69,10 +70,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVCol"
         android:layout_width="350dp"
-        android:layout_height="540dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IVColFilter" />
+        app:layout_constraintTop_toBottomOf="@+id/IVColFilter"
+        android:paddingBottom="40dp"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

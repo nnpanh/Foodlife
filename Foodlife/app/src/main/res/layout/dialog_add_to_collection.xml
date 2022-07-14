@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/round_top_white">
+
+    <TextView
+        android:id="@+id/TVColChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="start"
+        android:maxLines="2"
+        android:text="Choose your collection"
+        android:textColor="@color/primary_100"
+        android:textSize="@dimen/text_small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVColChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/TVColChoose"
+        tools:itemCount="3"
+        tools:layout_editor_absoluteX="22dp"
+        tools:listitem="@layout/item_add_to_collection" />
+
+    <TextView
+        android:id="@+id/BTNColChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:background="@drawable/bgr_round_secondary"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/confirm"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_normal"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RVColChoose" />
+
+    <View
+        android:id="@+id/fixPading"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/BTNColChoose" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

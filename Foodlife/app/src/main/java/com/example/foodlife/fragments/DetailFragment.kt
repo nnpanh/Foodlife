@@ -16,8 +16,10 @@ import androidx.navigation.Navigation
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
+import com.example.foodlife.dialog.AddToCollectionDialog
 import com.example.foodlife.dialog.AddToPlanBottomDialog
 import com.example.foodlife.dialog.OptionBottomDialog
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -29,6 +31,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
     // onDestroyView.
     private val binding get() = _binding!!
     private var isSpinnerInitial = true
+    private var contextView: View? = null
 
     private var bottomDialog = OptionBottomDialog()
 
@@ -52,6 +55,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
+        contextView = view
 
         //Viewpager & TabLayout
         var pager = binding.viewPager2
@@ -146,6 +150,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
     }
 
     private fun saveToCollection() {
-
+        val addToCollectionBottomDialog = AddToCollectionDialog()
+        addToCollectionBottomDialog.show(parentFragmentManager, AddToCollectionDialog.TAG)
+        addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, _ ->
+            Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
+                .show()
+        }
     }
 }
