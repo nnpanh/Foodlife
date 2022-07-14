@@ -84,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/rec_bg"
-            tools:text="Stir-fried beef with broccoli and Rice" />
+            tools:text="Stir-fried beef" />
 
         <ImageView
             android:id="@+id/rec_ratting"

@@ -54,8 +54,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
 
         //Viewpager & TabLayout
-        var pager = binding.viewPager2
-        var tl = binding.tabLayout
+        val pager = binding.viewPager2
+        val tl = binding.tabLayout
         pager.adapter = DetailAdapter(childFragmentManager, lifecycle)
 
         TabLayoutMediator(tl,pager){
@@ -64,9 +64,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
         }.attach()
 
         //VideoView
-        var videoView: VideoView = binding.videoView
-        val mediaController : MediaController
-        mediaController = MediaController(videoView.context)
+        val videoView: VideoView = binding.videoView
+        val mediaController : MediaController = MediaController(videoView.context)
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
@@ -75,22 +74,24 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         initListener()
 
-        val getTitle = arguments?.getString("Title")
-        val getDes = arguments?.getString("Description")
-        val getTime = arguments?.getInt("Time")
-        val getDiff = arguments?.getString("Diff")
-        val getScore = arguments?.getInt("Score")
-        val getName = arguments?.getString("ProfileName")
-        val getProfile = arguments?.getInt("ProfileImg")
-        //Log.d("HEHETITLE","$getTitle")
-        binding.recipeTitle.text = getTitle
+        if (arguments!=null){
+            val getTitle = arguments?.getString("Title")
+            val getDes = arguments?.getString("Description")
+            val getTime = arguments?.getInt("Time")
+            val getDiff = arguments?.getString("Diff")
+            val getScore = arguments?.getInt("Score")
+            val getName = arguments?.getString("ProfileName")
+            val getProfile = arguments?.getInt("ProfileImg")
+            binding.recipeTitle.text = getTitle
 
-        binding.detailAvatar.setBackgroundResource(getProfile!!)
-        binding.tvDetailDes.text = getDes
-        binding.authorName.text = getName
-        binding.currentRatingNum.text = getScore.toString()
-        binding.tvDetailTime.text = getTime.toString()+" mins"
-        binding.tvDetailLevel.text = getDiff
+            binding.detailAvatar.setBackgroundResource(getProfile!!)
+            binding.tvDetailDes.text = getDes
+            binding.authorName.text = getName
+            binding.currentRatingNum.text = getScore.toString()
+            binding.tvDetailTime.text = getTime.toString()+" mins"
+            binding.tvDetailLevel.text = getDiff
+        }
+
 
 
     }
