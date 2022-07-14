@@ -72,7 +72,7 @@
         android:id="@+id/navigation_collections"
         android:name="com.example.foodlife.fragments.CollectionFragment"
         android:label="@string/title_collection"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_collection" />
 
     <fragment
         android:id="@+id/navigation_profile"

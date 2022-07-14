@@ -2,14 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="220dp"
-    android:layout_height="300dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="32dp"
+    android:layout_marginBottom="24dp">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="170dp"
-        android:layout_height="260dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="15dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,8 +25,10 @@
 
             <ImageView
                 android:id="@+id/IVColRImg"
-                android:layout_width="match_parent"
+                android:layout_width="170dp"
                 android:layout_height="170dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintDimensionRatio="1:1"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +37,8 @@
 
             <TextView
                 android:id="@+id/TVColRTitle"
-                android:layout_width="156dp"
+                android:layout_width="0dp"
+                android:gravity="start"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
@@ -43,6 +50,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/IVColRImg" />
 
             <ImageView
@@ -92,6 +100,7 @@
                 android:maxLines="1"
                 android:text="TextView"
                 android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/TVColRTitle"
