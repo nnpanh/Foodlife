@@ -1,6 +1,6 @@
 package com.example.foodlife.models
 
-data class AddRecipeIngredient (
+data class AddRecipeIngredientModel (
     var name: String,
     var quantity: Int
         )

@@ -5,11 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
+import com.example.foodlife.adapters.AddRecipeIngredientAdapter
 import com.example.foodlife.databinding.FragmentAddRecipeIngredientsBinding
 import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
+import com.example.foodlife.models.AddRecipeIngredientModel
+import com.example.foodlife.view_models.AddRecipeViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,6 +75,10 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private var adapterIngredient: AddRecipeIngredientAdapter? = null
+
+    private lateinit var ingredientViewModel: AddRecipeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -83,12 +93,30 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        ingredientViewModel = ViewModelProvider(store)[AddRecipeViewModel::class.java]
         initListener()
+        initAdapters()
     }
 
     private fun initListener() {
         binding.nextBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
+        binding.arAddIngredientBtn.setOnClickListener(this)
+    }
+
+    private fun initAdapters(){
+        if (adapterIngredient == null){
+            adapterIngredient = AddRecipeIngredientAdapter(){clickedItem ->
+                val updateList = ingredientViewModel.initIngredient
+                if (updateList.isNotEmpty()){
+                    updateList.remove(clickedItem)
+                }
+            }
+            binding.rcvIngredientList.adapter = adapterIngredient
+            binding.rcvIngredientList.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapterIngredient!!.updateData(ingredientViewModel.initIngredient)
+
+        }
     }
 
     override fun onDestroyView() {
@@ -106,6 +134,10 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
             R.id.ivBack -> {
                 navController.navigateUp()
                 //TODO
+            }
+            R.id.ar_add_ingredient_btn -> {
+                var item = AddRecipeIngredientModel("Ingredient", 1)
+                adapterIngredient!!.addData(item)
             }
         }
     }

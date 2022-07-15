@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemIngredientsBinding
 import com.example.foodlife.models.Ingredient
-import com.example.foodlife.models.AddRecipeIngredient
 
 class IngredientAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var mList: MutableList<Ingredient> = mutableListOf()

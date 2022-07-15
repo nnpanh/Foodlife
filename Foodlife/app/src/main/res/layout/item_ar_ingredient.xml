@@ -8,7 +8,7 @@
 
         <variable
             name="ingredient"
-            type="com.example.foodlife.models.AddRecipeIngredient" />
+            type="com.example.foodlife.models.AddRecipeIngredientModel" />
     </data>
 
     <RelativeLayout
