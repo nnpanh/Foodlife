@@ -109,7 +109,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
 
     private fun initAdapters(){
         if (adapterIngredient == null){
-            adapterIngredient = AddRecipeIngredientAdapter(){clickedItem ->
+            adapterIngredient = AddRecipeIngredientAdapter(requireActivity()){clickedItem ->
 //                val updateList = ingredientViewModel.initIngredient
 //                val list = adapterIngredient.m
                 if (mList.size>1){

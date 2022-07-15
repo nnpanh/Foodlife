@@ -1,9 +1,14 @@
 package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemArDirectionBinding
 import com.example.foodlife.databinding.ItemArIngredientBinding
 import com.example.foodlife.models.AddRecipeDirectionModel

@@ -124,6 +124,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
             adapterDirection!!.updateData(directionViewModel.initDirection)
 
         }
+
     }
 
     override fun onDestroyView() {

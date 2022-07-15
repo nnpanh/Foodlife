@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_back" />
 
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/title_add_recipe_Ingredient"
             android:textColor="@color/black"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/addrecipe_roundedcorner_1"
             android:fontFamily="@font/poppins_light"
             android:paddingStart="20dp"
@@ -82,11 +82,10 @@
                 android:id="@+id/serves_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating">
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_serves"
@@ -169,11 +168,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/serves_infor"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating">
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_preptime"
@@ -242,11 +240,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/preptime_infor"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating">
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_cooktime"
@@ -316,11 +313,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cooktime_infor"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/rating">
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_difficulty"
@@ -349,29 +345,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-                <!--                <TextView-->
-                <!--                    android:id="@+id/tv_difficulty"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_alignParentEnd="true"-->
-                <!--                    android:layout_centerVertical="true"-->
-                <!--                    android:layout_marginEnd="10dp"-->
-                <!--                    android:background="@drawable/addrecipe_roundedcorner_2"-->
-                <!--                    android:backgroundTint="@color/white"-->
-                <!--                    android:clickable="true"-->
-                <!--                    android:drawableRight="@drawable/ic_dropdown"-->
-                <!--                    android:drawablePadding="10dp"-->
-                <!--                    android:fontFamily="@font/poppins_regular"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:paddingStart="10dp"-->
-                <!--                    android:paddingTop="5dp"-->
-                <!--                    android:paddingEnd="10dp"-->
-                <!--                    android:paddingBottom="5dp"-->
-                <!--                    android:text="@string/txt_Easy"-->
-                <!--                    android:textAlignment="center"-->
-                <!--                    android:textSize="16sp"-->
-                <!--                    tools:ignore="TouchTargetSizeCheck" />-->
-
                 <Spinner
                     android:id="@+id/difficulty_dropdown"
                     android:layout_width="wrap_content"
@@ -392,15 +365,16 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/difficulty_infor"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/addrecipe_roundedcorner_1"
                 android:drawableEnd="@drawable/ic_right"
                 android:drawablePadding="15sp"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:paddingStart="15dp"
+                android:paddingTop="3dp"
                 android:paddingEnd="15dp"
                 android:text="@string/txt_next_btn"
                 android:textAlignment="center"
