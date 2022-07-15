@@ -29,7 +29,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:imageResource="@{option.img}"
             tools:srcCompat="@drawable/salad" />
 
         <TextView

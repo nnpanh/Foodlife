@@ -12,11 +12,15 @@ import androidx.core.os.bundleOf
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.AddToPlanAdapter
 import com.example.foodlife.models.BottomDialogOption
+import com.example.foodlife.view_models.CollectionViewModel
 
 class AddToCollectionDialog : DialogFragment() {
     var rvAdapter: AddToPlanAdapter? = null
@@ -32,11 +36,31 @@ class AddToCollectionDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val listOption = mutableListOf(
-            BottomDialogOption(R.drawable.img_collection, "Meat Lover"),
-            BottomDialogOption(R.drawable.col2, "Healthy"),
-            BottomDialogOption(R.drawable.col1, "Diet")
-        )
+//        val listOption = mutableListOf(
+//            BottomDialogOption(R.drawable.img_collection, "Meat Lover"),
+//            BottomDialogOption(R.drawable.col2, "Healthy"),
+//            BottomDialogOption(R.drawable.col1, "Diet")
+//        )
+
+        /**
+         * Dynamic list
+         */
+        val store = Navigation.findNavController(parentFragment?.view!!).getViewModelStoreOwner(R.id.mobile_navigation)
+        val viewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
+        if (viewModel.colList.value.isNullOrEmpty()) {
+            viewModel.loadCollection()
+        }
+        val listOption = mutableListOf<BottomDialogOption>()
+        viewModel.colList.value?.forEach { collection ->
+            collection.oldImg?.let{
+                listOption.add(BottomDialogOption(collection.oldImg!!, collection.title))
+            }?: run {
+                val linkedBottomDialogOption = BottomDialogOption(0, collection.title)
+                linkedBottomDialogOption.imgUrl = collection.img
+                listOption.add(linkedBottomDialogOption)
+            }
+        }
+
         /**
          * Adapter for 4 meals
          */

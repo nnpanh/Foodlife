@@ -1,6 +1,7 @@
 package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +26,11 @@ class AddToPlanAdapter(private val listener: (BottomDialogOption) -> Unit) : Rec
                 listener(_option)
             }
             itemBottomDialog.option = _option
+            if (_option.img == 0) {
+                itemBottomDialog.ivDish.setImageURI(Uri.parse(_option.imgUrl))
+            } else {
+                itemBottomDialog.ivDish.setImageResource(_option.img)
+            }
         }
     }
 

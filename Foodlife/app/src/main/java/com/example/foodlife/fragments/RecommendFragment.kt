@@ -171,8 +171,10 @@ class RecommendFragment :Fragment(), View.OnClickListener{
                 })}
             else{
                 navController.navigate(R.id.returnCollection,bundle)
-                Snackbar.make(this.view!!, "Saved successfully", Snackbar.LENGTH_LONG)
-                    .show()
+                this.view?.let{
+                    Snackbar.make(this.view!!, "Saved successfully", Snackbar.LENGTH_LONG)
+                        .show()
+                }
             }
 
 
