@@ -35,6 +35,7 @@ class CollectionFragment : Fragment() {
     private val binding get() = _binding!!
     private var isSpinnerInitial = true
     private lateinit var collectionViewModel: CollectionViewModel
+    private var addNewQuantity = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -94,6 +95,7 @@ class CollectionFragment : Fragment() {
             bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
             bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
                 val result = bundle.getSerializable("newCollection") as Collection
+                result.quantity = addNewQuantity
                 collectionViewModel.addCollection(result)
                 collectionAdapter.notifyDataSetChanged()
             }
@@ -124,7 +126,9 @@ class CollectionFragment : Fragment() {
         }
 
         if (arguments!=null){
+            addNewQuantity = 0
             if (arguments!!.getBoolean("add",false)){
+                addNewQuantity = 1
                 binding.IVColAdd.callOnClick()
             } else
             {
