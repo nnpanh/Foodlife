@@ -112,7 +112,7 @@
                 android:layout_below="@id/ar_add_ingredient_btn"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/addrecipe_roundedcorner_1"

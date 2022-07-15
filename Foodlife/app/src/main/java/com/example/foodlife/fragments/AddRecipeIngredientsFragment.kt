@@ -141,8 +141,9 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
                 //TODO
             }
             R.id.ar_add_ingredient_btn -> {
-                var item = AddRecipeIngredientModel("Ingredient", 1)
-                adapterIngredient!!.addData(item)
+                val item = AddRecipeIngredientModel("Ingredient", 1)
+                mList.add(item)
+                adapterIngredient!!.updateData(mList)
             }
         }
     }

@@ -32,7 +32,8 @@
             android:inputType="text"
             android:maxLines="1"
             android:padding="25dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:maxLength="2"/>
 
         <RelativeLayout
             android:id="@+id/quantity_input"
