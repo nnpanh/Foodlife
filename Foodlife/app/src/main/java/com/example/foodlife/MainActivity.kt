@@ -1,17 +1,14 @@
 package com.example.foodlife
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.view.View
+import android.view.MotionEvent
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.foodlife.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -89,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
+    //hide keyboard when touch inside fragment
     fun hideKeyboard() {
         var view= this.currentFocus
         if (view !=null){
@@ -97,5 +95,14 @@ class MainActivity : AppCompatActivity() {
         }
         else
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        }
+    //hide keyboard when touch outside fragment
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
+
 }

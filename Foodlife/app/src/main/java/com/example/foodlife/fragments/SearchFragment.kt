@@ -1,10 +1,12 @@
 package com.example.foodlife.fragments
 
+import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
@@ -19,7 +21,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.MainActivity
 import com.example.foodlife.R
-import com.example.foodlife.adapters.*
+import com.example.foodlife.adapters.SearchRecipeAdapter
 import com.example.foodlife.databinding.FragmentSearchBinding
 import com.example.foodlife.dialog.FilterSearchPopUp
 import com.example.foodlife.view_models.HomeViewModel
@@ -40,6 +42,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
         return root
     }
@@ -50,8 +53,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
 
-        if (homeViewModel.searchList.value!!.isEmpty())
-            homeViewModel.loadSearchList()
+        /*if (homeViewModel.searchList.value!!.isEmpty())
+            homeViewModel.loadSearchList()*/
         if (homeViewModel.meatList.value!!.isEmpty())
             homeViewModel.loadMeatList()
         if (homeViewModel.vegetableList.value!!.isEmpty())
@@ -63,29 +66,32 @@ class SearchFragment : Fragment(), View.OnClickListener {
         if (homeViewModel.dessertList.value!!.isEmpty())
             homeViewModel.loadDessertList()
 
+
         initAdapters()
         initListener()
+
     }
 
     private fun initListener() {
         binding.ivSearchBack.setOnClickListener(this)
         binding.ivSearchFilter.setOnClickListener(this)
-        val search = binding.ACTVSearchPage
+        val search = binding.searchText
         search.addTextChangedListener(object: TextWatcher {
+
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 adapterSearch!!.filter.filter(p0)
+                if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
             }
             override fun afterTextChanged(p0: Editable?) {}
+
         })
     }
 
     private fun initAdapters(){
-        if (homeViewModel.searchList.value!!.isEmpty())
-            homeViewModel.loadSearchList()
-        val arraySearch = homeViewModel.searchList.value
+        val arraySearch = homeViewModel.searchList
         if (adapterSearch == null) {
-            adapterSearch=SearchRecipeAdapter(arraySearch!!){ itemClicked ->
+            adapterSearch=SearchRecipeAdapter(arraySearch){ itemClicked ->
                 val bundle = Bundle()
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
@@ -101,9 +107,11 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
             }
         }
+        if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+
         //Check if recyclerView is not null
         setAdapterSearch(adapterSearch!!, binding.rvSearchRecipe)
-        homeViewModel.searchList.let { adapterSearch!!.updateData(it.value!!.toList()) }
+        homeViewModel.searchList.let { adapterSearch!!.updateData(it.toList()) }
     }
 
     private fun setAdapterSearch(_adapter: SearchRecipeAdapter, _recyclerView: RecyclerView){
@@ -126,12 +134,15 @@ class SearchFragment : Fragment(), View.OnClickListener {
                 bottomFilter.setStyle(DialogFragment.STYLE_NORMAL, R.style.FilterBottomSheetDialogTheme)
                 bottomFilter.setFragmentResultListener("request_filter") { requestKey, bundle ->
                     val catCondition = bundle.getSerializable("filterResult") as MutableList<String>
-                        homeViewModel.loadSearchList()
-                        homeViewModel.FilterSearch(catCondition)
-                        val arrayFilter=homeViewModel.resultFilterList.value
-                        homeViewModel.searchList.value=arrayFilter
+                        //homeViewModel.loadSearchList()
+                    var arrayFilter= homeViewModel.FilterSearch(catCondition)
+                        //var arrayFilter=homeViewModel.resultFilterList.value
+                        //homeViewModel.searchList=arrayFilter.
 
-                        initAdapters()
+                        adapterSearch?.updateData(arrayFilter)
+                    if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+
+                        //initAdapters()
                 }
             }
         }

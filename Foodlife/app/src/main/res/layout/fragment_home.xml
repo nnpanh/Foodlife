@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="@string/txt_search_recipe"
+                    android:hint="@string/txt_search_recipe"
                     android:textColor="@color/primary_20"
                     android:textSize="@dimen/text_smaller"
                     android:layout_marginStart="10dp"

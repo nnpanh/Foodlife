@@ -19,8 +19,8 @@ class CollectionViewModel : ViewModel() {
     fun loadCollection() {
         val list = mutableListOf(
             Collection(R.drawable.img_collection,"", "Meat Lover", 1),
-            Collection(R.drawable.col2,"", "Healthy", 4),
-            Collection(R.drawable.col1,"", "Diet", 4)
+            Collection(R.drawable.col2,"", "Healthy", 2),
+            Collection(R.drawable.col1,"", "Diet", 2)
         )
         colList.value = list
     }

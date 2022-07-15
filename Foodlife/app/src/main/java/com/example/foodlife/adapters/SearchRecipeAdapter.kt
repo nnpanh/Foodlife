@@ -66,7 +66,7 @@ class SearchRecipeAdapter(private val search: List<Recipe>, private val listener
                     searchlist = search
                 else {
                     val resultList = ArrayList<Recipe>()
-                    for (row in search)
+                    for (row in searchlist)
                         if (row.title.lowercase().contains(charSearch.lowercase()))
                             resultList.add(row)
                     searchlist = resultList
