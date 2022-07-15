@@ -79,6 +79,8 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
 
     private lateinit var ingredientViewModel: AddRecipeViewModel
 
+    private var mList: MutableList<AddRecipeIngredientModel> = mutableListOf()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -94,6 +96,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         ingredientViewModel = ViewModelProvider(store)[AddRecipeViewModel::class.java]
+        mList = ingredientViewModel.initIngredient
         initListener()
         initAdapters()
     }
@@ -107,9 +110,11 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     private fun initAdapters(){
         if (adapterIngredient == null){
             adapterIngredient = AddRecipeIngredientAdapter(){clickedItem ->
-                val updateList = ingredientViewModel.initIngredient
-                if (updateList.isNotEmpty()){
-                    updateList.remove(clickedItem)
+//                val updateList = ingredientViewModel.initIngredient
+//                val list = adapterIngredient.m
+                if (mList.size>1){
+                    mList.remove(clickedItem)
+                    adapterIngredient!!.updateData(mList)
                 }
             }
             binding.rcvIngredientList.adapter = adapterIngredient
