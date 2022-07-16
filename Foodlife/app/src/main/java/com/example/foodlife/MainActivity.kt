@@ -1,8 +1,10 @@
 package com.example.foodlife
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
@@ -38,11 +40,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile,
             )
         )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
-
-        //Custom
-//        hideSupportActionBar();
+        if (Build.VERSION.SDK_INT < 16) {
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        } else window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         navView.setOnNavigationItemSelectedListener {
             changeFragment(it.itemId);

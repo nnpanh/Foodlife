@@ -17,7 +17,7 @@
         android:maxLines="2"
         android:text="Choose your collection"
         android:textColor="@color/primary_100"
-        android:textSize="@dimen/text_small"
+        android:textSize="@dimen/text_large"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +61,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_normal"
+        android:textSize="@dimen/text_medium"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addToCollection" />

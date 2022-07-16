@@ -36,8 +36,8 @@
 
         <ImageView
             android:id="@+id/IVColSelect"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@{option.selected? @drawable/ic_checkbox_selected:@drawable/ic_checkbox,default=@drawable/ic_checkbox}"
