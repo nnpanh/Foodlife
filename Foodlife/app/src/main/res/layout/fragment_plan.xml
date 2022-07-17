@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:text="@string/txt_your_plan"
+                android:text="Plan your meal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
                 android:text="@string/txt_today_time"
+                android:layout_marginTop="-4dp"
                 android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -344,7 +345,7 @@
                 android:id="@+id/rvPlanTextBreakfast"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -455,7 +456,7 @@
                 android:id="@+id/tvSnackTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_snacks"
                 android:textColor="@color/black"
@@ -501,7 +502,6 @@
                 android:src="@drawable/list"
                 app:layout_constraintBottom_toBottomOf="@id/tvBreakfastTitle"
                 app:layout_constraintEnd_toStartOf="@id/ivShopping"
-                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle"
                 tools:ignore="ContentDescription" />
 
             <ImageView

@@ -72,8 +72,9 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe_information.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_addrecipe_tittle.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.19791666666666666" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients.xml" value="0.2925877763328999" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients.xml" value="0.26490066225165565" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_calculate_ingredients2.xml" value="0.24094202898550723" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.152" />
@@ -84,6 +85,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_search.xml" value="0.18896964514749892" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_collection.xml" value="0.16908431550317315" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_add_to_plan.xml" value="0.20521590423257802" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_ar_ingredients.xml" value="0.16908431550317315" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_bottom_dialog.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_ingredients.xml" value="0.176" />

@@ -26,6 +26,11 @@ class IngredientAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bindData(_ingredient: Ingredient) {
             itemIngredientBinding.apply {
                 ingredient = _ingredient
+                if (_ingredient.selected) {
+                    ivCheckbox.setImageResource(R.drawable.ic_checkbox_selected)
+                } else {
+                    ivCheckbox.setImageResource(R.drawable.ic_checkbox)
+                }
                 val connectString = "<b>${_ingredient.bold}</b> ${_ingredient.regular}"
                 val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
                 itemIngredientBinding.tvDishTitle.text = textValue

@@ -5,6 +5,6 @@ import android.util.Log
 class Ingredient(
     var regular: String,
     var bold: String,
+    var selected: Boolean = false
 ) {
-    var selected = false
 }

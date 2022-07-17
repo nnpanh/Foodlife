@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
+            android:paddingTop="24dp"
             android:paddingBottom="8dp"
             tools:context=".fragments.PlanFragment">
 
@@ -30,7 +31,6 @@
                 app:layout_constraintTop_toTopOf="@id/tvTitle" />
 
             <TextView
-                android:layout_marginTop="8dp"
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,6 +44,7 @@
 
             <TextView
                 android:id="@+id/tvDate"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -56,9 +57,11 @@
 
             <TextView
                 android:id="@+id/tvDateInfo"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_today_time"
+                android:layout_marginTop="-4dp"
                 android:fontFamily="@font/poppins_light"
                 android:textSize="@dimen/text_normal"
                 android:textColor="@color/primary_40"
@@ -66,11 +69,11 @@
                 app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
             <TextView
-                android:id="@+id/tvTotalDishes"
+                android:id="@+id/tvBreakfastTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/txt_dishes"
+                android:text="@string/txt_breakfast"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="@dimen/text_medium"
                 android:textColor="@color/black"
@@ -78,53 +81,209 @@
                 app:layout_constraintTop_toBottomOf="@id/tvDateInfo" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTotalDishes"
+                android:id="@+id/rvPlanTextBreakfast"
                 android:nestedScrollingEnabled="false"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTotalDishes"
+                app:layout_constraintTop_toBottomOf="@+id/tvBreakfastTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_recipe_type" />
+                tools:listitem="@layout/item_recipe_text" />
             <TextView
                 tools:visibility="visible"
-                android:id="@+id/tvTotalDescription"
+                android:id="@+id/tvBreakfastDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:maxLines="2"
                 android:gravity="start"
                 android:ellipsize="end"
-                android:text="@string/txt_no_dish_cart"
+                android:text="@string/txt_no_dish"
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="@dimen/text_normal"
                 android:visibility="gone"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvTotalDishes" />
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextBreakfast" />
+
+            <TextView
+                android:id="@+id/tvLunchTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/txt_lunch"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBreakfastDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlanTextLunch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLunchTitle"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recipe_text" />
+
+            <TextView
+                android:id="@+id/tvLunchDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvDinnerTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/txt_dinner"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLunchDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlanTextDinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDinnerTitle"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recipe_text" />
+            <TextView
+                android:id="@+id/tvDinnerDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextDinner"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvSnackTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/txt_snacks"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDinnerDescription" />
+
+            <TextView
+                android:id="@+id/tvSnackDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextSnack"
+                tools:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlanTextSnack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSnackTitle"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recipe_text" />
 
 
             <ImageView
-                android:id="@+id/ivCollapse"
+                android:id="@+id/ivCollapseBreakfast"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/open_eye"
-                app:layout_constraintBottom_toBottomOf="@id/tvTotalDishes"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitle"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvTotalDishes"
+                app:layout_constraintTop_toTopOf="@id/tvTitle"
                 tools:ignore="ContentDescription" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ivCollapseLunch"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:src="@drawable/open_eye"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvLunchTitle"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvLunchTitle"-->
+<!--                tools:ignore="ContentDescription" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ivCollapseDinner"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:src="@drawable/open_eye"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvDinnerTitle"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvDinnerTitle"-->
+<!--                tools:ignore="ContentDescription" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/ivCollapseSnack"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="36dp"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:src="@drawable/open_eye"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/tvSnackTitle"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@id/tvSnackTitle"-->
+<!--                tools:ignore="ContentDescription" />-->
             <ImageView
                 android:id="@+id/ivLinebreak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tvTotalDescription"
+                app:layout_constraintTop_toBottomOf="@id/tvSnackDescription"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:src="@drawable/line_break"
                 android:layout_marginTop="28dp"
+                app:layout_goneMarginTop="16dp"
                 android:layout_marginBottom="28dp"
                 />
             <TextView
@@ -138,6 +297,25 @@
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivLinebreak" />
+
+            <TextView
+                android:id="@+id/tvTotalDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                app:layout_goneMarginTop="32dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="start"
+                android:maxLines="2"
+                android:text="@string/txt_no_dish_cart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvIngredients"
+                tools:visibility="visible" />
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvIngredients"
@@ -193,13 +371,13 @@
                     android:layout_marginStart="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/quantity_01"
                     android:gravity="center"
                     android:paddingTop="6dp"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     android:ellipsize="end"
                     android:background="@drawable/bgr_number"
-                    android:text="@string/quantity_01"
                     android:fontFamily="@font/poppins_bold"
                     android:textSize="@dimen/text_normal"
                     android:textColor="@color/black"
