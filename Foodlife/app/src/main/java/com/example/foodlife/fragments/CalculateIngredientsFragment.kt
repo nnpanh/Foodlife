@@ -92,6 +92,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                     if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
                         View.VISIBLE
                     checkTotal()
+                    updateIngredients()
                 }
             }
         }
@@ -108,6 +109,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                 }
                 if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
                 checkTotal()
+                updateIngredients()
             }
         }
         if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
@@ -122,6 +124,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                 }
                 if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
                 checkTotal()
+                updateIngredients()
             }
         }
         if (planViewModel.dinnerList.size ==0) binding.tvDinnerDescription.visibility = View.VISIBLE
@@ -137,6 +140,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                 }
                 if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
                 checkTotal()
+                updateIngredients()
             }
         }
         if (planViewModel.snackList.size ==0) binding.tvSnackDescription.visibility = View.VISIBLE
@@ -248,5 +252,10 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
             }
             .create()
             .show()
+    }
+    private fun updateIngredients(){
+        planViewModel.ingredientList.removeFirst()
+        planViewModel.ingredientList2.removeFirst()
+        adapterIngredient?.updateData(planViewModel.ingredientList)
     }
 }

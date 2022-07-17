@@ -43,11 +43,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     var tabTitle = arrayOf("Ingredients", "Directions", "Review")
 
-    companion object {
-        fun newInstance(): DetailFragment {
-            return DetailFragment()
-        }
-    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

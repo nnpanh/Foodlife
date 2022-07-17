@@ -19,6 +19,7 @@ import com.example.foodlife.adapters.PlanImageAdapter
 import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.databinding.FragmentPlanBinding
 import com.example.foodlife.dialog.CalendarPopUp
+import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.models.UserModel
 import com.example.foodlife.roomdb.FoodlifeDB
@@ -96,6 +97,8 @@ class PlanFragment : Fragment(), View.OnClickListener {
             if (arguments!!.getBoolean("Snack",false)){
                 planViewModel.snackList.add(newDish)
             }
+            planViewModel.ingredientList.add(Ingredient("added ingredients","8"))
+            planViewModel.ingredientList2.add(Ingredient("added ingredients","16"))
         }
         initListener()
         initAdaptersText()

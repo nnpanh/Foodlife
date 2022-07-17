@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
     //hide keyboard when touch inside fragment
     fun hideKeyboard() {
-        var view= this.currentFocus
+        val view= this.currentFocus
         if (view !=null){
             val hideMe=getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             hideMe.hideSoftInputFromWindow(view.windowToken,0)

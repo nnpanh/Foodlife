@@ -48,7 +48,7 @@
     <string name="optional">Options</string>
     <string name="add_current_meal_to_the_plan">Add current meal to the plan</string>
     <string name="select_a_plan_date">Select a plan</string>
-    <string name="choose_the_meal_you_want_to_add_this_dish">Choose the meal you want to add this dish?</string>
+    <string name="choose_the_meal_you_want_to_add_this_dish">Choose the meal you want to add to \'13/07/2022\' plan?</string>
     <string name="confirm">Confirm</string>
     <string name="txt_ingredient">Ingredient</string>
     <string name="txt_add_ingredient">Add ingredient</string>
