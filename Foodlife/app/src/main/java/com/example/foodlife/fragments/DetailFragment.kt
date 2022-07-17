@@ -70,8 +70,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         //VideoView
         val videoView: VideoView = binding.videoView
-        val mediaController = MediaController(videoView.context)
+//        val mediaController = MediaController(videoView.context)
+        val mediaController = MediaController(context)
         mediaController.setAnchorView(binding.flVideo)
+
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
         videoView.requestFocus()
