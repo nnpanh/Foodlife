@@ -1,15 +1,14 @@
 package com.example.foodlife.fragments
 
-import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -77,15 +76,37 @@ class SearchFragment : Fragment(), View.OnClickListener {
         binding.ivSearchFilter.setOnClickListener(this)
         val search = binding.searchText
         search.addTextChangedListener(object: TextWatcher {
-
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 adapterSearch!!.filter.filter(p0)
-                if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
-            }
-            override fun afterTextChanged(p0: Editable?) {}
+                /*if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+                else binding.tvSearchDescription.visibility = View.GONE*/
 
+                if (search.text.toString().trim().isNotEmpty()){
+                    binding.ivSearchClearIcon.visibility = View.VISIBLE
+                }
+                else{binding.ivSearchClearIcon.visibility = View.GONE}
+            }
+            override fun afterTextChanged(p0: Editable?) {
+                if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+                else binding.tvSearchDescription.visibility = View.GONE
+
+
+            }
         })
+        search.setOnFocusChangeListener { view, _ ->
+            if (view.isFocused) {
+                binding.ivSearchIcon.visibility=View.GONE
+            }
+            else{
+                binding.ivSearchIcon.visibility=View.VISIBLE
+            }
+        }
+        binding.ivSearchClearIcon.setOnClickListener {
+            binding.searchText.text.clear()
+            search.requestFocus()
+            (activity as MainActivity).showKeyboard()
+        }
     }
 
     private fun initAdapters(){
@@ -108,6 +129,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
             }
         }
         if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+        else binding.tvSearchDescription.visibility = View.GONE
 
         //Check if recyclerView is not null
         setAdapterSearch(adapterSearch!!, binding.rvSearchRecipe)
@@ -140,11 +162,13 @@ class SearchFragment : Fragment(), View.OnClickListener {
                         //homeViewModel.searchList=arrayFilter.
 
                         adapterSearch?.updateData(arrayFilter)
-                    if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
 
-                        //initAdapters()
+                    if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
+                    else binding.tvSearchDescription.visibility = View.GONE
+
                 }
             }
+
         }
     }
 
