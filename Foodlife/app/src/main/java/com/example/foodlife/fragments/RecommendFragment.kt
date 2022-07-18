@@ -117,7 +117,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
         //Check if recyclerView is not null
         setAdapterRec(adapterRecommendFrame!!, binding.rvRecFrameItem)
-        homeViewModel.recList.let { adapterRecommendFrame!!.updateData(it) }
+        homeViewModel.meatList.value.let { adapterRecommendFrame!!.updateData(it!!) }
 
         setAdapterRecCat(adapterRecommendCat!!, binding.rvRecMainCat)
         homeViewModel.recCat.let { adapterRecommendCat!!.updateData(it) }

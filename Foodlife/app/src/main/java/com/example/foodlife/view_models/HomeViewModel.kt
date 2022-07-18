@@ -27,9 +27,9 @@ class HomeViewModel : ViewModel() {
        MainCategoryModel(R.drawable.ic_party,"Party"),
    )
     var collectionList = mutableListOf(
-        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,"",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria"),
-        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna"),
-        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,"",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ),
+        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria"),
+        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna"),
+        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ),
     )
 
     var recCat= mutableListOf(
