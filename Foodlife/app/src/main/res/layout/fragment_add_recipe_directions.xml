@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_back" />
 
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/title_add_recipe_Direction"
             android:textColor="@color/black"
@@ -56,12 +56,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/addrecipe_roundedcorner_1"
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            android:backgroundTint="@color/secondary_100"
             android:fontFamily="@font/poppins_light"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="10dp"
             android:text="4/4"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -69,11 +68,11 @@
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_below="@id/AR_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AR_title">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -82,40 +81,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="1"
                 tools:listitem="@layout/item_ar_direction" />
 
-            <Button
+            <!--            <TextView-->
+            <!--                android:id="@+id/ar_add_direction_btn"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@id/rcv_direction_list"-->
+            <!--                android:layout_marginStart="16dp"-->
+            <!--                android:layout_marginEnd="16dp"-->
+            <!--                android:layout_marginBottom="16dp"-->
+            <!--                android:background="@drawable/addrecipe_roundedcorner_2"-->
+            <!--                android:drawableStart="@drawable/ic_plus_regular"-->
+            <!--                android:drawablePadding="50dp"-->
+            <!--                android:drawableTint="@color/primary_60"-->
+            <!--                android:fontFamily="@font/poppins_semi_bold"-->
+            <!--                android:padding="15dp"-->
+            <!--                android:text="@string/txt_add_direction"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@color/primary_60"-->
+            <!--                android:textSize="20sp" />-->
+
+            <ImageView
                 android:id="@+id/ar_add_direction_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rcv_direction_list"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/addrecipe_roundedcorner_1"
-                android:drawableRight="@drawable/ic_plus_regular"
-                android:drawablePadding="20dp"
-                android:drawableTint="@color/white"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:paddingStart="20dp"
-                android:paddingEnd="15dp"
-                android:text="@string/txt_add_direction"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:backgroundTint="@color/secondary_100" />
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/add_step_button"
+                app:layout_constraintTop_toBottomOf="@id/rcv_direction_list" />
 
             <Button
                 android:id="@+id/add_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_below="@id/ar_add_direction_btn"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/addrecipe_roundedcorner_1"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="30dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:paddingStart="15dp"
                 android:paddingTop="2dp"
@@ -124,11 +136,11 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                app:backgroundTint="@color/secondary_100" />
-        </RelativeLayout>
+                app:backgroundTint="@color/secondary_100"
+                app:layout_constraintTop_toBottomOf="@id/ar_add_direction_btn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </RelativeLayout>

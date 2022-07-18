@@ -17,15 +17,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_semi_bold"
             android:text="@string/title_add_recipe"
             android:textColor="@color/black"
@@ -37,14 +37,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/AR_header"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/tvARIngredient"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:fontFamily="@font/poppins_bold"
             android:text="@string/title_add_recipe_Ingredient"
             android:textColor="@color/black"
@@ -56,12 +56,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="30dp"
-            android:background="@drawable/addrecipe_roundedcorner_1"
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            android:backgroundTint="@color/secondary_100"
             android:fontFamily="@font/poppins_light"
-            android:paddingStart="16dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="10dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="10dp"
             android:text="3/4"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -69,9 +68,9 @@
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_below="@id/AR_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AR_title">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -81,56 +80,42 @@
                 android:id="@+id/rcv_ingredient_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:itemCount="10"
+                tools:itemCount="2"
                 tools:listitem="@layout/item_ar_ingredient" />
 
-            <Button
+            <ImageView
                 android:id="@+id/ar_add_ingredient_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rcv_ingredient_list"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/addrecipe_roundedcorner_1"
-                android:drawableRight="@drawable/ic_plus_regular"
-                android:drawablePadding="20dp"
-                android:drawableTint="@color/white"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:paddingStart="20dp"
-                android:paddingEnd="15dp"
-                android:text="@string/txt_add_ingredient"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:backgroundTint="@color/secondary_100" />
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/add_ingredient_button" />
 
             <Button
-                android:id="@+id/next_btn"
-                android:layout_width="wrap_content"
+                android:id="@+id/continue_btn"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ar_add_ingredient_btn"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/addrecipe_roundedcorner_1"
-                android:drawableEnd="@drawable/ic_right"
-                android:drawablePadding="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:text="@string/txt_next_btn"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                android:text="@string/txt_continue_btn"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:backgroundTint="@color/secondary_100" />
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </RelativeLayout>

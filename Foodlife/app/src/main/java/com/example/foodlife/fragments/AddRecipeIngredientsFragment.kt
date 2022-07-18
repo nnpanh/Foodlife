@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.AddRecipeIngredientAdapter
 import com.example.foodlife.databinding.FragmentAddRecipeIngredientsBinding
-import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
 import com.example.foodlife.models.AddRecipeIngredientModel
 import com.example.foodlife.view_models.AddRecipeViewModel
 
@@ -102,7 +101,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initListener() {
-        binding.nextBtn.setOnClickListener(this)
+        binding.continueBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
         binding.arAddIngredientBtn.setOnClickListener(this)
     }
@@ -132,7 +131,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         when (v?.id) {
-            R.id.next_btn -> {
+            R.id.continue_btn -> {
                 navController.navigate(R.id.addRecipeIngredientFragment_to_addRecipeDirectionsFragment)
                 //TODO
             }
@@ -141,9 +140,10 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
                 //TODO
             }
             R.id.ar_add_ingredient_btn -> {
-                val item = AddRecipeIngredientModel("Ingredient", 1)
-                mList.add(item)
-                adapterIngredient!!.updateData(mList)
+                val item = AddRecipeIngredientModel("Ingredient", "1", "g")
+                adapterIngredient?.addData(item)
+                mList = adapterIngredient!!.getList()
+//                adapterIngredient!!.updateData(mList)
             }
         }
     }

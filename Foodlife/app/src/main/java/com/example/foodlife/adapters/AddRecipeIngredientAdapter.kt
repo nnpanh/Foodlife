@@ -2,11 +2,13 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemArIngredientBinding
@@ -51,10 +53,14 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     position: Int,
                     id: Long
                 ) {
-                    if (isSpinnerInitial)
-                        isSpinnerInitial = false
-                    else{
-                    }
+//                    if (isSpinnerInitial)
+//                        isSpinnerInitial = false
+//                    else{
+//
+//                    }
+                    Log.e("chosen", id.toString())
+                    Log.e("position", adapterPosition.toString())
+                    mList[adapterPosition].measure = itemIngredientBinding.measurementDropdown.selectedItem.toString()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}

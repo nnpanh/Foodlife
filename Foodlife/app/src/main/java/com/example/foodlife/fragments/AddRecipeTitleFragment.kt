@@ -75,7 +75,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initListener() {
-        binding.nextBtn.setOnClickListener(this)
+        binding.continueBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
     }
 
@@ -87,7 +87,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         when (v?.id) {
-            R.id.next_btn -> {
+            R.id.continue_btn -> {
                 navController.navigate(R.id.addRecipeTittleFragment_to_addRecipeInformationFragment)
                 //TODO
             }

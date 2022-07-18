@@ -6,7 +6,7 @@ import com.example.foodlife.models.AddRecipeIngredientModel
 
 class AddRecipeViewModel : ViewModel() {
     var initIngredient = mutableListOf<AddRecipeIngredientModel>(
-        AddRecipeIngredientModel("Ingredient", 1)
+        AddRecipeIngredientModel("Ingredient", "1", "g")
     )
 
     var initDirection = mutableListOf<AddRecipeDirectionModel>(
