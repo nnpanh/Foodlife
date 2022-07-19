@@ -103,7 +103,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
         }
 
         videoView.requestFocus()
-        videoView.start()
 
         binding.nsView.viewTreeObserver.addOnScrollChangedListener {
             mediaController.hide()

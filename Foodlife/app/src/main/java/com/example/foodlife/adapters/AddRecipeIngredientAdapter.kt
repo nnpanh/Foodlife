@@ -31,11 +31,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
         notifyDataSetChanged()
     }
 
-    fun getList(): MutableList<AddRecipeIngredientModel> {
-        return this.mList
-
-    }
-
     inner class ItemViewHolder(private val itemIngredientBinding: ItemArIngredientBinding) :
         RecyclerView.ViewHolder(itemIngredientBinding.root) {
         fun bindData(_ingredient: AddRecipeIngredientModel) {
@@ -61,6 +56,7 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     Log.e("chosen", id.toString())
                     Log.e("position", adapterPosition.toString())
                     mList[adapterPosition].measure = itemIngredientBinding.measurementDropdown.selectedItem.toString()
+                    mList[adapterPosition].selectedPosition = itemIngredientBinding.measurementDropdown.selectedItemPosition
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -73,6 +69,7 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
 
             }
             itemIngredientBinding.ivDelete.setOnClickListener{listener(_ingredient)}
+            itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
             itemIngredientBinding.apply {
                 ingredient = _ingredient
 //                val name = _ingredient.name
