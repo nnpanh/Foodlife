@@ -10,59 +10,141 @@
             type="com.example.foodlife.models.AddRecipeIngredientModel" />
     </data>
 
-    <RelativeLayout
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:paddingHorizontal="24dp"-->
+<!--        android:paddingVertical="16dp">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/ed_ingredient"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_toStartOf="@id/quantity_input"-->
+<!--            android:background="@drawable/addrecipe_roundedcorner_2"-->
+<!--            android:ellipsize="end"-->
+<!--            android:fontFamily="@font/poppins_regular"-->
+<!--            android:hint="@string/txt_ingredient"-->
+<!--            android:inputType="text"-->
+<!--            android:maxLines="1"-->
+<!--            android:padding="20dp"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/quantity_input"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toStartOf="@id/ivDelete"-->
+<!--            android:background="@drawable/addrecipe_roundedcorner_2">-->
+
+<!--            &lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_centerVertical="true"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginStart="5dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginTop="10dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginEnd="5dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginBottom="10dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_toEndOf="@id/et_ingredient_quantity"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:clickable="true"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:drawableEnd="@drawable/ic_dropdown"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:drawablePadding="10dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:ellipsize="end"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:fontFamily="@font/poppins_regular"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:text="tbsp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:textColor="@color/black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:textSize="16sp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                tools:ignore="TouchTargetSizeCheck" />&ndash;&gt;-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/et_ingredient_quantity"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:background="@drawable/addrecipe_roundedcorner_2"-->
+<!--                android:backgroundTint="@color/white"-->
+<!--                android:fontFamily="@font/poppins_regular"-->
+<!--                android:hint="@string/quantity_01"-->
+<!--                android:inputType="number"-->
+<!--                android:maxLength="5"-->
+<!--                android:ems="2"-->
+<!--                android:maxLines="1"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:paddingHorizontal="5dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="16sp"-->
+<!--                tools:ignore="RtlCompat,TouchTargetSizeCheck" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/measurement_dropdown"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_toEndOf="@id/et_ingredient_quantity"-->
+<!--                android:background="@null" />-->
+<!--        </RelativeLayout>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/ivDelete"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:clickable="true"-->
+<!--            android:contentDescription="Delete ingredient"-->
+<!--            android:src="@drawable/ic_x_button"-->
+<!--            tools:ignore="TouchTargetSizeCheck" />-->
+
+<!--    </RelativeLayout>-->
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="16dp">
+        android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/ed_ingredient"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="10dp"
-            android:layout_toStartOf="@id/quantity_input"
             android:background="@drawable/addrecipe_roundedcorner_2"
-            android:ellipsize="end"
             android:fontFamily="@font/poppins_regular"
+            android:gravity="center_vertical"
             android:hint="@string/txt_ingredient"
             android:inputType="text"
-            android:maxLines="1"
             android:padding="20dp"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/quantity_input"
+            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/quantity_input"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/ivDelete"
-            android:background="@drawable/addrecipe_roundedcorner_2">
-
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_centerVertical="true"-->
-            <!--                android:layout_marginStart="5dp"-->
-            <!--                android:layout_marginTop="10dp"-->
-            <!--                android:layout_marginEnd="5dp"-->
-            <!--                android:layout_marginBottom="10dp"-->
-            <!--                android:layout_toEndOf="@id/et_ingredient_quantity"-->
-            <!--                android:clickable="true"-->
-            <!--                android:drawableEnd="@drawable/ic_dropdown"-->
-            <!--                android:drawablePadding="10dp"-->
-            <!--                android:ellipsize="end"-->
-            <!--                android:fontFamily="@font/poppins_regular"-->
-            <!--                android:text="tbsp"-->
-            <!--                android:textColor="@color/black"-->
-            <!--                android:textSize="16sp"-->
-            <!--                tools:ignore="TouchTargetSizeCheck" />-->
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            app:layout_constraintBottom_toBottomOf="@+id/ed_ingredient"
+            app:layout_constraintEnd_toStartOf="@id/ivDelete"
+            app:layout_constraintTop_toTopOf="@+id/ed_ingredient"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="229dp">
 
             <EditText
                 android:id="@+id/et_ingredient_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -70,37 +152,42 @@
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="@string/quantity_01"
-                android:inputType="number"
+                android:inputType="text"
                 android:maxLength="5"
-                android:ems="2"
                 android:maxLines="1"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:paddingHorizontal="5dp"
-                android:textAlignment="center"
+                android:padding="10dp"
                 android:textSize="16sp"
-                tools:ignore="RtlCompat,TouchTargetSizeCheck" />
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/measurement_dropdown"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Spinner
                 android:id="@+id/measurement_dropdown"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_toEndOf="@id/et_ingredient_quantity"
-                android:background="@null" />
-        </RelativeLayout>
+                app:layout_constraintBottom_toBottomOf="@+id/et_ingredient_quantity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/et_ingredient_quantity"
+                app:layout_constraintTop_toTopOf="@+id/et_ingredient_quantity"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/ivDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:clickable="true"
-            android:contentDescription="Delete ingredient"
-            android:src="@drawable/ic_x_button"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/quantity_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/quantity_input"
+            app:srcCompat="@drawable/ic_close" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
