@@ -31,12 +31,12 @@
 
                 <VideoView
                     android:id="@+id/videoView"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true" />
 
 <!--                <MediaController-->
 <!--                    android:layout_width="match_parent"-->
@@ -75,21 +75,32 @@
                 app:layout_constraintStart_toStartOf="@id/flVideo"
                 tools:text="Eggs, and Baconnnnnnnnnnnnnnnnddddddddddddd" />
 
-            <ImageButton
+<!--            <ImageButton-->
+<!--                android:id="@+id/imgToolbarBtnFav"-->
+<!--                android:layout_width="36dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:background="@drawable/arrow"-->
+<!--                android:contentDescription="backward_arrow"-->
+<!--                android:rotation="180"-->
+<!--                android:src="@drawable/arrow"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:tint="@color/white"-->
+<!--                tools:ignore="SpeakableTextPresentCheck" />-->
+
+            <ImageView
                 android:id="@+id/imgToolbarBtnFav"
-                android:layout_width="36dp"
-                android:layout_height="0dp"
-                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/arrow"
-                android:contentDescription="backward_arrow"
-                android:rotation="180"
-                android:src="@drawable/arrow"
+                android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck" />
+                app:srcCompat="@drawable/ic_arrow_back" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
@@ -162,7 +173,7 @@
                             android:layout_marginTop="8dp"
                             android:numStars="5"
                             android:progressDrawable="@drawable/ic_custom_star"
-                            android:rating="0"
+                            android:rating="4.8"
                             android:stepSize="1.0"
                             app:layout_constraintHeight="28dp"
                             app:layout_constraintStart_toStartOf="parent"

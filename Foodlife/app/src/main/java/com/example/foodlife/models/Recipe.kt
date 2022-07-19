@@ -9,4 +9,5 @@ data class Recipe(
     var description: String,
     var profile_img:Int,
     var profile_name:String,
+    var video_url:String,
 )
