@@ -3,19 +3,28 @@ package com.example.foodlife.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.databinding.ItemMainCategoryBinding
 import com.example.foodlife.models.MainCategoryModel
+import com.example.foodlife.models.RecommendCategoryModel
 
-class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.ViewHolder>() {
+class MainCategoryAdapter(private val listener: (MainCategoryModel) -> Unit): RecyclerView.Adapter<MainCategoryAdapter.ViewHolder>() {
     var mainList: List<MainCategoryModel> = emptyList()
+
+    private var _binding: ItemMainCategoryBinding? = null
+    private val binding get() = _binding!!
+
     fun updateData(main_list: List<MainCategoryModel>){
         this.mainList=main_list
 
     }
-    inner class ViewHolder(private val view: ItemMainCategoryBinding) :
-        RecyclerView.ViewHolder(view.root){
+    inner class ViewHolder(private val itemMainCategoryBinding: ItemMainCategoryBinding) :
+        RecyclerView.ViewHolder(itemMainCategoryBinding.root){
+
+
         fun bindData(_mainCat: MainCategoryModel) {
-            view.apply {
+            itemMainCategoryBinding.catImg.setOnClickListener { listener(_mainCat) }
+            itemMainCategoryBinding.apply {
                 mainCat =_mainCat
                 executePendingBindings()
             }
@@ -35,6 +44,12 @@ class MainCategoryAdapter: RecyclerView.Adapter<MainCategoryAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        (holder).bindData(mainList[position])
+        val item = mainList[position]
+        (holder ).bindData(item)
+
+        /*holder.itemView.setOnClickListener {
+            listener(item)
+
+        }*/
     }
 }

@@ -10,8 +10,8 @@
     </data>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rec_home_item"
-        android:layout_width="232dp"
-        android:layout_height="252dp"
+        android:layout_width="225dp"
+        android:layout_height="240dp"
         app:rippleColor="@android:color/transparent"
         app:strokeWidth="0dp"
         android:layout_marginEnd="8dp"
@@ -22,8 +22,8 @@
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cardBackgroundColor="@android:color/white">
         <ImageView
-            android:layout_width="228dp"
-            android:layout_height="247dp"
+            android:layout_width="221dp"
+            android:layout_height="235dp"
             android:background="@drawable/shadow_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,19 +33,19 @@
             android:adjustViewBounds="true"/>
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="228dp"
-        android:layout_height="247dp"
+        android:layout_width="221dp"
+        android:layout_height="235dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="228dp"
-        android:layout_height="247dp">
+        android:layout_width="221dp"
+        android:layout_height="235dp">
         <ImageView
             android:id="@+id/rec_img"
-            android:layout_width="228dp"
-            android:layout_height="247dp"
+            android:layout_width="221dp"
+            android:layout_height="235dp"
             app:imageResource="@{recipe.img}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,65 +54,49 @@
             tools:srcCompat="@drawable/recommend_1"
             android:adjustViewBounds="true"/>
 
-        <ImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rec_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="150dp"
-            android:background="@drawable/recommend_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/rec_img"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/rec_name"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="-5dp"
-            android:ellipsize="start"
-            android:fontFamily="@font/poppins_semi_bold"
-            android:maxLines="2"
-            android:text="@{recipe.title}"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_normal"
-            app:layout_constraintBottom_toTopOf="@+id/rec_ratting"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/rec_bg"
-            tools:text="Stir-fried beef" />
-
-        <ImageView
-            android:id="@+id/rec_ratting"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="0dp"
-            android:layout_marginBottom="-4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="ContentDescription"
-            android:background="@drawable/ic_rating"
-            android:adjustViewBounds="true"/>
-
-        <ImageView
-            android:id="@+id/rec_arrow"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/arrow_bold"
+            android:background="@drawable/recommend_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/rec_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="ContentDescription"
-            android:adjustViewBounds="true"/>
+            app:layout_constraintStart_toStartOf="parent">
 
+            <TextView
+                android:id="@+id/rec_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="-5dp"
+                android:ellipsize="start"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:maxLines="2"
+                android:text="@{recipe.title}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_normal"
+                app:layout_constraintBottom_toTopOf="@+id/rec_ratting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rec_bg"
+                tools:text="Stir- sssssssssssssssssssssf" />
 
+            <ImageView
+                android:id="@+id/rec_ratting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="-4dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/ic_rating"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

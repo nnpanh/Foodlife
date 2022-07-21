@@ -69,8 +69,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.ivArrow.setOnClickListener(this)
         binding.ivArrowCollect.setOnClickListener(this)
         binding.ivCreateMeal.setOnClickListener(this)
-        binding.HomeSearch.setOnClickListener(this)
-        binding.ivCreateMeal.setOnClickListener(this)
+        binding.ivSearch.setOnClickListener(this)
     }
 
     private fun initAdapters(){
@@ -96,7 +95,36 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
 
         if (adapterMainCat == null) {
-            adapterMainCat = MainCategoryAdapter()
+            adapterMainCat = MainCategoryAdapter(){ clickedItem ->
+                val updateList = homeViewModel.mainList
+                val position=updateList.indexOf(clickedItem)
+                val bundle = Bundle()
+
+                if (position==0) {
+                    bundle.putString("choice","1")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+                else if (position==1){
+                    bundle.putString("choice","2")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+                else if (position==2){
+                    bundle.putString("choice","3")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+                else if (position==3){
+                    bundle.putString("choice","4")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+                else if (position==4){
+                    bundle.putString("choice","5")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+                else if (position==5){
+                    bundle.putString("choice","6")
+                    navController.navigate(R.id.homeToChoice,bundle)
+                }
+            }
         }
 
         if (adapterCollection == null) {
@@ -159,11 +187,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 navController.navigate(R.id.homeToRecommendFragment)
                 //TODO
             }
-            R.id.HomeSearch->{
+            R.id.ivSearch->{
                 navController.navigate(R.id.homeToSearchFragment)
             }
             R.id.ivArrowCollect->{
-                navController.navigate(R.id.homeToSearchFragment)
+                val bundle = Bundle()
+                bundle.putString("choice","0")
+                navController.navigate(R.id.homeToChoice,bundle)
             }
             R.id.ivCreateMeal -> {
                 navController.navigate(R.id.home_to_addRecipeTittleFragment)

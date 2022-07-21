@@ -9,6 +9,7 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -110,6 +111,7 @@ class MainActivity : AppCompatActivity() {
             val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
         }
+
         if (ev!!.action === MotionEvent.ACTION_DOWN) {
             val view = currentFocus
             if (view != null && view is EditText) {
@@ -122,6 +124,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         return super.dispatchTouchEvent(ev)
     }
 
