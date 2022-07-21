@@ -92,7 +92,7 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initListener() {
-        binding.nextBtn.setOnClickListener(this)
+        binding.continueBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
         binding.icServesPlus.setOnClickListener(this)
         binding.icServesMinus.setOnClickListener(this)
@@ -106,7 +106,7 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         when (v?.id) {
-            R.id.next_btn -> {
+            R.id.continue_btn -> {
                 navController.navigate(R.id.addRecipeInformationFragment_to_addRecipeIngredientFragment)
                 //TODO
             }
@@ -115,15 +115,26 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
                 //TODO
             }
             R.id.ic_serves_plus -> {
-                val a: Int = binding.numServes.text.toString().toInt() + 1
-                binding.numServes.setText(a.toString())
+                if (binding.numServes.text.toString()==""){
+                    binding.numServes.setText("0")
+                }
+                else{
+                    val a: Int = binding.numServes.text.toString().toInt() + 1
+                    binding.numServes.setText(a.toString())
+                }
+
             }
             R.id.ic_serves_minus -> {
-                var a: Int = binding.numServes.text.toString().toInt()
-                if(a > 0){
-                    a -= 1
+                if (binding.numServes.text.toString()==""){
+                    binding.numServes.setText("0")
+                }else{
+                    var a: Int = binding.numServes.text.toString().toInt()
+                    if(a > 0){
+                        a -= 1
+                    }
+                    binding.numServes.setText(a.toString())
                 }
-                binding.numServes.setText(a.toString())
+
             }
         }
     }

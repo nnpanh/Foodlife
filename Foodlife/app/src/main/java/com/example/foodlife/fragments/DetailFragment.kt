@@ -76,12 +76,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
-        videoView.requestFocus()
-        videoView.start()
 
-        binding.nsView.viewTreeObserver.addOnScrollChangedListener {
-            mediaController.hide()
-        }
 
 
         initListener()
@@ -94,6 +89,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getScore = arguments?.getInt("Score")
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
+            val getVideoUrl = arguments?.getString("VideoUrl")
             binding.recipeTitle.text = getTitle
 
             binding.detailAvatar.setBackgroundResource(getProfile!!)
@@ -102,10 +98,15 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.currentRatingNum.text = getScore.toString()
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff
-
+            if (getVideoUrl != null)(
+            videoView.setVideoURI(Uri.parse(getVideoUrl)))
         }
 
+        videoView.requestFocus()
 
+        binding.nsView.viewTreeObserver.addOnScrollChangedListener {
+            mediaController.hide()
+        }
 
     }
 

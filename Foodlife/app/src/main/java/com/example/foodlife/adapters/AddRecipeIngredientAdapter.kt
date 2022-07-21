@@ -2,11 +2,13 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemArIngredientBinding
@@ -29,11 +31,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
         notifyDataSetChanged()
     }
 
-    fun getList(): MutableList<AddRecipeIngredientModel> {
-        return this.mList
-
-    }
-
     inner class ItemViewHolder(private val itemIngredientBinding: ItemArIngredientBinding) :
         RecyclerView.ViewHolder(itemIngredientBinding.root) {
         fun bindData(_ingredient: AddRecipeIngredientModel) {
@@ -51,10 +48,15 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     position: Int,
                     id: Long
                 ) {
-                    if (isSpinnerInitial)
-                        isSpinnerInitial = false
-                    else{
-                    }
+//                    if (isSpinnerInitial)
+//                        isSpinnerInitial = false
+//                    else{
+//
+//                    }
+                    Log.e("chosen", id.toString())
+                    Log.e("position", adapterPosition.toString())
+                    mList[adapterPosition].measure = itemIngredientBinding.measurementDropdown.selectedItem.toString()
+                    mList[adapterPosition].selectedPosition = itemIngredientBinding.measurementDropdown.selectedItemPosition
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -67,6 +69,7 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
 
             }
             itemIngredientBinding.ivDelete.setOnClickListener{listener(_ingredient)}
+            itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
             itemIngredientBinding.apply {
                 ingredient = _ingredient
 //                val name = _ingredient.name

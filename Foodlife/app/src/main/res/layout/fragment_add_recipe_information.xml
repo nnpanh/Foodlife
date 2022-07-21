@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_back" />
 
@@ -32,354 +32,374 @@
             android:textSize="18sp" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/AR_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/AR_header"
-        android:layout_marginTop="50dp">
-
-        <TextView
-            android:id="@+id/tvARIngredient"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/title_add_recipe_Ingredient"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
-
-        <TextView
-            android:id="@+id/tvARPage3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/addrecipe_roundedcorner_1"
-            android:fontFamily="@font/poppins_light"
-            android:paddingStart="20dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="10dp"
-            android:text="2/4"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
-    </RelativeLayout>
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/AR_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/AR_title">
+        android:layout_below="@id/AR_header">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <RelativeLayout
+                android:id="@+id/AR_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp">
+
+                <TextView
+                    android:id="@+id/tvARIngredient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/title_add_recipe_Ingredient"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/tvARPage3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/addrecipe_roundedcorner_2"
+                    android:backgroundTint="@color/secondary_100"
+                    android:fontFamily="@font/poppins_light"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="2/4"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/serves_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_below="@id/AR_title"
                 android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_serves"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:padding="10dp"
+                    android:background="@drawable/addrecipe_roundedcorner_1"
+                    android:padding="8dp"
                     android:src="@drawable/user_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     app:tint="@color/secondary_100" />
 
                 <TextView
                     android:id="@+id/txt_serves"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="8dp"
                     android:layout_toEndOf="@id/ic_serves"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_serves"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_serves"
+                    app:layout_constraintStart_toEndOf="@+id/ic_serves"
+                    app:layout_constraintTop_toTopOf="@id/ic_serves" />
 
                 <ImageView
                     android:id="@+id/ic_serves_plus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="8dp"
                     android:clickable="true"
                     android:src="@drawable/plus_border"
-                    app:tint="@color/white" />
+                    app:layout_constraintBottom_toBottomOf="@+id/num_serves"
+                    app:layout_constraintStart_toEndOf="@+id/num_serves"
+                    app:layout_constraintTop_toTopOf="@+id/num_serves"
+                    app:tint="@color/black" />
 
                 <EditText
                     android:id="@+id/num_serves"
-                    android:layout_width="48dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toStartOf="@id/ic_serves_plus"
+                    android:layout_marginEnd="56dp"
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:backgroundTint="@color/white"
+                    android:ems="2"
                     android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/quantity_01"
                     android:inputType="number"
+                    android:maxLength="3"
                     android:maxLines="1"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="1"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
                     android:textAlignment="center"
                     android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <ImageView
                     android:id="@+id/ic_serves_minus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="8dp"
                     android:layout_toStartOf="@id/num_serves"
                     android:clickable="true"
                     android:src="@drawable/minus_border"
-                    app:tint="@color/white" />
-            </RelativeLayout>
+                    app:layout_constraintBottom_toBottomOf="@+id/num_serves"
+                    app:layout_constraintEnd_toStartOf="@+id/num_serves"
+                    app:layout_constraintTop_toTopOf="@+id/num_serves"
+                    app:tint="@color/black" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/preptime_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/serves_infor"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_preptime"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:padding="10dp"
+                    android:background="@drawable/addrecipe_roundedcorner_1"
+                    android:padding="8dp"
                     android:src="@drawable/ic_time"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/secondary_100" />
 
                 <TextView
                     android:id="@+id/tv_preptime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/ic_preptime"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="8dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_preparationTime"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_preptime"
+                    app:layout_constraintStart_toEndOf="@id/ic_preptime"
+                    app:layout_constraintTop_toTopOf="@+id/ic_preptime" />
 
                 <EditText
                     android:id="@+id/ed_preptime"
-                    android:layout_width="48dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@id/tv_preptime_minute"
+                    android:layout_marginEnd="56dp"
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:backgroundTint="@color/white"
+                    android:ems="2"
                     android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/quantity_01"
                     android:inputType="number"
+                    android:maxLength="2"
                     android:maxLines="1"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="15"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
                     android:textAlignment="center"
                     android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/tv_preptime_minute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_margin="8dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_minute"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ed_preptime"
+                    app:layout_constraintStart_toEndOf="@+id/ed_preptime"
+                    app:layout_constraintTop_toTopOf="@+id/ed_preptime" />
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cooktime_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/preptime_infor"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_cooktime"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="8dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:padding="10dp"
+                    android:background="@drawable/addrecipe_roundedcorner_1"
+                    android:padding="8dp"
                     android:src="@drawable/cooking"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/secondary_100" />
 
                 <TextView
                     android:id="@+id/tv_cooktime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/ic_cooktime"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="8dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_cookingTime"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_cooktime"
+                    app:layout_constraintStart_toEndOf="@+id/ic_cooktime"
+                    app:layout_constraintTop_toTopOf="@+id/ic_cooktime" />
 
                 <EditText
                     android:id="@+id/ed_cooktime"
-                    android:layout_width="48dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
-                    android:layout_toStartOf="@id/tv_cooktime_minute"
+                    android:layout_marginEnd="56dp"
                     android:background="@drawable/addrecipe_roundedcorner_2"
                     android:backgroundTint="@color/white"
+                    android:ems="2"
                     android:fontFamily="@font/poppins_regular"
                     android:gravity="center"
+                    android:hint="@string/quantity_01"
                     android:inputType="number"
+                    android:maxLength="2"
                     android:maxLines="1"
-                    android:paddingStart="10dp"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="5dp"
-                    android:text="15"
+                    android:paddingStart="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="4dp"
                     android:textAlignment="center"
                     android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/tv_cooktime_minute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_margin="8dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_minute"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ed_cooktime"
+                    app:layout_constraintStart_toEndOf="@+id/ed_cooktime"
+                    app:layout_constraintTop_toTopOf="@+id/ed_cooktime" />
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/difficulty_infor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cooktime_infor"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/addrecipe_roundedcorner_1">
 
                 <ImageView
                     android:id="@+id/ic_difficulty"
                     android:layout_width="48dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="8dp"
                     android:adjustViewBounds="true"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/white"
-                    android:padding="10dp"
+                    android:background="@drawable/addrecipe_roundedcorner_1"
+                    android:padding="8dp"
                     android:src="@drawable/chef_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/secondary_100" />
 
                 <TextView
                     android:id="@+id/txt_difficulty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/ic_difficulty"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_marginVertical="8dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    android:paddingTop="2dp"
                     android:text="@string/txt_difficulty"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_difficulty"
+                    app:layout_constraintStart_toEndOf="@+id/ic_difficulty"
+                    app:layout_constraintTop_toTopOf="@id/ic_difficulty" />
 
                 <Spinner
                     android:id="@+id/difficulty_dropdown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="56dp"
                     android:background="@null"
                     android:drawableEnd="@drawable/ic_dropdown"
-                    android:drawablePadding="10dp" />
+                    android:drawablePadding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/next_btn"
-                android:layout_width="wrap_content"
+                android:id="@+id/continue_btn"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/difficulty_infor"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/addrecipe_roundedcorner_1"
-                android:drawableEnd="@drawable/ic_right"
-                android:drawablePadding="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:paddingStart="15dp"
-                android:paddingTop="3dp"
-                android:paddingEnd="15dp"
-                android:text="@string/txt_next_btn"
+                android:padding="12dp"
+                android:paddingTop="14dp"
+                android:text="@string/txt_continue_btn"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:backgroundTint="@color/secondary_100" />
 
         </RelativeLayout>
