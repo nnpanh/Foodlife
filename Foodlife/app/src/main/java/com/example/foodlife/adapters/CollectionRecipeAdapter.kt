@@ -1,5 +1,7 @@
 package com.example.foodlife.adapters
 
+import android.content.Context
+import android.media.Image
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -16,10 +18,13 @@ import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.databinding.ItemRecipeSearchBinding
 import com.example.foodlife.models.Recipe
 
-class CollectionRecipeAdapter(private val search: List<Recipe>, private val listener: (Recipe) -> Unit) :RecyclerView.Adapter<CollectionRecipeAdapter.ViewHolder>(){
-    var searchList: List<Recipe> = emptyList()
+class CollectionRecipeAdapter(private val search: MutableList<Recipe>, private val listener: (Recipe) -> Unit) :RecyclerView.Adapter<CollectionRecipeAdapter.ViewHolder>(){
+    var searchList: MutableList<Recipe> = mutableListOf()
+    private var removeIcons = mutableListOf<ImageView>()
+    private var remove = true
+    private var adapter = this
 
-    fun updateData(searhList: List<Recipe>){
+    fun updateData(searhList: MutableList<Recipe>){
         this.searchList= searhList
         notifyDataSetChanged()
     }
@@ -39,6 +44,11 @@ class CollectionRecipeAdapter(private val search: List<Recipe>, private val list
                 adapterRecipeCollectionBinding.colectTime.text=textValue
                 adapterRecipeCollectionBinding.collectRate.text=_recipe.score.toString()
                 executePendingBindings()
+                removeIcons.add(adapterRecipeCollectionBinding.ivRemove)
+                adapterRecipeCollectionBinding.ivRemove.setOnClickListener {
+                    adapter.searchList.removeAt(adapterPosition)
+                    adapter.notifyItemRemoved(adapterPosition)
+                }
             }
         }
     }
@@ -59,6 +69,12 @@ class CollectionRecipeAdapter(private val search: List<Recipe>, private val list
         (holder as ViewHolder).bindData(searchList[position])
     }
 
-
+    fun changeStatus() {
+        for (item in removeIcons) {
+            if (!remove) item.visibility = View.GONE
+            else item.visibility = View.VISIBLE
+        }
+        remove = !remove
+    }
 
 }

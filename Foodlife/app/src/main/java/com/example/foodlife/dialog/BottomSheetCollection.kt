@@ -45,7 +45,7 @@ class BottomSheetCollection : BottomSheetDialogFragment() {
         val BTNConfirm = view.findViewById<Button>(R.id.BTNColA)
         BTNConfirm.setOnClickListener {
             if (IVImage!!.drawable != null && ETName.text.toString() != "") {
-                val collection = Collection(null,imgPath.toString(), ETName.text.toString(), 0)
+                val collection = Collection(null,imgPath.toString(), ETName.text.toString(), 0, mutableListOf())
                 setFragmentResult("request_key", bundleOf("newCollection" to collection))
                 dismiss()
             }

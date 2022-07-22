@@ -7,4 +7,5 @@ data class Collection(
         var img: String,
         var title: String,
         var quantity: Int,
+        var recipes: MutableList<Recipe>,
 ): Serializable

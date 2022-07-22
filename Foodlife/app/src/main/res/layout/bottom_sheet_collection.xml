@@ -103,8 +103,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:background="#eeeeee"
-            android:scaleType="centerCrop" />
+            android:background="@drawable/addrecipe_roundedcorner_2"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_placeholder" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/FABColA"

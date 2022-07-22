@@ -188,6 +188,17 @@
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_launcher1.xml" value="0.1215" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_launcher1_round.xml" value="0.1215" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1215" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_collection_detail.xml" value="0.16974043715846995" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.16974043715846995" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.264" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.16974043715846995" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe_directions.xml" value="0.1" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe_title.xml" value="0.10245901639344263" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection.xml" value="0.2" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection_detail.xml" value="0.2" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_search.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -177,15 +177,25 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val addNewCollection = bundle.getBoolean("add",false)
             if (addNewCollection){
                 navController.navigate(R.id.returnCollection,Bundle().apply {
-                    putBoolean("add",true)
-                })}
-                else{
-                    navController.navigate(R.id.returnCollection,bundle)
-                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
-                    .show()
-                }
-
-
+                    putBoolean("add", true)
+                })
+            }
+            else{
+                navController.navigate(R.id.returnCollection,Bundle().apply {
+                    val getTitle = arguments?.getString("Title")
+                    val getDiff = arguments?.getString("Diff")
+                    val getPicture = arguments?.getInt("Picture")
+                    val getScore = arguments?.getInt("Score")
+                    val getTime = arguments?.getInt("Time")
+                    putString("Title", getTitle)
+                    putInt("Time", getTime!!)
+                    putString("Diff", getDiff)
+                    putInt("Score", getScore!!)
+                    putInt("Picture", getPicture!!)
+                    putBundle("Bundle", bundle)
+                })
+                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 }
