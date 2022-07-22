@@ -99,6 +99,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
             }
             planViewModel.ingredientList.add(Ingredient("added ingredients","8"))
             planViewModel.ingredientList2.add(Ingredient("added ingredients","16"))
+        arguments = null
         }
         initListener()
         initAdaptersText()
