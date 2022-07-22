@@ -87,6 +87,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getTime = arguments?.getInt("Time")
             val getDiff = arguments?.getString("Diff")
             val getScore = arguments?.getInt("Score")
+
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
             val getVideoUrl = arguments?.getString("VideoUrl")
@@ -100,6 +101,9 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.tvDetailLevel.text = getDiff
             if (getVideoUrl != null)(
             videoView.setVideoURI(Uri.parse(getVideoUrl)))
+            if (getScore != null) {
+                binding.detailRating.rating = getScore.toFloat()
+            }
         }
 
         videoView.requestFocus()
@@ -107,7 +111,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
         binding.nsView.viewTreeObserver.addOnScrollChangedListener {
             mediaController.hide()
         }
-
     }
 
     private fun initListener(){
