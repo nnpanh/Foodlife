@@ -1,13 +1,12 @@
 package com.example.foodlife.fragments
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
@@ -41,8 +40,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
-
         val root: View = binding.root
+
         return root
     }
 
@@ -51,7 +50,8 @@ class SearchFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
-
+        binding.searchText.requestFocus()
+        (activity as MainActivity).showKeyboard()
         /*if (homeViewModel.searchList.value!!.isEmpty())
             homeViewModel.loadSearchList()*/
         if (homeViewModel.meatList.value!!.isEmpty())
@@ -82,18 +82,19 @@ class SearchFragment : Fragment(), View.OnClickListener {
                 /*if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
                 else binding.tvSearchDescription.visibility = View.GONE*/
 
-                if (search.text.toString().trim().isNotEmpty()){
-                    binding.ivSearchClearIcon.visibility = View.VISIBLE
-                }
-                else{binding.ivSearchClearIcon.visibility = View.GONE}
+
             }
             override fun afterTextChanged(p0: Editable?) {
                 if (adapterSearch!!.itemCount ==0) binding.tvSearchDescription.visibility = View.VISIBLE
                 else binding.tvSearchDescription.visibility = View.GONE
 
-
+                if (search.text.toString().trim().isNotEmpty()){
+                    binding.ivSearchClearIcon.visibility = View.VISIBLE
+                }
+                else{binding.ivSearchClearIcon.visibility = View.GONE}
             }
         })
+
         search.setOnFocusChangeListener { view, _ ->
             if (view.isFocused) {
                 binding.ivSearchIcon.visibility=View.GONE
@@ -103,11 +104,15 @@ class SearchFragment : Fragment(), View.OnClickListener {
             }
         }
         binding.ivSearchClearIcon.setOnClickListener {
-            binding.searchText.text.clear()
+            binding.searchText.setText("")
             search.requestFocus()
             (activity as MainActivity).showKeyboard()
+
+
+
         }
     }
+
 
     private fun initAdapters(){
         val arraySearch = homeViewModel.searchList

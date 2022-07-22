@@ -64,6 +64,9 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
 
     }
+    private fun initListener() {
+        binding.ivSearchBack.setOnClickListener(this)
+    }
 
 
     private fun initAdapters(){
@@ -92,7 +95,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
             adapterRecommendCat = RecommendCategoryAdapter() { clickedItem ->
                 val updateList = homeViewModel.recCat
                 val position=updateList.indexOf(clickedItem)
-                binding.test.text=position.toString()
+
                 var newList=homeViewModel.recList
                 if (position==0) {
                     newList=homeViewModel.meatList.value!!
@@ -123,9 +126,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         homeViewModel.recCat.let { adapterRecommendCat!!.updateData(it) }
     }
 
-    private fun initListener() {
-        binding.RecommendSearch.setOnClickListener(this)
-    }
+
     private fun setAdapterRec(_adapter: RecommendFrameAdapter, _recyclerView: RecyclerView){
         //Set adapter
         //_adapter.setHasStableIds(true)
@@ -142,18 +143,19 @@ class RecommendFragment :Fragment(), View.OnClickListener{
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         }
     }
-
-
     override fun onClick(p0: View?) {
         when (p0?.id) {
 
-            R.id.RecommendSearch -> {
-                navController.navigate(R.id.RecommendToSearchFragment)
-                //TODO
+
+            R.id.ivSearchBack->{
+                navController.navigate(R.id.recToHome)
             }
 
         }
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

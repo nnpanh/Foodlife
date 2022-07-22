@@ -17,30 +17,43 @@
                     android:id="@+id/rec_frame_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:imageResource="@{recipe.img}"
                     android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
+                    app:imageResource="@{recipe.img}"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription"
                     tools:srcCompat="@drawable/rec1" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rec_frame_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="64dp"
+                    android:background="@drawable/ic_recbg_black"
+                    app:layout_constraintBottom_toBottomOf="@id/rec_frame_img"
+                    app:layout_constraintEnd_toEndOf="@id/rec_frame_img"
+                    app:layout_constraintStart_toStartOf="@id/rec_frame_img"
+                    tools:ignore="ContentDescription">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/rec_profile_img"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="10dp"
                     android:padding="5dp"
                     android:scaleType="centerCrop"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginStart="24dp"
-                    app:shapeAppearanceOverlay="@style/circle"
-                    app:layout_constraintStart_toStartOf="@id/rec_frame_img"
-                    app:layout_constraintTop_toTopOf="@id/rec_frame_img"
-                    app:strokeColor="@color/secondary_100"
-                    app:strokeWidth="2dp"
                     app:imageResource="@{recipe.profile_img}"
+                    app:layout_constraintBottom_toTopOf="@+id/rec_frame_name"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:shapeAppearanceOverlay="@style/circle"
+                    app:strokeColor="@color/secondary_100"
+                    app:strokeWidth="1dp"
                     tools:srcCompat="@drawable/example_dish_1" />
 
                 <TextView
@@ -59,56 +72,8 @@
                     app:layout_constraintStart_toEndOf="@id/rec_profile_img"
                     app:layout_constraintTop_toTopOf="@id/rec_profile_img"
                     app:layout_constraintVertical_bias="0.424"
-                    tools:text="Stir-fried beef with broccoli and Rice eeeeeeeeeee" />
+                    tools:text="John" />
 
-                <ImageView
-                    android:id="@+id/rec_frame_bg"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_gradient_white"
-                    app:layout_constraintBottom_toBottomOf="@id/rec_frame_img"
-                    app:layout_constraintEnd_toEndOf="@id/rec_frame_img"
-                    app:layout_constraintStart_toStartOf="@id/rec_frame_img"
-                    tools:ignore="ContentDescription" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/ic_rating_box"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:paddingStart="6dp"
-                    android:paddingEnd="6dp"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                    app:layout_constraintBottom_toTopOf="@id/rec_frame_name">
-
-                    <ImageView
-                        android:id="@+id/ivStar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:srcCompat="@drawable/ic_rating_star" />
-
-                    <TextView
-                        android:id="@+id/tv_rec_rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_medium"
-                        android:layout_marginTop="2dp"
-                        tools:text="4.6"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-
-                        app:layout_constraintStart_toEndOf="@id/ivStar"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/rec_frame_name"
@@ -116,43 +81,30 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="24dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="24dp"
                     android:fontFamily="@font/poppins_bold"
                     android:maxLines="2"
                     android:text="@{recipe.title}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@id/rec_frame_description"
+                    app:layout_constraintBottom_toTopOf="@id/rec_frame_cook"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Stir-fried beef with broccoli and Rice eeeeeeeeeee" />
 
-                <TextView
-                    android:id="@+id/rec_frame_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/poppins_regular"
-                    android:maxLines="2"
-                    android:text="@{recipe.description}"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@id/rec_frame_cook"
-                    app:layout_constraintEnd_toStartOf="@+id/rec_frame_save"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    tools:text="Stir-fried beef with broccoli and Rice eeeeeeeeeeeeeeeeee" />
+                    tools:text="Stir-fried beef wieeeeeeeeeeeeeeth broccoli and Rice " />
+
+
 
                 <ImageView
                     android:id="@+id/rec_frame_cook"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_marginStart="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/chef_bold"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/chef"
+                    android:backgroundTint="@color/white"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription"
@@ -162,10 +114,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="11sp"
                     android:text="@{recipe.diff}"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -175,15 +127,16 @@
 
                 <ImageView
                     android:id="@+id/rec_frame_time"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="9dp"
+                    android:layout_marginTop="-4dp"
                     android:adjustViewBounds="true"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/clock_bold"
+                    android:background="@drawable/clock"
+                    android:backgroundTint="@color/white"
                     app:layout_constraintStart_toEndOf="@id/tv_rec_cook"
-                    app:layout_constraintTop_toBottomOf="@id/rec_frame_description"
+                    app:layout_constraintTop_toTopOf="@id/rec_frame_cook"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription" />
 
@@ -192,15 +145,45 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="12dp"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/poppins_medium"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="11sp"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@id/rec_frame_time"
                     app:layout_constraintTop_toTopOf="@+id/rec_frame_cook"
                     tools:text="45 mins" />
+
+                <ImageView
+                    android:id="@+id/rec_frame_star"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="-8dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/ic_favorite"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintStart_toEndOf="@id/tv_rec_time"
+                    app:layout_constraintTop_toTopOf="@id/rec_frame_cook"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_rec_star"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="13dp"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/rec_frame_star"
+                    app:layout_constraintTop_toTopOf="@+id/rec_frame_cook"
+                    tools:text="5" />
 
                 <ImageView
                     android:id="@+id/rec_frame_save"
@@ -213,6 +196,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/ivSearchBack"
-            android:layout_width="wrap_content"
+            android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
@@ -44,9 +44,9 @@
 
         <ImageView
             android:id="@+id/ivSearchFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:layout_marginTop="0dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/filter"
@@ -59,7 +59,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@id/ivSearchFilter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSearchBack"
@@ -81,43 +81,43 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/search_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="4dp"
-                android:background="@null"
-                android:fontFamily="@font/poppins_regular"
-                android:hint="@string/txt_search_recipe"
-                android:textColor="@color/primary_100"
-                android:textSize="@dimen/text_smaller"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/ivSearchClearIcon"
-                tools:text="ssssssssssssssssssssssssssssssssssssdddddddddđsssssssssssssssssssss"
-                app:layout_constraintStart_toEndOf="@+id/ivSearchIcon"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                <EditText
+                    android:id="@+id/search_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/txt_search_recipe"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/primary_100"
+                    android:textSize="@dimen/text_smaller"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivSearchIcon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivSearchClearIcon"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="4dp"
+                    tools:text="ssssssssssssssssssssssssssssssssssssdddddddddđsssssssssssssssssssss"/>
             <ImageView
                 android:id="@+id/ivSearchClearIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="22dp"
                 android:padding="2dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_x_button_search"
+                android:src="@drawable/ic_close"
                 tools:ignore="ContentDescription"
                 tools:visibility="visible"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
-
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -125,15 +125,15 @@
                 android:id="@+id/rvSearchRecipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
                 android:nestedScrollingEnabled="true"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
 
-                tools:itemCount="0"
+                tools:itemCount="2"
                 tools:listitem="@layout/item_recipe_search"
                 android:layout_marginTop="24dp"
                 app:layout_constraintTop_toBottomOf="@+id/ACTVSearchPage"/>

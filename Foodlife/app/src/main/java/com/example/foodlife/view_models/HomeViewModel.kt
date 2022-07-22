@@ -144,27 +144,30 @@ class HomeViewModel : ViewModel() {
         var filterList = mutableListOf<Recipe>()
         //var filterList: MutableList<Recipe>? =null
 
-
+        if(catCondition.size==2 && catCondition[0]=="false" && catCondition[1]=="false"){
+            filterList.addAll(searchList)
+            return filterList
+        }
         //1. no category --> filterList = searchList
         //   has category--> size>2 --> load list to filterList
-        if (catCondition.size>2)
-        {
-            //filterList.clear()
-            if(catCondition.contains("Meat")){
-                filterList.addAll(meatList.value!!)
-            }
-            if(catCondition.contains("Vegetables")){
-                filterList.addAll(vegetableList.value!!)
-            }
-            if(catCondition.contains("Vietnamese")){
-                filterList.addAll(vietnamList.value!!)
-            }
-            if(catCondition.contains("Western")){
-                filterList.addAll(westernList.value!!)
-            }
-            if(catCondition.contains("Dessert")){
-                filterList.addAll(dessertList.value!!)
-            }
+
+        if (catCondition.size>2) {
+                //filterList.clear()
+                if(catCondition.contains("Meat")){
+                    filterList.addAll(meatList.value!!)
+                }
+                if(catCondition.contains("Vegetables")){
+                    filterList.addAll(vegetableList.value!!)
+                }
+                if(catCondition.contains("Vietnamese")){
+                    filterList.addAll(vietnamList.value!!)
+                }
+                if(catCondition.contains("Western")){
+                    filterList.addAll(westernList.value!!)
+                }
+                if(catCondition.contains("Dessert")){
+                    filterList.addAll(dessertList.value!!)
+                }
         }
 
         //2. time==false --> nothing
@@ -202,6 +205,7 @@ class HomeViewModel : ViewModel() {
                 //filterList=dessertList.value!!
             }*/
         }
+
 
         return filterList
     }

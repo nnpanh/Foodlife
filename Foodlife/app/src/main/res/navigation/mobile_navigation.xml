@@ -66,6 +66,9 @@
         <action
             android:id="@+id/homeToDetail"
             app:destination="@id/detail_fragment" />
+        <action
+            android:id="@+id/homeToChoice"
+            app:destination="@id/choiceFragment" />
     </fragment>
 
     <fragment
@@ -134,6 +137,9 @@
         <action
             android:id="@+id/recToDetail"
             app:destination="@id/detail_fragment" />
+        <action
+            android:id="@+id/recToHome"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -178,4 +184,12 @@
         android:name="com.example.foodlife.fragments.AddRecipeDirectionsFragment"
         android:label="fragment_add_recipe_directions"
         tools:layout="@layout/fragment_add_recipe_directions" />
+    <fragment
+        android:id="@+id/choiceFragment"
+        android:name="com.example.foodlife.fragments.ChoiceFragment"
+        android:label="ChoiceFragment" >
+        <action
+            android:id="@+id/choiceToHome"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

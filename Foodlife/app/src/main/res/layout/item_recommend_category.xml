@@ -33,7 +33,6 @@
             android:text="@{mainCat.title}"
             android:textColor="@color/primary_100"
             android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -43,12 +42,14 @@
             android:id="@+id/tvRecCatLine"
             android:layout_width="0dp"
             android:layout_height="2dp"
-            android:background="@color/secondary_100"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRecCatName"
+            android:background="@color/secondary_100"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tvRecCatName"
-            app:layout_constraintStart_toStartOf="@+id/tvRecCatName" />
+            app:layout_constraintStart_toStartOf="@+id/tvRecCatName"
+            app:layout_constraintTop_toBottomOf="@+id/tvRecCatName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
