@@ -35,6 +35,12 @@
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right"/>
 
+    <action android:id="@+id/detailToCollection"
+        app:destination="@id/navigation_collections"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true" />
+
     <action android:id="@+id/returnProfile"
         app:destination="@id/navigation_profile"
         app:launchSingleTop="true"

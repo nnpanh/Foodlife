@@ -1,11 +1,13 @@
 package com.example.foodlife.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -83,7 +85,24 @@ class CollectionFragment : Fragment() {
          */
         binding.ACTVColSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (p0!!.isEmpty()) {
+                    binding.ACTVColSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search, 0, 0, 0)
+                }
+                else {
+                    binding.ACTVColSearch.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_close, 0)
+                    binding.ACTVColSearch.setPadding(50, 0, 50, 0)
+                    binding.ACTVColSearch.setOnTouchListener(View.OnTouchListener {_, event ->
+                        if (event.action == MotionEvent.ACTION_UP) {
+                            if (event.rawX >= (binding.ACTVColSearch.right - binding.ACTVColSearch.compoundPaddingRight)) {
+                                binding.ACTVColSearch.setText("")
+                                return@OnTouchListener true
+                            }
+                        }
+                        return@OnTouchListener false
+                    })
+                }
                 collectionAdapter.filter.filter(p0)
             }
             override fun afterTextChanged(p0: Editable?) {}

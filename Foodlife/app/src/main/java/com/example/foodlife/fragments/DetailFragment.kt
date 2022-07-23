@@ -179,12 +179,12 @@ class DetailFragment : Fragment(), View.OnClickListener {
         addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
             val addNewCollection = bundle.getBoolean("add",false)
             if (addNewCollection){
-                navController.navigate(R.id.returnCollection,Bundle().apply {
+                navController.navigate(R.id.detailToCollection,Bundle().apply {
                     putBoolean("add", true)
                 })
             }
             else{
-                navController.navigate(R.id.returnCollection,Bundle().apply {
+                navController.navigate(R.id.detailToCollection,Bundle().apply {
                     val getTitle = arguments?.getString("Title")
                     val getDiff = arguments?.getString("Diff")
                     val getPicture = arguments?.getInt("Picture")
@@ -197,7 +197,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     putInt("Picture", getPicture!!)
                     putBundle("Bundle", bundle)
                 })
-                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
             }
         }
     }

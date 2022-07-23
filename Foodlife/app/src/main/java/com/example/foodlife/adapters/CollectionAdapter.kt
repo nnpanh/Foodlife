@@ -55,10 +55,11 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         if (item.img != "")
             holder.IVCol.setImageURI(Uri.parse(item.img))
         holder.IVCol.contrast = 0.8F
+        holder.IVCol.brightness = 0.8F
         /**
          * Set image
          */
-        if (item.oldImg!=null) holder.IVCol.setBackgroundResource(item.oldImg!!)
+        if (item.oldImg!=null) holder.IVCol.setImageResource(item.oldImg!!)
         holder.TVColName.text = item.title
         holder.TVColQuantity.text = item.quantity.toString() + " Recipes"
 
