@@ -74,4 +74,8 @@
         <item name="chipCornerRadius">20dp</item>
         <item name="chipStartPadding">10dp</item>
     </style>
+
+    <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
 </resources>

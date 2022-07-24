@@ -1,32 +1,28 @@
 package com.example.foodlife.fragments
 
-import android.content.SharedPreferences
+import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.example.foodlife.R
-import com.example.foodlife.adapters.PlanImageAdapter
-import com.example.foodlife.adapters.CollectionHomeAdapter
+import com.example.foodlife.adapters.CollectionHomeAdapterV2
 import com.example.foodlife.databinding.FragmentPlanV3Binding
 import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
-import com.example.foodlife.models.UserModel
-import com.example.foodlife.roomdb.FoodlifeDB
-import com.example.foodlife.roomdb.entities.UserEntity
-import com.example.foodlife.view_models.HomeViewModel
 import com.example.foodlife.view_models.PlanViewModel
-import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class PlanFragmentV3 : Fragment(), View.OnClickListener {
@@ -35,15 +31,12 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
     private var _binding: FragmentPlanV3Binding? = null
     private val binding get() = _binding!!
 
-    private var adapterBreakfast: CollectionHomeAdapter? = null
-    private var adapterLunch: CollectionHomeAdapter? = null
-    private var adapterDinner: CollectionHomeAdapter? = null
-    private var adapterSnack: CollectionHomeAdapter? = null
-
-    private var adapterImageBreakfast: PlanImageAdapter? = null
-    private var adapterImageLunch: PlanImageAdapter? = null
-    private var adapterImageDinner: PlanImageAdapter? = null
-    private var adapterImageSnack: PlanImageAdapter? = null
+    private var adapterBreakfast: CollectionHomeAdapterV2? = null
+    private var adapterLunch: CollectionHomeAdapterV2? = null
+    private var adapterDinner: CollectionHomeAdapterV2? = null
+    private var adapterSnack: CollectionHomeAdapterV2? = null
+    private var viewMode = true //to show or hide deleteMode
+    private var weekMode = 1 //0 = last week, 1 = this week, 2 = next week
 
     private lateinit var planViewModel: PlanViewModel
 
@@ -71,206 +64,231 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         planViewModel = ViewModelProvider(store)[PlanViewModel::class.java]
 
 
-
-
         //Initialize view
-        if (arguments!=null){
+        if (arguments != null) {
             /**
              * Fragment started from addToPlan
              */
             val newDish = PlanItemModel(
-                arguments!!.getString("Title","Some random dish"),
-                arguments!!.getString("Rate","4.5"),
-                arguments!!.getInt("Image",R.drawable.recommend_1),
-                arguments!!.getString("Time","15 mins"),
-                arguments!!.getString("Level","Hard"),
-                arguments!!.getString("Author","NKTTNga")
+                arguments!!.getString("Title", "Some random dish"),
+                arguments!!.getString("Rate", "4.5"),
+                arguments!!.getInt("Image", R.drawable.recommend_1),
+                arguments!!.getString("Time", "15 mins"),
+                arguments!!.getString("Level", "Hard"),
+                arguments!!.getString("Author", "NKTTNga")
             )
-            if (arguments!!.getBoolean("Breakfast",false)){
+            if (arguments!!.getBoolean("Breakfast", false)) {
                 planViewModel.breakfastList.add(newDish)
             }
-            if (arguments!!.getBoolean("Lunch",false)){
+            if (arguments!!.getBoolean("Lunch", false)) {
                 planViewModel.lunchList.add(newDish)
             }
-            if (arguments!!.getBoolean("Dinner",false)){
+            if (arguments!!.getBoolean("Dinner", false)) {
                 planViewModel.dinnerList.add(newDish)
             }
-            if (arguments!!.getBoolean("Snack",false)){
+            if (arguments!!.getBoolean("Snack", false)) {
                 planViewModel.snackList.add(newDish)
             }
-            planViewModel.ingredientList.add(Ingredient("added ingredients","8"))
-            planViewModel.ingredientList2.add(Ingredient("added ingredients","16"))
-        arguments = null
+            planViewModel.ingredientList.add(Ingredient("added ingredients", "8"))
+            planViewModel.ingredientList2.add(Ingredient("added ingredients", "16"))
+            arguments = null
         }
         initListener()
         initAdaptersText()
+        initTab()
 
     }
 
+    data class DayOfWeek(val day: String, val date: String)
+    private fun initTab(){
+        val tabList = mapOf<Int,DayOfWeek>(
+            0 to DayOfWeek("Monday", "11"),
+            1 to DayOfWeek("Tuesday", "12"),
+            2 to DayOfWeek("Wednesday", "13"),
+            3 to DayOfWeek("Thursday", "14"),
+            4 to DayOfWeek("Friday", "15"),
+            5 to DayOfWeek("Saturday", "16"),
+            6 to DayOfWeek("Sunday", "17")
+        )
+
+
+        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                val day = tabList[tab.position]!!.day
+                val date = tabList[tab.position]!!.date
+                binding.tvDate.text = day
+                when(date){
+                    "11" -> binding.tvDateInfo.text = "${date}st June, 2022"
+                    "12" -> binding.tvDateInfo.text = "${date}nd June, 2022"
+                    "13" -> binding.tvDateInfo.text = "${date}rd June, 2022"
+                    else -> binding.tvDateInfo.text = "${date}th June, 2022"
+                }
+                planViewModel.morning.shuffle()
+                adapterBreakfast?.updateData(planViewModel.morning)
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+            }
+            override fun onTabReselected(tab: TabLayout.Tab) {
+            }
+        })
+    }
+
     private fun initListener() {
-        binding.ivCalender.setOnClickListener(this)
+//        binding.ivCalender.setOnClickListener(this)
         binding.ivShopping.setOnClickListener(this)
         binding.ivViewMode.setOnClickListener(this)
+        binding.ivBack.setOnClickListener(this)
+        binding.ivNext.setOnClickListener(this)
     }
 
     private fun initAdaptersText() {
         //Create adapter
         if (adapterBreakfast == null) {
-            adapterBreakfast = CollectionHomeAdapter() { clickedItem ->
-//                val updateList = planViewModel.breakfastList
-//                if (updateList.isNotEmpty()) {
-//                    updateList.remove(clickedItem)
-//                    planViewModel.breakfastList = updateList
-//                    adapterBreakfast?.updateData(updateList)
-//                    if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
-//                        View.VISIBLE
-//                }
-            }
+            adapterBreakfast = CollectionHomeAdapterV2(
+                { itemClicked ->
+                    val bundle = Bundle()
+                    bundle.putString("Title", itemClicked.title)
+                    bundle.putString("Description", itemClicked.description)
+                    bundle.putInt("Score", itemClicked.score)
+                    bundle.putString("Diff", itemClicked.diff)
+                    bundle.putInt("Time", itemClicked.time)
+                    bundle.putString("ProfileName", itemClicked.profile_name)
+                    bundle.putInt("ProfileImg", itemClicked.profile_img)
+                    bundle.putInt("Picture", itemClicked.img)
+                    navController.navigate(R.id.planToDetail, bundle)
+                },
+                { clickedItem ->
+                    val updateList = planViewModel.morning
+                    if (updateList.isNotEmpty()) {
+                        updateList.remove(clickedItem)
+                        planViewModel.morning = updateList
+                        adapterBreakfast?.updateData(updateList)
+                    }
+                    if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
+                        View.VISIBLE
+                    val size = planViewModel.morning.size
+                    binding.tvBreakfastCv.text = "$size out of 4"
+                }
+            )
         }
-        if (planViewModel.breakfastList.size ==0) binding.tvBreakfastDescription.visibility = View.VISIBLE
-
+        if (planViewModel.morning.size == 0) binding.tvBreakfastDescription.visibility =
+            View.VISIBLE
+        var temp = planViewModel.morning.size
+        binding.tvBreakfastCv.text = "$temp out of 4"
 
         if (adapterLunch == null) {
-            adapterLunch = CollectionHomeAdapter() { clickedItem ->
-//                val updateList = planViewModel.lunchList
-//                if (updateList.isNotEmpty()) {
-//                    updateList.remove(clickedItem)
-//                    planViewModel.lunchList = updateList
-//                    adapterLunch?.updateData(updateList)
-//                }
-//                if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
-            }
+            adapterLunch = CollectionHomeAdapterV2(
+                { itemClicked ->
+                    val bundle = Bundle()
+                    bundle.putString("Title", itemClicked.title)
+                    bundle.putString("Description", itemClicked.description)
+                    bundle.putInt("Score", itemClicked.score)
+                    bundle.putString("Diff", itemClicked.diff)
+                    bundle.putInt("Time", itemClicked.time)
+                    bundle.putString("ProfileName", itemClicked.profile_name)
+                    bundle.putInt("ProfileImg", itemClicked.profile_img)
+                    bundle.putInt("Picture", itemClicked.img)
+                    navController.navigate(R.id.planToDetail, bundle)
+                },
+                { clickedItem ->
+                    val updateList = planViewModel.lunch
+                    if (updateList.isNotEmpty()) {
+                        updateList.remove(clickedItem)
+                        planViewModel.lunch = updateList
+                        adapterLunch?.updateData(updateList)
+                    }
+                    if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
+                    val size = planViewModel.lunch.size
+                    binding.tvLunchCv.text = "$size out of 4"
+                })
         }
-        if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
+        if (planViewModel.lunch.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
+        temp = planViewModel.lunch.size
+        binding.tvLunchCv.text = "$temp out of 4"
+
 
         if (adapterDinner == null) {
-            adapterDinner = CollectionHomeAdapter() { clickedItem ->
-//                val updateList = planViewModel.dinnerList
-//                if (updateList.isNotEmpty()) {
-//                    updateList.remove(clickedItem)
-//                    planViewModel.dinnerList = updateList
-//                    adapterDinner?.updateData(updateList)
-//                }
-//                if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
-            }
+            adapterDinner = CollectionHomeAdapterV2(
+                { itemClicked ->
+                    val bundle = Bundle()
+                    bundle.putString("Title", itemClicked.title)
+                    bundle.putString("Description", itemClicked.description)
+                    bundle.putInt("Score", itemClicked.score)
+                    bundle.putString("Diff", itemClicked.diff)
+                    bundle.putInt("Time", itemClicked.time)
+                    bundle.putString("ProfileName", itemClicked.profile_name)
+                    bundle.putInt("ProfileImg", itemClicked.profile_img)
+                    bundle.putInt("Picture", itemClicked.img)
+                    navController.navigate(R.id.planToDetail, bundle)
+                },
+                { clickedItem ->
+                    val updateList = planViewModel.dinner
+                    if (updateList.isNotEmpty()) {
+                        updateList.remove(clickedItem)
+                        planViewModel.dinner = updateList
+                        adapterDinner?.updateData(updateList)
+                    }
+                    if (updateList.size == 0) binding.tvDinnerDescription.visibility =
+                        View.VISIBLE
+                    val size = planViewModel.dinner.size
+                    binding.tvDinnerCv.text = "$size out of 4"
+                })
         }
-        if (planViewModel.dinnerList.size ==0) binding.tvDinnerDescription.visibility = View.VISIBLE
+        if (planViewModel.dinner.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
+        temp = planViewModel.dinner.size
+        binding.tvDinnerCv.text = "$temp out of 4"
 
 
         if (adapterSnack == null) {
-            adapterSnack = CollectionHomeAdapter() { clickedItem ->
-//                val updateList = planViewModel.snackList
-//                if (updateList.isNotEmpty()) {
-//                    updateList.remove(clickedItem)
-//                    planViewModel.snackList = updateList
-//                    adapterSnack?.updateData(updateList)
-//                }
-//                if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
-            }
+            adapterSnack = CollectionHomeAdapterV2(
+                { itemClicked ->
+                    val bundle = Bundle()
+                    bundle.putString("Title", itemClicked.title)
+                    bundle.putString("Description", itemClicked.description)
+                    bundle.putInt("Score", itemClicked.score)
+                    bundle.putString("Diff", itemClicked.diff)
+                    bundle.putInt("Time", itemClicked.time)
+                    bundle.putString("ProfileName", itemClicked.profile_name)
+                    bundle.putInt("ProfileImg", itemClicked.profile_img)
+                    bundle.putInt("Picture", itemClicked.img)
+                    navController.navigate(R.id.planToDetail, bundle)
+                },
+                { clickedItem ->
+                    val updateList = planViewModel.snack
+                    if (updateList.isNotEmpty()) {
+                        updateList.remove(clickedItem)
+                        planViewModel.snack = updateList
+                        adapterSnack?.updateData(updateList)
+                    }
+                    if (updateList.size == 0) binding.tvSnackDescription.visibility =
+                        View.VISIBLE
+                    val size = planViewModel.snack.size
+                    binding.tvSnackCv.text = "$size out of 4"
+                })
         }
-        if (planViewModel.snackList.size ==0) binding.tvSnackDescription.visibility = View.VISIBLE
-
+        if (planViewModel.snack.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
+        temp = planViewModel.snack.size
+        binding.tvSnackCv.text = "$temp out of 4"
 
         //Check if recyclerView is not null
-        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
-        val homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
         setAdapterText(adapterBreakfast!!, binding.rvPlanTextBreakfast)
-        homeViewModel.collectionList.let { adapterBreakfast!!.updateData(it) }
+        planViewModel.morning.let { adapterBreakfast!!.updateData(it) }
 
         setAdapterText(adapterLunch!!, binding.rvPlanTextLunch)
-        homeViewModel.collectionList.let { adapterLunch!!.updateData(it) }
+        planViewModel.lunch.let { adapterLunch!!.updateData(it) }
 
         setAdapterText(adapterDinner!!, binding.rvPlanTextDinner)
-        homeViewModel.collectionList.let { adapterDinner!!.updateData(it) }
+        planViewModel.dinner.let { adapterDinner!!.updateData(it) }
 
         setAdapterText(adapterSnack!!, binding.rvPlanTextSnack)
-        homeViewModel.collectionList.let { adapterSnack!!.updateData(it) }
+        planViewModel.snack.let { adapterSnack!!.updateData(it) }
     }
 
-    private fun initAdaptersImage() {
-        //Create adapter
-        if (adapterImageBreakfast == null) {
-            adapterImageBreakfast = PlanImageAdapter { clickedItem ->
-                val updateList = planViewModel.breakfastList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.breakfastList = updateList
-                    adapterImageBreakfast?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvBreakfastDescription.visibility = View.VISIBLE
-            }
-        }
-        if (planViewModel.breakfastList.size ==0) binding.tvBreakfastDescription.visibility = View.VISIBLE
-
-        if (adapterImageLunch == null) {
-            adapterImageLunch = PlanImageAdapter { clickedItem ->
-                val updateList = planViewModel.lunchList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.lunchList = updateList
-                    adapterImageLunch?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
-            }
-        }
-        if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
-
-        if (adapterImageDinner == null) {
-            adapterImageDinner = PlanImageAdapter { clickedItem ->
-                val updateList = planViewModel.dinnerList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.dinnerList = updateList
-                    adapterImageDinner?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
-            }
-        }
-        if (planViewModel.snackList.size ==0) binding.tvDinnerDescription.visibility = View.VISIBLE
-
-        if (adapterImageSnack == null) {
-            adapterImageSnack = PlanImageAdapter { clickedItem ->
-                val updateList = planViewModel.snackList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.snackList = updateList
-                    adapterImageSnack?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
-            }
-        }
-        if (planViewModel.snackList.size ==0) binding.tvSnackDescription.visibility = View.VISIBLE
-
-
-        //Check if recyclerView is not null
-        setAdapterImage(adapterImageBreakfast!!, binding.rvPlanTextBreakfast)
-        planViewModel.breakfastList.let { adapterImageBreakfast!!.updateData(it) }
-
-        setAdapterImage(adapterImageLunch!!, binding.rvPlanTextLunch)
-        planViewModel.lunchList.let { adapterImageLunch!!.updateData(it) }
-
-        setAdapterImage(adapterImageDinner!!, binding.rvPlanTextDinner)
-        planViewModel.dinnerList.let { adapterImageDinner!!.updateData(it) }
-
-
-        setAdapterImage(adapterImageSnack!!, binding.rvPlanTextSnack)
-        planViewModel.snackList.let { adapterImageSnack!!.updateData(it) }
-    }
-
-    private fun setAdapterText(_adapter: CollectionHomeAdapter, _recyclerView: RecyclerView) {
+    private fun setAdapterText(_adapter: CollectionHomeAdapterV2, _recyclerView: RecyclerView) {
         //Set adapter
         _recyclerView.apply {
             adapter = _adapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        }
-    }
-
-
-    private fun setAdapterImage(_adapter: PlanImageAdapter, _recyclerView: RecyclerView) {
-        //Set adapter
-        _recyclerView.apply {
-            adapter = _adapter
-            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
         }
     }
 
@@ -289,22 +307,53 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                 //TODO
             }
             R.id.ivViewMode -> {
-                if (planViewModel.viewMode) {
-                    binding.ivViewMode.setImageResource(R.drawable.category)
-                    initAdaptersImage()
-                } else {
-                    binding.ivViewMode.setImageResource(R.drawable.list)
-                    initAdaptersText()
+                adapterBreakfast?.updateDeleteMode(adapterBreakfast?.deleteMode!!.not())
+                adapterLunch?.updateDeleteMode(adapterLunch?.deleteMode!!.not())
+                adapterDinner?.updateDeleteMode(adapterDinner?.deleteMode!!.not())
+                adapterSnack?.updateDeleteMode(adapterSnack?.deleteMode!!.not())
+                if (viewMode){ //viewMode = deleteMode
+                    binding.icBreakfastTitle.visibility = View.VISIBLE
+                    binding.icLunchTitle.visibility = View.VISIBLE
+                    binding.icDinnerTitle.visibility = View.VISIBLE
+                    binding.icSnackTitle.visibility = View.VISIBLE
                 }
-                planViewModel.viewMode = planViewModel.viewMode.not()
+                else
+                {
+                    binding.icBreakfastTitle.visibility = View.GONE
+                    binding.icLunchTitle.visibility = View.GONE
+                    binding.icDinnerTitle.visibility = View.GONE
+                    binding.icSnackTitle.visibility = View.GONE
+                }
+                viewMode = viewMode.not()
+            }
+
+            R.id.ivBack ->{
+                if (weekMode == 1) {
+                    weekMode = 0
+                    binding.tvTimeline.text = "Last week"
+                    binding.ivBack.isEnabled = false
+                    binding.ivNext.isEnabled = true
+                } else { //weekMode ==2
+                    weekMode = 1
+                    binding.tvTimeline.text = "This week"
+                    binding.ivBack.isEnabled = true
+                    binding.ivNext.isEnabled = true
+                }
+            }
+            R.id.ivNext ->{
+                if (weekMode == 1) {
+                    weekMode = 2
+                    binding.tvTimeline.text = "Next week"
+                    binding.ivBack.isEnabled = true
+                    binding.ivNext.isEnabled = false
+                } else { //weekMode ==0
+                    weekMode = 1
+                    binding.tvTimeline.text = "This week"
+                    binding.ivBack.isEnabled = true
+                    binding.ivNext.isEnabled = true
+                }
             }
         }
     }
-}
 
-//Test if roomDB work
-//        val testUser = UserModel(0, "PA", R.drawable.catcool, 23, null, null)
-//        val directUser = UserEntity("Hehe", R.drawable.catcool, 23, null, null)
-//        val database = activity?.let { FoodlifeDB.getInstance(it.applicationContext) }
-//        database?.clearAllTables()
-//        database?.userDAO()?.insert(directUser)
+}
