@@ -87,6 +87,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getTime = arguments?.getInt("Time")
             val getDiff = arguments?.getString("Diff")
             val getScore = arguments?.getInt("Score")
+
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
             val getVideoUrl = arguments?.getString("VideoUrl")
@@ -100,6 +101,9 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.tvDetailLevel.text = getDiff
             if (getVideoUrl != null)(
             videoView.setVideoURI(Uri.parse(getVideoUrl)))
+            if (getScore != null) {
+                binding.detailRating.rating = getScore.toFloat()
+            }
         }
 
         videoView.requestFocus()
@@ -107,7 +111,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
         binding.nsView.viewTreeObserver.addOnScrollChangedListener {
             mediaController.hide()
         }
-
     }
 
     private fun initListener(){
@@ -176,16 +179,26 @@ class DetailFragment : Fragment(), View.OnClickListener {
         addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
             val addNewCollection = bundle.getBoolean("add",false)
             if (addNewCollection){
-                navController.navigate(R.id.returnCollection,Bundle().apply {
-                    putBoolean("add",true)
-                })}
-                else{
-                    navController.navigate(R.id.returnCollection,bundle)
-                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_LONG)
-                    .show()
-                }
-
-
+                navController.navigate(R.id.detailToCollection,Bundle().apply {
+                    putBoolean("add", true)
+                })
+            }
+            else{
+                navController.navigate(R.id.detailToCollection,Bundle().apply {
+                    val getTitle = arguments?.getString("Title")
+                    val getDiff = arguments?.getString("Diff")
+                    val getPicture = arguments?.getInt("Picture")
+                    val getScore = arguments?.getInt("Score")
+                    val getTime = arguments?.getInt("Time")
+                    putString("Title", getTitle)
+                    putInt("Time", getTime!!)
+                    putString("Diff", getDiff)
+                    putInt("Score", getScore!!)
+                    putInt("Picture", getPicture!!)
+                    putBundle("Bundle", bundle)
+                })
+                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 }

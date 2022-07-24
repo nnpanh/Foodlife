@@ -35,6 +35,12 @@
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right"/>
 
+    <action android:id="@+id/detailToCollection"
+        app:destination="@id/navigation_collections"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true" />
+
     <action android:id="@+id/returnProfile"
         app:destination="@id/navigation_profile"
         app:launchSingleTop="true"
@@ -75,7 +81,15 @@
         android:id="@+id/navigation_collections"
         android:name="com.example.foodlife.fragments.CollectionFragment"
         android:label="@string/title_collection"
-        tools:layout="@layout/fragment_collection" />
+        tools:layout="@layout/fragment_collection" >
+        <action
+            android:id="@+id/action_navigation_collections_to_collectionDetail"
+            app:destination="@id/collectionDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -195,4 +209,9 @@
             android:id="@+id/choiceToHome"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/collectionDetail"
+        android:name="com.example.foodlife.fragments.CollectionDetail"
+        android:label="fragment_collection_detail"
+        tools:layout="@layout/fragment_collection_detail" />
 </navigation>

@@ -1,14 +1,18 @@
 package com.example.foodlife.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
@@ -22,6 +26,7 @@ import com.example.foodlife.adapters.CollectionAdapter
 import com.example.foodlife.databinding.FragmentCollectionBinding
 import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.models.Collection
+import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.CollectionViewModel
 import com.example.foodlife.view_models.HomeViewModel
 
@@ -80,7 +85,24 @@ class CollectionFragment : Fragment() {
          */
         binding.ACTVColSearch.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            @SuppressLint("ClickableViewAccessibility")
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (p0!!.isEmpty()) {
+                    binding.ACTVColSearch.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search, 0, 0, 0)
+                }
+                else {
+                    binding.ACTVColSearch.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_close, 0)
+                    binding.ACTVColSearch.setPadding(50, 0, 50, 0)
+                    binding.ACTVColSearch.setOnTouchListener(View.OnTouchListener {_, event ->
+                        if (event.action == MotionEvent.ACTION_UP) {
+                            if (event.rawX >= (binding.ACTVColSearch.right - binding.ACTVColSearch.compoundPaddingRight)) {
+                                binding.ACTVColSearch.setText("")
+                                return@OnTouchListener true
+                            }
+                        }
+                        return@OnTouchListener false
+                    })
+                }
                 collectionAdapter.filter.filter(p0)
             }
             override fun afterTextChanged(p0: Editable?) {}
@@ -109,8 +131,10 @@ class CollectionFragment : Fragment() {
                 if(isSpinnerInitial)
                     isSpinnerInitial = false
                 else {
-                    collectionArray.shuffle()
-                    binding.RVCol.adapter = collectionAdapter
+                    if (p2 != 0) {
+                        collectionArray.shuffle()
+                        binding.RVCol.adapter = collectionAdapter
+                    }
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
@@ -120,28 +144,41 @@ class CollectionFragment : Fragment() {
          * Pass listener to adapter
          */
         collectionAdapter.onItemClick = {collection ->
+            /*
             val intent = Intent(requireActivity(), CollectionDetail::class.java)
             intent.putExtra("Collection", collection)
             startActivity(intent)
+            */
+            navController.navigate(R.id.action_navigation_collections_to_collectionDetail, bundleOf("Collection" to collection))
         }
 
-        if (arguments!=null){
-            addNewQuantity = 0
-            if (arguments!!.getBoolean("add",false)){
-                addNewQuantity = 1
+        if (arguments != null){
+            //addNewQuantity = 0
+            if (arguments!!.getBoolean("add",false)) {
+                //addNewQuantity = 1
                 binding.IVColAdd.callOnClick()
             } else
             {
-                val newList = collectionViewModel.colList.value
-                newList!!.forEach { collection ->
-                    val selectedCollection = arguments!!.getBoolean(collection.title,false)
-                    if (selectedCollection) collection.quantity=collection.quantity.inc()
+                val getTitle = arguments!!.getString("Title")
+                val getDiff = arguments!!.getString("Diff")
+                val getPicture = arguments!!.getInt("Picture")
+                val getScore = arguments!!.getInt("Score")
+                val getTime = arguments!!.getInt("Time")
+                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
+                val bundle = arguments?.getBundle("Bundle")
+                var newList = collectionViewModel.colList.value
+                newList!!.forEachIndexed { index, collection ->
+                    val selectedCollection = bundle!!.getBoolean(collection.title,false)
+                    if (selectedCollection) {
+                        collectionViewModel.addRecipe(index, recipe)
+                    }
                 }
-                collectionViewModel.colList.setValue(newList)
-                collectionAdapter.updateData(collectionViewModel.colList.value!!)
+                //newList = collectionViewModel.colList.value
+                //collectionAdapter.updateData(newList!!)
             }
+            navController.navigateUp()
+            arguments!!.clear()
         }
-
     }
 
 
