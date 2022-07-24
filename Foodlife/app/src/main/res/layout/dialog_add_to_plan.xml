@@ -24,7 +24,7 @@
             android:ellipsize="end"
             android:text="@string/select_a_plan_date"
             android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/text_large"
+            android:textSize="@dimen/text_medium"
             android:textColor="@color/primary_100"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -103,7 +103,7 @@
             android:ellipsize="end"
             android:text="@string/choose_the_meal_you_want_to_add_this_dish"
             android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/text_large"
+            android:textSize="@dimen/text_medium"
             android:textColor="@color/primary_100"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
