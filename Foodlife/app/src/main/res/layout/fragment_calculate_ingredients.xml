@@ -19,9 +19,7 @@
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:paddingTop="24dp"
-            android:paddingBottom="8dp"
-            tools:context=".fragments.PlanFragment">
-
+            android:paddingBottom="8dp">
             <ImageView
                 android:id="@+id/ivBack"
                 android:layout_width="wrap_content"

@@ -35,8 +35,11 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
     private var adapterLunch: CollectionHomeAdapterV2? = null
     private var adapterDinner: CollectionHomeAdapterV2? = null
     private var adapterSnack: CollectionHomeAdapterV2? = null
+    private var cartMode = false
     private var viewMode = true //to show or hide deleteMode
     private var weekMode = 1 //0 = last week, 1 = this week, 2 = next week
+
+    private var currentTab = 0
 
     private lateinit var planViewModel: PlanViewModel
 
@@ -114,6 +117,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
 
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
+                currentTab = tab.position
                 val day = tabList[tab.position]!!.day
                 val date = tabList[tab.position]!!.date
                 binding.tvDate.text = day
@@ -139,6 +143,24 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         binding.ivViewMode.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
         binding.ivNext.setOnClickListener(this)
+        binding.cbMon.isActivated = true
+        binding.cbTue.isActivated = false
+        binding.cbWed.isActivated = false
+        binding.cbThu.isActivated = false
+        binding.cbFri.isActivated = false
+        binding.cbSat.isActivated = false
+        binding.cbSun.isActivated = false
+        binding.cbMon.setOnClickListener (this)
+        binding.cbTue.setOnClickListener (this)
+        binding.cbWed.setOnClickListener (this)
+        binding.cbThu.setOnClickListener (this)
+        binding.cbFri.setOnClickListener (this)
+        binding.cbSat.setOnClickListener (this)
+        binding.cbSun.setOnClickListener (this)
+        binding.icDinnerTitle.setOnClickListener(this)
+        binding.icLunchTitle.setOnClickListener(this)
+        binding.icBreakfastTitle.setOnClickListener(this)
+        binding.icSnackTitle.setOnClickListener(this)
     }
 
     private fun initAdaptersText() {
@@ -302,9 +324,30 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
             R.id.ivCalender -> {
                 CalendarPopUp().show(childFragmentManager, CalendarPopUp.TAG)
             }
-            R.id.ivShopping -> {
+            R.id.btnContinue -> {
                 navController.navigate(R.id.planToCalculate)
-                //TODO
+            }
+            R.id.cbMon,R.id.cbTue,R.id.cbSun,R.id.cbFri,R.id.cbSat,R.id.cbThu,R.id.cbWed -> {
+                p0.isActivated = !p0.isActivated
+            }
+            R.id.ivShopping -> {
+                val selectList = listOf(binding.cbMon,binding.cbTue,binding.cbWed,binding.cbThu,binding.cbFri,binding.cbSat,binding.cbSun)
+                if (cartMode) { //click to disable
+                    binding.ivLinebreak0.visibility = View.GONE
+                    binding.btnContinue.visibility = View.GONE
+                    binding.groupDay.visibility = View.GONE
+                    selectList.forEach {
+                        it.isActivated = false
+                    }
+
+                } else {
+                    binding.ivLinebreak0.visibility = View.VISIBLE
+                    binding.btnContinue.visibility = View.VISIBLE
+                    binding.groupDay.visibility = View.VISIBLE
+                    selectList[currentTab].isActivated = true
+
+                }
+                cartMode = cartMode.not()
             }
             R.id.ivViewMode -> {
                 adapterBreakfast?.updateDeleteMode(adapterBreakfast?.deleteMode!!.not())

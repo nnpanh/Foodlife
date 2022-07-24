@@ -19,9 +19,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:paddingBottom="8dp"
-            tools:context=".fragments.PlanFragment">
-
+            android:paddingBottom="8dp">
 
             <TextView
                 android:id="@+id/tvTitle"

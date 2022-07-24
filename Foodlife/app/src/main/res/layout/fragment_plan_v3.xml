@@ -17,9 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            tools:context=".fragments.PlanFragment">
-
+            android:paddingBottom="8dp">
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
@@ -42,8 +40,9 @@
                 android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="@id/ivViewMode"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                app:layout_constraintStart_toStartOf="@id/tvDate"/>
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
             <TextView
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
@@ -55,7 +54,7 @@
                 android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+                app:layout_constraintTop_toBottomOf="@id/ivLinebreak0" />
 
             <TextView
                 android:id="@+id/tvDateInfo"
@@ -71,150 +70,287 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                app:tabTextAppearance="@style/tab_text"
-                app:layout_constraintTop_toBottomOf="@id/tvTimeline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+
                 android:background="?attr/colorSurface"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTimeline"
                 app:tabIndicatorColor="@color/secondary_100"
                 app:tabIndicatorFullWidth="false"
                 app:tabSelectedTextColor="@color/secondary_100"
+                app:tabTextAppearance="@style/tab_text"
                 app:tabTextColor="@color/primary_100">
+
                 <com.google.android.material.tabs.TabItem
+                    android:id="@+id/itemMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Mon\n10"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Tue\n11"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Wed\n12"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Thu\n13"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Fri\n14"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Sat\n15"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
+
                 <com.google.android.material.tabs.TabItem
-                    android:text="Sun\n16"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sun\n16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent" />
             </com.google.android.material.tabs.TabLayout>
 
+            <ImageView
+                android:id="@+id/cbMon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:adjustViewBounds="true"
+                android:paddingStart="16dp"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbTue"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@id/tabLayout"
+                app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupDay"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="cbMon,cbThu,cbSat,cbSun,cbTue,cbWed,cbFri" />
+
+            <ImageView
+                android:id="@+id/cbTue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbWed"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbMon"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+
+            <ImageView
+                android:id="@+id/cbWed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbThu"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbTue"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+
+            <ImageView
+                android:id="@+id/cbThu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbFri"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbWed"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+
+            <ImageView
+                android:id="@+id/cbFri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbSat"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbThu"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+
+            <ImageView
+                android:id="@+id/cbSat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/cbSun"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbFri"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+
+            <ImageView
+                android:id="@+id/cbSun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/check_clickable"
+                android:paddingEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@id/tabLayout"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cbSat"
+                app:layout_constraintTop_toTopOf="@id/cbMon" />
+<!--            <ImageView-->
+<!--                android:id="@+id/btnShadow"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="42dp"-->
+<!--                android:background="@drawable/shadow_bg"-->
+<!--                app:layout_constraintTop_toTopOf="@id/btnContinue"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/btnContinue"-->
+<!--                app:layout_constraintStart_toStartOf="@id/btnContinue"-->
+<!--                tools:ignore="ContentDescription"/>-->
+
+            <TextView
+                android:id="@+id/btnContinue"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:background="@drawable/bgr_round_secondary"
+                android:text="@string/add_to_cart"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/cbMon"
+                app:layout_constraintStart_toStartOf="@id/tabLayout"
+                app:layout_constraintEnd_toEndOf="@id/tabLayout"
+                android:layout_margin="22dp"/>
 
             <ImageView
                 android:id="@+id/ivLinebreak0"
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:scaleType="fitXY"
-                app:layout_constraintTop_toBottomOf="@id/tabLayout"
-                app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
-                android:src="@drawable/line_break"
                 android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_break"
+                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/btnContinue"
                 app:tint="@color/primary_20" />
 
             <ImageView
-                android:animateLayoutChanges="true"
                 android:id="@+id/icBreakfastTitle"
                 android:layout_width="24dp"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
+                android:animateLayoutChanges="true"
                 android:src="@drawable/ic_plus"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/tvBreakfastTitle"
-                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle"
-                app:layout_constraintStart_toStartOf="@id/tvDate"/>
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle" />
 
             <TextView
                 android:id="@+id/tvBreakfastTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:layout_marginTop="16dp"
-                app:layout_goneMarginStart="0dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_breakfast"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toEndOf="@id/icBreakfastTitle"
-                app:layout_constraintTop_toBottomOf="@id/tvDateInfo" />
+                app:layout_constraintTop_toBottomOf="@id/tvDateInfo"
+                app:layout_goneMarginStart="0dp" />
 
             <TextView
                 android:id="@+id/tvBreakfastCv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_smaller"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvBreakfastTitle"
-                app:layout_constraintStart_toEndOf="@id/tvBreakfastTitle"/>
+                app:layout_constraintStart_toEndOf="@id/tvBreakfastTitle"
+                app:layout_constraintTop_toTopOf="@id/tvBreakfastTitle" />
 
             <TextView
                 android:id="@+id/tvLunchCv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_smaller"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/tvLunchTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvLunchTitle"
-                app:layout_constraintStart_toEndOf="@id/tvLunchTitle"/>
+                app:layout_constraintStart_toEndOf="@id/tvLunchTitle"
+                app:layout_constraintTop_toTopOf="@id/tvLunchTitle" />
 
             <TextView
                 android:id="@+id/tvDinnerCv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_smaller"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/tvDinnerTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvDinnerTitle"
-                app:layout_constraintStart_toEndOf="@id/tvDinnerTitle"/>
+                app:layout_constraintStart_toEndOf="@id/tvDinnerTitle"
+                app:layout_constraintTop_toTopOf="@id/tvDinnerTitle" />
 
             <TextView
                 android:id="@+id/tvSnackCv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/poppins_light"
                 android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_smaller"
-                android:layout_marginStart="8dp"
-                app:layout_constraintTop_toTopOf="@id/tvSnackTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvSnackTitle"
-                app:layout_constraintStart_toEndOf="@id/tvSnackTitle"/>
+                app:layout_constraintStart_toEndOf="@id/tvSnackTitle"
+                app:layout_constraintTop_toTopOf="@id/tvSnackTitle" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPlanTextBreakfast"
                 android:layout_width="0dp"
@@ -249,39 +385,39 @@
                 android:id="@+id/ivLinebreak1"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:scaleType="fitXY"
-                app:layout_constraintTop_toBottomOf="@id/tvBreakfastDescription"
-                app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
-                android:src="@drawable/line_break"
                 android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_break"
+                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/tvBreakfastDescription"
                 app:tint="@color/primary_20" />
 
             <ImageView
-                android:animateLayoutChanges="true"
                 android:id="@+id/icLunchTitle"
                 android:layout_width="24dp"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
+                android:animateLayoutChanges="true"
                 android:src="@drawable/ic_plus"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/tvLunchTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvLunchTitle"
-                app:layout_constraintStart_toStartOf="@id/tvDate"/>
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/tvLunchTitle" />
 
             <TextView
                 android:id="@+id/tvLunchTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_lunch"
-                android:layout_marginStart="8dp"
-                app:layout_goneMarginStart="0dp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toEndOf="@id/icLunchTitle"
-                app:layout_constraintTop_toBottomOf="@id/ivLinebreak1" />
+                app:layout_constraintTop_toBottomOf="@id/ivLinebreak1"
+                app:layout_goneMarginStart="0dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPlanTextLunch"
@@ -312,49 +448,51 @@
                 app:layout_constraintStart_toStartOf="@id/tvDate"
                 app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch"
                 tools:visibility="visible" />
+
             <ImageView
                 android:id="@+id/ivLinebreak2"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:scaleType="fitXY"
-                app:layout_constraintTop_toBottomOf="@id/tvLunchDescription"
-                app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
-                android:src="@drawable/line_break"
                 android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_break"
+                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/tvLunchDescription"
                 app:tint="@color/primary_20" />
+
             <ImageView
-                android:animateLayoutChanges="true"
                 android:id="@+id/icDinnerTitle"
                 android:layout_width="24dp"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
+                android:animateLayoutChanges="true"
                 android:src="@drawable/ic_plus"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/tvDinnerTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvDinnerTitle"
-                app:layout_constraintStart_toStartOf="@id/tvDate"/>
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/tvDinnerTitle" />
 
 
             <TextView
                 android:id="@+id/tvDinnerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_dinner"
-                android:layout_marginStart="8dp"
-                app:layout_goneMarginStart="0dp"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toEndOf="@id/icDinnerTitle"
-                app:layout_constraintTop_toBottomOf="@id/ivLinebreak2" />
+                app:layout_constraintTop_toBottomOf="@id/ivLinebreak2"
+                app:layout_goneMarginStart="0dp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginStart="4dp"
                 android:id="@+id/rvPlanTextDinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="-4dp"
                 android:nestedScrollingEnabled="false"
@@ -380,43 +518,44 @@
                 app:layout_constraintStart_toStartOf="@id/tvDate"
                 app:layout_constraintTop_toBottomOf="@id/rvPlanTextDinner"
                 tools:visibility="visible" />
+
             <ImageView
                 android:id="@+id/ivLinebreak3"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
-                android:scaleType="fitXY"
-                app:layout_constraintTop_toBottomOf="@id/tvDinnerDescription"
-                app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
-                android:src="@drawable/line_break"
                 android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_break"
+                app:layout_constraintEnd_toEndOf="@id/ivViewMode"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toBottomOf="@id/tvDinnerDescription"
                 app:tint="@color/primary_20" />
+
             <TextView
                 android:id="@+id/tvSnackTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_snacks"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_medium"
-                android:layout_marginStart="8dp"
-                app:layout_goneMarginStart="0dp"
                 app:layout_constraintStart_toEndOf="@id/icSnackTitle"
-                app:layout_constraintTop_toBottomOf="@id/ivLinebreak3" />
+                app:layout_constraintTop_toBottomOf="@id/ivLinebreak3"
+                app:layout_goneMarginStart="0dp" />
 
             <ImageView
-                android:animateLayoutChanges="true"
                 android:id="@+id/icSnackTitle"
                 android:layout_width="24dp"
                 android:layout_height="0dp"
-                app:layout_constraintDimensionRatio="1:1"
+                android:animateLayoutChanges="true"
                 android:src="@drawable/ic_plus"
                 android:visibility="gone"
-                app:layout_constraintTop_toTopOf="@id/tvSnackTitle"
                 app:layout_constraintBottom_toBottomOf="@id/tvSnackTitle"
-                app:layout_constraintStart_toStartOf="@id/tvDate"/>
-
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@id/tvDate"
+                app:layout_constraintTop_toTopOf="@id/tvSnackTitle" />
 
 
             <TextView
@@ -453,63 +592,63 @@
                 android:id="@+id/ivViewMode"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
                 android:adjustViewBounds="true"
                 android:animateLayoutChanges="true"
-                app:layout_constraintDimensionRatio="1:1"
                 android:src="@drawable/ic_edit"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_goneMarginEnd="16dp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvDate"
+                app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
-<!--            app:layout_constraintEnd_toStartOf="@id/ivViewMode"-->
+            <!--            app:layout_constraintEnd_toStartOf="@id/ivViewMode"-->
 
 
             <ImageView
                 android:id="@+id/ivShopping"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
                 android:adjustViewBounds="true"
                 android:animateLayoutChanges="true"
                 android:src="@drawable/shopping_cart"
-                android:layout_marginEnd="16dp"
-                app:layout_goneMarginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTitle"
+                app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/ivNext"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
                 android:adjustViewBounds="true"
-                android:rotation="270"
                 android:animateLayoutChanges="true"
                 android:clickable="true"
+                android:rotation="270"
                 android:src="@drawable/down_clickable"
-                android:layout_marginEnd="16dp"
-                app:layout_goneMarginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTimeline"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTimeline"
+                app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/ivBack"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:adjustViewBounds="true"
-                android:rotation="90"
-                android:animateLayoutChanges="true"
-                android:src="@drawable/down_clickable"
                 android:layout_marginStart="16dp"
-                app:layout_goneMarginEnd="16dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:adjustViewBounds="true"
+                android:animateLayoutChanges="true"
+                android:clickable="true"
+                android:rotation="90"
+                android:src="@drawable/down_clickable"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTimeline"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvTimeline"
+                app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

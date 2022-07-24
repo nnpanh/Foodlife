@@ -58,4 +58,5 @@
     <string name="txt_direction">Direction</string>
     <string name="warning_less_01">Number of people to serves can\'t be less than 1!</string>
     <string name="exceed_max">Exceeds the maximum number of people</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>
