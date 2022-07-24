@@ -83,7 +83,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
     private fun initTotalAdapter() {
         //Create adapter
         if (adapterBreakfast == null) {
-            adapterBreakfast = PlanTextAdapter(0) { clickedItem ->
+            adapterBreakfast = PlanTextAdapter(0,true) { clickedItem ->
                 val updateList = planViewModel.breakfastList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -100,7 +100,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
 
 
         if (adapterLunch == null) {
-            adapterLunch = PlanTextAdapter(1) { clickedItem ->
+            adapterLunch = PlanTextAdapter(1,true) { clickedItem ->
                 val updateList = planViewModel.lunchList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -115,7 +115,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
         if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
 
         if (adapterDinner == null) {
-            adapterDinner = PlanTextAdapter(2) { clickedItem ->
+            adapterDinner = PlanTextAdapter(2,true) { clickedItem ->
                 val updateList = planViewModel.dinnerList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -131,7 +131,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
 
 
         if (adapterSnack == null) {
-            adapterSnack = PlanTextAdapter(3) { clickedItem ->
+            adapterSnack = PlanTextAdapter(3,true) { clickedItem ->
                 val updateList = planViewModel.snackList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)

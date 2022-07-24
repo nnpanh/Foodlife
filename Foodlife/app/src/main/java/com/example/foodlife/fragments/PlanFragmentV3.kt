@@ -16,28 +16,29 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.PlanImageAdapter
-import com.example.foodlife.adapters.PlanTextAdapter
-import com.example.foodlife.databinding.FragmentPlanBinding
+import com.example.foodlife.adapters.CollectionHomeAdapter
+import com.example.foodlife.databinding.FragmentPlanV3Binding
 import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.models.UserModel
 import com.example.foodlife.roomdb.FoodlifeDB
 import com.example.foodlife.roomdb.entities.UserEntity
+import com.example.foodlife.view_models.HomeViewModel
 import com.example.foodlife.view_models.PlanViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 
 
-class PlanFragment : Fragment(), View.OnClickListener {
+class PlanFragmentV3 : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
 
-    private var _binding: FragmentPlanBinding? = null
+    private var _binding: FragmentPlanV3Binding? = null
     private val binding get() = _binding!!
 
-    private var adapterBreakfast: PlanTextAdapter? = null
-    private var adapterLunch: PlanTextAdapter? = null
-    private var adapterDinner: PlanTextAdapter? = null
-    private var adapterSnack: PlanTextAdapter? = null
+    private var adapterBreakfast: CollectionHomeAdapter? = null
+    private var adapterLunch: CollectionHomeAdapter? = null
+    private var adapterDinner: CollectionHomeAdapter? = null
+    private var adapterSnack: CollectionHomeAdapter? = null
 
     private var adapterImageBreakfast: PlanImageAdapter? = null
     private var adapterImageLunch: PlanImageAdapter? = null
@@ -52,7 +53,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPlanBinding.inflate(inflater, container, false)
+        _binding = FragmentPlanV3Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
 //        val textView: TextView = binding.textPlan
@@ -115,73 +116,75 @@ class PlanFragment : Fragment(), View.OnClickListener {
     private fun initAdaptersText() {
         //Create adapter
         if (adapterBreakfast == null) {
-            adapterBreakfast = PlanTextAdapter(0,true) { clickedItem ->
-                val updateList = planViewModel.breakfastList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.breakfastList = updateList
-                    adapterBreakfast?.updateData(updateList)
-                    if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
-                        View.VISIBLE
-                }
+            adapterBreakfast = CollectionHomeAdapter() { clickedItem ->
+//                val updateList = planViewModel.breakfastList
+//                if (updateList.isNotEmpty()) {
+//                    updateList.remove(clickedItem)
+//                    planViewModel.breakfastList = updateList
+//                    adapterBreakfast?.updateData(updateList)
+//                    if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
+//                        View.VISIBLE
+//                }
             }
         }
         if (planViewModel.breakfastList.size ==0) binding.tvBreakfastDescription.visibility = View.VISIBLE
 
 
         if (adapterLunch == null) {
-            adapterLunch = PlanTextAdapter(1,true) { clickedItem ->
-                val updateList = planViewModel.lunchList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.lunchList = updateList
-                    adapterLunch?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
+            adapterLunch = CollectionHomeAdapter() { clickedItem ->
+//                val updateList = planViewModel.lunchList
+//                if (updateList.isNotEmpty()) {
+//                    updateList.remove(clickedItem)
+//                    planViewModel.lunchList = updateList
+//                    adapterLunch?.updateData(updateList)
+//                }
+//                if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
             }
         }
         if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
 
         if (adapterDinner == null) {
-            adapterDinner = PlanTextAdapter(2,true) { clickedItem ->
-                val updateList = planViewModel.dinnerList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.dinnerList = updateList
-                    adapterDinner?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
+            adapterDinner = CollectionHomeAdapter() { clickedItem ->
+//                val updateList = planViewModel.dinnerList
+//                if (updateList.isNotEmpty()) {
+//                    updateList.remove(clickedItem)
+//                    planViewModel.dinnerList = updateList
+//                    adapterDinner?.updateData(updateList)
+//                }
+//                if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
             }
         }
         if (planViewModel.dinnerList.size ==0) binding.tvDinnerDescription.visibility = View.VISIBLE
 
 
         if (adapterSnack == null) {
-            adapterSnack = PlanTextAdapter(3,true) { clickedItem ->
-                val updateList = planViewModel.snackList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.snackList = updateList
-                    adapterSnack?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
+            adapterSnack = CollectionHomeAdapter() { clickedItem ->
+//                val updateList = planViewModel.snackList
+//                if (updateList.isNotEmpty()) {
+//                    updateList.remove(clickedItem)
+//                    planViewModel.snackList = updateList
+//                    adapterSnack?.updateData(updateList)
+//                }
+//                if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
             }
         }
         if (planViewModel.snackList.size ==0) binding.tvSnackDescription.visibility = View.VISIBLE
 
 
         //Check if recyclerView is not null
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        val homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
         setAdapterText(adapterBreakfast!!, binding.rvPlanTextBreakfast)
-        planViewModel.breakfastList.let { adapterBreakfast!!.updateData(it) }
+        homeViewModel.collectionList.let { adapterBreakfast!!.updateData(it) }
 
         setAdapterText(adapterLunch!!, binding.rvPlanTextLunch)
-        planViewModel.lunchList.let { adapterLunch!!.updateData(it) }
+        homeViewModel.collectionList.let { adapterLunch!!.updateData(it) }
 
         setAdapterText(adapterDinner!!, binding.rvPlanTextDinner)
-        planViewModel.dinnerList.let { adapterDinner!!.updateData(it) }
+        homeViewModel.collectionList.let { adapterDinner!!.updateData(it) }
 
         setAdapterText(adapterSnack!!, binding.rvPlanTextSnack)
-        planViewModel.snackList.let { adapterSnack!!.updateData(it) }
+        homeViewModel.collectionList.let { adapterSnack!!.updateData(it) }
     }
 
     private fun initAdaptersImage() {
@@ -254,7 +257,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
         planViewModel.snackList.let { adapterImageSnack!!.updateData(it) }
     }
 
-    private fun setAdapterText(_adapter: PlanTextAdapter, _recyclerView: RecyclerView) {
+    private fun setAdapterText(_adapter: CollectionHomeAdapter, _recyclerView: RecyclerView) {
         //Set adapter
         _recyclerView.apply {
             adapter = _adapter

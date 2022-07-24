@@ -2,14 +2,16 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.databinding.ItemRecipeTextBinding
 
-class PlanTextAdapter(_type: Int,  private val listener: (PlanItemModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class PlanTextAdapter(_type: Int, _deleteMode: Boolean,  private val listener: (PlanItemModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var mList: MutableList<PlanItemModel> = mutableListOf()
+    val deleteMode = _deleteMode
 
     val type: Int = _type
 
@@ -26,6 +28,8 @@ class PlanTextAdapter(_type: Int,  private val listener: (PlanItemModel) -> Unit
         RecyclerView.ViewHolder(itemRecipeText.root) {
         fun bindData(_recipe: PlanItemModel) {
             itemRecipeText.ivDelete.setOnClickListener { listener(_recipe) }
+            if (!deleteMode) itemRecipeText.ivDelete.visibility = View.GONE
+            else itemRecipeText.ivDelete.visibility = View.VISIBLE
             itemRecipeText.apply {
                 recipe =_recipe
                 when (type){

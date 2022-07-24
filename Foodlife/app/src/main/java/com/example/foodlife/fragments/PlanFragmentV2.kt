@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.PlanImageAdapter
 import com.example.foodlife.adapters.PlanTextAdapter
-import com.example.foodlife.databinding.FragmentPlanBinding
+import com.example.foodlife.databinding.FragmentPlanV2Binding
 import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
@@ -28,10 +28,10 @@ import com.example.foodlife.view_models.PlanViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 
 
-class PlanFragment : Fragment(), View.OnClickListener {
+class PlanFragmentV2 : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
 
-    private var _binding: FragmentPlanBinding? = null
+    private var _binding: FragmentPlanV2Binding? = null
     private val binding get() = _binding!!
 
     private var adapterBreakfast: PlanTextAdapter? = null
@@ -52,7 +52,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPlanBinding.inflate(inflater, container, false)
+        _binding = FragmentPlanV2Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
 //        val textView: TextView = binding.textPlan
@@ -115,7 +115,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
     private fun initAdaptersText() {
         //Create adapter
         if (adapterBreakfast == null) {
-            adapterBreakfast = PlanTextAdapter(0,true) { clickedItem ->
+            adapterBreakfast = PlanTextAdapter(0,false) { clickedItem ->
                 val updateList = planViewModel.breakfastList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -130,7 +130,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
 
 
         if (adapterLunch == null) {
-            adapterLunch = PlanTextAdapter(1,true) { clickedItem ->
+            adapterLunch = PlanTextAdapter(1,false) { clickedItem ->
                 val updateList = planViewModel.lunchList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -143,7 +143,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
         if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
 
         if (adapterDinner == null) {
-            adapterDinner = PlanTextAdapter(2,true) { clickedItem ->
+            adapterDinner = PlanTextAdapter(2,false) { clickedItem ->
                 val updateList = planViewModel.dinnerList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)
@@ -157,7 +157,7 @@ class PlanFragment : Fragment(), View.OnClickListener {
 
 
         if (adapterSnack == null) {
-            adapterSnack = PlanTextAdapter(3,true) { clickedItem ->
+            adapterSnack = PlanTextAdapter(3,false) { clickedItem ->
                 val updateList = planViewModel.snackList
                 if (updateList.isNotEmpty()) {
                     updateList.remove(clickedItem)

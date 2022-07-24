@@ -79,9 +79,9 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.foodlife.fragments.ProfileFragment"
+        android:name="com.example.foodlife.fragments.PlanFragmentV2"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_plan_v2" >
 <!--        <action-->
 <!--            android:id="@+id/action_navigation_profile_to_detailIngredients"-->
 <!--            app:destination="@id/detailIngredients" />-->
@@ -100,9 +100,12 @@
 
     <fragment
         android:id="@+id/navigation_plan"
-        android:name="com.example.foodlife.fragments.PlanFragment"
+        android:name="com.example.foodlife.fragments.PlanFragmentV3"
         android:label="@string/title_plan_meals"
-        tools:layout="@layout/fragment_plan" >
+        tools:layout="@layout/fragment_plan_v3" >
+<!--        android:name="com.example.foodlife.fragments.PlanFragment"-->
+<!--        android:label="@string/title_plan_meals"-->
+<!--        tools:layout="@layout/fragment_plan" >-->
         <action
             android:id="@+id/planToCalculate"
             app:destination="@id/calculateIngredientsFragment"
