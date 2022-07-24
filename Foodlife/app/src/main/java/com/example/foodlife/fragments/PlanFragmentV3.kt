@@ -2,11 +2,13 @@ package com.example.foodlife.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -16,10 +18,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.foodlife.R
 import com.example.foodlife.adapters.CollectionHomeAdapterV2
 import com.example.foodlife.databinding.FragmentPlanV3Binding
+import com.example.foodlife.dialog.SelectCollectionDialog
 import com.example.foodlife.dialog.CalendarPopUp
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
 import com.example.foodlife.view_models.PlanViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabItem
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -396,6 +400,29 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     binding.ivNext.isEnabled = true
                 }
             }
+            R.id.icBreakfastTitle -> {
+                selectCollection()
+            }
+
+            R.id.icLunchTitle -> {
+                selectCollection()
+            }
+
+            R.id.icDinnerTitle -> {
+                selectCollection()
+            }
+
+            R.id.icSnackTitle -> {
+                selectCollection()
+            }
+        }
+    }
+    private fun selectCollection() {
+        val selectCollection = SelectCollectionDialog()
+        selectCollection.show(parentFragmentManager, SelectCollectionDialog.TAG)
+        selectCollection.setFragmentResultListener("request_key") { _, bundle ->
+            val collectionName = bundle.getString("collection")
+            Log.d("collectionName", "$collectionName")
         }
     }
 

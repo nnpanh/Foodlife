@@ -7,7 +7,7 @@
     android:background="@drawable/round_top_white">
 
     <TextView
-        android:id="@+id/TVColChoose"
+        android:id="@+id/tvTitleChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="22dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RVColChoose"
+        android:id="@+id/rvChooseCollection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -31,46 +31,16 @@
         android:layout_marginRight="22dp"
         android:nestedScrollingEnabled="false"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/TVColChoose"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleChoose"
         tools:itemCount="3"
         tools:layout_editor_absoluteX="22dp"
-        tools:listitem="@layout/item_add_to_collection" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-           android:adjustViewBounds="true"
-            android:src="@drawable/add_to_collection"
-            android:id="@+id/addToCollection"
-            android:layout_marginTop="8dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/RVColChoose"
-            app:layout_constraintStart_toStartOf="@id/RVColChoose"
-            app:layout_constraintEnd_toEndOf="@id/RVColChoose"/>
-
-
-    <TextView
-        android:id="@+id/BTNColChoose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="22dp"
-        android:background="@drawable/bgr_round_secondary"
-        android:fontFamily="@font/poppins_regular"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="@string/confirm"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_medium"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addToCollection" />
+        tools:listitem="@layout/item_select_collection" />
 
     <View
         android:id="@+id/fixPading"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/BTNColChoose" />
+        app:layout_constraintTop_toBottomOf="@id/rvChooseCollection" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -166,7 +166,7 @@ class CollectionFragment : Fragment() {
                 val getTime = arguments!!.getInt("Time")
                 val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
                 val bundle = arguments?.getBundle("Bundle")
-                var newList = collectionViewModel.colList.value
+                val newList = collectionViewModel.colList.value
                 newList!!.forEachIndexed { index, collection ->
                     val selectedCollection = bundle!!.getBoolean(collection.title,false)
                     if (selectedCollection) {
