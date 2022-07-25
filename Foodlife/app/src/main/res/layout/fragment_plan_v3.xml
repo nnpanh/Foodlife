@@ -18,17 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp">
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/poppins_semi_bold"
-                android:text="Meal planner"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_large"
-                app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTimeline"
@@ -41,7 +30,7 @@
                 android:textSize="@dimen/text_normal"
                 app:layout_constraintEnd_toEndOf="@id/ivViewMode"
                 app:layout_constraintStart_toStartOf="@id/tvDate"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvDate"
@@ -64,7 +53,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:text="@string/txt_today_time"
                 android:textColor="@color/primary_40"
-                android:textSize="@dimen/text_medium"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintStart_toStartOf="@id/tvDate"
                 app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
@@ -596,10 +585,10 @@
                 android:adjustViewBounds="true"
                 android:animateLayoutChanges="true"
                 android:src="@drawable/ic_edit"
+                app:layout_constraintTop_toTopOf="@+id/tvDate"
                 app:layout_constraintBottom_toBottomOf="@+id/tvDate"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvDate"
                 app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
             <!--            app:layout_constraintEnd_toStartOf="@id/ivViewMode"-->
@@ -613,9 +602,9 @@
                 android:adjustViewBounds="true"
                 android:animateLayoutChanges="true"
                 android:src="@drawable/shopping_cart"
-                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvTitle"
+                app:layout_constraintEnd_toStartOf="@id/ivViewMode"
+                app:layout_constraintTop_toTopOf="@+id/tvDate"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDate"
                 app:layout_goneMarginEnd="16dp"
                 tools:ignore="ContentDescription" />
 

@@ -375,6 +375,8 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
             }
 
             R.id.ivBack ->{
+                planViewModel.morning.shuffle()
+                adapterBreakfast?.updateData(planViewModel.morning)
                 if (weekMode == 1) {
                     weekMode = 0
                     binding.tvTimeline.text = "Last week"
@@ -388,6 +390,8 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                 }
             }
             R.id.ivNext ->{
+                planViewModel.morning.shuffle()
+                adapterBreakfast?.updateData(planViewModel.morning)
                 if (weekMode == 1) {
                     weekMode = 2
                     binding.tvTimeline.text = "Next week"
