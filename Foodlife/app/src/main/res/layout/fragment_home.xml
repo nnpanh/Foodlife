@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                app:layout_goneMarginStart="16dp"
+                app:layout_goneMarginStart="0dp"
                 android:orientation="horizontal"
                 android:scrollbars="none"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -94,7 +94,7 @@
                 android:id="@+id/rvRecommended"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+
                 android:layout_marginTop="4dp"
                 android:orientation="horizontal"
                 android:scrollbars="none"
@@ -102,14 +102,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecommended"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_recommended_home" />
+                tools:listitem="@layout/item_recommend_copy" />
 
             <TextView
                 android:id="@+id/tvCollection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:text="Recommend for you"
                 android:textColor="@color/primary_100"

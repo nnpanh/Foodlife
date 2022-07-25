@@ -8,20 +8,48 @@
             name="recipe"
             type="com.example.foodlife.models.Recipe" />
     </data>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rec_home_item"
+        android:layout_width="225dp"
+        android:layout_height="240dp"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        android:layout_marginStart="16dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/white">
+        <ImageView
+            android:layout_width="221dp"
+            android:layout_height="235dp"
+            android:background="@drawable/shadow_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="0dp"
+            android:adjustViewBounds="true"/>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="221dp"
+        android:layout_height="235dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="221dp"
+                android:layout_height="235dp"
                 android:layout_marginBottom="8dp">
 
                 <ImageView
                     android:id="@+id/rec_frame_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
+                    android:layout_width="221dp"
+                    android:layout_height="235dp"
+                    android:scaleType="centerCrop"
                     app:imageResource="@{recipe.img}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="ContentDescription"
@@ -32,47 +60,14 @@
                     android:id="@+id/rec_frame_bg"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingTop="64dp"
+                    android:paddingTop="12dp"
                     android:background="@drawable/ic_recbg_black"
                     app:layout_constraintBottom_toBottomOf="@id/rec_frame_img"
                     app:layout_constraintEnd_toEndOf="@id/rec_frame_img"
                     app:layout_constraintStart_toStartOf="@id/rec_frame_img"
                     tools:ignore="ContentDescription">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/rec_profile_img"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="8dp"
-                    android:padding="5dp"
-                    android:scaleType="centerCrop"
-                    app:imageResource="@{recipe.profile_img}"
-                    app:layout_constraintBottom_toTopOf="@+id/rec_frame_name"
-                    app:layout_constraintStart_toStartOf="parent"
 
-                    app:shapeAppearanceOverlay="@style/circle"
-                    app:strokeColor="@color/secondary_100"
-                    app:strokeWidth="1dp"
-                    tools:srcCompat="@drawable/example_dish_1" />
-
-                <TextView
-                    android:id="@+id/rec_profile_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_semi_bold"
-                    android:maxLines="2"
-                    android:text="@{recipe.profile_name}"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@id/rec_profile_img"
-                    app:layout_constraintStart_toEndOf="@id/rec_profile_img"
-                    app:layout_constraintTop_toTopOf="@id/rec_profile_img"
-                    app:layout_constraintVertical_bias="0.424"
-                    tools:text="John" />
 
 
                 <TextView
@@ -80,9 +75,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     android:fontFamily="@font/poppins_bold"
                     android:maxLines="2"
                     android:text="@{recipe.title}"
@@ -99,9 +94,9 @@
 
                 <ImageView
                     android:id="@+id/rec_frame_cook"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/chef"
                     android:backgroundTint="@color/white"
@@ -114,7 +109,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="6dp"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/white"
@@ -127,9 +122,9 @@
 
                 <ImageView
                     android:id="@+id/rec_frame_time"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="12dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="-4dp"
                     android:adjustViewBounds="true"
                     android:layout_marginBottom="16dp"
@@ -145,7 +140,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="5dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="6dp"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/white"
@@ -157,9 +152,9 @@
 
                 <ImageView
                     android:id="@+id/rec_frame_star"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="12dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="-8dp"
                     android:adjustViewBounds="true"
                     android:layout_marginBottom="16dp"
@@ -174,8 +169,8 @@
                     android:id="@+id/tv_rec_star"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="10dp"
                     android:gravity="center_vertical"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="@color/white"
@@ -185,20 +180,11 @@
                     app:layout_constraintTop_toTopOf="@+id/rec_frame_cook"
                     tools:text="5" />
 
-                <ImageView
-                    android:id="@+id/rec_frame_save"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="16dp"
-                    android:adjustViewBounds="true"
-                    android:background="@drawable/ic_saved_rec"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
 

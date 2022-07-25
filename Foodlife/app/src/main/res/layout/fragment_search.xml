@@ -38,19 +38,18 @@
             android:text="Search Recipes"
             android:textColor="@color/black"
             android:textSize="@dimen/text_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/ivSearchBack"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@id/ivSearchBack"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivSearchFilter"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/filter"
-            app:layout_constraintTop_toTopOf="@id/ACTVSearchPage"
+            app:layout_constraintTop_toTopOf="@id/ivSearchBack"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="ContentDescription" />
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,8 +58,8 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@id/ivSearchFilter"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivSearchBack"
             android:paddingLeft="16dp"
@@ -135,7 +134,7 @@
 
                 tools:itemCount="2"
                 tools:listitem="@layout/item_recipe_search"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/ACTVSearchPage"/>
 
         <TextView
