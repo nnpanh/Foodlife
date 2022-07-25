@@ -14,10 +14,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
-import com.example.foodlife.adapters.IngredientAdapter
-import com.example.foodlife.adapters.PlanImageAdapter
-import com.example.foodlife.adapters.PlanTextAdapter
-import com.example.foodlife.adapters.PlanTotalAdapter
+import com.example.foodlife.adapters.*
 import com.example.foodlife.databinding.FragmentCalculateIngredientsBinding
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.UserModel
@@ -32,10 +29,10 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentCalculateIngredientsBinding? = null
     private val binding get() = _binding!!
 
-    private var adapterBreakfast: PlanTextAdapter? = null
-    private var adapterLunch: PlanTextAdapter? = null
-    private var adapterDinner: PlanTextAdapter? = null
-    private var adapterSnack: PlanTextAdapter? = null
+    private var adapterBreakfast: CollectionHomeAdapter? = null
+    private var adapterLunch: CollectionHomeAdapter? = null
+    private var adapterDinner: CollectionHomeAdapter? = null
+    private var adapterSnack: CollectionHomeAdapter? = null
     private var adapterIngredient: IngredientAdapter? = null
 
     private lateinit var planViewModel: PlanViewModel
@@ -83,84 +80,44 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
     private fun initTotalAdapter() {
         //Create adapter
         if (adapterBreakfast == null) {
-            adapterBreakfast = PlanTextAdapter(0,true) { clickedItem ->
-                val updateList = planViewModel.breakfastList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.breakfastList = updateList
-                    adapterBreakfast?.updateData(updateList)
-                    if (updateList.size == 0) binding.tvBreakfastDescription.visibility =
-                        View.VISIBLE
-                    checkTotal()
-                    updateIngredients()
-                }
+            adapterBreakfast = CollectionHomeAdapter() { clickedItem ->
             }
         }
-        if (planViewModel.breakfastList.size ==0) binding.tvBreakfastDescription.visibility = View.VISIBLE
 
 
         if (adapterLunch == null) {
-            adapterLunch = PlanTextAdapter(1,true) { clickedItem ->
-                val updateList = planViewModel.lunchList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.lunchList = updateList
-                    adapterLunch?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
-                checkTotal()
-                updateIngredients()
+            adapterLunch = CollectionHomeAdapter() { clickedItem ->
             }
         }
-        if (planViewModel.lunchList.size ==0) binding.tvLunchDescription.visibility = View.VISIBLE
 
         if (adapterDinner == null) {
-            adapterDinner = PlanTextAdapter(2,true) { clickedItem ->
-                val updateList = planViewModel.dinnerList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.dinnerList = updateList
-                    adapterDinner?.updateData(updateList)
-                }
-                if (updateList.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
-                checkTotal()
-                updateIngredients()
+            adapterDinner = CollectionHomeAdapter() { clickedItem ->
             }
         }
-        if (planViewModel.dinnerList.size ==0) binding.tvDinnerDescription.visibility = View.VISIBLE
 
 
-        if (adapterSnack == null) {
-            adapterSnack = PlanTextAdapter(3,true) { clickedItem ->
-                val updateList = planViewModel.snackList
-                if (updateList.isNotEmpty()) {
-                    updateList.remove(clickedItem)
-                    planViewModel.snackList = updateList
-                    adapterSnack?.updateData(updateList)
+            if (adapterSnack == null) {
+                adapterSnack = CollectionHomeAdapter() { clickedItem ->
                 }
-                if (updateList.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
-                checkTotal()
-                updateIngredients()
             }
-        }
-        if (planViewModel.snackList.size ==0) binding.tvSnackDescription.visibility = View.VISIBLE
+        
+
+                //Check if recyclerView is not null
+                setAdapterText(adapterBreakfast!!, binding.rvPlanTextBreakfast)
+                planViewModel.morning.let { adapterBreakfast!!.updateData(it) }
+
+                setAdapterText(adapterLunch!!, binding.rvPlanTextLunch)
+                planViewModel.lunch.let { adapterLunch!!.updateData(it) }
+
+                setAdapterText(adapterDinner!!, binding.rvPlanTextDinner)
+                planViewModel.dinner.let { adapterDinner!!.updateData(it) }
+
+                setAdapterText(adapterSnack!!, binding.rvPlanTextSnack)
+                planViewModel.snack.let { adapterSnack!!.updateData(it) }
+            }
 
 
-        //Check if recyclerView is not null
-        setAdapterText(adapterBreakfast!!, binding.rvPlanTextBreakfast)
-        planViewModel.breakfastList.let { adapterBreakfast!!.updateData(it) }
-
-        setAdapterText(adapterLunch!!, binding.rvPlanTextLunch)
-        planViewModel.lunchList.let { adapterLunch!!.updateData(it) }
-
-        setAdapterText(adapterDinner!!, binding.rvPlanTextDinner)
-        planViewModel.dinnerList.let { adapterDinner!!.updateData(it) }
-
-        setAdapterText(adapterSnack!!, binding.rvPlanTextSnack)
-        planViewModel.snackList.let { adapterSnack!!.updateData(it) }
-    }
-
-    private fun setAdapterText(_adapter: PlanTextAdapter, _recyclerView: RecyclerView) {
+    private fun setAdapterText(_adapter: CollectionHomeAdapter, _recyclerView: RecyclerView) {
         //Set adapter
         _recyclerView.apply {
             adapter = _adapter
@@ -229,7 +186,7 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
     }
 
     private fun checkTotal(){
-        val totalSize = planViewModel.lunchList.size + planViewModel.dinnerList.size + planViewModel.snackList.size + planViewModel.breakfastList.size
+        val totalSize = planViewModel.lunch.size + planViewModel.dinner.size + planViewModel.snack.size + planViewModel.morning.size
         if (totalSize==0){
             binding.rvIngredients.visibility = View.GONE
             binding.tvTotalDescription.visibility = View.VISIBLE
