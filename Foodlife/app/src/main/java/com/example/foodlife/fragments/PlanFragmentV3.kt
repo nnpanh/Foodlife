@@ -147,7 +147,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         binding.ivViewMode.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
         binding.ivNext.setOnClickListener(this)
-        binding.cbMon.isActivated = true
+        binding.cbMon.isActivated = false
         binding.cbTue.isActivated = false
         binding.cbWed.isActivated = false
         binding.cbThu.isActivated = false
