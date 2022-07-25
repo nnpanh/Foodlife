@@ -88,7 +88,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvBreakfastTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_recipe_text" />
+                tools:listitem="@layout/item_collection_home" />
             <TextView
                 tools:visibility="visible"
                 android:id="@+id/tvBreakfastDescription"
@@ -128,7 +128,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvLunchTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_recipe_text" />
+                tools:listitem="@layout/item_collection_home" />
 
             <TextView
                 android:id="@+id/tvLunchDescription"
@@ -169,7 +169,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDinnerTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_recipe_text" />
+                tools:listitem="@layout/item_collection_home" />
             <TextView
                 android:id="@+id/tvDinnerDescription"
                 android:layout_width="wrap_content"
@@ -226,7 +226,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSnackTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_recipe_text" />
+                tools:listitem="@layout/item_collection_home" />
 
 
             <ImageView
