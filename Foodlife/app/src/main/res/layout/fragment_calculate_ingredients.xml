@@ -354,12 +354,12 @@
                     />
 
                 <ImageView
-                    android:id="@+id/ivPlus"
+                    android:id="@+id/ivMinus"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
                     android:layout_marginStart="24dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/plus_border"
+                    android:src="@drawable/minus_border"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvServe"
                     app:layout_constraintTop_toTopOf="parent"
@@ -379,17 +379,17 @@
                     android:fontFamily="@font/poppins_bold"
                     android:textSize="@dimen/text_normal"
                     android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@id/ivPlus"
+                    app:layout_constraintStart_toEndOf="@id/ivMinus"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
                 <ImageView
-                    android:id="@+id/ivMinus"
+                    android:id="@+id/ivPlus"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/minus_border"
+                    android:src="@drawable/plus_border"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tvNumberServe"
                     app:layout_constraintTop_toTopOf="parent"

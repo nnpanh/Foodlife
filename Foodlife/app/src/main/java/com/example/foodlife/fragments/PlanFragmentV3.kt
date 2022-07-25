@@ -143,6 +143,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
 
     private fun initListener() {
 //        binding.ivCalender.setOnClickListener(this)
+        binding.btnContinue.setOnClickListener(this)
         binding.ivShopping.setOnClickListener(this)
         binding.ivViewMode.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
@@ -161,10 +162,10 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         binding.cbFri.setOnClickListener (this)
         binding.cbSat.setOnClickListener (this)
         binding.cbSun.setOnClickListener (this)
-        binding.icDinnerTitle.setOnClickListener(this)
-        binding.icLunchTitle.setOnClickListener(this)
-        binding.icBreakfastTitle.setOnClickListener(this)
-        binding.icSnackTitle.setOnClickListener(this)
+//        binding.icDinnerTitle.setOnClickListener(this)
+//        binding.icLunchTitle.setOnClickListener(this)
+//        binding.icBreakfastTitle.setOnClickListener(this)
+//        binding.icSnackTitle.setOnClickListener(this)
     }
 
     private fun initAdaptersText() {
@@ -197,8 +198,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                 }
             )
         }
-        if (planViewModel.morning.size == 0) binding.tvBreakfastDescription.visibility =
-            View.VISIBLE
+        if (planViewModel.morning.size == 0) binding.tvBreakfastDescription.visibility = View.VISIBLE
         var temp = planViewModel.morning.size
         binding.tvBreakfastCv.text = "$temp out of 4"
 

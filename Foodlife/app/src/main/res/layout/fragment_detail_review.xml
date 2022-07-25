@@ -127,7 +127,7 @@
                         android:paddingBottom="8dp"
                         android:paddingEnd="8dp"
                         android:textSize="@dimen/text_small"
-                        android:background="null"
+                        android:background="@null"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/buttonAddPicture"
                         app:layout_constraintTop_toTopOf="parent"
