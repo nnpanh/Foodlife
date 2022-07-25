@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.DetailDirectionsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lReview"
@@ -83,58 +80,73 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/listReview"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:nestedScrollingEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvReviewTitle"
-                    tools:itemCount="5"
+                    tools:itemCount="2"
                     tools:listitem="@layout/item_detail_review" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lComment"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/detail_review_comment"
                     app:layout_constraintTop_toBottomOf="@id/listReview"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/buttonSendComment"
                     app:layout_constraintStart_toStartOf="parent">
+
+                    <ImageView
+                        android:id="@+id/buttonAddPicture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_picture"
+                        app:layout_constraintBottom_toBottomOf="@id/etComment"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/etComment" />
 
                     <EditText
                         android:id="@+id/etComment"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:background="@null"
                         android:fontFamily="@font/poppins_regular"
                         android:hint="Discuss here"
                         android:inputType="textMultiLine"
+                        android:layout_marginEnd="8dp"
                         android:paddingStart="8dp"
-                        android:paddingTop="4dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
                         android:paddingEnd="8dp"
                         android:textSize="@dimen/text_small"
+                        android:background="null"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/buttonSendComment"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/buttonSendComment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:src="@drawable/ic_send"
-                        app:layout_constraintBottom_toBottomOf="@id/etComment"
+                        app:layout_constraintStart_toEndOf="@id/buttonAddPicture"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/etComment"
-                        app:layout_constraintTop_toTopOf="@id/etComment" />
+                        tools:text = "This is a  very longggggggggggggggggg lineeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"/>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/buttonSendComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_send"
+                    app:layout_constraintBottom_toBottomOf="@id/lComment"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/lComment"
+                    app:layout_constraintTop_toTopOf="@id/lComment" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -143,4 +155,4 @@
 
 
 
-</FrameLayout>
+</layout>
