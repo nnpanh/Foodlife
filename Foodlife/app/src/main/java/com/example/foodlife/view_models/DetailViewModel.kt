@@ -34,7 +34,8 @@ class DetailViewModel: ViewModel() {
 
     var DetailDirectionsList = mutableListOf(
         DetailDirections(R.drawable.example_step_1,"Chop eggs.","Step 1:"),
-        DetailDirections(R.drawable.example_step_2,"Mix mayonnaise, lemon juice, mustard, salt and pepper in medium bowl.","Step 2:"),
+        DetailDirections(R.drawable.example_step_3,"Mix mayonnaise, lemon juice, mustard, salt and pepper in medium bowl.","Step 2:"),
+        DetailDirections(R.drawable.example_step_2,"Serves in to plate and enjoy your delicious meal.","Step 3:"),
     )
 
     var DetailReviewList = mutableListOf(
