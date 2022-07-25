@@ -1,20 +1,20 @@
 package com.example.foodlife.fragments
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.foodlife.R
 import com.example.foodlife.databinding.FragmentAddRecipeInformationBinding
 import com.example.foodlife.databinding.FragmentAddRecipeTitleBinding
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -23,20 +23,15 @@ private const val ARG_PARAM2 = "param2"
  */
 class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
+    private val GALLERY_REQ_CODE = 1000
+    private var IVImage: ImageView? = null
+    private var imgPath: Uri? = null
     private lateinit var navController: NavController
     private var _binding: FragmentAddRecipeTitleBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,25 +43,6 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
-    //    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment AddRecipeTitleFragment.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            AddRecipeTitleFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
@@ -77,6 +53,8 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
     private fun initListener() {
         binding.continueBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
+        binding.ivUploadimage.setOnClickListener(this)
+        binding.ivImagePlaceholder.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -94,6 +72,29 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
             R.id.ivBack -> {
                 navController.navigateUp()
                 //TODO
+            }
+            R.id.iv_uploadimage -> {
+                pickImage()
+            }
+            R.id.iv_image_placeholder -> {
+                pickImage()
+            }
+        }
+    }
+
+    fun pickImage(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        startActivityForResult(intent, GALLERY_REQ_CODE)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == GALLERY_REQ_CODE) {
+                binding.ivImagePlaceholder.setImageURI(data!!.data)
+                binding.ivUploadimage.visibility = View.INVISIBLE
+                binding.tvUploadTxt.visibility = View.GONE
+                imgPath = data.data
             }
         }
     }

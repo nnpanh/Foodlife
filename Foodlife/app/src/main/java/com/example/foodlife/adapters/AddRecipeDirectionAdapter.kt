@@ -35,7 +35,6 @@ class AddRecipeDirectionAdapter (private val listener: (AddRecipeDirectionModel)
             itemDirectionBinding.ivDelete.setOnClickListener{listener(_direction)}
             itemDirectionBinding.apply {
                 direction = _direction
-                val step = _direction.num
                 itemDirectionBinding.txtStep.setText("Step ${position + 1}")
 //                val name = _ingredient.name
 //                val quantity = _ingredient.quantity

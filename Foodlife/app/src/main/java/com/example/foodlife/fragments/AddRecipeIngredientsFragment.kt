@@ -1,6 +1,7 @@
 package com.example.foodlife.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.AddRecipeIngredientAdapter
+import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.databinding.FragmentAddRecipeIngredientsBinding
 import com.example.foodlife.models.AddRecipeIngredientModel
 import com.example.foodlife.view_models.AddRecipeViewModel
@@ -47,6 +49,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
         mList = ingredientViewModel.initIngredient
         initListener()
         initAdapters()
+
     }
 
     private fun initListener() {
@@ -58,17 +61,27 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     private fun initAdapters(){
         if (adapterIngredient == null){
             adapterIngredient = AddRecipeIngredientAdapter(requireActivity()){clickedItem ->
-//                val updateList = ingredientViewModel.initIngredient
-//                val list = adapterIngredient.m
+                Log.e("Ingredient", "removed")
+                Log.e("Ingredient size", mList.size.toString());
                 if (mList.size>1){
                     mList.remove(clickedItem)
+
                     adapterIngredient!!.updateData(mList)
                 }
             }
-            binding.rcvIngredientList.adapter = adapterIngredient
-            binding.rcvIngredientList.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            adapterIngredient!!.updateData(ingredientViewModel.initIngredient)
+        }
+        /*binding.rcvIngredientList.adapter = adapterIngredient
+        binding.rcvIngredientList.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        adapterIngredient!!.updateData(ingredientViewModel.initIngredient)*/
+        setAdapter(adapterIngredient!!, binding.rcvIngredientList)
+        ingredientViewModel.initIngredient.let{ adapterIngredient!!.updateData(it)}
+    }
 
+    private fun setAdapter(_adapter: AddRecipeIngredientAdapter, _recyclerView: RecyclerView) {
+        //Set adapter
+        _recyclerView.apply {
+            adapter = _adapter
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 
@@ -92,9 +105,11 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
                 val item = AddRecipeIngredientModel("Ingredient", "1", "g")
 //                adapterIngredient?.addData(item)
 //                mList = adapterIngredient!!.getList()
-                val newList = adapterIngredient?.mList!!.toMutableList()
+                /*val newList = adapterIngredient?.mList!!.toMutableList()
                 newList.add(item)
-                adapterIngredient!!.updateData(newList)
+                mList = newList*/
+                mList.add(item)
+                adapterIngredient!!.updateData(mList)
 //                adapterIngredient!!.updateData(mList)
             }
         }

@@ -116,6 +116,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
 //                val list = adapterIngredient.m
                 if (mList.size>1){
                     mList.remove(clickedItem)
+                    Log.e("Direction", "removed")
                     adapterDirection!!.updateData(mList)
                 }
             }

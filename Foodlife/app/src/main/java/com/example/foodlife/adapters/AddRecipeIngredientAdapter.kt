@@ -48,11 +48,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     position: Int,
                     id: Long
                 ) {
-//                    if (isSpinnerInitial)
-//                        isSpinnerInitial = false
-//                    else{
-//
-//                    }
                     Log.e("chosen", id.toString())
                     Log.e("position", adapterPosition.toString())
                     mList[adapterPosition].measure = itemIngredientBinding.measurementDropdown.selectedItem.toString()
@@ -72,10 +67,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
             itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
             itemIngredientBinding.apply {
                 ingredient = _ingredient
-//                val name = _ingredient.name
-//                val quantity = _ingredient.quantity
-//                itemIngredientBinding.edIngredient.setHint(name)
-//                itemIngredientBinding.etIngredientQuantity.setHint(quantity.toString())
                 executePendingBindings()
             }
         }
