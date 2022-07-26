@@ -13,8 +13,10 @@ import android.widget.MediaController
 import android.widget.ScrollView
 import android.widget.VideoView
 import androidx.core.widget.NestedScrollView
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.foodlife.R
@@ -22,8 +24,11 @@ import com.example.foodlife.adapters.DetailAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.dialog.AddToCollectionDialog
 import com.example.foodlife.dialog.AddToPlanBottomDialog
+import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.dialog.OptionBottomDialog
+import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
+import com.example.foodlife.view_models.CollectionViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -43,6 +48,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     var tabTitle = arrayOf("Ingredients", "Directions", "Review")
 
+    private lateinit var collectionViewModel: CollectionViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -57,7 +64,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         contextView = view
-
+        val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
+        collectionViewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
+        if (collectionViewModel.colList.value!!.isEmpty())
+            collectionViewModel.loadCollection()
         //Viewpager & TabLayout
         val pager = binding.viewPager2
         val tl = binding.tabLayout
@@ -80,8 +90,14 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
 
         initListener()
+    
+
 
         if (arguments!=null){
+            val res = arguments?.getBoolean("res")
+            if (res==true){
+                Snackbar.make(contextView!!, "LALALALA", Snackbar.LENGTH_SHORT).show()
+            }
             val getTitle = arguments?.getString("Title")
             val getDes = arguments?.getString("Description")
             val getTime = arguments?.getInt("Time")
@@ -105,6 +121,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 binding.detailRating.rating = getScore.toFloat()
             }
         }
+
+
 
         videoView.requestFocus()
 
@@ -150,6 +168,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
     private fun addToPlan(){
         val addToPlanBottomDialog = AddToPlanBottomDialog()
         addToPlanBottomDialog.show(parentFragmentManager, AddToPlanBottomDialog.TAG)
@@ -179,10 +198,44 @@ class DetailFragment : Fragment(), View.OnClickListener {
         addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
             val addNewCollection = bundle.getBoolean("add",false)
             if (addNewCollection){
-                navController.navigate(R.id.detailToCollection,Bundle().apply {
+                /*navController.navigate(R.id.detailToCollection,Bundle().apply {
                     putBoolean("add", true)
-                })
-            }
+                    val getTitle = arguments?.getString("Title")
+                    val getDiff = arguments?.getString("Diff")
+                    val getPicture = arguments?.getInt("Picture")
+                    val getScore = arguments?.getInt("Score")
+                    val getTime = arguments?.getInt("Time")
+                    putString("Title", getTitle)
+                    putInt("Time", getTime!!)
+                    putString("Diff", getDiff)
+                    putInt("Score", getScore!!)
+                    putInt("Picture", getPicture!!)
+                })*/
+
+                val bottomSheetCollection = BottomSheetCollection()
+                bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
+                bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
+                bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
+                    val result = bundle.getSerializable("newCollection") as Collection
+                    result.quantity = 0
+                    collectionViewModel.addCollection(result)
+
+                    val newList = collectionViewModel.colList.value
+                    val getTitle = arguments?.getString("Title")
+                    val getDiff = arguments?.getString("Diff")
+                    val getPicture = arguments!!.getInt("Picture")
+                    val getScore = arguments!!.getInt("Score")
+                    val getTime = arguments!!.getInt("Time")
+                    val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
+                    newList!!.forEachIndexed { index, collection ->
+                        if (result.title==collection.title) {
+                            collectionViewModel.addRecipe(index, recipe)
+                        }
+                    }
+                    navController.navigate(R.id.detailToCollection,Bundle().apply {
+                        putBoolean("add", true)})
+                    Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
+            }}
             else{
                 navController.navigate(R.id.detailToCollection,Bundle().apply {
                     val getTitle = arguments?.getString("Title")

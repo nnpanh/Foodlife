@@ -16,6 +16,9 @@ class CollectionViewModel : ViewModel() {
     var colList = MutableLiveData<MutableList<Collection>>().also {
         it.value = mutableListOf()
     }
+
+    var result = false
+
     fun loadCollection() {
         val recipes = mutableListOf(
             Recipe(R.drawable.col1_rep1,"Roast beef with red wine & banana shallots ",5,"Easy",80,"",R.drawable.profile4,"Anna",""),

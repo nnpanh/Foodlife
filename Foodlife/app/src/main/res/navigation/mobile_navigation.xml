@@ -41,6 +41,12 @@
         app:popUpTo="@+id/main_nav_graph"
         app:popUpToInclusive="true" />
 
+    <action android:id="@+id/collectionToDetail"
+        app:destination="@id/detail_fragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/main_nav_graph"
+        app:popUpToInclusive="true" />
+
     <action android:id="@+id/returnProfile"
         app:destination="@id/navigation_profile"
         app:launchSingleTop="true"

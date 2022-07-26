@@ -1,11 +1,13 @@
 package com.example.foodlife.fragments
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.Gravity.apply
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -13,12 +15,16 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
+import androidx.core.text.HtmlCompat
+import androidx.core.view.GravityCompat.apply
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.ui.navigateUp
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodlife.CollectionDetail
 import com.example.foodlife.R
@@ -29,6 +35,7 @@ import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.CollectionViewModel
 import com.example.foodlife.view_models.HomeViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class CollectionFragment : Fragment() {
 
@@ -41,6 +48,7 @@ class CollectionFragment : Fragment() {
     private var isSpinnerInitial = true
     private lateinit var collectionViewModel: CollectionViewModel
     private var addNewQuantity = 0
+    private var contextView: View? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,7 +72,7 @@ class CollectionFragment : Fragment() {
         collectionViewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
         if (collectionViewModel.colList.value!!.isEmpty())
             collectionViewModel.loadCollection()
-
+        contextView = view
         /**
          * Dropdown for filter
          */
@@ -159,8 +167,59 @@ class CollectionFragment : Fragment() {
         if (arguments != null){
             //addNewQuantity = 0
             if (arguments!!.getBoolean("add",false)) {
+                collectionAdapter.notifyDataSetChanged()
+
                 //addNewQuantity = 1
-                binding.IVColAdd.callOnClick()
+                /*val getTitle = arguments!!.getString("Title")
+                val getDiff = arguments!!.getString("Diff")
+                val getPicture = arguments!!.getInt("Picture")
+                val getScore = arguments!!.getInt("Score")
+                val getTime = arguments!!.getInt("Time")
+                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
+                val newList = collectionViewModel.colList.value
+
+                //binding.IVColAdd.callOnClick()
+                val bottomSheetCollection = BottomSheetCollection()
+                bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
+                bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
+                bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
+                    val result = bundle.getSerializable("newCollection") as Collection
+                    result.quantity = addNewQuantity
+                    collectionViewModel.addCollection(result)
+                    collectionAdapter.notifyDataSetChanged()
+                    newList!!.forEachIndexed { index, collection ->
+                        if (result.title==collection.title) {
+                            collectionViewModel.addRecipe(index, recipe)
+                        }
+                    }
+                    collectionViewModel.result=true*/
+
+                    /*navController.navigate(R.id.collectionToDetail,Bundle().apply {
+                        putBoolean("res", true)
+                        val getTitle = arguments?.getString("Title")
+                        val getDiff = arguments?.getString("Diff")
+                        val getPicture = arguments?.getInt("Picture")
+                        val getScore = arguments?.getInt("Score")
+                        val getTime = arguments?.getInt("Time")
+                        putString("Title", getTitle)
+                        putInt("Time", getTime!!)
+                        putString("Diff", getDiff)
+                        putInt("Score", getScore!!)
+                        putInt("Picture", getPicture!!)
+                        val getDes = arguments?.getString("Description")
+                        val getName = arguments?.getString("ProfileName")
+                        val getProfile = arguments?.getInt("ProfileImg")
+                        val getVideoUrl = arguments?.getString("VideoUrl")
+                        putString("Description", getDes)
+                        putString("ProfileName", getName)
+                        putInt("ProfileImg", getProfile!!)
+                        putString("VideoUrl", getVideoUrl)
+                    })
+                    arguments!!.clear()*/
+
+
+
+
             } else
             {
                 val getTitle = arguments!!.getString("Title")
@@ -182,6 +241,7 @@ class CollectionFragment : Fragment() {
             }
             navController.navigateUp()
             arguments!!.clear()
+
         }
     }
 
