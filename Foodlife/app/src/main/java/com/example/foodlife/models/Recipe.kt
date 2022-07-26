@@ -1,5 +1,7 @@
 package com.example.foodlife.models
 
+import java.io.Serializable
+
 data class Recipe(
     var img: Int,
     var title: String,
@@ -10,4 +12,4 @@ data class Recipe(
     var profile_img:Int,
     var profile_name:String,
     var video_url:String,
-)
+): Serializable

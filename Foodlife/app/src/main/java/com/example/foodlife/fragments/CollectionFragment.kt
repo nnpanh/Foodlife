@@ -168,66 +168,20 @@ class CollectionFragment : Fragment() {
             //addNewQuantity = 0
             if (arguments!!.getBoolean("add",false)) {
                 collectionAdapter.notifyDataSetChanged()
-
                 //addNewQuantity = 1
-                /*val getTitle = arguments!!.getString("Title")
-                val getDiff = arguments!!.getString("Diff")
-                val getPicture = arguments!!.getInt("Picture")
-                val getScore = arguments!!.getInt("Score")
-                val getTime = arguments!!.getInt("Time")
-                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
-                val newList = collectionViewModel.colList.value
-
                 //binding.IVColAdd.callOnClick()
-                val bottomSheetCollection = BottomSheetCollection()
-                bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
-                bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
-                bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
-                    val result = bundle.getSerializable("newCollection") as Collection
-                    result.quantity = addNewQuantity
-                    collectionViewModel.addCollection(result)
-                    collectionAdapter.notifyDataSetChanged()
-                    newList!!.forEachIndexed { index, collection ->
-                        if (result.title==collection.title) {
-                            collectionViewModel.addRecipe(index, recipe)
-                        }
-                    }
-                    collectionViewModel.result=true*/
-
-                    /*navController.navigate(R.id.collectionToDetail,Bundle().apply {
-                        putBoolean("res", true)
-                        val getTitle = arguments?.getString("Title")
-                        val getDiff = arguments?.getString("Diff")
-                        val getPicture = arguments?.getInt("Picture")
-                        val getScore = arguments?.getInt("Score")
-                        val getTime = arguments?.getInt("Time")
-                        putString("Title", getTitle)
-                        putInt("Time", getTime!!)
-                        putString("Diff", getDiff)
-                        putInt("Score", getScore!!)
-                        putInt("Picture", getPicture!!)
-                        val getDes = arguments?.getString("Description")
-                        val getName = arguments?.getString("ProfileName")
-                        val getProfile = arguments?.getInt("ProfileImg")
-                        val getVideoUrl = arguments?.getString("VideoUrl")
-                        putString("Description", getDes)
-                        putString("ProfileName", getName)
-                        putInt("ProfileImg", getProfile!!)
-                        putString("VideoUrl", getVideoUrl)
-                    })
-                    arguments!!.clear()*/
-
-
-
-
             } else
             {
-                val getTitle = arguments!!.getString("Title")
-                val getDiff = arguments!!.getString("Diff")
+                val getTitle = arguments?.getString("Title")
+                val getDiff = arguments?.getString("Diff")
                 val getPicture = arguments!!.getInt("Picture")
                 val getScore = arguments!!.getInt("Score")
                 val getTime = arguments!!.getInt("Time")
-                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
+                val getDes = arguments?.getString("Description")
+                val getName = arguments?.getString("ProfileName")
+                val getProfile = arguments!!.getInt("ProfileImg")
+                val getVideoUrl = arguments?.getString("VideoUrl")?:""
+                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
                 val bundle = arguments?.getBundle("Bundle")
                 val newList = collectionViewModel.colList.value
                 newList!!.forEachIndexed { index, collection ->

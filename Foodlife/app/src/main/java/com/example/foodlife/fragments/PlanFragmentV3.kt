@@ -20,8 +20,11 @@ import com.example.foodlife.adapters.CollectionHomeAdapterV2
 import com.example.foodlife.databinding.FragmentPlanV3Binding
 import com.example.foodlife.dialog.SelectCollectionDialog
 import com.example.foodlife.dialog.CalendarPopUp
+import com.example.foodlife.dialog.SelectCollectionDialogV2
+import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Ingredient
 import com.example.foodlife.models.PlanItemModel
+import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.PlanViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabItem
@@ -44,7 +47,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
     private var weekMode = 1 //0 = last week, 1 = this week, 2 = next week
 
     private var currentTab = 0
-
+    private var contextView: View? = null
     private lateinit var planViewModel: PlanViewModel
 
 
@@ -70,31 +73,34 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         planViewModel = ViewModelProvider(store)[PlanViewModel::class.java]
 
-
+        contextView=view
         //Initialize view
         if (arguments != null) {
             /**
              * Fragment started from addToPlan
              */
-            val newDish = PlanItemModel(
-                arguments!!.getString("Title", "Some random dish"),
-                arguments!!.getString("Rate", "4.5"),
-                arguments!!.getInt("Image", R.drawable.recommend_1),
-                arguments!!.getString("Time", "15 mins"),
-                arguments!!.getString("Level", "Hard"),
-                arguments!!.getString("Author", "NKTTNga")
+            val newDish = Recipe(
+            arguments!!.getInt("Picture")?:R.drawable.recommend_1,
+                arguments!!.getString("Title")?:"Stir-fried beef with broccoli and Rice",
+                arguments!!.getInt("Score"),
+                arguments!!.getString("Diff")?:"Medium",
+                arguments!!.getInt("Time"),
+                arguments!!.getString("Description")?:"",
+                arguments!!.getInt("ProfileImg"),
+                arguments!!.getString("ProfileName")?:"",
+                arguments!!.getString("VideoUrl")?:"",
             )
             if (arguments!!.getBoolean("Breakfast", false)) {
-                planViewModel.breakfastList.add(newDish)
+                planViewModel.morning.add(newDish)
             }
             if (arguments!!.getBoolean("Lunch", false)) {
-                planViewModel.lunchList.add(newDish)
+                planViewModel.lunch.add(newDish)
             }
             if (arguments!!.getBoolean("Dinner", false)) {
-                planViewModel.dinnerList.add(newDish)
+                planViewModel.dinner.add(newDish)
             }
             if (arguments!!.getBoolean("Snack", false)) {
-                planViewModel.snackList.add(newDish)
+                planViewModel.snack.add(newDish)
             }
             planViewModel.ingredientList.add(Ingredient("added ingredients", "8"))
             planViewModel.ingredientList2.add(Ingredient("added ingredients", "16"))
@@ -162,10 +168,10 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
         binding.cbFri.setOnClickListener (this)
         binding.cbSat.setOnClickListener (this)
         binding.cbSun.setOnClickListener (this)
-//        binding.icDinnerTitle.setOnClickListener(this)
-//        binding.icLunchTitle.setOnClickListener(this)
-//        binding.icBreakfastTitle.setOnClickListener(this)
-//        binding.icSnackTitle.setOnClickListener(this)
+       binding.icDinnerTitle.setOnClickListener(this)
+        binding.icLunchTitle.setOnClickListener(this)
+        binding.icBreakfastTitle.setOnClickListener(this)
+        binding.icSnackTitle.setOnClickListener(this)
     }
 
     private fun initAdaptersText() {
@@ -405,28 +411,63 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                 }
             }
             R.id.icBreakfastTitle -> {
-                selectCollection()
+                selectCollection(1)
             }
 
             R.id.icLunchTitle -> {
-                selectCollection()
+                selectCollection(2)
             }
 
             R.id.icDinnerTitle -> {
-                selectCollection()
+                selectCollection(3)
             }
 
             R.id.icSnackTitle -> {
-                selectCollection()
+                selectCollection(4)
             }
         }
     }
-    private fun selectCollection() {
-        val selectCollection = SelectCollectionDialog()
+    private fun selectCollection(type:Int) {
+        /*val selectCollection = SelectCollectionDialog()
         selectCollection.show(parentFragmentManager, SelectCollectionDialog.TAG)
         selectCollection.setFragmentResultListener("request_key") { _, bundle ->
             val collectionName = bundle.getString("collection")
             Log.d("collectionName", "$collectionName")
+        }*/
+
+        val selectCollection = SelectCollectionDialogV2()
+        selectCollection.show(parentFragmentManager, SelectCollectionDialogV2.TAG)
+        selectCollection.setFragmentResultListener("request_new") { _, bundle ->
+            val result = bundle.getSerializable("newRecipe") as Recipe
+                if (type==1) {
+                    planViewModel.morning.add(result)
+                    adapterBreakfast!!.updateData(planViewModel.morning)
+                    if (planViewModel.morning.size == 0) binding.tvBreakfastDescription.visibility = View.VISIBLE
+                    else binding.tvBreakfastDescription.visibility = View.GONE
+                }
+                if (type==2) {
+                    planViewModel.lunch.add(result)
+                    adapterLunch!!.updateData(planViewModel.lunch)
+                    if (planViewModel.lunch.size == 0) binding.tvLunchDescription.visibility = View.VISIBLE
+                    else binding.tvLunchDescription.visibility = View.GONE
+                }
+                if (type==3) {
+                    planViewModel.dinner.add(result)
+                    adapterDinner!!.updateData(planViewModel.dinner)
+                    if (planViewModel.dinner.size == 0) binding.tvDinnerDescription.visibility = View.VISIBLE
+                    else binding.tvDinnerDescription.visibility = View.GONE
+                }
+                if (type==4) {
+                    planViewModel.snack.add(result)
+                    adapterSnack!!.updateData(planViewModel.snack)
+                    if (planViewModel.snack.size == 0) binding.tvSnackDescription.visibility = View.VISIBLE
+                    else binding.tvSnackDescription.visibility = View.GONE
+                }
+
+                planViewModel.ingredientList.add(Ingredient("added ingredients", "8"))
+                planViewModel.ingredientList2.add(Ingredient("added ingredients", "16"))
+
+
         }
     }
 

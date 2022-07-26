@@ -93,10 +93,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
 
         if (arguments!=null){
-            val res = arguments?.getBoolean("res")
-            if (res==true){
-                Snackbar.make(contextView!!, "LALALALA", Snackbar.LENGTH_SHORT).show()
-            }
             val getTitle = arguments?.getString("Title")
             val getDes = arguments?.getString("Description")
             val getTime = arguments?.getInt("Time")
@@ -112,12 +108,12 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.tvDetailDes.text = getDes
             binding.authorName.text = getName
             binding.currentRatingNum.text = getScore.toString()
-            binding.tvDetailTime.text = getTime.toString()+" mins"
-            binding.tvDetailLevel.text = getDiff
+            binding.tvDetailTime.text = getTime.toString()+" MINS"
+            binding.tvDetailLevel.text = getDiff!!.uppercase()
             if (getVideoUrl != null)(
             videoView.setVideoURI(Uri.parse(getVideoUrl)))
             if (getScore != null) {
-                binding.detailRating.rating = getScore.toFloat()
+                binding.currentRatingNum.text = getScore.toString()
             }
         }
 
@@ -135,8 +131,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
         videoView.setOnPreparedListener{
             videoView.requestFocus()
         }
-
-        if (videoView.isPlaying){
+        /**
+         * Chỉnh lại chỗ nãy nha
+         */
+        /*if (videoView.isPlaying){
             binding.ivPlayButton.visibility = View.GONE
         }
 
@@ -148,12 +146,13 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 // hide button once playback starts
                 binding.ivPlayButton.visibility = View.GONE
             }
-        }
+        }*/
 
     }
 
     private fun initListener(){
-        binding.detailMenu.setOnClickListener(this)
+        binding.ivPlanIcon.setOnClickListener(this)
+        binding.ivMarkIcon.setOnClickListener(this)
         binding.imgToolbarBtnFav.setOnClickListener(this)
     }
 
@@ -164,7 +163,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0?.id){
-            R.id.detail_menu -> {
+           /* R.id.detail_menu -> {
 //                DetailMoreMenu().show(childFragmentManager, DetailMoreMenu.TAG)
                 bottomDialog.show(parentFragmentManager, OptionBottomDialog.TAG)
                 bottomDialog.setFragmentResultListener("key") { _ ,bundle ->
@@ -183,6 +182,12 @@ class DetailFragment : Fragment(), View.OnClickListener {
                         }
                     }
                 }
+            }*/
+            R.id.ivPlanIcon->{
+                addToPlan()
+            }
+            R.id.ivMarkIcon->{
+                saveToCollection()
             }
             R.id.imgToolbarBtnFav -> {
                 navController.navigateUp()
@@ -199,16 +204,24 @@ class DetailFragment : Fragment(), View.OnClickListener {
              */
 
             val getTitle = arguments?.getString("Title")?:"Stir-fried beef with broccoli and Rice"
-            val getDiff = arguments?.getString("Diff")?:"Medium"
-            val getName = arguments?.getString("ProfileName")?:"John Doe"
-            val gitPicture = arguments?.getInt("Picture")?:R.drawable.recommend_1
+            val getPicture = arguments?.getInt("Picture")?:R.drawable.recommend_1
+            val getDes = arguments?.getString("Description")
+            val getTime = arguments?.getInt("Time")
+            val getDiff = arguments?.getString("Diff")
+            val getScore = arguments?.getInt("Score")
+            val getName = arguments?.getString("ProfileName")
+            val getProfile = arguments?.getInt("ProfileImg")
+            val getVideoUrl = arguments?.getString("VideoUrl")
 
-            bundle.putString("Title",getTitle)
-            bundle.putString("Time","35 mins")
-            bundle.putString("Level",getDiff)
-            bundle.putString("Author",getName)
-            bundle.putString("Rate","4.5")
-            bundle.putInt("Image",gitPicture)
+            bundle.putString("Title", getTitle)
+            bundle.putString("Description", getDes)
+            bundle.putInt("Score", getScore!!)
+            bundle.putString("Diff", getDiff)
+            bundle.putInt("Time", getTime!!)
+            bundle.putString("ProfileName", getName)
+            bundle.putInt("ProfileImg", getProfile!!)
+            bundle.putInt("Picture", getPicture)
+            bundle.putString("VideoUrl", getVideoUrl)
             navController.navigate(R.id.returnPlan,bundle)
         }
     }
@@ -247,7 +260,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     val getPicture = arguments!!.getInt("Picture")
                     val getScore = arguments!!.getInt("Score")
                     val getTime = arguments!!.getInt("Time")
-                    val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,"",0,"","")
+                    val getDes = arguments?.getString("Description")
+                    val getName = arguments?.getString("ProfileName")
+                    val getProfile = arguments!!.getInt("ProfileImg")
+                    val getVideoUrl = arguments?.getString("VideoUrl")?:""
+                    val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
                     newList!!.forEachIndexed { index, collection ->
                         if (result.title==collection.title) {
                             collectionViewModel.addRecipe(index, recipe)
@@ -264,11 +281,19 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     val getPicture = arguments?.getInt("Picture")
                     val getScore = arguments?.getInt("Score")
                     val getTime = arguments?.getInt("Time")
+                    val getDes = arguments?.getString("Description")
+                    val getName = arguments?.getString("ProfileName")
+                    val getProfile = arguments?.getInt("ProfileImg")
+                    val getVideoUrl = arguments?.getString("VideoUrl")
                     putString("Title", getTitle)
                     putInt("Time", getTime!!)
                     putString("Diff", getDiff)
                     putInt("Score", getScore!!)
                     putInt("Picture", getPicture!!)
+                    putString("Description", getDes)
+                    putString("ProfileName", getName)
+                    putInt("ProfileImg", getProfile!!)
+                    putString("VideoUrl", getVideoUrl)
                     putBundle("Bundle", bundle)
                 })
                 Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()

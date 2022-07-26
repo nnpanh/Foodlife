@@ -135,7 +135,7 @@
             android:layout_height="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/chef"
-            android:layout_marginStart="2dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="2dp"
             app:layout_constraintTop_toTopOf="@id/ivClock"
             app:layout_constraintBottom_toBottomOf="@id/ivClock"
