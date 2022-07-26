@@ -134,7 +134,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
         /**
          * Chỉnh lại chỗ nãy nha
          */
-        /*if (videoView.isPlaying){
+        if (videoView.isPlaying){
             binding.ivPlayButton.visibility = View.GONE
         }
 
@@ -146,7 +146,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 // hide button once playback starts
                 binding.ivPlayButton.visibility = View.GONE
             }
-        }*/
+        }
 
     }
 

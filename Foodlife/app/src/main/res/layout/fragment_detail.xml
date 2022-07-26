@@ -36,7 +36,16 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true" />
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="@color/secondary_20"/>
+
+                <ImageView
+                    android:id="@+id/ivPlayButton"
+                    android:layout_width="56dp"
+                    android:layout_height="54dp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/media_session_service_notification_ic_play" />
 
                 <!--                <MediaController-->
                 <!--                    android:layout_width="match_parent"-->
@@ -60,21 +69,6 @@
             <!--&lt;!&ndash;                    android:layout_height="wrap_content" />&ndash;&gt;-->
             <!--            </FrameLayout>-->
 
-            <!--            <ImageButton-->
-            <!--                android:id="@+id/imgToolbarBtnFav"-->
-            <!--                android:layout_width="36dp"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_gravity="end"-->
-            <!--                android:layout_marginStart="16dp"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:background="@drawable/arrow"-->
-            <!--                android:contentDescription="backward_arrow"-->
-            <!--                android:rotation="180"-->
-            <!--                android:src="@drawable/arrow"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent"-->
-            <!--                app:tint="@color/white"-->
-            <!--                tools:ignore="SpeakableTextPresentCheck" />-->
 
             <ImageView
                 android:id="@+id/imgToolbarBtnFav"
@@ -115,6 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="24dp"
                         android:ellipsize="end"
@@ -134,6 +129,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="horizontal"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         app:layout_constraintStart_toStartOf="@id/recipe_title"
                         app:layout_constraintEnd_toEndOf="@id/recipe_title"
                         app:layout_constraintTop_toBottomOf="@id/recipe_title"
