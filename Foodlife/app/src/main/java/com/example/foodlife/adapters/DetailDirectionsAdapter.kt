@@ -23,9 +23,9 @@ class DetailDirectionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         fun bindData(_detailDirections: DetailDirections) {
             itemDetailDirectionsBinding.apply {
                 detailDirections = _detailDirections
-                val connectString = "<b>${_detailDirections.bold}</b> ${_detailDirections.regular}"
-                val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
-                itemDetailDirectionsBinding.tvDir.text = textValue
+//                val connectString = "<b>${_detailDirections.bold}</b> <br/> ${_detailDirections.regular}"
+//                val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
+//                itemDetailDirectionsBinding.tvDir.text = textValue
                 executePendingBindings()
             }
         }

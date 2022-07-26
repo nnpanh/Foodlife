@@ -46,6 +46,7 @@ class HomeViewModel : ViewModel() {
     fun loadSearchList() {
         val list =*/ mutableListOf(
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, "Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
             Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna",""),
             Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
@@ -117,7 +118,7 @@ class HomeViewModel : ViewModel() {
         val list = mutableListOf(
             Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,""),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-
+            Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, "Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
             )
         dessertList.value = list
     }
