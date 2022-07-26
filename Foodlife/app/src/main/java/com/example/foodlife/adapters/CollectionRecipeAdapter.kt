@@ -16,6 +16,7 @@ import com.example.foodlife.R
 import com.example.foodlife.databinding.AdapterRecipeCollectionBinding
 import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.databinding.ItemRecipeSearchBinding
+import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
 
 class CollectionRecipeAdapter(private val search: MutableList<Recipe>, private val listener: (Recipe) -> Unit) :RecyclerView.Adapter<CollectionRecipeAdapter.ViewHolder>(){

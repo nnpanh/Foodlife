@@ -213,5 +213,9 @@
         android:id="@+id/collectionDetail"
         android:name="com.example.foodlife.fragments.CollectionDetail"
         android:label="fragment_collection_detail"
-        tools:layout="@layout/fragment_collection_detail" />
+        tools:layout="@layout/fragment_collection_detail">
+        <action
+            android:id="@+id/goToDetail"
+            app:destination="@id/detail_fragment" />
+    </fragment>
 </navigation>

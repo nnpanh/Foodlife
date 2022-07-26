@@ -54,8 +54,8 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         val item = filterCollection[position]
         if (item.img != "")
             holder.IVCol.setImageURI(Uri.parse(item.img))
-        holder.IVCol.contrast = 0.8F
-        holder.IVCol.brightness = 0.8F
+        //holder.IVCol.contrast = 0.8F
+        //holder.IVCol.brightness = 0.8F
         /**
          * Set image
          */
@@ -68,6 +68,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
     override fun getItemCount(): Int {
         return filterCollection.size
     }
+    var count = 0
     override fun getFilter(): Filter {
         return object: Filter() {
             override fun performFiltering(p0: CharSequence?): FilterResults {
@@ -80,6 +81,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
                         if (row.title.toLowerCase().contains(charSearch.toLowerCase()))
                             resultList.add(row)
                     filterCollection = resultList
+                    count = resultList.size
                 }
                 val filterResult = FilterResults()
                 filterResult.values = filterCollection

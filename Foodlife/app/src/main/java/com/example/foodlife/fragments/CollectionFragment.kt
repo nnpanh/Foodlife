@@ -104,6 +104,10 @@ class CollectionFragment : Fragment() {
                     })
                 }
                 collectionAdapter.filter.filter(p0)
+//                if (collectionAdapter.itemCount == 0)
+//                    binding.TVColNotification.visibility = View.VISIBLE
+//                else
+//                    binding.TVColNotification.visibility = View.GONE
             }
             override fun afterTextChanged(p0: Editable?) {}
         })

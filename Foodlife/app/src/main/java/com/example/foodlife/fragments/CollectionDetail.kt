@@ -13,6 +13,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlife.MainActivity
 import com.example.foodlife.R
 import com.example.foodlife.adapters.CollectionRecipeAdapter
 import com.example.foodlife.databinding.FragmentCollectionDetailBinding
@@ -68,7 +69,20 @@ class CollectionDetail : Fragment() {
         val recipeArray = collection.recipes
         val recipeAdapter = CollectionRecipeAdapter(recipeArray){ itemClicked ->
             //finish()
+            val bundle = Bundle()
+            bundle.putString("Title", itemClicked.title)
+            bundle.putString("Description", itemClicked.description)
+            bundle.putInt("Score", itemClicked.score)
+            bundle.putString("Diff", itemClicked.diff)
+            bundle.putInt("Time", itemClicked.time)
+            bundle.putString("ProfileName", itemClicked.profile_name)
+            bundle.putInt("ProfileImg", itemClicked.profile_img)
+            bundle.putInt("Picture", itemClicked.img)
+            bundle.putString("VideoUrl", itemClicked.video_url)
+
+            navController.navigate(R.id.goToDetail,bundle)
         }
+
         RVRecipe.layoutManager = GridLayoutManager(requireActivity(), 2)
         RVRecipe.adapter = recipeAdapter
         val IVGrid = binding.IVColGrid  //Edit pencil icon

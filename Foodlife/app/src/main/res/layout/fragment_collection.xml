@@ -66,6 +66,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ACTVColSearch" />
 
+    <TextView
+        android:id="@+id/TVColNotification"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="We couldn't find your collection. Please create a new one"
+        android:textColor="@color/primary_40"
+        android:textSize="@dimen/text_normal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IVColFilter" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RVCol"
         android:layout_width="0dp"
