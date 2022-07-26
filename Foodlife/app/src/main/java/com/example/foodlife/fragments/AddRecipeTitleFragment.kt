@@ -82,7 +82,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    fun pickImage(){
+    private fun pickImage(){
         val intent = Intent(Intent.ACTION_PICK)
         intent.data = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         startActivityForResult(intent, GALLERY_REQ_CODE)
