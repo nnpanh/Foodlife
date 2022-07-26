@@ -23,7 +23,7 @@ class DetailIngredientsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>
         fun bindData(_detailIngredients: DetailIngredients) {
             itemDetailIngredientsBinding.apply {
                 detailIngredients = _detailIngredients
-                val connectString = "<b>${_detailIngredients.bold}</b> ${_detailIngredients.regular}"
+                val connectString = "<b>${_detailIngredients.bold}</b> /n ${_detailIngredients.regular}"
                 val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
                 itemDetailIngredientsBinding.tvDishTitle.text = textValue
                 executePendingBindings()
