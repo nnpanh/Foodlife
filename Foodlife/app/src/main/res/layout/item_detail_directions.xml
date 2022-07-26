@@ -37,7 +37,7 @@
             android:id="@+id/ivDir"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             app:imageResource="@{detailDirections.img}"
             app:layout_constraintTop_toBottomOf="@id/tvDir"
             app:layout_constraintStart_toStartOf="parent"

@@ -83,7 +83,6 @@ class DetailFragment : Fragment(), View.OnClickListener {
 //        val mediaController = MediaController(videoView.context)
         val mediaController = MediaController(context)
         mediaController.setAnchorView(binding.flVideo)
-
         videoView.setMediaController(mediaController)
         videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
 
@@ -126,9 +125,31 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         videoView.requestFocus()
 
+//        videoView.requestFocus()
+
+
         binding.nsView.viewTreeObserver.addOnScrollChangedListener {
             mediaController.hide()
         }
+
+        videoView.setOnPreparedListener{
+            videoView.requestFocus()
+        }
+
+        if (videoView.isPlaying){
+            binding.ivPlayButton.visibility = View.GONE
+        }
+
+        binding.ivPlayButton.setOnClickListener(){
+            if (!videoView.isPlaying) {
+                videoView.start()
+                // show the media controls
+                mediaController.show();
+                // hide button once playback starts
+                binding.ivPlayButton.visibility = View.GONE
+            }
+        }
+
     }
 
     private fun initListener(){
