@@ -493,6 +493,7 @@
                     android:background="?attr/colorSurface"
                     android:textSize="16sp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    app:layout_collapseMode="pin"
                     app:tabIndicatorColor="@color/secondary_100"
                     app:tabIndicatorFullWidth="false"
                     app:tabSelectedTextColor="@color/primary_100"

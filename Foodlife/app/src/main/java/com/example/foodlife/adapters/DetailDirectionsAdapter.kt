@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemDetailDirectionsBinding
 import com.example.foodlife.databinding.ItemDetailIngredientsBinding
 import com.example.foodlife.models.DetailDirections
@@ -21,6 +22,13 @@ class DetailDirectionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     inner class ItemViewHolder(private val itemDetailDirectionsBinding: ItemDetailDirectionsBinding) :
         RecyclerView.ViewHolder(itemDetailDirectionsBinding.root) {
         fun bindData(_detailDirections: DetailDirections) {
+            itemDetailDirectionsBinding.imageView2.setOnClickListener { iv ->
+                if (_detailDirections.isSelected)
+                    iv.setBackgroundResource(0)
+                else iv.setBackgroundResource(R.drawable.circle_fill)
+                //Reverse
+                _detailDirections.isSelected = !_detailDirections.isSelected
+            }
             itemDetailDirectionsBinding.apply {
                 detailDirections = _detailDirections
 //                val connectString = "<b>${_detailDirections.bold}</b> <br/> ${_detailDirections.regular}"
