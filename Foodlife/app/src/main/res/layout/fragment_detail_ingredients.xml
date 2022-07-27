@@ -23,20 +23,95 @@
             android:paddingEnd="16dp"
             android:paddingBottom="12dp">
 
+
+
             <TextView
                 android:id="@+id/portions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:text="@string/total"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:text="Portions"
+                android:textSize="16sp"
                 android:textColor="@color/primary_100"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/layoutQuantity"
-                app:layout_constraintEnd_toStartOf="@+id/layoutQuantity"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/layoutQuantity" />
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgr_add_minus"
+                android:padding="8dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/portions"
+                app:layout_constraintBottom_toBottomOf="@id/portions"
+                >
+                <TextView
+                    android:id="@+id/tvServe"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:ellipsize="end"
+                    android:text="@string/txt_serve"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textSize="@dimen/text_normal"
+                    android:textColor="@color/primary_100"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/minus_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvServe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:id="@+id/tvNumberServe"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quantity_01"
+                    android:gravity="center"
+                    android:paddingTop="6dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:ellipsize="end"
+                    android:background="@drawable/bgr_number"
+                    android:fontFamily="@font/poppins_semi_bold"
+                    android:textSize="@dimen/text_normal"
+                    android:textColor="@color/primary_100"
+                    app:layout_constraintStart_toEndOf="@id/ivMinus"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+                <ImageView
+                    android:id="@+id/ivPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/plus_border"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvNumberServe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--<androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -93,15 +168,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="ContentDescription" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listIngredients"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="24dp"
                 android:nestedScrollingEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

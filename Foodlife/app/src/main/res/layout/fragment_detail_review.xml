@@ -23,7 +23,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text="Reviews"
                     android:textColor="@color/primary_100"
-                    android:textSize="@dimen/text_large"
+                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,6 +53,21 @@
                     tools:itemCount="2"
                     tools:listitem="@layout/item_detail_review" />
 
+
+                <ImageView
+                    android:id="@+id/ivLinebreak"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/line_break"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/listReview"
+                    app:tint="@color/primary_10" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lRating"
                     android:layout_width="match_parent"
@@ -65,7 +80,7 @@
                         android:id="@+id/tvRatingTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/poppins_bold"
                         android:text="Rate this recipe"
@@ -78,7 +93,7 @@
                         android:id="@+id/tvRatingDes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="-8dp"
                         android:fontFamily="@font/poppins_regular"
                         android:text="Tell others what you think"
@@ -107,7 +122,7 @@
                     android:id="@+id/lComment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/detail_review_comment"
                     android:layout_marginTop="16dp"
@@ -155,7 +170,7 @@
                     android:id="@+id/buttonSendComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="24dp"
                     android:src="@drawable/ic_send"
                     app:layout_constraintBottom_toBottomOf="@id/lComment"
                     app:layout_constraintEnd_toEndOf="parent"

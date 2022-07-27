@@ -107,13 +107,14 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.detailAvatar.setBackgroundResource(getProfile!!)
             binding.tvDetailDes.text = getDes
             binding.authorName.text = getName
-            binding.currentRatingNum.text = getScore.toString()
-            binding.tvDetailTime.text = getTime.toString()+" MINS"
-            binding.tvDetailLevel.text = getDiff!!.uppercase()
+            //binding.detailRating.rating = getScore!!.toFloat()
+            binding.detailNumScore.text=getNumScore.toString()
+            binding.tvDetailTime.text = getTime.toString()+" mins"
+            binding.tvDetailLevel.text = getDiff!!.toString()
             if (getVideoUrl != null)(
             videoView.setVideoURI(Uri.parse(getVideoUrl)))
             if (getScore != null) {
-                binding.currentRatingNum.text = getScore.toString()
+                binding.detailRating.rating = getScore!!.toFloat()
             }
         }
 
