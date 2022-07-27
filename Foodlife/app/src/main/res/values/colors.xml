@@ -18,8 +18,10 @@
     <color name="primary_40">#969CA5</color>
     <color name="primary_20">#C5C7CC</color>
     <color name="primary_10">#EFEFEF</color>
+    <color name="blue">#00A4EF</color>
     <color name="blue_plan">#CC00A4EF</color>
     <color name="blue_bgr">#3300A4EF</color>
+    <color name="green">#7FBA00</color>
     <color name="green_plan">#CC7FBA00</color>
     <color name="green_bgr">#337FBA00</color>
     <color name="yellow_plan">#CCFFB900</color>
