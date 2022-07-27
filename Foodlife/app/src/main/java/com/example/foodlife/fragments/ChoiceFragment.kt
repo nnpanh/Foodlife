@@ -62,7 +62,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
             val choice = arguments?.getString("choice")
             if (choice=="0"){
                 binding.tvTitle.text="Recommend for you"
-                homeViewModel.westernList.value.let { adapterList!!.updateData(it!!) }
+                homeViewModel.collectionList.let { adapterList!!.updateData(it!!) }
             }
             else if (choice=="1"){
                 binding.tvTitle.text="Asian"
@@ -74,7 +74,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
             }
             else if (choice=="3"){
                 binding.tvTitle.text="Drinks"
-                homeViewModel.collectionList.let { adapterList!!.updateData(it) }
+                homeViewModel.drinkList.let { adapterList!!.updateData(it) }
             }
             else if (choice=="4"){
                 binding.tvTitle.text="Dessert"
@@ -86,7 +86,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
             }
             else if (choice=="6"){
                 binding.tvTitle.text="Party"
-                homeViewModel.collectionList.let { adapterList!!.updateData(it) }
+                homeViewModel.meatList.value.let { adapterList!!.updateData(it!!) }
             }
             else if (choice=="7"){
                 binding.tvTitle.text="Recently Viewed"

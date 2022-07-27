@@ -14,8 +14,8 @@ class HomeViewModel : ViewModel() {
 
     var recList = mutableListOf(
         Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,117,"Easy",60,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 4,117,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 5,117,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_roasted_chicken, "Roasted chicken in honey-ginger-soy-sauce", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
         Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
     )
    var mainList = mutableListOf(
@@ -30,6 +30,8 @@ class HomeViewModel : ViewModel() {
         Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iveasylemongrassmeatballs, "Easy lemongrass meatballs", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.ivchickenwings,"Simple marinated chicken wings", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
     )
 
     var recentlyList = mutableListOf(
@@ -51,17 +53,43 @@ class HomeViewModel : ViewModel() {
     }
     fun loadSearchList() {
         val list =*/ mutableListOf(
-            Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-            Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, 117,"Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.img_pngegg,"Bánh gạo cay", 3,117,"Easy",45,"Difficult",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.img_tok, "Bánh gạo cay", 4,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+
+        //Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+
+        Recipe(R.drawable.iv_spicy_pa, "Spicy pan-fried chickpeas with beef", 5,157,"Medium",60,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.ivsteak, "Flank steak with Chimichurri", 5,117,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iv_buttermilkchickenwings, "Buttermilk chicken wings", 5,117,"Hard",190,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        //Recipe(R.drawable.roasted_lamb_shoulder, "Roasted lamp shoulder", 5,200,"Hard",180,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iv_borscht, "Borscht", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iv_thai, "Thai chicken and sweet potato curry", 4,117,"Medium",60,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iv_roasted_chicken, "Roasted chicken in honey-ginger-soy-sauce", 4,117,"Hard",190,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iveasylemongrassmeatballs, "Easy lemongrass meatballs", 4,200,"Hard",180,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,400,"Easy",120,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 5,500,"Easy",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.souffle_omelette, "Souffle omelette", 5,410,"Medium",20,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.ivspring,"Spring potato and asparagus salad", 4,310,"Easy",30,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_roasted_salad, "Roasted persimmon salad with maple-mustard vinaigrette", 4,117,"Medium",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.ivredavocado, "Red cabbage with grilled avocado", 3,11,"Medium",30,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.iv_spaghetti,"Spaghetti aglio e olio with broccoli", 3,10,"Medium",45,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 5,200,"Easy",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.cauliflower_cheese,"Cauliflower cheese",3,10,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_banhmi, "Beef banh mi with fresh cilantro", 5,118,"Easy",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_noodle, "Tomato and egg noodle soup", 5,1000,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_braisedlargeshrimp, "Braised large shrimp", 5,500,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_c, "Vietnamese inspired noodle soup", 4,117,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.jam_donut, "Jam doughnuts", 5, 300,"Medium", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+        Recipe(R.drawable.ivclassicapplestrudel, "Classic apple strudel", 4, 117,"Hard", 60, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+        Recipe(R.drawable.ivdumplings, "Sweet plum dumplings", 4, 210,"Medium", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+        Recipe(R.drawable.ivsuper,"Superfood green smoothie",5,117,"Easy",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_workout,"Post-workout smoothie", 4,10,"Easy",15,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        //Recipe(R.drawable.iv_blue_smoothie, "Pomegranate blueberry smoothie", 3,11,"Easy",10,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.jam_tarts,"Jam Tarts",5,200,"Easy",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.strawberryjam, "Strawberry Jam", 4,110,"Medium",25,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         )
        /* searchList.value = list
     }*/
@@ -72,10 +100,15 @@ class HomeViewModel : ViewModel() {
     }
     fun loadMeatList() {
         val list = mutableListOf(
+            Recipe(R.drawable.iv_spicy_pa, "Spicy pan-fried chickpeas with beef", 5,157,"Medium",60,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.ivsteak, "Flank steak with Chimichurri", 5,117,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.iv_buttermilkchickenwings, "Buttermilk chicken wings", 5,117,"Hard",190,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            //Recipe(R.drawable.roasted_lamb_shoulder, "Roasted lamp shoulder", 5,200,"Hard",180,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.img_pngegg,"Mì thịt xào Nhật", 3,117,"Easy",45,"Enjoy each your special dinner",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103" ),
+            Recipe(R.drawable.iv_borscht, "Borscht", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.iv_thai, "Thai chicken and sweet potato curry", 4,117,"Medium",60,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.iv_roasted_chicken, "Roasted chicken in honey-ginger-soy-sauce", 4,117,"Hard",190,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.iveasylemongrassmeatballs, "Easy lemongrass meatballs", 4,200,"Hard",180,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
             )
         meatList.value = list
     }
@@ -85,8 +118,15 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVegetableList() {
         val list = mutableListOf(
+            Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,400,"Easy",120,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 5,500,"Easy",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.souffle_omelette, "Souffle omelette", 5,410,"Medium",20,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.ivspring,"Spring potato and asparagus salad", 4,310,"Easy",30,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_roasted_salad, "Roasted persimmon salad with maple-mustard vinaigrette", 4,117,"Medium",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.ivredavocado, "Red cabbage with grilled avocado", 3,11,"Medium",30,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+            Recipe(R.drawable.iv_spaghetti,"Spaghetti aglio e olio with broccoli", 3,10,"Medium",45,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         )
         vegetableList.value = list
     }
@@ -99,9 +139,10 @@ class HomeViewModel : ViewModel() {
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
             Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 5,200,"Easy",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.cauliflower_cheese,"Cauliflower cheese",3,10,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             )
         westernList.value = list
     }
@@ -111,8 +152,10 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVietNamList() {
         val list = mutableListOf(
-            Recipe(R.drawable.example_dish_3, "Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_banhmi, "Beef banh mi with fresh cilantro", 5,118,"Easy",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_noodle, "Tomato and egg noodle soup", 5,1000,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_braisedlargeshrimp, "Braised large shrimp", 5,500,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_c, "Vietnamese inspired noodle soup", 4,117,"Hard",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             )
         vietnamList.value = list
     }
@@ -122,12 +165,26 @@ class HomeViewModel : ViewModel() {
     }
     fun loadDessertList() {
         val list = mutableListOf(
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-            Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, 117,"Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
-            )
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",5,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,400,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.jam_donut, "Jam doughnuts", 5, 300,"Medium", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+            Recipe(R.drawable.ivclassicapplestrudel, "Classic apple strudel", 4, 117,"Hard", 60, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+            Recipe(R.drawable.ivdumplings, "Sweet plum dumplings", 4, 210,"Medium", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
+            Recipe(R.drawable.ivsuper,"Superfood green smoothie",5,117,"Easy",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.iv_workout,"Post-workout smoothie", 4,10,"Easy",15,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            //Recipe(R.drawable.iv_blue_smoothie, "Pomegranate blueberry smoothie", 3,11,"Easy",10,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.jam_tarts,"Jam Tarts",5,200,"Easy",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.strawberryjam, "Strawberry Jam", 4,110,"Medium",25,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+
+        )
         dessertList.value = list
     }
+
+    var drinkList = mutableListOf(
+        Recipe(R.drawable.ivsuper,"Superfood green smoothie",5,117,"Easy",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_workout,"Post-workout smoothie", 4,10,"Easy",15,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.iv_blue_smoothie, "Pomegranate blueberry smoothie", 3,11,"Easy",10,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+    )
 
     var saveList = MutableLiveData<MutableList<Recipe>>().also {
         it.value = mutableListOf()

@@ -454,7 +454,7 @@
                         android:layout_height="wrap_content"
                         tools:text="Medium"
                         android:fontFamily="@font/poppins_regular"
-                        android:layout_marginTop="0dp"
+                        android:layout_marginTop="4dp"
                         android:textSize="16sp"
                         android:textColor="@color/primary_100"
                         app:layout_constraintTop_toTopOf="@id/ivDetailLevel"

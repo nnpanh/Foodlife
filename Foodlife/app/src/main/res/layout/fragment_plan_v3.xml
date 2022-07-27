@@ -361,7 +361,7 @@
                 android:id="@+id/tvBreakfastDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
@@ -429,7 +429,7 @@
                 android:id="@+id/tvLunchDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
@@ -499,7 +499,7 @@
                 android:id="@+id/tvDinnerDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
@@ -555,7 +555,7 @@
                 android:id="@+id/tvSnackDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
