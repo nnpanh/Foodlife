@@ -5,7 +5,7 @@
     android:viewportWidth="327"
     android:viewportHeight="235">
   <path
-      android:pathData="M0,0H327V205C327,221.57 313.57,235 297,235H30C13.43,235 0,221.57 0,205V0Z"
+      android:pathData="M0,0h327v235h-327z"
       android:fillAlpha="0.7">
     <aapt:attr name="android:fillColor">
       <gradient 

@@ -13,9 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="30dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -125,6 +123,7 @@
                 android:progressDrawable="@drawable/ic_custom_star_rec"
                 android:rating="3"
                 android:stepSize="1.0"
+                android:isIndicator="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/rec_info"/>

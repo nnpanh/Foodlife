@@ -26,7 +26,7 @@ class DetailViewModel: ViewModel() {
         DetailIngredients("salt","2 tbsp"),
         DetailIngredients("unsalted butter, chilled and cut into cubes","100g"),
         DetailIngredients("large eggs, lightly beaten","4"),
-        DetailIngredients("sunflower oil for deep frying, plus extra for greasing","2ltr"),
+        DetailIngredients("sunflower oil for deep frying, plus extra for greasing","4ltr"),
         DetailIngredients("jar smooth strawberry jam","680g"),
     )
 

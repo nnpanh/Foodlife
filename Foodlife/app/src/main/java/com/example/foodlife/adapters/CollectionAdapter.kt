@@ -12,10 +12,12 @@ import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.utils.widget.ImageFilterView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.PlanItemModel
+import com.google.android.material.card.MaterialCardView
 
 
 class CollectionAdapter (private val collection: List<Collection>): RecyclerView.Adapter<CollectionAdapter.ViewHolder>(), Filterable {
@@ -37,6 +39,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         val IVCol = listItemView.findViewById<ImageFilterView>(R.id.IVCol)!!
         val TVColName = listItemView.findViewById<TextView>(R.id.TVColName)!!
         val TVColQuantity = listItemView.findViewById<TextView>(R.id.TVColQuantity)!!
+        val MCVColParent = listItemView.findViewById<MaterialCardView>(R.id.MCVColParent)
         init {
             listItemView.setOnClickListener { onItemClick?.invoke(filterCollection[adapterPosition]) }
         }
@@ -62,6 +65,7 @@ class CollectionAdapter (private val collection: List<Collection>): RecyclerView
         if (item.oldImg!=null) holder.IVCol.setImageResource(item.oldImg!!)
         holder.TVColName.text = item.title
         holder.TVColQuantity.text = item.quantity.toString() + " Recipes"
+        holder.MCVColParent.setCardBackgroundColor(ContextCompat.getColor(context!!, item.color))
 
     }
 

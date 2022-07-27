@@ -94,7 +94,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
         if (arguments!=null){
             val getTitle = arguments?.getString("Title")
-            val getDes = arguments?.getString("Description")
+            //val getDes = arguments?.getString("Description")
             val getTime = arguments?.getInt("Time")
             val getDiff = arguments?.getString("Diff")
             val getScore = arguments?.getInt("Score")
@@ -105,21 +105,22 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.recipeTitle.text = getTitle
 
             binding.detailAvatar.setBackgroundResource(getProfile!!)
-            binding.tvDetailDes.text = getDes
+            //binding.tvDetailDes.text = getDes
             binding.authorName.text = getName
-            binding.currentRatingNum.text = getScore.toString()
-            binding.tvDetailTime.text = getTime.toString()+" MINS"
-            binding.tvDetailLevel.text = getDiff!!.uppercase()
+            //binding.detailRating.rating = getScore!!.toFloat()
+            binding.detailNumScore.text=getNumScore.toString()
+            binding.tvDetailTime.text = getTime.toString()+" mins"
+            binding.tvDetailLevel.text = getDiff!!.toString()
             if (getVideoUrl != null)(
             videoView.setVideoURI(Uri.parse(getVideoUrl)))
             if (getScore != null) {
-                binding.currentRatingNum.text = getScore.toString()
+                binding.detailRating.rating = getScore!!.toFloat()
             }
         }
 
 
 
-        videoView.requestFocus()
+        //videoView.requestFocus()
 
 //        videoView.requestFocus()
 

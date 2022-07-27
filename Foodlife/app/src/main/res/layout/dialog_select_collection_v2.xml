@@ -10,12 +10,24 @@
     android:layout_height="wrap_content"
     android:paddingBottom="10dp"
     android:background="@drawable/round_top_white">
+    <ImageView
+        android:id="@+id/ivSearchBack"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tvTitleChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
         android:ellipsize="end"
         android:fontFamily="@font/poppins_medium"
         android:gravity="start"
@@ -24,7 +36,7 @@
         android:textColor="@color/primary_100"
         android:textSize="@dimen/text_medium"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivSearchBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView

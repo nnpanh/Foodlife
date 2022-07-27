@@ -12,8 +12,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rec_home_item"
-        android:layout_width="240dp"
-        android:layout_height="260dp"
+        android:layout_width="230dp"
+        android:layout_height="250dp"
         android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,12 +28,12 @@
         android:theme="@style/Theme.MaterialComponents.Light"
         app:cardBackgroundColor="@android:color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="240dp"
-        android:layout_height="260dp">
+        android:layout_width="230dp"
+        android:layout_height="250dp">
         <ImageView
             android:id="@+id/rec_img"
-            android:layout_width="240dp"
-            android:layout_height="260dp"
+            android:layout_width="230dp"
+            android:layout_height="250dp"
             app:imageResource="@{recipe.img}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="-5dp"
-                android:ellipsize="start"
+                android:ellipsize="end"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:maxLines="2"
                 android:text="@{recipe.title}"

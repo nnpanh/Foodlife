@@ -13,10 +13,10 @@ import com.example.foodlife.models.RecommendCategoryModel
 class HomeViewModel : ViewModel() {
 
     var recList = mutableListOf(
-        Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,117,"Easy",60,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 4,117,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria",""),
+        Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,117,"Easy",60,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 4,117,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
+        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
     )
    var mainList = mutableListOf(
        MainCategoryModel(R.drawable.ic_main_cat_asian, "Asian"),
@@ -27,15 +27,15 @@ class HomeViewModel : ViewModel() {
        MainCategoryModel(R.drawable.ic_party,"Party"),
    )
     var collectionList = mutableListOf(
-        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
-        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
-        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna",""),
+        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
     )
 
     var recentlyList = mutableListOf(
-        Recipe(R.drawable.col2_rep1,"Scout's lobster rolls",5,117,"Medium",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna",""),
-        Recipe(R.drawable.col2_rep2,"Pasta puttanesca", 4,117,"Easy",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam",""),
-        Recipe(R.drawable.col2_rep3, "Korean fish pancakes", 5,117,"Difficult",25,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise",""),
+        Recipe(R.drawable.col2_rep1,"Scout's lobster rolls",5,117,"Medium",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.col2_rep2,"Pasta puttanesca", 4,117,"Easy",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        Recipe(R.drawable.col2_rep3, "Korean fish pancakes", 5,117,"Difficult",25,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
     )
 
     var recCat= mutableListOf(
@@ -53,15 +53,15 @@ class HomeViewModel : ViewModel() {
         val list =*/ mutableListOf(
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
             Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, 117,"Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna",""),
-            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
-            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna",""),
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"",R.drawable.profile3,"Thanh Lam",""),
-            Recipe(R.drawable.img_pngegg,"Bánh gạo cay", 3,117,"Easy",45,"Difficult",R.drawable.profile3,"Thanh Lam",""),
-            Recipe(R.drawable.img_tok, "Bánh gạo cay", 4,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise",""),
-            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise",""),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.img_pngegg,"Bánh gạo cay", 3,117,"Easy",45,"Difficult",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.img_tok, "Bánh gạo cay", 4,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         )
        /* searchList.value = list
     }*/
@@ -74,8 +74,8 @@ class HomeViewModel : ViewModel() {
         val list = mutableListOf(
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
 
-            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam" ,""),
-            Recipe(R.drawable.img_pngegg,"Mì thịt xào Nhật", 3,117,"Easy",45,"Enjoy each your special dinner",R.drawable.profile3,"Thanh Lam","" ),
+            Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.img_pngegg,"Mì thịt xào Nhật", 3,117,"Easy",45,"Enjoy each your special dinner",R.drawable.profile3,"Thanh Lam","https://vid.tasty.co/output/94177/landscape_480/1526421103" ),
             )
         meatList.value = list
     }
@@ -85,8 +85,8 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVegetableList() {
         val list = mutableListOf(
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,""),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         )
         vegetableList.value = list
     }
@@ -97,11 +97,11 @@ class HomeViewModel : ViewModel() {
     fun loadWesternList() {
         val list = mutableListOf(
             Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,""),
-            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
-            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,""),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.rec2,"Potato Noodle",5,117,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             )
         westernList.value = list
     }
@@ -111,8 +111,8 @@ class HomeViewModel : ViewModel() {
     }
     fun loadVietNamList() {
         val list = mutableListOf(
-            Recipe(R.drawable.example_dish_3, "Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna",""),
-            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise",""),
+            Recipe(R.drawable.example_dish_3, "Bún bò Huế", 5,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.img_pho, "Phở bò", 3,117,"Difficult",120,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile3,"Elise","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             )
         vietnamList.value = list
     }
@@ -122,8 +122,8 @@ class HomeViewModel : ViewModel() {
     }
     fun loadDessertList() {
         val list = mutableListOf(
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,""),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
             Recipe(R.drawable.jam_donut, "Jam doughnuts", 4, 117,"Easy", 30, "Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip.",R.drawable.profile2,"Elise","https://vid.tasty.co/output/32268/mp4_640x640/1495125535"),
             )
         dessertList.value = list
@@ -134,8 +134,8 @@ class HomeViewModel : ViewModel() {
     }
     fun loadSaveList() {
         val list = mutableListOf(
-            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,""),
-            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
+            Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna" ,"https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+            Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
 
             )
         saveList.value = list
