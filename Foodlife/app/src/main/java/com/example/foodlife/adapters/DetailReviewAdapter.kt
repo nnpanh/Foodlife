@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.databinding.ItemDetailReviewBinding
-import com.example.foodlife.databinding.ItemDetailIngredientsBinding
 import com.example.foodlife.models.DetailReview
 
 class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
