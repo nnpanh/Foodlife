@@ -37,7 +37,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:backgroundTint="@color/secondary_20"/>
+                    android:backgroundTint="@color/secondary_20" />
 
                 <ImageView
                     android:id="@+id/ivPlayButton"
@@ -139,7 +139,7 @@
                         android:progressDrawable="@drawable/ic_custom_star_detail"
                         android:rating="3"
                         android:stepSize="1.0"
-                        android:isIndicator="false"
+                        android:isIndicator="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/recipe_title"/>
@@ -376,7 +376,7 @@
                         android:layout_marginEnd="24dp"
                         android:fontFamily="@font/poppins_regular"
                         android:textSize="16sp"
-                        tools:text="Enjoy each morning the delicious taste of breakfast made by egg."
+                        android:text="Deliciously fluffy and full of sticky, sweet strawberry jam, these homemade doughnuts will be snapped up by the family in no time. Learn how to make these sugary treats in just six easy steps, and don't forget to screenshot the ingredients list at the bottom for your next shopping trip."
                         android:textColor="@color/primary_100"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
