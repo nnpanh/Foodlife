@@ -4,95 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/white"
-    android:layout_height="250dp">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/MCVColParent"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        app:cardBackgroundColor="#FF9C00"
-        app:cardCornerRadius="14dp"
+        android:layout_height="wrap_content"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:divider="@android:color/transparent"
         android:dividerHeight="0.0px"
+        android:layout_marginBottom="40dp"
+        app:cardBackgroundColor="#FF9C00"
+        app:cardCornerRadius="14dp"
         app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/TVColName"
-                android:layout_width="350dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="148dp"
-                android:ellipsize="end"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/poppins_semi_bold"
-                android:maxLines="1"
                 android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/primary_100"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/TVColQuantity"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/MCVCol"
+                tools:text="Meat delicous flavour sieu dang cap huhu" />
 
             <TextView
                 android:id="@+id/TVColQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:maxLines="1"
-                android:text="TextView"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:text="3 recipes"
+                android:textColor="@color/primary_100"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@id/TVColName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TVColName" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                app:layout_constraintStart_toEndOf="@id/TVColName"
+                app:layout_constraintTop_toTopOf="@id/TVColName" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/MCVCol"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0.0px"
-        app:cardCornerRadius="14dp"
-        app:cardPreventCornerOverlap="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.constraintlayout.utils.widget.ImageFilterView
-                android:id="@+id/IVCol"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/MCVCol"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="150dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="0.0px"
+                app:cardCornerRadius="14dp"
+                app:cardPreventCornerOverlap="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-                <!--                android:src="@drawable/img_collection"-->
-            </androidx.constraintlayout.utils.widget.ImageFilterView>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:id="@+id/IVCol"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <!--                android:src="@drawable/img_collection"-->
+                    </androidx.constraintlayout.utils.widget.ImageFilterView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </com.google.android.material.card.MaterialCardView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
