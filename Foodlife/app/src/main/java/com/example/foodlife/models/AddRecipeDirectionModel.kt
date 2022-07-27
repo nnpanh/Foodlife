@@ -1,6 +1,9 @@
 package com.example.foodlife.models
 
-data class AddRecipeDirectionModel (
+import android.net.Uri
+
+data class AddRecipeDirectionModel(
     var direcion: String,
-    var num: Int
+    var num: Int,
+    var imageURI: Uri?
     )

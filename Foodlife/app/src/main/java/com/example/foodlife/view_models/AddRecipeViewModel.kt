@@ -10,6 +10,6 @@ class AddRecipeViewModel : ViewModel() {
     )
 
     var initDirection = mutableListOf<AddRecipeDirectionModel>(
-        AddRecipeDirectionModel("Direction", 1)
+        AddRecipeDirectionModel("Direction", 1, null)
     )
 }
