@@ -35,6 +35,8 @@
                 android:text="TextView"
                 android:textColor="@color/primary_100"
                 android:textSize="20sp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/TVColQuantity"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -53,11 +55,10 @@
                 android:text="3 recipes"
                 android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_small"
-                app:layout_constraintBottom_toBottomOf="@id/TVColName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@id/TVColName"
-                app:layout_constraintTop_toTopOf="@id/TVColName" />
+                app:layout_constraintBaseline_toBaselineOf="@id/TVColName"
+                app:layout_constraintStart_toEndOf="@id/TVColName"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/MCVCol"
