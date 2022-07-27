@@ -11,6 +11,7 @@
     </data>
 
     <androidx.core.widget.NestedScrollView
+        android:fitsSystemWindows="true"
         android:id="@+id/nsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -523,6 +524,7 @@
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager2"
+                    android:fitsSystemWindows="true"
                     android:nestedScrollingEnabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

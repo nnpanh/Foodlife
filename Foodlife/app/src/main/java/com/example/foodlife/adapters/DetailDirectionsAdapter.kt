@@ -7,7 +7,6 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemDetailDirectionsBinding
-import com.example.foodlife.databinding.ItemDetailIngredientsBinding
 import com.example.foodlife.models.DetailDirections
 
 class DetailDirectionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

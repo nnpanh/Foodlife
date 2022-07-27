@@ -91,11 +91,14 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection_detail.xml" value="0.14450619923044036" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.24094202898550723" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_2.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_directions.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_ingredients.xml" value="0.17769718948322757" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review.xml" value="0.2" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review2.xml" value="0.20521590423257802" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_pa_test.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan_4.xml" value="0.17769718948322757" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan_v2.xml" value="0.264" />
