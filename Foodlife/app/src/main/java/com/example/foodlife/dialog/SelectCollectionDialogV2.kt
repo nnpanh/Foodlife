@@ -13,6 +13,7 @@ import androidx.core.text.HtmlCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,6 +29,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class SelectCollectionDialogV2 : DialogFragment() {
     private var rvAdapter: SelectCollectionAdapterV2? = null
+    //private lateinit var navController: NavController
     //private var rvRecipeAdapter: CollectionRecipeAdapter? = null
     private var rvRecipeAdapter: CollectionAddToPlanAdapter? = null
     private var contextView: View? = null
@@ -42,7 +44,7 @@ class SelectCollectionDialogV2 : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //navController = Navigation.findNavController(view)
         /**
          * Dynamic list
          */
@@ -99,6 +101,12 @@ class SelectCollectionDialogV2 : DialogFragment() {
             layoutManager =  GridLayoutManager(context, 2)
         }
         viewModel.colList.value!![0].recipes.let { rvRecipeAdapter!!.updateData(it) }
+
+
+        val back=view.findViewById<ImageView>(R.id.ivSearchBack)
+        back.setOnClickListener(){
+            dismiss()
+        }
     }
 
     override fun onStart() {
