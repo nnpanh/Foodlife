@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailReviewAdapter
-import com.example.foodlife.databinding.FragmentDetailReviewBinding
+import com.example.foodlife.databinding.FragmentPaTestBinding
 import com.example.foodlife.models.DetailReview
 import com.example.foodlife.view_models.DetailViewModel
 
 class DetailReviewFragment : Fragment(){
 
-    private var _binding: FragmentDetailReviewBinding? = null
+    private var _binding: FragmentPaTestBinding? = null
     private val binding get() = _binding!!
 
     private var adapterDetailReview: DetailReviewAdapter? = null
@@ -29,7 +29,7 @@ class DetailReviewFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentDetailReviewBinding.inflate(inflater,container,false)
+        _binding = FragmentPaTestBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -40,6 +40,10 @@ class DetailReviewFragment : Fragment(){
         detailReviewViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
         initDetailIngredientsAdapter()
+        binding.buttonSendComment.setOnClickListener {
+            binding.etComment.setText("")
+            binding.etComment.clearFocus()
+        }
     }
 
     private fun initDetailIngredientsAdapter(){

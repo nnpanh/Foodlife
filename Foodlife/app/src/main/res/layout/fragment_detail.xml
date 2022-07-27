@@ -11,6 +11,7 @@
     </data>
 
     <androidx.core.widget.NestedScrollView
+        android:fitsSystemWindows="true"
         android:id="@+id/nsView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -495,6 +496,7 @@
                     android:textSize="16sp"
                     android:elevation="2dp"
                     android:fontFamily="@font/poppins_semi_bold"
+                    app:layout_collapseMode="pin"
                     app:tabIndicatorColor="@color/secondary_100"
                     app:tabIndicatorFullWidth="false"
                     app:tabSelectedTextColor="@color/primary_100"
@@ -522,6 +524,7 @@
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager2"
+                    android:fitsSystemWindows="true"
                     android:nestedScrollingEnabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -7,6 +7,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/bgr_round_green.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/bgr_round_red.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/bgr_round_yellow.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/circle_fill.xml" value="0.174" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/down_clickable.xml" value="0.149" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/down_disable.xml" value="0.149" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1895" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/calendar.xml" value="0.145" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/check_clickable.xml" value="0.149" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/chef_bold.xml" value="0.1515" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/circle_shape.xml" value="0.174" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/clock.xml" value="0.1515" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/cooking.xml" value="0.1555" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/dish.xml" value="0.1555" />
@@ -53,6 +55,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_demo.xml" value="0.151" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_selected.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_plan_white.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/ic_speaker.xml" value="0.174" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/list.xml" value="0.1515" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/more.xml" value="0.1515" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/drawable/pause.xml" value="0.1555" />
@@ -67,7 +70,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/activity_collection_detail.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/activity_detail.xml" value="0.10029251984956122" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/activity_main.xml" value="0.1923899102180419" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.12158054711246201" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.6" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/dialog_add_to_collection.xml" value="0.16908431550317315" />
@@ -88,11 +91,14 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection_detail.xml" value="0.14450619923044036" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.24094202898550723" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_2.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_directions.xml" value="0.1" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_ingredients.xml" value="0.17769718948322757" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review.xml" value="0.1" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review.xml" value="0.2" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review2.xml" value="0.20521590423257802" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_pa_test.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan.xml" value="0.2" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan_4.xml" value="0.17769718948322757" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/fragment_plan_v2.xml" value="0.264" />
@@ -108,7 +114,7 @@
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_bottom_dialog.xml" value="0.1923899102180419" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home.xml" value="0.24094202898550723" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home_v2.xml" value="0.2" />
-        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_detail_directions.xml" value="0.17769718948322757" />
+        <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_detail_directions.xml" value="0.47709320695102686" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_detail_ingredients.xml" value="0.17769718948322757" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_ingredients.xml" value="0.176" />
         <entry key="..\:/Foodlife/Foodlife/app/src/main/res/layout/item_main_category.xml" value="0.24094202898550723" />
@@ -154,19 +160,6 @@
         <entry key="..\:/Github/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_text.xml" value="0.15534420289855072" />
         <entry key="..\:/Github/Foodlife/Foodlife/app/src/main/res/layout/item_recipe_type.xml" value="0.15534420289855072" />
         <entry key="..\:/Github/Foodlife/Foodlife/app/src/main/res/layout/item_spinner.xml" value="0.1" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.3875" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection_v2.xml" value="0.3875" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection.xml" value="0.21467391304347827" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_2.xml" value="0.20208333333333334" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_directions.xml" value="0.21467391304347827" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_ingredients.xml" value="0.20208333333333334" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail_review.xml" value="0.33" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home.xml" value="0.3875" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/item_collection_home_v2.xml" value="0.3875" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/item_detail_directions.xml" value="0.25" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/layout/item_main_category.xml" value="0.3875" />
-        <entry key="..\:/KHTN/3rd Sem - Year 3/UI-UX Design/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_share.xml" value="0.26" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1215" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/drawable/ic_custom_star.xml" value="0.1395" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/drawable/ic_gradient_white.xml" value="0.1735" />
@@ -217,14 +210,13 @@
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_launcher1_round.xml" value="0.1215" />
         <entry key="..\:/UI_UX/Foodlife/Foodlife/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1215" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_collection_detail.xml" value="0.16974043715846995" />
-        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.1" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_collection.xml" value="0.16974043715846995" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/adapter_recipe_collection.xml" value="0.264" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/bottom_sheet_collection.xml" value="0.16974043715846995" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe_directions.xml" value="0.1" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_add_recipe_title.xml" value="0.10245901639344263" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection.xml" value="0.264" />
-        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection_detail.xml" value="0.264" />
+        <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_collection_detail.xml" value="0.2" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_detail.xml" value="0.1" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/quoct/source/AndroidStudio/Foodlife/Foodlife/app/src/main/res/layout/fragment_search.xml" value="0.1" />
