@@ -176,12 +176,13 @@ class CollectionFragment : Fragment() {
                 val getDiff = arguments?.getString("Diff")
                 val getPicture = arguments!!.getInt("Picture")
                 val getScore = arguments!!.getInt("Score")
+                val getNumScore = arguments!!.getInt("NumScore")
                 val getTime = arguments!!.getInt("Time")
                 val getDes = arguments?.getString("Description")
                 val getName = arguments?.getString("ProfileName")
                 val getProfile = arguments!!.getInt("ProfileImg")
                 val getVideoUrl = arguments?.getString("VideoUrl")?:""
-                val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
+                val recipe = Recipe(getPicture, getTitle!!, getScore,getNumScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
                 val bundle = arguments?.getBundle("Bundle")
                 val newList = collectionViewModel.colList.value
                 newList!!.forEachIndexed { index, collection ->

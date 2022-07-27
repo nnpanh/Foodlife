@@ -83,6 +83,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
             arguments!!.getInt("Picture")?:R.drawable.recommend_1,
                 arguments!!.getString("Title")?:"Stir-fried beef with broccoli and Rice",
                 arguments!!.getInt("Score"),
+                arguments!!.getInt("NumScore"),
                 arguments!!.getString("Diff")?:"Medium",
                 arguments!!.getInt("Time"),
                 arguments!!.getString("Description")?:"",
@@ -183,6 +184,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     bundle.putString("Title", itemClicked.title)
                     bundle.putString("Description", itemClicked.description)
                     bundle.putInt("Score", itemClicked.score)
+                    bundle.putInt("NumScore", itemClicked.numScore)
                     bundle.putString("Diff", itemClicked.diff)
                     bundle.putInt("Time", itemClicked.time)
                     bundle.putString("ProfileName", itemClicked.profile_name)
@@ -215,6 +217,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     bundle.putString("Title", itemClicked.title)
                     bundle.putString("Description", itemClicked.description)
                     bundle.putInt("Score", itemClicked.score)
+                    bundle.putInt("NumScore", itemClicked.numScore)
                     bundle.putString("Diff", itemClicked.diff)
                     bundle.putInt("Time", itemClicked.time)
                     bundle.putString("ProfileName", itemClicked.profile_name)
@@ -246,6 +249,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     bundle.putString("Title", itemClicked.title)
                     bundle.putString("Description", itemClicked.description)
                     bundle.putInt("Score", itemClicked.score)
+                    bundle.putInt("NumScore", itemClicked.numScore)
                     bundle.putString("Diff", itemClicked.diff)
                     bundle.putInt("Time", itemClicked.time)
                     bundle.putString("ProfileName", itemClicked.profile_name)
@@ -278,6 +282,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     bundle.putString("Title", itemClicked.title)
                     bundle.putString("Description", itemClicked.description)
                     bundle.putInt("Score", itemClicked.score)
+                    bundle.putInt("NumScore", itemClicked.numScore)
                     bundle.putString("Diff", itemClicked.diff)
                     bundle.putInt("Time", itemClicked.time)
                     bundle.putString("ProfileName", itemClicked.profile_name)

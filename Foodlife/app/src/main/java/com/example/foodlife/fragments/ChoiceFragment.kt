@@ -108,6 +108,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
                 bundle.putInt("Score", itemClicked.score)
+                bundle.putInt("NumScore", itemClicked.numScore)
                 bundle.putString("Diff", itemClicked.diff)
                 bundle.putInt("Time", itemClicked.time)
                 bundle.putString("ProfileName", itemClicked.profile_name)

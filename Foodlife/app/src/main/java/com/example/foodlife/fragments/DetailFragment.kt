@@ -98,7 +98,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getTime = arguments?.getInt("Time")
             val getDiff = arguments?.getString("Diff")
             val getScore = arguments?.getInt("Score")
-
+            val getNumScore = arguments?.getInt("NumScore")
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
             val getVideoUrl = arguments?.getString("VideoUrl")?:""
@@ -209,6 +209,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getTime = arguments?.getInt("Time")
             val getDiff = arguments?.getString("Diff")
             val getScore = arguments?.getInt("Score")
+            val getNumScore = arguments?.getInt("NumScore")
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
             val getVideoUrl = arguments?.getString("VideoUrl")?:""
@@ -216,6 +217,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             bundle.putString("Title", getTitle)
             bundle.putString("Description", getDes)
             bundle.putInt("Score", getScore!!)
+            bundle.putInt("NumScore", getNumScore!!)
             bundle.putString("Diff", getDiff)
             bundle.putInt("Time", getTime!!)
             bundle.putString("ProfileName", getName)
@@ -259,12 +261,13 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     val getDiff = arguments?.getString("Diff")
                     val getPicture = arguments!!.getInt("Picture")
                     val getScore = arguments!!.getInt("Score")
+                    val getNumScore = arguments!!.getInt("NumScore")
                     val getTime = arguments!!.getInt("Time")
                     val getDes = arguments?.getString("Description")
                     val getName = arguments?.getString("ProfileName")
                     val getProfile = arguments!!.getInt("ProfileImg")
                     val getVideoUrl = arguments?.getString("VideoUrl")?:""
-                    val recipe = Recipe(getPicture, getTitle!!, getScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
+                    val recipe = Recipe(getPicture, getTitle!!, getScore,getNumScore, getDiff!!, getTime,getDes!!,getProfile,getName!!,getVideoUrl!!)
                     newList!!.forEachIndexed { index, collection ->
                         if (result.title==collection.title) {
                             collectionViewModel.addRecipe(index, recipe)
@@ -280,6 +283,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     val getDiff = arguments?.getString("Diff")
                     val getPicture = arguments?.getInt("Picture")
                     val getScore = arguments?.getInt("Score")
+                    val getNumScore = arguments?.getInt("NumScore")
                     val getTime = arguments?.getInt("Time")
                     val getDes = arguments?.getString("Description")
                     val getName = arguments?.getString("ProfileName")
@@ -289,6 +293,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     putInt("Time", getTime!!)
                     putString("Diff", getDiff)
                     putInt("Score", getScore!!)
+                    putInt("NumScore", getNumScore!!)
                     putInt("Picture", getPicture!!)
                     putString("Description", getDes)
                     putString("ProfileName", getName)

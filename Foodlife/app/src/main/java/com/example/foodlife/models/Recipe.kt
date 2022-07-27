@@ -6,6 +6,7 @@ data class Recipe(
     var img: Int,
     var title: String,
     var score: Int,
+    var numScore:Int,
     var diff: String,
     var time: Int,
     var description: String,

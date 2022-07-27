@@ -68,20 +68,20 @@ class PlanViewModel : ViewModel() {
     var viewMode = true //true = text, false = image
 
     var morning = mutableListOf(
-        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
-        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
-        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna",""),
+        Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,117,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
+        Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
+        Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,117,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna",""),
     )
 
     var lunch = mutableListOf(
-        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
     )
 
     var dinner = mutableListOf<Recipe>(
     )
 
     var snack = mutableListOf(
-        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
+        Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
+        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
     )
 }

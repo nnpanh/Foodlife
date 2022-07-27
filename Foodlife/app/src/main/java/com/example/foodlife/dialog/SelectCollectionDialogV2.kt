@@ -86,7 +86,7 @@ class SelectCollectionDialogV2 : DialogFragment() {
 
         //if (rvRecipeAdapter == null) {
             rvRecipeAdapter = CollectionAddToPlanAdapter{ itemClicked ->
-                val recipe= Recipe(itemClicked.img,itemClicked.title,itemClicked.score,itemClicked.diff,itemClicked.time,itemClicked.description,
+                val recipe= Recipe(itemClicked.img,itemClicked.title,itemClicked.score,itemClicked.numScore,itemClicked.diff,itemClicked.time,itemClicked.description,
                     itemClicked.profile_img,itemClicked.profile_name,itemClicked.video_url)
                 setFragmentResult("request_new", bundleOf("newRecipe" to recipe))
                 dismiss()
