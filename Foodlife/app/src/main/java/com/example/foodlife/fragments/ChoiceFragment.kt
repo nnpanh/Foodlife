@@ -13,14 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.*
-import com.example.foodlife.databinding.FragmentCollectionHomeBinding
-import com.example.foodlife.databinding.FragmentHomeBinding
+import com.example.foodlife.databinding.FragmentChoiceBinding
 import com.example.foodlife.view_models.HomeViewModel
 
 class ChoiceFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
 
-    private var _binding: FragmentCollectionHomeBinding? = null
+    private var _binding: FragmentChoiceBinding ?= null
     private val binding get() = _binding!!
 
     private var adapterList: ChoiceRecipeAdapter? = null
@@ -32,7 +31,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCollectionHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentChoiceBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
     }
@@ -89,6 +88,10 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
                 binding.tvTitle.text="Party"
                 homeViewModel.collectionList.let { adapterList!!.updateData(it) }
             }
+            else if (choice=="7"){
+                binding.tvTitle.text="Recently Viewed"
+                homeViewModel.recentlyList.let { adapterList!!.updateData(it) }
+            }
         }
 
     }
@@ -110,7 +113,8 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
-                navController.navigate(R.id.homeToDetail,bundle)
+                bundle.putString("VideoUrl", itemClicked.video_url)
+                navController.navigate(R.id.choiceToDetail,bundle)
 
             }
 

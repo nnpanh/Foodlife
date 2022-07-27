@@ -29,11 +29,7 @@
         app:destination="@id/navigation_collections"
         app:launchSingleTop="true"
         app:popUpTo="@+id/main_nav_graph"
-        app:popUpToInclusive="true"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"/>
+        app:popUpToInclusive="true"/>
 
     <action android:id="@+id/detailToCollection"
         app:destination="@id/navigation_collections"
@@ -214,6 +210,9 @@
         <action
             android:id="@+id/choiceToHome"
             app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/choiceToDetail"
+            app:destination="@id/detail_fragment" />
     </fragment>
     <fragment
         android:id="@+id/collectionDetail"

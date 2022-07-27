@@ -101,7 +101,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
-            val getVideoUrl = arguments?.getString("VideoUrl")
+            val getVideoUrl = arguments?.getString("VideoUrl")?:""
             binding.recipeTitle.text = getTitle
 
             binding.detailAvatar.setBackgroundResource(getProfile!!)
@@ -211,7 +211,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getScore = arguments?.getInt("Score")
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
-            val getVideoUrl = arguments?.getString("VideoUrl")
+            val getVideoUrl = arguments?.getString("VideoUrl")?:""
 
             bundle.putString("Title", getTitle)
             bundle.putString("Description", getDes)
@@ -284,7 +284,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
                     val getDes = arguments?.getString("Description")
                     val getName = arguments?.getString("ProfileName")
                     val getProfile = arguments?.getInt("ProfileImg")
-                    val getVideoUrl = arguments?.getString("VideoUrl")
+                    val getVideoUrl = arguments?.getString("VideoUrl")?:""
                     putString("Title", getTitle)
                     putInt("Time", getTime!!)
                     putString("Diff", getDiff)

@@ -8,44 +8,32 @@
             name="recipe"
             type="com.example.foodlife.models.Recipe" />
     </data>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/rec_home_item"
-        android:layout_width="225dp"
-        android:layout_height="240dp"
-        app:rippleColor="@android:color/transparent"
-        app:strokeWidth="0dp"
-        android:layout_marginEnd="8dp"
-        app:strokeColor="@android:color/transparent"
-        app:cardPreventCornerOverlap="false"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="0dp"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:cardBackgroundColor="@android:color/white">
-        <ImageView
-            android:layout_width="221dp"
-            android:layout_height="235dp"
-            android:background="@drawable/shadow_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="0dp"
-            android:adjustViewBounds="true"/>
+
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="221dp"
-        android:layout_height="235dp"
+        android:id="@+id/rec_home_item"
+        android:layout_width="240dp"
+        android:layout_height="260dp"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@android:color/transparent"
+        app:strokeWidth="0dp"
+        android:layout_marginStart="16dp"
+        app:strokeColor="@android:color/transparent"
+        app:cardPreventCornerOverlap="false"
+        app:cardElevation="5dp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:cardBackgroundColor="@android:color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="221dp"
-        android:layout_height="235dp">
+        android:layout_width="240dp"
+        android:layout_height="260dp">
         <ImageView
             android:id="@+id/rec_img"
-            android:layout_width="221dp"
-            android:layout_height="235dp"
+            android:layout_width="240dp"
+            android:layout_height="260dp"
             app:imageResource="@{recipe.img}"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +66,7 @@
                 android:maxLines="2"
                 android:text="@{recipe.title}"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_normal"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/rec_ratting"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +89,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
-</com.google.android.material.card.MaterialCardView>
+
 </layout>
 

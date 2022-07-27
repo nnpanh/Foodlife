@@ -37,7 +37,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private var adapterRecommend:RecommendHomeAdapter? = null
     private var adapterMainCat: MainCategoryAdapter? = null
-    private var adapterCollection: CollectionHomeAdapter? = null
+    //private var adapterCollection: CollectionHomeAdapter? = null
+    private var adapterCollection: RecommendHomeAdapter? = null
+    private var adapterRecently: CollectionHomeAdapter? = null
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -70,6 +72,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.ivArrowCollect.setOnClickListener(this)
         binding.ivCreateMeal.setOnClickListener(this)
         binding.ivSearch.setOnClickListener(this)
+        binding.ivArrowRecently.setOnClickListener(this)
     }
 
     private fun initAdapters(){
@@ -88,6 +91,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
+                bundle.putString("VideoUrl", itemClicked.video_url)
                 bundle.putString("VideoUrl", itemClicked.video_url)
                 navController.navigate(R.id.homeToDetail,bundle)
 
@@ -129,7 +133,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
 
         if (adapterCollection == null) {
-            adapterCollection = CollectionHomeAdapter(){ itemClicked ->
+            adapterCollection = RecommendHomeAdapter(){ itemClicked ->
                 val bundle = Bundle()
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
@@ -139,8 +143,25 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putString("ProfileName", itemClicked.profile_name)
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
+                bundle.putString("VideoUrl", itemClicked.video_url)
                 navController.navigate(R.id.homeToDetail,bundle)
 
+            }
+        }
+
+        if (adapterRecently == null) {
+            adapterRecently = CollectionHomeAdapter(){ itemClicked ->
+                val bundle = Bundle()
+                bundle.putString("Title", itemClicked.title)
+                bundle.putString("Description", itemClicked.description)
+                bundle.putInt("Score", itemClicked.score)
+                bundle.putString("Diff", itemClicked.diff)
+                bundle.putInt("Time", itemClicked.time)
+                bundle.putString("ProfileName", itemClicked.profile_name)
+                bundle.putInt("ProfileImg", itemClicked.profile_img)
+                bundle.putInt("Picture", itemClicked.img)
+                bundle.putString("VideoUrl", itemClicked.video_url)
+                navController.navigate(R.id.homeToDetail,bundle)
             }
         }
         //Check if recyclerView is not null
@@ -150,8 +171,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         setAdapterMain(adapterMainCat!!, binding.rvMainCat)
         homeViewModel.mainList.let { adapterMainCat!!.updateData(it) }
 
-        setAdapterCollection(adapterCollection!!, binding.rvCollectionHome)
+        setAdapterRec(adapterCollection!!, binding.rvCollectionHome)
         homeViewModel.collectionList.let { adapterCollection!!.updateData(it) }
+
+        setAdapterCollection(adapterRecently!!, binding.rvRecently)
+        homeViewModel.recentlyList.let { adapterRecently!!.updateData(it) }
 
 
 
@@ -194,6 +218,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.ivArrowCollect->{
                 val bundle = Bundle()
                 bundle.putString("choice","0")
+                navController.navigate(R.id.homeToChoice,bundle)
+            }
+
+            R.id.ivArrowRecently->{
+                val bundle = Bundle()
+                bundle.putString("choice","7")
                 navController.navigate(R.id.homeToChoice,bundle)
             }
             R.id.ivCreateMeal -> {

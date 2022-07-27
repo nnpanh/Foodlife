@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,10 @@ import com.example.foodlife.adapters.RecommendCategoryAdapter
 import com.example.foodlife.adapters.RecommendFrameAdapter
 import com.example.foodlife.databinding.FragmentRecommendBinding
 import com.example.foodlife.dialog.AddToCollectionDialog
+import com.example.foodlife.dialog.BottomSheetCollection
+import com.example.foodlife.models.Collection
+import com.example.foodlife.models.Recipe
+import com.example.foodlife.view_models.CollectionViewModel
 import com.example.foodlife.view_models.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -28,8 +33,9 @@ class RecommendFragment :Fragment(), View.OnClickListener{
 
     private var adapterRecommendFrame: RecommendFrameAdapter? = null
     private var adapterRecommendCat: RecommendCategoryAdapter? = null
-
+    private var contextView: View? = null
      private lateinit var homeViewModel: HomeViewModel
+    private lateinit var collectionViewModel: CollectionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +48,7 @@ class RecommendFragment :Fragment(), View.OnClickListener{
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        contextView=view
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         homeViewModel = ViewModelProvider(store)[HomeViewModel::class.java]
@@ -56,6 +63,10 @@ class RecommendFragment :Fragment(), View.OnClickListener{
             homeViewModel.loadVietNamList()
         if (homeViewModel.dessertList.value!!.isEmpty())
             homeViewModel.loadDessertList()
+
+        collectionViewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
+        if (collectionViewModel.colList.value!!.isEmpty())
+            collectionViewModel.loadCollection()
 
         //Initialize view
         initListener()
@@ -75,7 +86,6 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         if (adapterRecommendFrame == null) {
             adapterRecommendFrame = RecommendFrameAdapter({ itemClicked ->
                 val bundle = Bundle()
-
                 bundle.putString("Title", itemClicked.title)
                 bundle.putString("Description", itemClicked.description)
                 bundle.putInt("Score", itemClicked.score)
@@ -87,8 +97,10 @@ class RecommendFragment :Fragment(), View.OnClickListener{
                 bundle.putString("VideoUrl", itemClicked.video_url)
                 navController.navigate(R.id.recToDetail,bundle)
 
-            },{
-                saveToCollection()
+            },{itemClicked ->
+                //val result=Recipe(itemClicked.img,itemClicked.title,itemClicked.score,itemClicked.diff,itemClicked.time,itemClicked.description
+                //,itemClicked.profile_img,itemClicked.profile_name,itemClicked.video_url)
+                saveToCollection(itemClicked)
             })
         }
 
@@ -163,21 +175,47 @@ class RecommendFragment :Fragment(), View.OnClickListener{
         _binding = null
     }
 
-    private fun saveToCollection() {
+    private fun saveToCollection(recipe: Recipe) {
         val addToCollectionBottomDialog = AddToCollectionDialog()
         addToCollectionBottomDialog.show(parentFragmentManager, AddToCollectionDialog.TAG)
         addToCollectionBottomDialog.setFragmentResultListener("request_key") { _, bundle ->
             val addNewCollection = bundle.getBoolean("add",false)
             if (addNewCollection){
-                navController.navigate(R.id.returnCollection,Bundle().apply {
-                    putBoolean("add",true)
-                })}
-            else{
-                navController.navigate(R.id.returnCollection,bundle)
-                this.view?.let{
-                    Snackbar.make(this.view!!, "Saved successfully", Snackbar.LENGTH_LONG)
-                        .show()
+                val bottomSheetCollection = BottomSheetCollection()
+                bottomSheetCollection.show(requireActivity().supportFragmentManager, "addBottomSheet")
+                bottomSheetCollection.setStyle(DialogFragment.STYLE_NO_FRAME, R.style.FilterBottomSheetDialogTheme)
+                bottomSheetCollection.setFragmentResultListener("request_key") { requestKey, bundle ->
+                    val result = bundle.getSerializable("newCollection") as Collection
+                    result.quantity = 0
+                    collectionViewModel.addCollection(result)
+
+                    val newList = collectionViewModel.colList.value
+                    newList!!.forEachIndexed { index, collection ->
+                        if (result.title==collection.title) {
+                            collectionViewModel.addRecipe(index, recipe)
+                        }
+                    }
+                    navController.navigate(R.id.returnCollection,Bundle().apply {
+                        putBoolean("add",true)
+                    })
+                    Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
                 }
+               }
+            else{
+                navController.navigate(R.id.returnCollection,Bundle().apply {
+
+                    putString("Title", recipe.title)
+                    putInt("Time", recipe.time)
+                    putString("Diff", recipe.diff)
+                    putInt("Score", recipe.score)
+                    putInt("Picture", recipe.img)
+                    putString("Description", recipe.description)
+                    putString("ProfileName", recipe.profile_name)
+                    putInt("ProfileImg", recipe.profile_img)
+                    putString("VideoUrl", recipe.video_url)
+                    putBundle("Bundle", bundle)
+                })
+                Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
             }
 
 

@@ -102,7 +102,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRecommended"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_recommend_copy" />
+                tools:listitem="@layout/item_recommended_home" />
+
+
 
             <TextView
                 android:id="@+id/tvCollection"
@@ -135,13 +137,55 @@
                 android:nestedScrollingEnabled="false"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCollection"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recommended_home"/>
+
+
+            <TextView
+                android:id="@+id/tvRecently"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:text="Recently Viewed"
+                android:textColor="@color/primary_100"
+                android:textSize="@dimen/text_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvCollectionHome" />
+
+            <ImageView
+                android:id="@+id/ivArrowRecently"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_arrow"
+                android:rotation="180"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRecently"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRecently"
+                tools:ignore="ContentDescription" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecently"
+                android:nestedScrollingEnabled="false"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="4dp"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvCollection"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecently"
                 tools:itemCount="1"
                 tools:listitem="@layout/item_collection_home"/>
 

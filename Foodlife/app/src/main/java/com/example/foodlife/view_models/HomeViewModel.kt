@@ -13,10 +13,10 @@ import com.example.foodlife.models.RecommendCategoryModel
 class HomeViewModel : ViewModel() {
 
     var recList = mutableListOf(
+        Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,"Easy",60,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
+        Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 4,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria",""),
         Recipe(R.drawable.rec1, "Stir-fried beef with broccoli and Rice", 5,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
         Recipe(R.drawable.salted,"Salted Caramel Granola", 5,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria",""),
-        Recipe(R.drawable.rec2,"Potato Noodle",5,"Medium",45,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna",""),
-        Recipe(R.drawable.example_dish_3,"Bún bò Huế", 5,"Difficult",120,"",R.drawable.profile3,"Thanh Lam",""),
     )
    var mainList = mutableListOf(
        MainCategoryModel(R.drawable.ic_main_cat_asian, "Asian"),
@@ -30,6 +30,12 @@ class HomeViewModel : ViewModel() {
         Recipe(R.drawable.egg_dish, "Sandwich with boiled egg", 4,"Medium",30,"Cheese, Tomato, egg,...",R.drawable.profile3,"Maria",""),
         Recipe(R.drawable.buckwheat,"Buckwheat Granola with Maple Syrup", 5,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna",""),
         Recipe(R.drawable.pancake,"Fluffy Blueberry Pancakes",4,"Medium",45,"Cheese, Honey, Blueberry, ...",R.drawable.profile4,"Anna",""),
+    )
+
+    var recentlyList = mutableListOf(
+        Recipe(R.drawable.col2_rep1,"Scout's lobster rolls",5,"Medium",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile4,"Anna",""),
+        Recipe(R.drawable.col2_rep2,"Pasta puttanesca", 4,"Easy",30,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Thanh Lam",""),
+        Recipe(R.drawable.col2_rep3, "Korean fish pancakes", 5,"Difficult",25,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Elise",""),
     )
 
     var recCat= mutableListOf(

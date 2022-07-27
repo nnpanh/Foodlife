@@ -17,17 +17,17 @@ class RecommendHomeAdapter(private val listener: (Recipe) -> Unit): RecyclerView
         this.rec_list=rec_list
 
     }
-    inner class ViewHolder(private val itemRecommendCopyBinding: ItemRecommendCopyBinding) :
-        RecyclerView.ViewHolder(itemRecommendCopyBinding.root){
+    inner class ViewHolder(private val itemRecommendedHomeBinding: ItemRecommendedHomeBinding) :
+        RecyclerView.ViewHolder(itemRecommendedHomeBinding.root){
 
         fun bindData(_recipe: Recipe) {
-            itemRecommendCopyBinding.recHomeItem.setOnClickListener{listener(_recipe)}
-            itemRecommendCopyBinding.apply {
+            itemRecommendedHomeBinding.recHomeItem.setOnClickListener{listener(_recipe)}
+            itemRecommendedHomeBinding.apply {
                 recipe =_recipe
-                val connectString = _recipe.time.toString()+" mins"
+                /*val connectString = _recipe.time.toString()+" mins"
                 val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
                 itemRecommendCopyBinding.tvRecTime.text=textValue
-                itemRecommendCopyBinding.tvRecStar.text=_recipe.score.toString()
+                itemRecommendCopyBinding.tvRecStar.text=_recipe.score.toString()*/
                 executePendingBindings()
             }
         }
@@ -35,7 +35,7 @@ class RecommendHomeAdapter(private val listener: (Recipe) -> Unit): RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
-            ItemRecommendCopyBinding.inflate(
+            ItemRecommendedHomeBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         return ViewHolder(binding)

@@ -27,7 +27,7 @@ private val listenerCollection: (Recipe) ->Unit): RecyclerView.Adapter<Recommend
                 val connectString = _recipe.time.toString()+" mins"
                 val textValue = HtmlCompat.fromHtml(connectString, HtmlCompat.FROM_HTML_MODE_LEGACY)
                 itemRecommendFrameBinding.tvRecTime.text=textValue
-                itemRecommendFrameBinding.tvRecStar.text=_recipe.score.toString()
+                itemRecommendFrameBinding.recRating.rating=_recipe.score.toFloat()
                 executePendingBindings()
             }
         }
