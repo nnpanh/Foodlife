@@ -13,11 +13,6 @@
     android:layout_height="wrap_content"
     app:cardElevation="4dp"
     app:cardCornerRadius="10dp"
-    app:rippleColor="@android:color/transparent"
-    app:strokeWidth="0dp"
-    app:strokeColor="@android:color/transparent"
-    app:cardPreventCornerOverlap="false"
-    android:theme="@style/Theme.MaterialComponents.Light"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="24dp">
@@ -27,7 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pageSearch"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        >
 
         <ImageView
             android:id="@+id/ivDish"

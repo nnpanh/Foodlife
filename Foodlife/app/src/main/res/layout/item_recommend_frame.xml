@@ -8,25 +8,16 @@
             name="recipe"
             type="com.example.foodlife.models.Recipe" />
     </data>
-    <com.google.android.material.card.MaterialCardView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rec_home_item"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginBottom="16dp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="@android:color/transparent"
-        app:strokeWidth="0dp"
-        app:strokeColor="@android:color/transparent"
-        app:cardPreventCornerOverlap="false"
-        app:cardElevation="10dp"
-        android:theme="@style/Theme.MaterialComponents.Light"
-        app:cardBackgroundColor="@android:color/white">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:elevation="10dp">
 
         <ImageView
             android:id="@+id/rec_frame_img"
@@ -41,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:srcCompat="@drawable/salted" />
+            tools:srcCompat="@drawable/iveasylemongrassmeatballs" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -213,7 +204,7 @@
             tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+
 </layout>
 
 

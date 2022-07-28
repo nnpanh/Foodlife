@@ -190,6 +190,7 @@ class PlanFragmentV3 : Fragment(), View.OnClickListener {
                     bundle.putString("ProfileName", itemClicked.profile_name)
                     bundle.putInt("ProfileImg", itemClicked.profile_img)
                     bundle.putInt("Picture", itemClicked.img)
+                    bundle.putString("VideoUrl", itemClicked.video_url)
                     navController.navigate(R.id.planToDetail, bundle)
                 },
                 { clickedItem ->

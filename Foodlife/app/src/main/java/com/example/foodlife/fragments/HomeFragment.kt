@@ -93,7 +93,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
                 bundle.putString("VideoUrl", itemClicked.video_url)
-                bundle.putString("VideoUrl", itemClicked.video_url)
                 navController.navigate(R.id.homeToDetail,bundle)
 
             }
