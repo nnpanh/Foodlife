@@ -54,7 +54,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
         binding.continueBtn.setOnClickListener(this)
         binding.ivBack.setOnClickListener(this)
         binding.ivUploadimage.setOnClickListener(this)
-        binding.ivImagePlaceholder.setOnClickListener(this)
+        binding.ivEditimage.setOnClickListener(this)
     }
 
     override fun onDestroyView() {
@@ -76,7 +76,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
             R.id.iv_uploadimage -> {
                 pickImage()
             }
-            R.id.iv_image_placeholder -> {
+            R.id.iv_editimage -> {
                 pickImage()
             }
         }
@@ -92,8 +92,9 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GALLERY_REQ_CODE) {
                 binding.ivImagePlaceholder.setImageURI(data!!.data)
-                binding.ivUploadimage.visibility = View.INVISIBLE
+                binding.ivUploadimage.visibility = View.GONE
                 binding.tvUploadTxt.visibility = View.GONE
+                binding.ivEditimage.visibility = View.VISIBLE
                 imgPath = data.data
             }
         }

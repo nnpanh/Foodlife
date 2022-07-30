@@ -2,6 +2,7 @@ package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.databinding.ItemArDirectionBinding
@@ -28,8 +29,13 @@ class AddRecipeDirectionAdapter (private val pickListener: (AddRecipeDirectionMo
         fun bindData(_direction: AddRecipeDirectionModel) {
             itemDirectionBinding.ivUploadimage.setOnClickListener{pickListener(_direction)}
             itemDirectionBinding.ivDelete.setOnClickListener{deleteListener(_direction)}
-
+            itemDirectionBinding.ivEditimage.setOnClickListener{pickListener(_direction)}
             itemDirectionBinding.txtStep.setText("Step ${position + 1}")
+            if(_direction.imageURI!= null){
+                itemDirectionBinding.ivUploadimage.visibility = View.GONE
+                itemDirectionBinding.tvUploadTxt.visibility = View.GONE
+                itemDirectionBinding.ivEditimage.visibility = View.VISIBLE
+            }
             itemDirectionBinding.ivImagePlaceholder.setImageURI(_direction.imageURI)
 
             itemDirectionBinding.apply {

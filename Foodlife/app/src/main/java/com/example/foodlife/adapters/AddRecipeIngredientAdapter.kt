@@ -39,7 +39,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
             val arraySpinner = arrayOf("gr", "kg", "ml", "l", "cup", "tbsp", "tsp", "oz", "lb")
             val dropdownAdapter = ArrayAdapter(mContext, R.layout.item_spinner, arraySpinner)
             dropdownAdapter.setDropDownViewResource(R.layout.item_spinner)
-            //ArrayAdapter(requireActivity(),com.google.android.material.R.layout.support_simple_spinner_dropdown_item, arraySpinner)
             itemIngredientBinding.measurementDropdown.adapter = dropdownAdapter
 
             itemIngredientBinding.measurementDropdown.onItemSelectedListener = object: AdapterView.OnItemSelectedListener,
@@ -63,7 +62,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     position: Int,
                     id: Long
                 ) {}
-
             }
             itemIngredientBinding.ivDelete.setOnClickListener{listener(_ingredient)}
             itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
