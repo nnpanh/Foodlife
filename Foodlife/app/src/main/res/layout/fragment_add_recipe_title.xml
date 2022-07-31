@@ -53,45 +53,50 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginBottom="16dp">
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/AR_basic_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tvARInformation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginHorizontal="24dp"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="@string/title_add_recipe_Title"
-                    android:textColor="@color/primary_100"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvARInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Recipe Name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/primary_100"
+                android:textSize="20sp"
+                />
 
-                <TextView
-                    android:id="@+id/tvARPage1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/addrecipe_roundedcorner_2"
-                    android:backgroundTint="@color/secondary_100"
-                    android:fontFamily="@font/poppins_regular"
-                    android:gravity="center"
-                    android:paddingStart="16dp"
-                    android:paddingTop="8dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="4dp"
-                    android:text="1/4"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvARInformation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvARInformation" />
+            <TextView
+                android:id="@+id/tvARPage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/addrecipe_roundedcorner_2"
+                android:backgroundTint="@color/secondary_100"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="4dp"
+                android:text="1/5"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvARInformation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvARInformation" />
+
 
                 <EditText
                     android:id="@+id/et_RecipeName"
@@ -153,7 +158,6 @@
                             android:background="@drawable/addrecipe_roundedcorner_2"
                             android:scaleType="centerCrop"
                             android:src="@drawable/image_placeholder" />
-
                         <ImageView
                             android:id="@+id/iv_uploadimage"
                             android:layout_width="wrap_content"
@@ -163,22 +167,38 @@
                             android:contentDescription="Upload image"
                             android:src="@drawable/plus_bold" />
 
-                        <ImageView
-                            android:id="@+id/iv_editimage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_margin="4dp"
-                            android:alpha="0.7"
-                            android:background="@drawable/addrecipe_roundedcorner_1"
-                            android:clickable="true"
-                            android:contentDescription="Edit image"
-                            android:padding="6dp"
-                            android:src="@drawable/ic_edit"
-                            android:visibility="gone" />
 
-                        <TextView
+                    <ImageView
+                        android:id="@+id/iv_editimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="4dp"
+                        android:layout_toStartOf="@id/iv_deleteimage"
+                        android:alpha="0.7"
+                        android:background="@drawable/addrecipe_roundedcorner_1"
+                        android:clickable="true"
+                        android:contentDescription="Edit image"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_edit"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/iv_deleteimage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="4dp"
+                        android:alpha="0.7"
+                        android:background="@drawable/addrecipe_roundedcorner_1"
+                        android:clickable="true"
+                        android:contentDescription="Delete image"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_trash_line"
+                        android:visibility="gone" />
+
+                 <TextView
                             android:id="@+id/tv_upload_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

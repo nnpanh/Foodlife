@@ -51,10 +51,10 @@
             android:fontFamily="@font/poppins_regular"
             android:hint="@string/txt_direction"
             android:inputType="textMultiLine"
+            android:paddingStart="16dp"
+            android:paddingTop="9dp"
             android:paddingEnd="8dp"
             android:paddingBottom="9dp"
-            android:paddingTop="9dp"
-            android:paddingStart="16dp"
             android:textSize="14sp" />
 
         <androidx.cardview.widget.CardView
@@ -89,16 +89,33 @@
                     android:id="@+id/iv_editimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="4dp"
+                    android:layout_toStartOf="@id/iv_deleteimage"
+                    android:alpha="0.7"
+                    android:background="@drawable/addrecipe_roundedcorner_1"
+                    android:clickable="true"
+
+                    android:contentDescription="Edit image"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_edit"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_deleteimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="4dp"
                     android:alpha="0.7"
                     android:background="@drawable/addrecipe_roundedcorner_1"
                     android:clickable="true"
-                    android:contentDescription="Edit image"
+                    android:contentDescription="Delete image"
                     android:padding="6dp"
-                    android:src="@drawable/ic_edit"
+                    android:src="@drawable/ic_trash_line"
                     android:visibility="gone" />
+
 
                 <TextView
                     android:id="@+id/tv_upload_txt"
