@@ -84,7 +84,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
         val mediaController = MediaController(context)
         mediaController.setAnchorView(binding.flVideo)
         videoView.setMediaController(mediaController)
-        videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
+
 
 
 
@@ -112,7 +112,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff!!.toString()
             if (getVideoUrl != null)(
-            videoView.setVideoURI(Uri.parse(getVideoUrl)))
+                videoView.setVideoURI(Uri.parse(getVideoUrl)))
+            else videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
             if (getScore != null) {
                 binding.detailRating.rating = getScore!!.toFloat()
             }
