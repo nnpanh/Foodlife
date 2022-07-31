@@ -67,7 +67,7 @@
                 android:paddingHorizontal="16dp"
                 android:paddingBottom="8dp"
                 android:paddingTop="10dp"
-                android:text="4/4"
+                android:text="5/5"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="12sp"

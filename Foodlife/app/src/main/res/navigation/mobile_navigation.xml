@@ -178,8 +178,8 @@
         android:name="com.example.foodlife.fragments.AddRecipeTitleFragment"
         android:label="AddRecipeTitleFragment" >
         <action
-            android:id="@+id/addRecipeTittleFragment_to_addRecipeInformationFragment"
-            app:destination="@id/addRecipeInformationFragment" />
+            android:id="@+id/addRecipeTitleFragment_to_addRecipeVideoFragment"
+            app:destination="@id/addRecipeVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRecipeInformationFragment"
@@ -222,5 +222,14 @@
         <action
             android:id="@+id/goToDetail"
             app:destination="@id/detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecipeVideoFragment"
+        android:name="com.example.foodlife.fragments.AddRecipeVideoFragment"
+        android:label="fragment_add_recipe_video"
+        tools:layout="@layout/fragment_add_recipe_video" >
+        <action
+            android:id="@+id/addRecipeVideoFragment_to_addRecipeInformationFragment"
+            app:destination="@id/addRecipeInformationFragment" />
     </fragment>
 </navigation>

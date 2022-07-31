@@ -18,7 +18,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.AddRecipeDirectionAdapter
 import com.example.foodlife.databinding.FragmentAddRecipeDirectionsBinding
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.AddRecipeDirectionModel
+import com.example.foodlife.models.DetailDirections
+import com.example.foodlife.models.DetailIngredients
 import com.example.foodlife.view_models.AddRecipeViewModel
 
 /**
@@ -42,6 +45,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
     private var imgPath: Uri? = null
 
     private var position: Int = 0
+    private lateinit var recipe: AddRecipe
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,6 +63,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         directionViewModel = ViewModelProvider(store)[AddRecipeViewModel::class.java]
         mList = directionViewModel.initDirection
+        recipe = arguments?.getSerializable("Recipe") as AddRecipe
         initListener()
         initAdapters()
     }
@@ -75,7 +80,6 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
                 {imageClicked ->
                     pickImage()
                     position = mList.indexOf(imageClicked)
-
                 },
                 {clickedItem ->
                     if (mList.size>1){
@@ -114,6 +118,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.add_btn -> {
+//                toListOfDetailDirections()
                 navController.navigate(R.id.returnHome)
                 //TODO
             }
@@ -129,4 +134,10 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
+  /*  fun toListOfDetailDirections(){
+        for(arm in mList){
+            recipe.directions.add(DetailDirections(-1, arm.direcion, "", false, arm.imageURI))
+        }
+    }*/
 }
