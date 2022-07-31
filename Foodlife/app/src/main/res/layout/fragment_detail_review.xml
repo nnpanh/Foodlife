@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="5 comments, 0 showcase"
+                    android:text="5 comments, 2 showcase"
                     android:textSize="@dimen/text_smaller"
                     android:layout_marginEnd="16dp"
                     android:layout_marginTop="16dp"
