@@ -195,14 +195,6 @@
                         >
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/ivShareIcon"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/ic_share_detail"
-                            android:layout_marginEnd="40dp"
-                            app:shapeAppearanceOverlay="@style/detail_round_image_2"/>
-
-                        <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivPlanIcon"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
@@ -215,7 +207,13 @@
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:src="@drawable/ic_save_detail"
-                            android:layout_marginEnd="0dp"
+                            android:layout_marginEnd="40dp"
+                            app:shapeAppearanceOverlay="@style/detail_round_image_2"/>
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivShareIcon"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_share_detail"
                             app:shapeAppearanceOverlay="@style/detail_round_image_2"/>
 
                     </LinearLayout>

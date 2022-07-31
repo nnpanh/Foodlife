@@ -126,6 +126,7 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
                 mList.add(item)
                 Log.i("số lượng: ", mList.size.toString())
                 adapterDirection!!.updateData(mList)
+                binding.nestedScrollView.post { binding.nestedScrollView.fullScroll(View.FOCUS_DOWN) }
             }
         }
     }

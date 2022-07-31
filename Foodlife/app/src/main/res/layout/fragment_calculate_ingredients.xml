@@ -88,7 +88,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvBreakfastTitle"
                 tools:itemCount="1"
-                tools:listitem="@layout/item_collection_home" />
+                tools:listitem="@layout/item_collection_home_v2" />
             <TextView
                 tools:visibility="visible"
                 android:id="@+id/tvBreakfastDescription"

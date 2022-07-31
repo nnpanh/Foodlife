@@ -110,6 +110,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
                 mList = newList*/
                 mList.add(item)
                 adapterIngredient!!.updateData(mList)
+                binding.nested.post { binding.nested.fullScroll(View.FOCUS_DOWN) }
 //                adapterIngredient!!.updateData(mList)
             }
         }

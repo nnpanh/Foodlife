@@ -22,7 +22,7 @@
             android:id="@+id/tvBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_semi_bold"
             android:textSize="@dimen/text_medium"
             android:textColor="@color/primary_100"
             android:layout_marginStart="24dp"
