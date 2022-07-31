@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -16,10 +15,7 @@ import com.example.foodlife.R
 import com.example.foodlife.adapters.AddRecipeIngredientAdapter
 import com.example.foodlife.adapters.PlanTextAdapter
 import com.example.foodlife.databinding.FragmentAddRecipeIngredientsBinding
-import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.AddRecipeIngredientModel
-import com.example.foodlife.models.DetailIngredients
-import com.example.foodlife.models.Ingredient
 import com.example.foodlife.view_models.AddRecipeViewModel
 
 class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
@@ -34,7 +30,6 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     private lateinit var ingredientViewModel: AddRecipeViewModel
 
     private var mList: MutableList<AddRecipeIngredientModel> = mutableListOf()
-    private lateinit var recipe: AddRecipe
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,7 +46,6 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         ingredientViewModel = ViewModelProvider(store)[AddRecipeViewModel::class.java]
-        recipe = arguments?.getSerializable("Recipe") as AddRecipe
         mList = ingredientViewModel.initIngredient
         initListener()
         initAdapters()
@@ -100,8 +94,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
 
         when (v?.id) {
             R.id.continue_btn -> {
-                toListOfDetailIngredient()
-                navController.navigate(R.id.addRecipeIngredientFragment_to_addRecipeDirectionsFragment, bundleOf("Recipe" to recipe))
+                navController.navigate(R.id.addRecipeIngredientFragment_to_addRecipeDirectionsFragment)
                 //TODO
             }
             R.id.ivBack -> {
@@ -120,15 +113,6 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
 //                adapterIngredient!!.updateData(mList)
             }
         }
-    }
-
-    fun toListOfDetailIngredient(){
-        mList = adapterIngredient!!.getData()
-        for(arm in mList){
-            recipe.ingredient.add(DetailIngredients(arm.name, arm.quantity.toString() + arm.measure))
-            Log.e("measure", arm.measure)
-        }
-
     }
 
 }

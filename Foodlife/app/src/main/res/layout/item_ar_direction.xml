@@ -89,33 +89,15 @@
                     android:id="@+id/iv_editimage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_toStartOf="@id/iv_deleteimage"
-                    android:alpha="0.7"
-                    android:background="@drawable/addrecipe_roundedcorner_1"
-                    android:clickable="true"
-                    android:contentDescription="Edit image"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_edit"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/iv_deleteimage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="4dp"
                     android:alpha="0.7"
                     android:background="@drawable/addrecipe_roundedcorner_1"
                     android:clickable="true"
-                    android:contentDescription="Delete image"
+                    android:contentDescription="Edit image"
                     android:padding="6dp"
-                    android:src="@drawable/ic_trash_line"
+                    android:src="@drawable/ic_edit"
                     android:visibility="gone" />
 
                 <TextView
@@ -129,8 +111,7 @@
                     android:text="Upload your food picture"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="14sp" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

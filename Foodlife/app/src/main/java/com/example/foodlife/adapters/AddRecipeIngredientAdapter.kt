@@ -28,8 +28,9 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
         notifyDataSetChanged()
     }
 
-    fun getData(): MutableList<AddRecipeIngredientModel> {
-        return mList
+    fun addData(item: AddRecipeIngredientModel){
+        this.mList.add(item)
+        notifyDataSetChanged()
     }
 
     inner class ItemViewHolder(private val itemIngredientBinding: ItemArIngredientBinding) :
@@ -49,6 +50,7 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     id: Long
                 ) {
                     Log.e("chosen", id.toString())
+                    Log.e("position", adapterPosition.toString())
                     mList[adapterPosition].measure = itemIngredientBinding.measurementDropdown.selectedItem.toString()
                     mList[adapterPosition].selectedPosition = itemIngredientBinding.measurementDropdown.selectedItemPosition
                 }
@@ -63,7 +65,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
             }
             itemIngredientBinding.ivDelete.setOnClickListener{listener(_ingredient)}
             itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
-
             itemIngredientBinding.apply {
                 ingredient = _ingredient
                 executePendingBindings()
