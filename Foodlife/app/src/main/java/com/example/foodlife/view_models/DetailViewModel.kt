@@ -40,10 +40,10 @@ class DetailViewModel: ViewModel() {
     )
 
     var DetailReviewList = mutableListOf(
-        DetailReview(R.drawable.example_step_1,"Melanie Rose","Lorem ipsum dolor sit amet, consectetur adipiscing elit!"),
-        DetailReview(R.drawable.example_step_2,"Jonathan Jose","Excepteur sint occaecat cupidatat non proident, sunt"),
-        DetailReview(R.drawable.ic_user,"Nicky","nisi ut aliquip ex ea commodo consequat."),
-        DetailReview(R.drawable.ic_user,"Moon Star","quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea."),
-        DetailReview(R.drawable.ic_user,"Melanie","dolor in reprehenderit in voluptate velit esse cillum dolore eu."),
+        DetailReview(R.drawable.profile2,"Melanie Rose","This recipe is easy to make and very delicious.",R.drawable.showcase_1),
+        DetailReview(R.drawable.profile3,"Jonathan Jose","This app is a blessing, it’s making my fiancé think I can cook really well.",null),
+        DetailReview(R.drawable.profile4,"Nicky","This is so easy and so good!",null),
+        DetailReview(R.drawable.profile2,"Moon Star","I made mine with shrimp. I had to use more chicken broth and cream to make it more creamy.",R.drawable.showcase_2),
+        DetailReview(R.drawable.profile3,"Ericka Haddad","I added two chicken breasts that I cooked beforehand in the same pot and then set aside. When everything was mostly done I threw the cut up chicken and some broccoli in. Everyone was really happy with it.",null),
     )
 }
