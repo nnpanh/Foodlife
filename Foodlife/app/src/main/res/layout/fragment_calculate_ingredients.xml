@@ -16,8 +16,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:paddingTop="24dp"
             android:paddingBottom="8dp">
             <ImageView
@@ -71,10 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_semi_bold"
                 android:text="@string/txt_breakfast"
-                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDateInfo" />
 
@@ -100,9 +100,9 @@
                 android:ellipsize="end"
                 android:text="@string/txt_no_dish"
                 android:fontFamily="@font/poppins_regular"
-                android:textSize="@dimen/text_normal"
                 android:visibility="gone"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_40"
+                android:textSize="@dimen/text_normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rvPlanTextBreakfast" />
 
@@ -111,9 +111,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_lunch"
-                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvBreakfastDescription" />
@@ -134,27 +134,27 @@
                 android:id="@+id/tvLunchDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch"
+                tools:visibility="visible"
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="start"
                 android:maxLines="2"
                 android:text="@string/txt_no_dish"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_normal"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvPlanTextLunch"
-                tools:visibility="visible" />
+                />
 
             <TextView
                 android:id="@+id/tvDinnerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_dinner"
-                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvLunchDescription" />
@@ -180,7 +180,7 @@
                 android:gravity="start"
                 android:maxLines="2"
                 android:text="@string/txt_no_dish"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_normal"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
@@ -192,9 +192,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins_bold"
                 android:text="@string/txt_snacks"
-                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semi_bold"
+                android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDinnerDescription" />
@@ -209,10 +209,10 @@
                 android:gravity="start"
                 android:maxLines="2"
                 android:text="@string/txt_no_dish"
-                android:textColor="@color/black"
+                android:textColor="@color/primary_40"
                 android:textSize="@dimen/text_normal"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tvSnackTitle"
                 app:layout_constraintTop_toBottomOf="@id/rvPlanTextSnack"
                 tools:visibility="visible" />
 
@@ -289,6 +289,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:layout_marginStart="8dp"
                 android:text="@string/total"
                 android:fontFamily="@font/poppins_bold"
                 android:textSize="@dimen/text_medium"
@@ -321,10 +322,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutQuantity"
                 tools:itemCount="4"
+                android:layout_marginEnd="8dp"
                 tools:listitem="@layout/item_ingredients" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layoutQuantity"
@@ -332,6 +335,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bgr_add_minus"
                 android:padding="8dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvTotalIngredients"
                 app:layout_constraintBottom_toBottomOf="@id/tvTotalIngredients"

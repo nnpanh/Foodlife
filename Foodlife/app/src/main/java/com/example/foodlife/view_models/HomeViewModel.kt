@@ -16,8 +16,8 @@ class HomeViewModel : ViewModel() {
         Recipe(R.drawable.col3_rep1,"One-Pot Tomato Basil Pasta", 5,117,"Easy",60,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         Recipe(R.drawable.col3_rep2, "Veggie & Hummus Sandwich", 5,117,"",20,"Enjoy each morning the delicious taste of breakfast",R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
         Recipe(R.drawable.iv_roasted_chicken, "Roasted chicken in honey-ginger-soy-sauce", 5,117,"Medium",45,"Enjoy each morning the delicious taste of Dinner",R.drawable.profile2,"Elise","https://vid.tasty.co/output/20739/mp4_640x640/1484338324"),
-        Recipe(R.drawable.salted,"Salted Caramel Granola", 5,117,"Easy",15,"Enjoy each morning the delicious taste of breakfast" ,R.drawable.profile3,"Maria","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
-    )
+        Recipe(R.drawable.ivchickenwings,"Simple marinated chicken wings", 5,117,"Easy",15,"Oat, Milk, Strawberry, Banana,..." ,R.drawable.profile4,"Anna","https://vid.tasty.co/output/94177/landscape_480/1526421103"),
+        )
    var mainList = mutableListOf(
        MainCategoryModel(R.drawable.ic_main_cat_asian, "Asian"),
        MainCategoryModel(R.drawable.ic_western,"Western"),
