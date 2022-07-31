@@ -74,11 +74,11 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
 
             R.id.ivMinus -> {
                 adapterDetailIngredients?.updateData(detailIngredientsViewModel.DetailIngredientsList)
-                binding.tvNumberServe.text="01"
+                binding.tvNumberServe.text="1"
             }
             R.id.ivPlus -> {
                 adapterDetailIngredients?.updateData(detailIngredientsViewModel.DetailIngredientsList2)
-                binding.tvNumberServe.text="02"
+                binding.tvNumberServe.text="2"
             }
         }
     }

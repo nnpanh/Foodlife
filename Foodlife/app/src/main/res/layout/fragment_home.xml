@@ -117,7 +117,8 @@
                 android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvRecommended" />
+                app:layout_constraintTop_toBottomOf="@+id/rvRecommended"
+                android:visibility="gone"/>
 
             <ImageView
                 android:id="@+id/ivArrowCollect"
@@ -130,7 +131,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvCollection"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvCollection"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                android:visibility="gone"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCollectionHome"
@@ -145,6 +147,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvCollection"
                 tools:itemCount="1"
+                android:visibility="gone"
                 tools:listitem="@layout/item_recommended_home"/>
 
 

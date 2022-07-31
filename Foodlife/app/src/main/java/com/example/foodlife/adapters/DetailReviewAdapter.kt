@@ -1,12 +1,13 @@
 package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.databinding.ItemDetailReviewBinding
 import com.example.foodlife.models.DetailReview
+
 
 class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var mList: MutableList<DetailReview> = mutableListOf()
@@ -20,8 +21,14 @@ class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class ItemViewHolder(private val itemDetailReviewBinding: ItemDetailReviewBinding) :
         RecyclerView.ViewHolder(itemDetailReviewBinding.root) {
         fun bindData(_detailReview: DetailReview) {
+
             itemDetailReviewBinding.apply {
                 detailReview = _detailReview
+                val tmp = _detailReview.showcase
+                if (tmp != null){
+                    itemDetailReviewBinding.ivShowcase.setImageResource(tmp)
+                    itemDetailReviewBinding.ivShowcase.layoutParams.height = 600
+                }
                 executePendingBindings()
             }
         }
