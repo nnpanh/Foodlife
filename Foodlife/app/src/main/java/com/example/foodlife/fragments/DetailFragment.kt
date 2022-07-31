@@ -101,7 +101,7 @@ class DetailFragment : Fragment(), View.OnClickListener {
             val getNumScore = arguments?.getInt("NumScore")
             val getName = arguments?.getString("ProfileName")
             val getProfile = arguments?.getInt("ProfileImg")
-            val getVideoUrl = arguments?.getString("VideoUrl")?:""
+            val getVideoUrl = arguments?.getString("VideoUrl")?:"https://vid.tasty.co/output/246029/landscape_480/1657534926"
             binding.recipeTitle.text = getTitle
 
             binding.detailAvatar.setBackgroundResource(getProfile!!)
