@@ -15,10 +15,11 @@ import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailIngredientsAdapter
 import com.example.foodlife.databinding.FragmentDetailBinding
 import com.example.foodlife.databinding.FragmentDetailIngredientsBinding
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.view_models.DetailViewModel
 import com.example.foodlife.view_models.PlanViewModel
 
-class DetailIngredientsFragment : Fragment(), View.OnClickListener {
+class DetailIngredientsFragment (rep: AddRecipe?): Fragment(), View.OnClickListener {
 
     private var _binding: FragmentDetailIngredientsBinding? = null
     private val binding get() = _binding!!
@@ -26,6 +27,7 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
     private var adapterDetailIngredients: DetailIngredientsAdapter? = null
 
     private lateinit var detailIngredientsViewModel: DetailViewModel
+    private var recipe: AddRecipe? = rep
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +41,6 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         detailIngredientsViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
 
         //Initialize view
@@ -59,7 +60,10 @@ class DetailIngredientsFragment : Fragment(), View.OnClickListener {
         binding.listIngredients.adapter = adapterDetailIngredients
         binding.listIngredients.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
-        adapterDetailIngredients!!.updateData(detailIngredientsViewModel.DetailIngredientsList)
+        if(recipe!= null){
+            adapterDetailIngredients!!.updateData(recipe!!.ingredient)
+        }
+        else adapterDetailIngredients!!.updateData(detailIngredientsViewModel.DetailIngredientsList)
     }
 
 

@@ -66,6 +66,13 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         recipe = AddRecipe("","",null, null,0,0,0,"", mutableListOf(), mutableListOf())
+        if( imgPath != null){
+            binding.ivImagePlaceholder.setImageURI(imgPath)
+            binding.ivUploadimage.visibility = View.GONE
+            binding.tvUploadTxt.visibility = View.GONE
+            binding.ivEditimage.visibility = View.VISIBLE
+            binding.ivDeleteimage.visibility = View.VISIBLE
+        }
         initListener()
     }
 
@@ -89,7 +96,7 @@ class AddRecipeTitleFragment : Fragment(), View.OnClickListener {
             R.id.continue_btn -> {
                 recipe.name = binding.etRecipeName.text.toString()
                 recipe.description = binding.etDescription.text.toString()
-                recipe.imgUri = imgPath
+                recipe.imgUri = imgPath.toString()
                 navController.navigate(R.id.addRecipeTitleFragment_to_addRecipeVideoFragment, bundleOf("Recipe" to recipe))
                 //TODO
             }

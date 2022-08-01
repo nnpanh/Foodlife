@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -118,8 +119,8 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.add_btn -> {
-//                toListOfDetailDirections()
-                navController.navigate(R.id.returnHome)
+                toListOfDetailDirections()
+                navController.navigate(R.id.addRecipeDirectionsFragment_to_detail_fragment, bundleOf("Recipe" to recipe))
                 //TODO
             }
             R.id.ivBack -> {
@@ -136,9 +137,11 @@ class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    /*  fun toListOfDetailDirections(){
+      fun toListOfDetailDirections(){
+          var i: Int = 1
           for(arm in mList){
-              recipe.directions.add(DetailDirections(-1, arm.direcion, "", false, arm.imageURI))
+              recipe.directions.add(DetailDirections(-1, arm.direcion, "Step " + i.toString() + ":", false, arm.imageURI))
+              i++
           }
-      }*/
+      }
 }

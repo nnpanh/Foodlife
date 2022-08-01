@@ -126,7 +126,7 @@ class AddRecipeIngredientsFragment : Fragment(), View.OnClickListener {
     fun toListOfDetailIngredient(){
         mList = adapterIngredient!!.getData()
         for(arm in mList){
-            recipe.ingredient.add(DetailIngredients(arm.name, arm.quantity.toString() + arm.measure))
+            recipe.ingredient.add(DetailIngredients(arm.name, arm.quantity.toString() + " "+ arm.measure))
             Log.e("measure", arm.measure)
         }
 

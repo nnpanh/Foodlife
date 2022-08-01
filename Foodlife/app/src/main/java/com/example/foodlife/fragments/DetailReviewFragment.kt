@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailReviewAdapter
 import com.example.foodlife.databinding.FragmentPaTestBinding
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.DetailReview
 import com.example.foodlife.view_models.DetailViewModel
 
-class DetailReviewFragment : Fragment(){
+class DetailReviewFragment (rep: AddRecipe?): Fragment(){
 
     private var _binding: FragmentPaTestBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +24,7 @@ class DetailReviewFragment : Fragment(){
     private var adapterDetailReview: DetailReviewAdapter? = null
 
     private lateinit var detailReviewViewModel: DetailViewModel
+    private var recipe: AddRecipe? = rep
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,7 +53,9 @@ class DetailReviewFragment : Fragment(){
         binding.listReview.adapter = adapterDetailReview
         binding.listReview.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
-        adapterDetailReview!!.updateData(detailReviewViewModel.DetailReviewList)
+        if(recipe != null)
+            adapterDetailReview!!.updateData(detailReviewViewModel.DefaultReviewList)
+        else adapterDetailReview!!.updateData(detailReviewViewModel.DetailReviewList)
     }
 
     override fun onDestroyView() {

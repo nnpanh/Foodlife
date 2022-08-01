@@ -26,6 +26,7 @@ import com.example.foodlife.dialog.AddToCollectionDialog
 import com.example.foodlife.dialog.AddToPlanBottomDialog
 import com.example.foodlife.dialog.BottomSheetCollection
 import com.example.foodlife.dialog.OptionBottomDialog
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.Collection
 import com.example.foodlife.models.Recipe
 import com.example.foodlife.view_models.CollectionViewModel
@@ -37,6 +38,9 @@ class DetailFragment : Fragment(), View.OnClickListener {
     private lateinit var navController: NavController
     private var _binding: FragmentDetailBinding? = null
     private var getRecipe: Recipe? = null
+
+    private var recipe: AddRecipe? = null
+    private lateinit var detailAdapter: DetailAdapter
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -68,10 +72,17 @@ class DetailFragment : Fragment(), View.OnClickListener {
         collectionViewModel = ViewModelProvider(store)[CollectionViewModel::class.java]
         if (collectionViewModel.colList.value!!.isEmpty())
             collectionViewModel.loadCollection()
+
+        // get added recipe
+        recipe = arguments?.getSerializable("Recipe") as AddRecipe?
+
         //Viewpager & TabLayout
         val pager = binding.viewPager2
         val tl = binding.tabLayout
-        pager.adapter = DetailAdapter(childFragmentManager, lifecycle)
+        detailAdapter = DetailAdapter(childFragmentManager, lifecycle)
+        pager.adapter = detailAdapter
+        recipe?.let { detailAdapter.setRecipe(it) }
+
 
         TabLayoutMediator(tl,pager){
             tab, position ->
@@ -89,10 +100,12 @@ class DetailFragment : Fragment(), View.OnClickListener {
 
 
         initListener()
-    
 
 
-        if (arguments!=null){
+        if (recipe != null){
+            previewMode()
+        }
+        else if (arguments!=null){
             val getTitle = arguments?.getString("Title")
             //val getDes = arguments?.getString("Description")
             val getTime = arguments?.getInt("Time")
@@ -306,5 +319,19 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 Snackbar.make(contextView!!, "Saved successfully", Snackbar.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun previewMode(){
+        binding.recipeTitle.text = recipe!!.name
+
+        binding.detailAvatar.setBackgroundResource(R.drawable.profile2)
+        binding.tvDetailDes.text = recipe!!.description
+        binding.authorName.text = "Melanie Rose"
+        //binding.detailRating.rating = getScore!!.toFloat()
+        binding.detailNumScore.text = "0"
+        binding.tvDetailTime.text = recipe!!.cookTime.toString()+" mins"
+        binding.tvDetailLevel.text = recipe!!.difficulty
+        binding.videoView.setVideoURI(Uri.parse(recipe!!.vidUri))
+        binding.detailRating.rating = 0.0F
     }
 }

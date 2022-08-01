@@ -46,4 +46,6 @@ class DetailViewModel: ViewModel() {
         DetailReview(R.drawable.profile2,"Moon Star","I made mine with shrimp. I had to use more chicken broth and cream to make it more creamy.",R.drawable.showcase_2),
         DetailReview(R.drawable.profile3,"Ericka Haddad","I added two chicken breasts that I cooked beforehand in the same pot and then set aside. When everything was mostly done I threw the cut up chicken and some broccoli in. Everyone was really happy with it.",null),
     )
+
+    var DefaultReviewList : MutableList<DetailReview> = mutableListOf()
 }

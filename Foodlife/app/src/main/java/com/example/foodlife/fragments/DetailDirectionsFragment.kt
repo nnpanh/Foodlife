@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.adapters.DetailDirectionsAdapter
 import com.example.foodlife.databinding.FragmentDetailDirectionsBinding
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.DetailDirections
 import com.example.foodlife.view_models.DetailViewModel
 
-class DetailDirectionsFragment : Fragment(){
+class DetailDirectionsFragment (rep: AddRecipe?): Fragment(){
 
     private var _binding: FragmentDetailDirectionsBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +24,7 @@ class DetailDirectionsFragment : Fragment(){
     private var adapterDetailDirections: DetailDirectionsAdapter? = null
 
     private lateinit var detailDirectionsViewModel: DetailViewModel
+    private var recipe: AddRecipe? = rep
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +49,10 @@ class DetailDirectionsFragment : Fragment(){
         binding.listDir.adapter = adapterDetailDirections
         binding.listDir.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
 
-        adapterDetailDirections!!.updateData(detailDirectionsViewModel.DetailDirectionsList)
+        if(recipe != null){
+            adapterDetailDirections!!.updateData(recipe!!.directions)
+        }
+        else adapterDetailDirections!!.updateData(detailDirectionsViewModel.DetailDirectionsList)
     }
 
     override fun onDestroyView() {

@@ -1,9 +1,12 @@
 package com.example.foodlife.adapters
 
 import android.annotation.SuppressLint
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodlife.R
 import com.example.foodlife.databinding.ItemArDirectionBinding
@@ -47,6 +50,19 @@ class AddRecipeDirectionAdapter (private val pickListener: (AddRecipeDirectionMo
                 itemDirectionBinding.ivDeleteimage.visibility = View.VISIBLE
             }
             itemDirectionBinding.ivImagePlaceholder.setImageURI(_direction.imageURI)
+
+            itemDirectionBinding.edDirection.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(
+                    s: CharSequence, start: Int,
+                    count: Int, after: Int
+                ) {}
+
+                override fun onTextChanged(
+                    s: CharSequence, start: Int,
+                    before: Int, count: Int
+                ) { mList[adapterPosition].direcion = itemDirectionBinding.edDirection.text.toString() }
+            })
 
             itemDirectionBinding.apply {
                 direction = _direction

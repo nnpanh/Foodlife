@@ -28,6 +28,10 @@ class DetailDirectionsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                 //Reverse
                 _detailDirections.isSelected = !_detailDirections.isSelected
             }
+
+            if(_detailDirections.imgUri != null){
+                itemDetailDirectionsBinding.ivDir.setImageURI(_detailDirections.imgUri)
+            }else itemDetailDirectionsBinding.ivDir.setImageResource(_detailDirections.img)
             itemDetailDirectionsBinding.apply {
                 detailDirections = _detailDirections
 //                val connectString = "<b>${_detailDirections.bold}</b> <br/> ${_detailDirections.regular}"

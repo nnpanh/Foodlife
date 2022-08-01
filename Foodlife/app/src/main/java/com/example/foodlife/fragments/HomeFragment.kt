@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.Fragment
 import com.example.foodlife.R
@@ -21,6 +22,7 @@ import com.example.foodlife.adapters.RecommendHomeAdapter
 import com.example.foodlife.databinding.FragmentHomeBinding
 import com.example.foodlife.databinding.FragmentPlanBinding
 import com.example.foodlife.dialog.CalendarPopUp
+import com.example.foodlife.models.AddRecipe
 import com.example.foodlife.models.Recipe
 import com.example.foodlife.models.UserModel
 import com.example.foodlife.roomdb.FoodlifeDB
@@ -35,6 +37,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private var recipe: AddRecipe? = null
     private var adapterRecommend:RecommendHomeAdapter? = null
     private var adapterMainCat: MainCategoryAdapter? = null
     //private var adapterCollection: CollectionHomeAdapter? = null
@@ -93,6 +96,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
                 bundle.putString("VideoUrl", itemClicked.video_url)
+//                bundle.putSerializable("Recipe", recipe)
                 navController.navigate(R.id.homeToDetail,bundle)
 
             }
@@ -145,6 +149,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
                 bundle.putString("VideoUrl", itemClicked.video_url)
+//                bundle.putSerializable("Recipe", recipe)
                 navController.navigate(R.id.homeToDetail,bundle)
 
             }
@@ -163,6 +168,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 bundle.putInt("ProfileImg", itemClicked.profile_img)
                 bundle.putInt("Picture", itemClicked.img)
                 bundle.putString("VideoUrl", itemClicked.video_url)
+//                bundle.putSerializable("Recipe", recipe)
                 navController.navigate(R.id.homeToDetail,bundle)
             }
         }

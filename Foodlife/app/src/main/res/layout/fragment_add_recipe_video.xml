@@ -105,6 +105,12 @@
                         android:visibility="gone" />
 
                     <ImageView
+                        android:id="@+id/thumbnailView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"/>
+
+                    <ImageView
                         android:id="@+id/ivPlayButton"
                         android:layout_width="56dp"
                         android:layout_height="54dp"

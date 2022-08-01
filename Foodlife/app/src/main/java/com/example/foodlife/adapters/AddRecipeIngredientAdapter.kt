@@ -63,11 +63,6 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
             }
             itemIngredientBinding.ivDelete.setOnClickListener{listener(_ingredient)}
             itemIngredientBinding.measurementDropdown.setSelection(_ingredient.selectedPosition)
-
-            itemIngredientBinding.apply {
-                ingredient = _ingredient
-                executePendingBindings()
-            }
             itemIngredientBinding.edIngredient.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(
@@ -82,12 +77,42 @@ class AddRecipeIngredientAdapter(private var mContext: Context,
                     if(containsIllegalCharacters(itemIngredientBinding.edIngredient.text.toString())){
                         Toast.makeText(mContext, "Emoji is not allowed", Toast.LENGTH_SHORT).show()
                     }
+                    else mList[adapterPosition].name = itemIngredientBinding.edIngredient.text.toString()
                 }
             })
+
+            itemIngredientBinding.etIngredientQuantity.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(
+                    s: CharSequence, start: Int,
+                    count: Int, after: Int
+                ) {}
+
+                override fun onTextChanged(
+                    s: CharSequence, start: Int,
+                    before: Int, count: Int
+                ) {
+                    var temp : String = itemIngredientBinding.etIngredientQuantity.text.toString()
+                    for (i in 0 until temp.length) {
+                        if (temp[i].code >= '0'.code && temp[i].code <= '9'.code || temp[i].code == '/'.code)
+                            continue
+                        else {
+                            Toast.makeText(mContext, "Invalid input", Toast.LENGTH_SHORT).show()
+                            return
+                        }
+                    }
+                    mList[adapterPosition].quantity = itemIngredientBinding.etIngredientQuantity.text.toString()
+                }
+            })
+
+            itemIngredientBinding.apply {
+                ingredient = _ingredient
+                executePendingBindings()
+            }
         }
     }
 
-    private fun containsIllegalCharacters(inputString: String): Boolean {
+    public fun containsIllegalCharacters(inputString: String): Boolean {
         val nameLength = inputString.length
         for (i in 0 until nameLength) {
             /*val hs = inputString[i]

@@ -2,8 +2,13 @@ package com.example.foodlife.fragments
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.media.MediaPlayer
+import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +48,30 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
         navController = Navigation.findNavController(view)
         val store = navController.getViewModelStoreOwner(R.id.mobile_navigation)
         mc = MediaController(requireContext())
+        mc.setAnchorView(binding.videoView)
+        binding.videoView.setMediaController(mc);
+
+/*        binding.videoView.setOnPreparedListener(MediaPlayer.OnPreparedListener {
+            binding.thumbnailView.visibility = View.GONE
+        })
+
+        binding.videoView.setOnCompletionListener(MediaPlayer.OnCompletionListener {
+            binding.videoView.stopPlayback();
+            binding.thumbnailView.visibility = View.VISIBLE
+        })*/
         recipe = arguments?.getSerializable("Recipe") as AddRecipe
+        if(vidPath != null){
+            binding.videoView.setVideoURI(vidPath)
+            binding.videoView.visibility = View.VISIBLE
+            binding.ivUploadvideo.visibility = View.GONE
+            binding.tvUploadTxt.visibility = View.GONE
+            binding.ivEditvideo.visibility = View.VISIBLE
+            binding.ivDeletevideo.visibility = View.VISIBLE
+/*            var bitmap = getThumbnailImage(vidPath!!)
+            binding.thumbnailView.setImageBitmap(bitmap)*/
+            Log.e("vidpath", vidPath.toString())
+        }
+
         initListener()
     }
 
@@ -63,7 +91,7 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.continue_btn -> {
-                recipe.vidUri = vidPath
+                recipe.vidUri = vidPath.toString()
                 navController.navigate(R.id.addRecipeVideoFragment_to_addRecipeInformationFragment, bundleOf("Recipe" to recipe))
                 //TODO
             }
@@ -77,9 +105,12 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
                 binding.tvUploadTxt.visibility = View.GONE
                 binding.ivEditvideo.visibility = View.VISIBLE
                 binding.ivDeletevideo.visibility = View.VISIBLE
+
             }
             R.id.iv_editvideo -> {
                 pickVideo()
+                var bitmap = getThumbnailImage(vidPath!!)
+                binding.thumbnailView.setImageBitmap(bitmap)
             }
             R.id.iv_deletevideo -> {
                 binding.videoView.setVideoURI(null)
@@ -89,6 +120,7 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
                 binding.ivEditvideo.visibility = View.GONE
                 binding.ivDeletevideo.visibility = View.GONE
                 binding.videoView.visibility = View.GONE
+                binding.thumbnailView.visibility = View.GONE
             }
         }
     }
@@ -109,7 +141,20 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
                 binding.videoView.setVideoURI(data!!.data)
                 binding.videoView.visibility = View.VISIBLE
                 vidPath = data.data
+
             }
         }
+    }
+
+    private fun getThumbnailImage(uri: Uri) : Bitmap{
+        val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = requireContext().contentResolver.query(uri, filePathColumn, null, null, null)
+        cursor?.moveToFirst()
+
+        val columnIndex = cursor!!.getColumnIndex(filePathColumn[0])
+        val picturePath = cursor.getString(columnIndex)
+        cursor.close()
+
+        return ThumbnailUtils.createVideoThumbnail(picturePath, MediaStore.Video.Thumbnails.MICRO_KIND)!!
     }
 }

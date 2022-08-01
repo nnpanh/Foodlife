@@ -7,8 +7,8 @@ import java.io.Serializable
 data class AddRecipe(
     var name: String?,
     var description: String,
-    var imgUri: Uri? = null,
-    var vidUri: Uri? = null,
+    var imgUri: String? = null,
+    var vidUri: String? = null,
     var serves: Int,
     var prepTime: Int,
     var cookTime: Int,

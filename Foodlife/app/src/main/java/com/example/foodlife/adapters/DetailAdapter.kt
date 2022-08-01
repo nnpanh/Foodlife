@@ -8,18 +8,25 @@ import com.example.foodlife.fragments.DetailDirectionsFragment
 import com.example.foodlife.fragments.DetailFragment
 import com.example.foodlife.fragments.DetailIngredientsFragment
 import com.example.foodlife.fragments.DetailReviewFragment
+import com.example.foodlife.models.AddRecipe
 
 class DetailAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager,lifecycle) {
     override fun getItemCount(): Int {
         return 3
     }
 
+    private var recipe: AddRecipe? = null
+
+    public fun setRecipe(recipe: AddRecipe){
+        this.recipe = recipe
+    }
+
     override fun createFragment(position: Int): Fragment {
-        when (position){
-            0 -> return DetailIngredientsFragment()
-            1 -> return DetailDirectionsFragment()
-            2 -> return DetailReviewFragment()
-            else -> return DetailIngredientsFragment()
+        return when (position){
+            0 -> DetailIngredientsFragment(this.recipe)
+            1 -> DetailDirectionsFragment(this.recipe)
+            2 -> DetailReviewFragment(this.recipe)
+            else -> DetailIngredientsFragment(this.recipe)
         }
     }
 

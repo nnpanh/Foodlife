@@ -202,7 +202,11 @@
         android:id="@+id/addRecipeDirectionsFragment"
         android:name="com.example.foodlife.fragments.AddRecipeDirectionsFragment"
         android:label="fragment_add_recipe_directions"
-        tools:layout="@layout/fragment_add_recipe_directions" />
+        tools:layout="@layout/fragment_add_recipe_directions" >
+        <action
+            android:id="@+id/addRecipeDirectionsFragment_to_detail_fragment"
+            app:destination="@id/detail_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/choiceFragment"
         android:name="com.example.foodlife.fragments.ChoiceFragment"
