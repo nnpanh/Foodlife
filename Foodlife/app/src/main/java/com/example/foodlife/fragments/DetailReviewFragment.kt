@@ -56,10 +56,15 @@ class DetailReviewFragment (rep: AddRecipe?): Fragment(){
         if(recipe != null)
             adapterDetailReview!!.updateData(detailReviewViewModel.DefaultReviewList)
         else adapterDetailReview!!.updateData(detailReviewViewModel.DetailReviewList)
+
+        //get item count
+        if (adapterDetailReview!!.itemCount != 0)
+            binding.tvDetailInfo.text = adapterDetailReview!!.itemCount.toString() + " comment(s), " + adapterDetailReview!!.imageCount.toString() + " showcase(s)"
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

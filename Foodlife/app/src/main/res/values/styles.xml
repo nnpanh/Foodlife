@@ -75,7 +75,7 @@
         <item name="chipIcon">@drawable/ic_star_blue</item>
         <item name="chipIconTint">@color/chip_icon_color</item>
         <item name="android:fontFamily">@font/poppins_light</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="chipCornerRadius">20dp</item>
         <item name="chipStartPadding">10dp</item>
     </style>

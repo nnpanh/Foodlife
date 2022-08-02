@@ -11,6 +11,7 @@ import com.example.foodlife.models.DetailReview
 
 class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var mList: MutableList<DetailReview> = mutableListOf()
+    var imageCount = 0
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateData(mList: MutableList<DetailReview>){
@@ -28,6 +29,7 @@ class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 if (tmp != null){
                     itemDetailReviewBinding.ivShowcase.setImageResource(tmp)
                     itemDetailReviewBinding.ivShowcase.layoutParams.height = 600
+                    imageCount += 1
                 }
                 executePendingBindings()
             }
@@ -50,4 +52,5 @@ class DetailReviewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int {
         return mList.size
     }
+
 }
