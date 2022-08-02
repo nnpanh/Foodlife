@@ -51,8 +51,8 @@
 
                 <ImageView
                     android:id="@+id/IVColRImg"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
+                    android:layout_width="173dp"
+                    android:layout_height="173dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"

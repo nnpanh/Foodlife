@@ -111,14 +111,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:text="Recommend for you"
                 android:textColor="@color/primary_100"
                 android:textSize="@dimen/text_medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rvRecommended"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <ImageView
                 android:id="@+id/ivArrowCollect"
@@ -132,7 +132,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvCollection"
                 tools:ignore="ContentDescription"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCollectionHome"
@@ -147,7 +147,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvCollection"
                 tools:itemCount="1"
-                android:visibility="gone"
+                android:visibility="visible"
                 tools:listitem="@layout/item_recommended_home"/>
 
 
@@ -156,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/poppins_semi_bold"
                 android:text="Recently Viewed"
                 android:textColor="@color/primary_100"

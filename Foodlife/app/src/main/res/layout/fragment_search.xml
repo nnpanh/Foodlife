@@ -18,14 +18,14 @@
 
         <ImageView
             android:id="@+id/ivSearchBack"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSearchTitle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSearchTitle"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:text="Search Recipes"
             android:textColor="@color/black"
             android:textSize="@dimen/text_medium"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toEndOf="@id/ivSearchBack"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -124,8 +124,8 @@
                 android:id="@+id/rvSearchRecipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="00dp"
+                android:layout_marginEnd="00dp"
                 android:nestedScrollingEnabled="true"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
