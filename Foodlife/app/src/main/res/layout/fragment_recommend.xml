@@ -12,14 +12,14 @@
 
             <ImageView
                 android:id="@+id/ivSearchBack"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_back"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvSearchTitle"
+                app:layout_constraintBottom_toBottomOf="@id/tvSearchTitle"
                 tools:ignore="ContentDescription" />
 
             <TextView
