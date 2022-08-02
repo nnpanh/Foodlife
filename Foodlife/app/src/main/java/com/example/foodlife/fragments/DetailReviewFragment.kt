@@ -59,7 +59,9 @@ class DetailReviewFragment (rep: AddRecipe?): Fragment(){
 
         //get item count
         if (adapterDetailReview!!.itemCount != 0)
-            binding.tvDetailInfo.text = adapterDetailReview!!.itemCount.toString() + " comment(s), " + adapterDetailReview!!.imageCount.toString() + " showcase(s)"
+            //binding.tvDetailInfo.text ="hehe"
+            binding.tvDetailInfo.text = adapterDetailReview!!.itemCount.toString() + " comment(s), " + adapterDetailReview!!.getI().toString() + " showcase(s)"
+        else binding.tvDetailInfo.text ="0 comment(s), 0 showcase(s)"
     }
 
     override fun onDestroyView() {
