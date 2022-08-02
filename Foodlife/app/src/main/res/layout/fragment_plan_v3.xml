@@ -355,7 +355,7 @@
                 app:layout_constraintStart_toStartOf="@id/tvDate"
                 app:layout_constraintTop_toBottomOf="@+id/tvBreakfastTitle"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_collection_home" />
+                tools:listitem="@layout/item_collection_home_v2" />
 
             <TextView
                 android:id="@+id/tvBreakfastDescription"

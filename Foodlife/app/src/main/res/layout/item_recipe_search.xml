@@ -47,7 +47,7 @@
             android:ellipsize="end"
             android:text="@{recipe.title}"
             tools:text="Japanese RamenRamenRamenRamenRamenRamen"
-            android:layout_margin="8dp"
+            android:layout_margin="10dp"
             android:textStyle="bold"
             android:fontFamily="@font/poppins_medium"
             android:textSize="@dimen/text_small"
@@ -142,9 +142,8 @@
             android:id="@+id/tvLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
             android:layout_marginStart="1dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="13dp"
             android:ellipsize="end"
             android:fontFamily="@font/poppins_medium"
             android:gravity="start"
@@ -154,7 +153,6 @@
             android:textColor="@color/primary_100"
             android:textSize="@dimen/text_smaller"
             app:layout_constraintBottom_toBottomOf="@id/ivLevel"
-
             app:layout_constraintStart_toEndOf="@id/ivLevel"
             app:layout_constraintTop_toTopOf="@id/ivLevel"
             tools:text="Difficult" />

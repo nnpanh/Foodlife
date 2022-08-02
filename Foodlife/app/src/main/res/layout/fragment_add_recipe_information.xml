@@ -96,12 +96,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
                     android:layout_marginTop="16dp"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="8dp"
                     android:background="@drawable/addrecipe_roundedcorner_1"
                     app:layout_constraintTop_toBottomOf="@id/AR_title">
 
                     <ImageView
                         android:id="@+id/ic_serves"
-                        android:layout_width="48dp"
+                        android:layout_width="28dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginVertical="8dp"
@@ -109,7 +111,6 @@
                         android:layout_marginEnd="8dp"
                         android:adjustViewBounds="true"
                         android:background="@drawable/addrecipe_roundedcorner_1"
-                        android:padding="8dp"
                         android:src="@drawable/user_bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -121,29 +122,29 @@
                         android:id="@+id/txt_serves"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="4dp"
+                        android:layout_marginHorizontal="50dp"
                         android:layout_marginVertical="8dp"
                         android:layout_toEndOf="@id/ic_serves"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:paddingTop="2dp"
                         android:text="@string/txt_serves"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primary_100"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ic_serves"
-                        app:layout_constraintStart_toEndOf="@+id/ic_serves"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/ic_serves" />
 
                     <ImageView
                         android:id="@+id/ic_serves_plus"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="28dp"
                         android:layout_margin="8dp"
                         android:clickable="true"
                         android:src="@drawable/plus_border"
                         app:layout_constraintBottom_toBottomOf="@+id/num_serves"
                         app:layout_constraintStart_toEndOf="@+id/num_serves"
                         app:layout_constraintTop_toTopOf="@+id/num_serves"
-                        app:tint="@color/black" />
+                        app:tint="@color/primary_100" />
 
                     <EditText
                         android:id="@+id/num_serves"
@@ -158,10 +159,10 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:maxLines="1"
-                        android:paddingStart="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="8dp"
-                        android:paddingBottom="4dp"
+                        android:paddingStart="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="0dp"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -171,8 +172,8 @@
 
                     <ImageView
                         android:id="@+id/ic_serves_minus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:layout_margin="8dp"
                         android:layout_toStartOf="@id/num_serves"
                         android:clickable="true"
@@ -180,7 +181,7 @@
                         app:layout_constraintBottom_toBottomOf="@+id/num_serves"
                         app:layout_constraintEnd_toStartOf="@+id/num_serves"
                         app:layout_constraintTop_toTopOf="@+id/num_serves"
-                        app:tint="@color/black" />
+                        app:tint="@color/primary_100" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -188,13 +189,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="8dp"
                     android:background="@drawable/addrecipe_roundedcorner_1"
                     app:layout_constraintTop_toBottomOf="@id/serves_infor">
 
                     <ImageView
                         android:id="@+id/ic_preptime"
-                        android:layout_width="48dp"
+                        android:layout_width="28dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
@@ -203,8 +206,7 @@
                         android:layout_marginBottom="8dp"
                         android:adjustViewBounds="true"
                         android:background="@drawable/addrecipe_roundedcorner_1"
-                        android:padding="8dp"
-                        android:src="@drawable/ic_time"
+                        android:src="@drawable/clock_bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -214,15 +216,15 @@
                         android:id="@+id/tv_preptime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="4dp"
+                        android:layout_marginHorizontal="50dp"
                         android:layout_marginVertical="8dp"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:paddingTop="2dp"
-                        android:text="@string/txt_preparationTime"
-                        android:textColor="@color/black"
+                        android:text="Cooking time"
+                        android:textColor="@color/primary_100"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ic_preptime"
-                        app:layout_constraintStart_toEndOf="@id/ic_preptime"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/ic_preptime" />
 
                     <EditText
@@ -238,10 +240,10 @@
                         android:inputType="number"
                         android:maxLength="2"
                         android:maxLines="1"
-                        android:paddingStart="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingEnd="8dp"
-                        android:paddingBottom="4dp"
+                        android:paddingStart="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="0dp"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -266,6 +268,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:visibility="gone"
                     android:id="@+id/cooktime_infor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -349,44 +352,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingVertical="8dp"
+                    android:paddingStart="8dp"
                     android:background="@drawable/addrecipe_roundedcorner_1"
                     app:layout_constraintTop_toBottomOf="@id/cooktime_infor">
 
                     <ImageView
                         android:id="@+id/ic_difficulty"
-                        android:layout_width="48dp"
+                        android:layout_width="24dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:adjustViewBounds="true"
                         android:background="@drawable/addrecipe_roundedcorner_1"
-                        android:padding="8dp"
-                        android:src="@drawable/chef_bold"
+                        android:src="@drawable/ic_chef_bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/secondary_100" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/txt_difficulty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="4dp"
-                        android:layout_marginVertical="8dp"
+                        android:layout_marginHorizontal="50dp"
+                        android:layout_marginTop="2dp"
                         android:fontFamily="@font/poppins_semi_bold"
                         android:paddingTop="2dp"
                         android:text="@string/txt_difficulty"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primary_100"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@+id/ic_difficulty"
-                        app:layout_constraintStart_toEndOf="@+id/ic_difficulty"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@id/ic_difficulty" />
 
                     <Spinner
                         android:id="@+id/difficulty_dropdown"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="56dp"
+                        android:layout_marginEnd="22dp"
                         android:background="@null"
                         android:drawableEnd="@drawable/ic_dropdown"
                         android:drawablePadding="8dp"

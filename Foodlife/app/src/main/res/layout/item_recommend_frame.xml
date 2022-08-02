@@ -32,14 +32,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription"
-            tools:srcCompat="@drawable/iveasylemongrassmeatballs" />
+            tools:srcCompat="@drawable/iv_spicy_pa" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rec_frame_bg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="64dp"
+            android:paddingTop="85dp"
             android:background="@drawable/ic_rectangle"
             app:layout_constraintBottom_toBottomOf="@id/rec_frame_img"
             app:layout_constraintEnd_toEndOf="@id/rec_frame_img"
