@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_back"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvTitle" />
+                app:layout_constraintTop_toTopOf="@id/tvTitle"
+                app:layout_constraintBottom_toBottomOf="@id/tvTitle"/>
 
             <TextView
                 android:id="@+id/tvTitle"
