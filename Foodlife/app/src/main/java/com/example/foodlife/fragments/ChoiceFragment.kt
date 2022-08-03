@@ -61,7 +61,7 @@ class ChoiceFragment : Fragment(), View.OnClickListener {
         if (arguments!=null){
             val choice = arguments?.getString("choice")
             if (choice=="0"){
-                binding.tvTitle.text="Recommend for you"
+                binding.tvTitle.text="More you might like"
                 homeViewModel.collectionList.let { adapterList!!.updateData(it!!) }
             }
             else if (choice=="1"){

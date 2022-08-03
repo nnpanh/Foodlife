@@ -12,7 +12,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="6dp"
+    android:layout_marginEnd="8dp"
     android:layout_marginBottom="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,8 +51,8 @@
 
                 <ImageView
                     android:id="@+id/IVColRImg"
-                    android:layout_width="173dp"
-                    android:layout_height="173dp"
+                    android:layout_width="178dp"
+                    android:layout_height="178dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     app:layout_constraintEnd_toEndOf="parent"
