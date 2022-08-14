@@ -35,8 +35,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/AR_header"
-        >
+        android:layout_below="@id/AR_header">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
@@ -51,43 +50,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvARDirection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_margin="24dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/title_add_recipe_Direction"
-                android:textColor="@color/primary_100"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvARDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="24dp"
+                    android:layout_marginStart="24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/title_add_recipe_Direction"
+                    android:textColor="@color/primary_100"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvARPage3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginVertical="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="24dp"
-                android:background="@drawable/addrecipe_roundedcorner_2"
-                android:backgroundTint="@color/secondary_100"
-                android:fontFamily="@font/poppins_regular"
-                android:text="5/5"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="4dp"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/tvARDirection"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvARDirection" />
+                <TextView
+                    android:id="@+id/tvARPage3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@drawable/addrecipe_roundedcorner_2"
+                    android:backgroundTint="@color/secondary_100"
+                    android:fontFamily="@font/poppins_regular"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="4dp"
+                    android:text="5/5"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvARDirection"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvARDirection" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -106,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/rcv_direction_list"
                     android:layout_marginHorizontal="24dp"
-                    android:layout_marginVertical="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="8dp"
                     android:adjustViewBounds="true"
                     android:clickable="true"
                     android:scaleType="fitXY"
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginVertical="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/bgr_round_secondary"
             android:backgroundTint="@color/secondary_100"

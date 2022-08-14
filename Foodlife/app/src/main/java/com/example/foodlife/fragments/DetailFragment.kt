@@ -205,7 +205,10 @@ class DetailFragment : Fragment(), View.OnClickListener {
                 saveToCollection()
             }
             R.id.imgToolbarBtnFav -> {
-                navController.navigateUp()
+                if(recipe!=null)
+                    navController.navigate(R.id.returnHome)
+                else
+                    navController.navigateUp()
             }
         }
     }
