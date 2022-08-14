@@ -155,7 +155,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="@string/quantity_01"
-                android:inputType="text"
+                android:inputType="number"
                 android:maxLength="5"
                 android:maxLines="1"
                 android:textAlignment="textStart"

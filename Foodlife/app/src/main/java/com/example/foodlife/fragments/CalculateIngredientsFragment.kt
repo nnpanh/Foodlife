@@ -147,9 +147,12 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                     binding.tvLunchTitle.visibility = View.VISIBLE
                     binding.tvDinnerTitle.visibility = View.VISIBLE
                     binding.tvSnackTitle.visibility = View.VISIBLE
-
                     binding.tvBreakfastTitle.text = "Breakfast"
                     hiddenStateBreakfast = false
+                    binding.tvDinnerDescription.visibility = View.VISIBLE
+                    binding.tvBreakfastDescription.visibility = View.VISIBLE
+                    binding.tvLunchDescription.visibility = View.VISIBLE
+                    binding.tvSnackDescription.visibility = View.VISIBLE
                 } else {
                     binding.rvPlanTextBreakfast.visibility = View.GONE
                     binding.rvPlanTextLunch.visibility = View.GONE
@@ -161,6 +164,10 @@ class CalculateIngredientsFragment : Fragment(), View.OnClickListener {
                     binding.tvBreakfastTitle.text = "Dishes"
                     binding.ivCollapseBreakfast.setImageResource(R.drawable.close_eye)
                     hiddenStateBreakfast = true
+                    binding.tvDinnerDescription.visibility = View.GONE
+                    binding.tvBreakfastDescription.visibility = View.GONE
+                    binding.tvLunchDescription.visibility = View.GONE
+                    binding.tvSnackDescription.visibility = View.GONE
                 }
             }
             R.id.ivMinus -> {

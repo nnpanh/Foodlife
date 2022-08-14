@@ -25,13 +25,8 @@ import com.example.foodlife.models.DetailDirections
 import com.example.foodlife.models.DetailIngredients
 import com.example.foodlife.view_models.AddRecipeViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddRecipeDirectionsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class AddRecipeDirectionsFragment : Fragment(), View.OnClickListener {
-    // TODO: Rename and change types of parameters
 
     private lateinit var navController: NavController
     private var _binding: FragmentAddRecipeDirectionsBinding? = null

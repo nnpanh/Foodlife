@@ -124,11 +124,11 @@ class DetailFragment : Fragment(), View.OnClickListener {
             binding.detailNumScore.text=getNumScore.toString()
             binding.tvDetailTime.text = getTime.toString()+" mins"
             binding.tvDetailLevel.text = getDiff!!.toString()
-            if (getVideoUrl != null)(
+            if (getVideoUrl.isNotEmpty())(
                 videoView.setVideoURI(Uri.parse(getVideoUrl)))
             else videoView.setVideoURI(Uri.parse("https://vid.tasty.co/output/246029/landscape_480/1657534926"))
-            if (getScore != null) {
-                binding.detailRating.rating = getScore!!.toFloat()
+            getScore?.let{
+                binding.detailRating.rating = getScore.toFloat()
             }
         }
 
