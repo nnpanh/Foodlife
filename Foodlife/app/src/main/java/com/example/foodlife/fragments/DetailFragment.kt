@@ -176,6 +176,8 @@ class DetailFragment : Fragment(), View.OnClickListener {
         _binding = null
     }
 
+
+
     override fun onClick(p0: View?) {
         when (p0?.id){
            /* R.id.detail_menu -> {

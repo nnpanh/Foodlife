@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
@@ -54,6 +55,15 @@ class MainActivity : AppCompatActivity() {
     }
     private fun hideSupportActionBar() {
         supportActionBar?.hide();
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(R.id.addRecipeDirectionsFragment.toString().equals(navController.currentBackStackEntry?.destination?.id.toString()))
+            navController.navigate(R.id.returnHome)
+        /*Log.e("id", R.id.addRecipeTitleFragment.toString())
+        Log.e("Current id", navController.currentBackStackEntry?.destination?.id.toString())
+        Log.e("Back pressed", navController.previousBackStackEntry?.destination?.id.toString())*/
     }
 
     private fun changeFragment(item: Int): Boolean {
