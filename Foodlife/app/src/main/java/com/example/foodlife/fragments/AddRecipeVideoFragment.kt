@@ -109,8 +109,6 @@ class AddRecipeVideoFragment : Fragment(), View.OnClickListener {
             }
             R.id.iv_editvideo -> {
                 pickVideo()
-                var bitmap = getThumbnailImage(vidPath!!)
-                binding.thumbnailView.setImageBitmap(bitmap)
             }
             R.id.iv_deletevideo -> {
                 binding.videoView.setVideoURI(null)

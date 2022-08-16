@@ -95,11 +95,11 @@ class AddRecipeInformationFragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.continue_btn -> {
                 if(binding.numServes.text.toString()=="") {
-                    recipe.serves = -1
+                    recipe.serves = 1
                 } else recipe.serves = binding.numServes.text.toString().toInt()
 
                 if(binding.edCooktime.text.toString()=="") {
-                    recipe.cookTime = -1
+                    recipe.cookTime = 1
                 } else recipe.cookTime = binding.edCooktime.text.toString().toInt()
 
                 if(binding.edPreptime.text.toString()=="") {
