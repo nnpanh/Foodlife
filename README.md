@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Foodlife</h3>
@@ -78,8 +78,14 @@ Remember to install an Emulator in your IDE or connected to an Android device (E
 ## Usage
 
 List of main screens & features in this section
+1. Home page
+2. Recipe recommendations
+3. Search, sort and filter recipes
+4. Plan your day-meal
+5. Calculating ingredients for shopping
+6. Save your favorite recipe in Collections
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For our detailed Computer Prototype, please refer to the [Figma]([https://example.com](https://www.figma.com/file/0IGF9cspySGHESfIolyhn3/FoodLife-(Copy)?node-id=0%3A1))_
 
 
 <!-- CONTACT -->
@@ -92,7 +98,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 19127600 - Lê Quốc Trọng - [@Facebook](https://twitter.com/your_username) - lqtrong19@clc.fitus.edu.vn<br>
 <br>
 <br>
-Template used: [Template name](https://github.com/your_username/repo_name)<br>
 Project Link: [https://github.com/nnpanh/Foodlife](https://github.com/nnpanh/Foodlife)
 
 
@@ -101,14 +106,11 @@ Project Link: [https://github.com/nnpanh/Foodlife](https://github.com/nnpanh/Foo
 
 References and addition library used in this project:
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* [Google Fonts](https://fonts.google.com/)
+* [Iconify](https://iconify.design/)
+* [Navigation](https://developer.android.com/guide/navigation)
+* [Single Activity - Multiple Fragments Structure](https://kbibek.medium.com/android-single-activity-design-a9e590c52ef8)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
